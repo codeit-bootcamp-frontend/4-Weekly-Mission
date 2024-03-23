@@ -1,11 +1,12 @@
 import { useState } from "react";
 import { EMPTY_STAR, FULL_STAR } from "./constant";
 import "./WishListButton.css";
+import { MouseEvent } from "react";
 
 export function WishListButton() {
   const [wishListBtn, setWishListBtn] = useState(EMPTY_STAR);
 
-  const handleWishListBtn = (e) => {
+  const handleWishListBtn = (e: MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
 
     wishListBtn === EMPTY_STAR

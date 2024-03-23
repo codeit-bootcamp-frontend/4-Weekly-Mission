@@ -1,10 +1,10 @@
 import { BASE_URL } from "./BASE_URL";
 
-export const getFolders = async ({ folderId }) => {
+export async function getFolders({ folderId }: { folderId: string }) {
   const query = folderId ? `?folderId=${folderId}` : "";
 
-  const response = await fetch(`${BASE_URL}users/1/links${query}`);
+  const response = await fetch(`${BASE_URL}users/4/links${query}`);
   const result = await response.json();
 
   return result;
-};
+}

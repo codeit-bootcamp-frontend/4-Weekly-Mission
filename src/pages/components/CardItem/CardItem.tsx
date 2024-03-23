@@ -1,20 +1,20 @@
 import { useState } from "react";
 import { useLocation } from "react-router-dom";
-import { Card } from "pages/components/Card";
-import { CardContent } from "pages/components/CardContent";
-import { CardImage } from "pages/components/CardImage";
-import { WishListButton } from "pages/Folder/components/WishListButton/WishListButton";
+import { Card } from "../Card/Card";
+import { CardContent } from "../CardContent";
+import { CardImage } from "../CardImage";
+import { WishListButton } from "../../Folder/components/WishListButton";
 import { formatData } from "util/formatDate";
 import { getElapsedTime } from "util/getElapsedTime";
+import { CardInfoDataForm } from "interface/DataForm";
 
 export const CardItem = ({
   url,
   image_source,
-  alt,
   description,
   created_at,
   data,
-}) => {
+}: CardInfoDataForm) => {
   const [isHovered, setIsHovered] = useState(false);
   const location = useLocation();
   const currentLocation = location.pathname;
@@ -26,11 +26,7 @@ export const CardItem = ({
     <>
       <a href={url} target="_blank" rel="noopener noreferrer">
         <Card onMouseOver={handleMouseOver} onMouseLeave={handleMouseLeave}>
-          <CardImage
-            imageSource={image_source}
-            alt={alt}
-            isZoomedIn={isHovered}
-          />
+          <CardImage imageSource={image_source} isZoomedIn={isHovered} />
           {currentLocation === "/folder" && <WishListButton />}
           <CardContent
             elapsedTime={getElapsedTime(created_at)}

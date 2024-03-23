@@ -1,12 +1,23 @@
 import * as S from "./SharedFolderStyled";
 import "./SharedFolder";
 import { Modal } from "../Modal/Modal";
-import { handleCopyClipBoard } from "util/copyClipBoard";
+import { handleCopyClipBoard } from "../../../util/copyClipBoard";
 import { useEffect } from "react";
+import { DeleteFolderProps } from "../../../interface/ModalProp";
+
+declare global {
+  interface Window {
+    Kakao: any;
+  }
+}
 
 const { Kakao } = window;
 
-export function SharedFolder({ isOpenModal, handleModalClose, selectFolder }) {
+export function SharedFolder({
+  isOpenModal,
+  handleModalClose,
+  selectFolder,
+}: DeleteFolderProps) {
   useEffect(() => {
     Kakao.cleanup();
     console.log("key:", process.env.REACT_APP_KAKAO_KEY);

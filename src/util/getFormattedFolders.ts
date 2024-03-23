@@ -1,11 +1,11 @@
-import format from "date-fns/format";
 import { getElapsedTime } from "./getElapsedTime";
+import { formatData } from "./formatDate";
+import { FolderPageDataForm, LinkDataForm } from "interface/DataForm";
 
-export const getFormattedFolders = (folder) => {
-  if (!folder) return [];
+export const getFormattedFolders = (folder: FolderPageDataForm) => {
   const { name, owner, links } = folder;
 
-  const mapLinks = (link) => {
+  const mapLinks = (link: LinkDataForm) => {
     const { id, createdAt, url, imageSource, title, description } = link;
     return {
       id,
@@ -14,7 +14,7 @@ export const getFormattedFolders = (folder) => {
       alt: `${title ?? url}의 대표 이미지`,
       elapsedTime: getElapsedTime(createdAt),
       description,
-      createdAt: format(new Date(createdAt), "yyyy. MM. dd"),
+      createdAt: formatData(createdAt),
     };
   };
 

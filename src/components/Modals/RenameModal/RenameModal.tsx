@@ -1,8 +1,9 @@
-import { ModalButtonBlue } from "components/Modals/ModalElements/ModalButtonBlue";
-import { ModalInput } from "components/Modals/ModalElements/ModalInput";
+import { ModalButtonBlue } from "../ModalElements/ModalButtonBlue";
+import { ModalInput } from "../ModalElements/ModalInput";
 import { Modal } from "../Modal/Modal";
+import { BaseModalProps } from "../../../interface/ModalProp";
 
-export function RenameModal({ isOpenModal, handleModalClose }) {
+export function RenameModal({ isOpenModal, handleModalClose }: BaseModalProps) {
   return (
     <Modal
       title="폴더 이름 변경"

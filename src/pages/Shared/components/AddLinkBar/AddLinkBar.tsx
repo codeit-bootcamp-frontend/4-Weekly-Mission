@@ -1,14 +1,15 @@
-import { useState } from "react";
+import { useState, ChangeEvent } from "react";
 import "./AddLinkBar.css";
 import { ADD_ICON } from "./constant";
-import { AddToFolder } from "components/Modals/AddToFolder/AddToFolder";
+import { AddToFolder } from "../../../../components/Modals/AddToFolder";
+import { FolderListDataForm } from "interface/DataForm";
 
-export function AddLinkBar({ data }) {
-  const [inputValue, setInputValuer] = useState();
+export function AddLinkBar({ data }: { data: FolderListDataForm[] }) {
+  const [inputValue, setInputValue] = useState<string>();
   const [isEmpty, setIsEmpty] = useState(false);
   const [isShowAddToFolder, setIsAddToFolder] = useState(false);
 
-  const handleEmptyError = (e) => {
+  const handleEmptyError = (e: React.FocusEvent<HTMLInputElement>) => {
     setIsEmpty(e.target.value === "" ? true : false);
   };
 
@@ -20,8 +21,8 @@ export function AddLinkBar({ data }) {
     setIsAddToFolder(false);
   };
 
-  const handleInputValue = (e) => {
-    setInputValuer(e.target.value);
+  const handleInputValue = (e: ChangeEvent<HTMLInputElement>) => {
+    setInputValue(e.target.value);
   };
 
   return (
@@ -53,7 +54,6 @@ export function AddLinkBar({ data }) {
           <AddToFolder
             isOpenModal={isShowAddToFolder}
             handleModalClose={handleCloseAddToFolder}
-            folderURL={inputValue}
             linkURL={inputValue}
             data={data}
           />

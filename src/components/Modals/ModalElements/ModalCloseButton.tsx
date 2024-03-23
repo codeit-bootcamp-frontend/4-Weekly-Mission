@@ -1,3 +1,4 @@
+import { BaseModalProps } from "interface/ModalProp";
 import styled from "styled-components";
 
 export const CloseButtonModal = styled.button`
@@ -11,7 +12,7 @@ export const CloseButtonModal = styled.button`
   right: 1.2rem;
 `;
 
-export function ModalCloseButton({ handleModalClose }) {
+export function ModalCloseButton({ handleModalClose }: BaseModalProps) {
   return (
     <CloseButtonModal type="button" onClick={handleModalClose}>
       X

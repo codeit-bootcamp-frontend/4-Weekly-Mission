@@ -1,17 +1,17 @@
-import { AddLinkBar } from "pages/Shared/components/AddLinkBar/AddLinkBar";
+import { AddLinkBar } from "../Shared/components/AddLinkBar/AddLinkBar";
 import "./Folder.css";
-import { SearchBar } from "pages/components/SearchBar";
-import { FolderContent } from "pages/Folder/components/FolderContent/FolderContent";
+import { SearchBar } from "../components/SearchBar";
+import { FolderContent } from "./components/FolderContent/FolderContent";
 import { useEffect, useState } from "react";
-import { getCategory } from "data-access/getCategory";
+import { getCategory } from "../../data-access/getCategory";
+import { FolderListDataForm } from "interface/DataForm";
 
 export const Folder = () => {
-  const [data, setData] = useState();
+  const [data, setData] = useState<FolderListDataForm[]>([]);
 
   const handleLoadCategory = async () => {
-    const { data } = await getCategory();
+    const { data } = await getCategory<{ data: FolderListDataForm[] }>();
     setData(data);
-    console.log(data);
   };
 
   useEffect(() => {

@@ -1,8 +1,13 @@
 import { Modal } from "../Modal/Modal";
-import { ModalButtonRed } from "components/Modals/ModalElements/ModalButtonRed";
+import { ModalButtonRed } from "../ModalElements/ModalButtonRed";
 import * as S from "./DeleteLinkStyled";
+import { DeleteLinkProps } from "../../../interface/ModalProp";
 
-export function DeleteLink({ deleteURL, isOpenModal, handleModalClose }) {
+export function DeleteLink({
+  deleteURL,
+  isOpenModal,
+  handleModalClose,
+}: DeleteLinkProps) {
   return (
     <Modal
       title="링크 삭제"

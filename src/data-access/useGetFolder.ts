@@ -1,12 +1,8 @@
-import { getFormattedFolders } from "util/getFormattedFolders";
-import { useAsync } from "../hooks/useAsync";
-import { axiosInstance } from "util/axiosInstance";
+import { BASE_URL } from "./BASE_URL";
 
-export const useGetFolder = () => {
-  const getUser = () => axiosInstance.get("sample/folder");
-  const { loading, error, data } = useAsync(getUser);
+export async function useGetFolder() {
+  const response = await fetch(`${BASE_URL}sample/folder`);
+  const result = await response.json();
 
-  const folderData = getFormattedFolders(data?.folder);
-
-  return { loading, error, data: folderData };
-};
+  return result;
+}

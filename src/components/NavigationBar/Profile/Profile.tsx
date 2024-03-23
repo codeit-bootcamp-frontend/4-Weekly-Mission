@@ -1,6 +1,11 @@
 import "./Profile.css";
 
-export const Profile = ({ userEmail, userImgSource }) => {
+interface UserProfileInfo {
+  userEmail: string;
+  userImgSource: string;
+}
+
+export const Profile = ({ userEmail, userImgSource }: UserProfileInfo) => {
   return (
     <div className="Profile">
       <img className="Profile-image" src={userImgSource} alt="프로필 이미지" />

@@ -1,4 +1,4 @@
-export function formatData(date) {
+export function formatData(date: string) {
   const createdAt = new Date(date);
 
   let createdYear = createdAt.getFullYear();

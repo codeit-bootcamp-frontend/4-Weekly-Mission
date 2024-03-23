@@ -1,6 +1,16 @@
 import "./FolderInfo.css";
 
-export const FolderInfo = ({ profileImage, ownerName, folderName }) => {
+interface ProfileInfo {
+  profileImage: string;
+  ownerName: string;
+  folderName: string;
+}
+
+export const FolderInfo = ({
+  profileImage,
+  ownerName,
+  folderName,
+}: ProfileInfo) => {
   return (
     <div className="FolderInfo">
       <img

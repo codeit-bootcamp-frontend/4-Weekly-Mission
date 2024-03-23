@@ -1,4 +1,4 @@
-import { EMPTY_MESSAGE } from "pages/components/CardListEmpty/constant";
+import { EMPTY_MESSAGE } from "../CardListEmpty/constant";
 import "./EmptyLink.css";
 
 export function EmptyLink() {

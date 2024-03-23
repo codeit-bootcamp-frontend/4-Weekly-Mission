@@ -1,6 +1,18 @@
-import { KebabMenu } from "pages/Folder/components/KebabMenu/KebabMenu";
+import { KebabMenu } from "../../Folder/components/KebabMenu/KebabMenu";
 import "./CardContent.css";
 import { useState } from "react";
+import { MouseEvent } from "react";
+import { FolderListDataForm } from "interface/DataForm";
+
+interface CardContentProps {
+  elapsedTime: string;
+  description: string;
+  createdAt: string;
+  isHovered: boolean;
+  currentLocation: string;
+  selectURL: string;
+  data: FolderListDataForm[];
+}
 
 export const CardContent = ({
   elapsedTime,
@@ -10,13 +22,13 @@ export const CardContent = ({
   currentLocation,
   selectURL,
   data,
-}) => {
+}: CardContentProps) => {
   const [isOpened, setIsClick] = useState(false);
   const className = isHovered
     ? "CardContent CardContent-hovered"
     : "CardContent";
 
-  const handleClickMenu = (e) => {
+  const handleClickMenu = (e: MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
     setIsClick(isOpened === false ? true : false);
   };

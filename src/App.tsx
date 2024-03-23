@@ -2,8 +2,8 @@ import { Layout } from "./components/Layout";
 import { Shared } from "./pages/Shared";
 import "./setting-files/global.css";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import { Folder } from "pages/Folder/Folder";
-import { LinkToButtons } from "components/LinkToButtons";
+import { Folder } from "./pages/Folder";
+import { LinkToButtons } from "./components/LinkToButtons";
 
 function App() {
   return (

@@ -1,19 +1,23 @@
 import { useState } from "react";
 import { useEffectOnce } from "./useEffectOnce";
+import { AxiosResponse } from "axios";
 
-export const useAsync = (asyncFunction) => {
+type ErrorData = null | unknown;
+
+export const useAsync = <T>(
+  asyncFunction: () => Promise<AxiosResponse<any, any>>
+) => {
   const [loading, setLoading] = useState(false);
-  const [error, setError] = useState(null);
-  const [data, setData] = useState(null);
+  const [error, setError] = useState<ErrorData>(null);
+  const [data, setData] = useState<T>(null as T);
 
   const execute = async () => {
     setLoading(true);
     setError(null);
-    setData(null);
+    setData(null as T);
     try {
       const response = await asyncFunction();
       setData(response?.data);
-      return response;
     } catch (error) {
       setError(error);
     } finally {

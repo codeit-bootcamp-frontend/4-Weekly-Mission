@@ -1,10 +1,16 @@
-import ModalPortal from "setting-files/Portal";
-import { ModalCloseButton } from "components/Modals/ModalElements/ModalCloseButton";
-import { ModalContainer } from "components/Modals/ModalElements/ModalContainer";
-import { ModalDim } from "components/Modals/ModalElements/ModalDim";
-import { ModalTitle } from "components/Modals/ModalElements/ModalTitle";
+import ModalPortal from "../../../setting-files/Portal";
+import { ModalCloseButton } from "../ModalElements/ModalCloseButton";
+import { ModalContainer } from "../ModalElements/ModalContainer";
+import { ModalDim } from "../ModalElements/ModalDim";
+import { ModalTitle } from "../ModalElements/ModalTitle";
+import { ModalProps } from "../../../interface/ModalProp";
 
-export function Modal({ isOpenModal, children, title, handleModalClose }) {
+export function Modal({
+  isOpenModal,
+  children,
+  title,
+  handleModalClose,
+}: ModalProps) {
   if (!isOpenModal) {
     return <></>;
   }

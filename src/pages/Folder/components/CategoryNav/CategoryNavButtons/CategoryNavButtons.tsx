@@ -1,10 +1,14 @@
 import { useState } from "react";
-import { DELETE_ICON, RENAME_ICON, SHARED_ICON } from "./constans";
-import { SharedFolder } from "components/Modals/SharedFolder/SharedFolder";
-import { RenameModal } from "components/Modals/RenameModal/RenameModal";
-import { DeleteFolder } from "components/Modals/DeleteFolder/DeleteFolder";
+import { DELETE_ICON, RENAME_ICON, SHARED_ICON } from "./constant";
+import { SharedFolder } from "../../../../../components/Modals/SharedFolder/SharedFolder";
+import { RenameModal } from "../../../../../components/Modals/RenameModal/RenameModal";
+import { DeleteFolder } from "../../../../../components/Modals/DeleteFolder/DeleteFolder";
 
-export function CategoryNavButtons({ selectFolder, onClick, copyLink }) {
+interface Props {
+  selectFolder: string;
+}
+
+export function CategoryNavButtons({ selectFolder }: Props) {
   const [sharedModal, setSharedModal] = useState(false);
   const [renameModal, setRenameModal] = useState(false);
   const [deleteFolderModal, setDeleteFolderModal] = useState(false);
@@ -31,8 +35,6 @@ export function CategoryNavButtons({ selectFolder, onClick, copyLink }) {
     <>
       {sharedModal && (
         <SharedFolder
-          copyLink={copyLink}
-          onClick={onClick}
           selectFolder={selectFolder}
           isOpenModal={sharedModal}
           handleModalClose={handleCloseModal}

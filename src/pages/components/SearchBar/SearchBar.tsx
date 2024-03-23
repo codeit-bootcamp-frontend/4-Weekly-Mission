@@ -3,10 +3,7 @@ import "./SearchBar.css";
 export const SearchBar = () => {
   return (
     <div className="SearchBar">
-      <div
-        className="SearchBar-icon"
-        alt="검색창인 것을 알려주는 돋보기 아이콘"
-      />
+      <div className="SearchBar-icon" />
       <input
         className="SearchBar-input"
         type="search"

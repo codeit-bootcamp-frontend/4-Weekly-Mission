@@ -1,8 +1,12 @@
-import { Modal } from "components/Modals/Modal/Modal";
-import { ModalButtonBlue } from "components/Modals/ModalElements/ModalButtonBlue";
-import { ModalInput } from "components/Modals/ModalElements/ModalInput";
+import { Modal } from "@components/Modals/Modal/Modal";
+import { ModalButtonBlue } from "@components/Modals/ModalElements/ModalButtonBlue";
+import { ModalInput } from "@components/Modals/ModalElements/ModalInput";
+import { type BaseModalProps } from "interface/ModalProp";
 
-export function AddFolderContent({ isOpenModal, handleModalClose }) {
+export function AddFolderContent({
+  isOpenModal,
+  handleModalClose,
+}: BaseModalProps) {
   return (
     <Modal
       title="폴더 추가"

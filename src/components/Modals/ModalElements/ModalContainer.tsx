@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import type { ChildrenProp } from "interface/ChildrenProp";
 
 export const ContainerModal = styled.div`
   position: absolute;
@@ -16,6 +17,6 @@ export const ContainerModal = styled.div`
   z-index: 2;
 `;
 
-export function ModalContainer({ children }) {
+export function ModalContainer({ children }: ChildrenProp) {
   return <ContainerModal>{children}</ContainerModal>;
 }

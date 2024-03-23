@@ -1,6 +1,6 @@
 import moment from "moment";
 
-export const getElapsedTime = (createdAt) => {
+export const getElapsedTime = (createdAt: string) => {
   const now = moment();
   const createdAtDate = moment(createdAt);
   const elapsedTime = now.diff(createdAtDate);

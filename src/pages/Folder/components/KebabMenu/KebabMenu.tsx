@@ -1,24 +1,31 @@
 import { useState } from "react";
 import "./KebabMenu.css";
-import { AddToFolder } from "components/Modals/AddToFolder/AddToFolder";
+import { AddToFolder } from "components/Modals/AddToFolder";
 import { DeleteLink } from "components/Modals/DeleteLink/DeleteLink";
+import { MouseEvent } from "react";
+import { FolderListDataForm } from "interface/DataForm";
 
-export function KebabMenu({ selectURL, data }) {
+interface Props {
+  selectURL: string;
+  data: FolderListDataForm[];
+}
+
+export function KebabMenu({ selectURL, data }: Props) {
   const [showDeleteModal, setShowDeleteModal] = useState(false);
   const [addToFolderModal, setAddToFolderModal] = useState(false);
 
-  const handleModalClose = (e) => {
+  const handleModalClose = (e: MouseEvent<HTMLElement>) => {
     e.preventDefault();
     setShowDeleteModal(false);
     setAddToFolderModal(false);
   };
 
-  const handleShowDeleteModal = (e) => {
+  const handleShowDeleteModal = (e: MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
     setShowDeleteModal(true);
   };
 
-  const handleShowAddToFolderModal = (e) => {
+  const handleShowAddToFolderModal = (e: MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
     setAddToFolderModal(true);
   };

@@ -1,27 +1,28 @@
 import "./FolderContent.css";
-import { useEffect, useState } from "react";
-import { CategoryNav } from "pages/Folder/components/CategoryNav/CategoryNav";
-import { CardList } from "pages/components/CardList";
-import { EmptyLink } from "pages/components/EmptyLink/EmptyLink";
-import { getFolders } from "data-access/getFolders";
-import { CardItem } from "pages/components/CardItem";
-import { AddFolderContent } from "components/Modals/AddFolderContent/AddFolderContent";
+import { useEffect, useState, MouseEvent } from "react";
+import { CategoryNav } from "../CategoryNav/CategoryNav";
+import { CardList } from "../../../components/CardList";
+import { EmptyLink } from "../../../components/EmptyLink";
+import { getFolders } from "../../../../data-access/getFolders";
+import { CardItem } from "../../../components/CardItem";
+import { AddFolderContent } from "../../../../components/Modals/AddFolderContent";
 import { Button } from "../CategoryButton/CategoryButtonStyled";
+import { FolderListDataForm, getFolderDataForm } from "interface/DataForm";
 
-export function FolderContent({ data }) {
-  const [folder, setFolder] = useState([]);
-  const [folderId, setFolderId] = useState();
+export function FolderContent({ data }: { data: FolderListDataForm[] }) {
+  const [folder, setFolder] = useState<getFolderDataForm[]>([]);
+  const [folderId, setFolderId] = useState("");
   const [activeCategoryName, setActiveCategoryName] = useState("전체");
   const [isAddToFolder, setIsAddToFolder] = useState(false);
 
-  const handleLoadFolder = async ({ folderId }) => {
+  const handleLoadFolder = async ({ folderId }: { folderId: string }) => {
     const { data } = await getFolders({ folderId });
     setFolder(data);
   };
 
-  const handleCategoryActive = (e) => {
-    setActiveCategoryName(e.target.value);
-    setFolderId(e.target.id);
+  const handleCategoryActive = (e: MouseEvent<HTMLButtonElement>) => {
+    setActiveCategoryName((e.target as HTMLButtonElement).value);
+    setFolderId((e.target as HTMLButtonElement).id);
   };
 
   const showAddFolderModal = () => {
@@ -49,11 +50,11 @@ export function FolderContent({ data }) {
           <Button onClick={handleCategoryActive} id="" value="전체">
             전체
           </Button>
-          {data?.map((category) => (
+          {data.map((category) => (
             <Button
               onClick={handleCategoryActive}
               value={category.name}
-              id={category.id}
+              id={category.id as string}
               key={category.id}
             >
               {category.name}
@@ -68,16 +69,20 @@ export function FolderContent({ data }) {
           폴더 추가 +
         </button>
       </div>
-      <CategoryNav
-        activeCategoryName={activeCategoryName}
-        copyLink={activeCategoryName}
-      />
+      <CategoryNav activeCategoryName={activeCategoryName} />
       {!folder.length ? (
         <EmptyLink />
       ) : (
         <CardList>
           {folder?.map((link) => (
-            <CardItem data={data} key={link?.id} {...link} />
+            <CardItem
+              key={link?.id}
+              url={link.url}
+              image_source={link.image_source}
+              description={link.description}
+              created_at={link.created_at}
+              data={data}
+            />
           ))}
         </CardList>
       )}
