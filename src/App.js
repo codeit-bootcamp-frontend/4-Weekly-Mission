@@ -1,5 +1,5 @@
-import { SharedPage } from "./page-layout/SharedPage";
-import { FolderPage } from "./page-layout/FolderPage";
+import { SharedPage } from "./page-layout/SharedPage/SharedPage";
+import { FolderPage } from "./page-layout/FolderPage/FolderPage";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import "./global.css";
 
