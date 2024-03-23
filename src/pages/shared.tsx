@@ -1,8 +1,8 @@
 import React from 'react';
-import Header from '../components/common/Header.tsx';
-import Nav from '../components/shared/Nav.tsx';
-import Cardlist from '../components/shared/Cardlist.tsx';
-import Footer from '../components/common/Footer.tsx';
+import Header from '../components/common/Header';
+import Nav from '../components/shared/Nav';
+import Cardlist from '../components/shared/Cardlist';
+import Footer from '../components/common/Footer';
 
 const Shared = () => {
   return (

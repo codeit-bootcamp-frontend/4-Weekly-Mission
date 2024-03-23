@@ -1,9 +1,9 @@
 import React from 'react';
-import FolderNav from '../components/folder/common/FolderNav.tsx';
-import LinkForm from '../components/folder/common/LinkForm.tsx';
-import SearchBar from '../components/folder/common/SearchBar.tsx';
-import Footer from '../components/common/Footer.tsx';
-import FolderContent from '../components/folder/FolderContent.tsx';
+import FolderNav from '../components/folder/common/FolderNav';
+import LinkForm from '../components/folder/common/LinkForm';
+import SearchBar from '../components/folder/common/SearchBar';
+import Footer from '../components/common/Footer';
+import FolderContent from '../components/folder/FolderContent';
 
 const Folder = () => {
   return (
