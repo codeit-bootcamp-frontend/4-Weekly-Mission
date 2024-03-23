@@ -28,12 +28,6 @@
 	background-position-y: center;
 }
 
-.noImg {
-	border-radius: 15px 15px 0 0;
-	height: 200px;
-  background-color: var(--gra-purpleblue-to-skyblue);
-}
-
 .linkContent {
   display: flex;
   flex-direction: column;
