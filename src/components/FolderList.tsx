@@ -28,7 +28,7 @@ function FolderList() {
   const handleSortButtonClick: ClickSortButton = (newSelectedFolder) => {
     setSelectedFolder(newSelectedFolder);
     const query =
-      newSelectedFolder.id == 1 ? '' : `?folderId=${newSelectedFolder.id}`;
+      newSelectedFolder.id === 1 ? '' : `?folderId=${newSelectedFolder.id}`;
     setLinksFetchUrl(USERS_LINKS_URL + query);
   };
 
@@ -49,7 +49,7 @@ function FolderList() {
 
           {
             //links의 유무에 따라서 랜더링
-            links.length == 0 ? (
+            links.length === 0 ? (
               <div className="none-list">
                 <p className="none-list__text">저장된 링크가 없습니다</p>
               </div>
