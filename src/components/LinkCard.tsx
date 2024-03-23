@@ -1,14 +1,27 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, MouseEvent } from 'react';
 import { dateParse, diffDate } from '../utils/date';
 import noImg from '../assets/no-image-link.png';
 import starDefault from '../assets/star-Default.svg';
 import kebabImg from '../assets/kebab.svg';
 import style from '../styles/LinkCard.module.css';
+import { folderList } from '@/types/folderDataType.type';
 
-function LinkCard({ data, openModal }) {
+interface dataProp {
+  title: string;
+  url: string;
+  createdAt: string;
+  created_at: string;
+  imageSource: string;
+  image_source: string;
+}
+interface linkCard {
+  data: dataProp;
+  openModal: (type: string, data?: folderList[] | dataProp) => void;
+}
+function LinkCard({ data, openModal }: linkCard) {
   const [popOver, setPopOver] = useState(false);
 
-  const handleKebabClick = (e) => {
+  const handleKebabClick = (e: MouseEvent<HTMLDivElement>) => {
     e.stopPropagation();
     setPopOver((prevData) => !prevData);
   };

@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { MouseEvent, useEffect, useState } from 'react';
 import { createPortal } from 'react-dom';
 import Modal from './modal/Modal';
 import changeNameImg from '../assets/folderChangeName.svg';
@@ -6,6 +6,12 @@ import deleteImg from '../assets/folderDelete.svg';
 import sharedImg from '../assets/folderShared.svg';
 import { classNames, cond } from '../utils/style';
 import style from '../styles/FolderList.module.css';
+import { folderDataType } from '@/types/folderDataType.type';
+
+interface folderListProp {
+  folderList: folderDataType[];
+  onClick: (folderId: string) => void;
+}
 
 const INIT_ACTIVE_FOLDER = {
   name: '전체',
@@ -13,15 +19,15 @@ const INIT_ACTIVE_FOLDER = {
 };
 let modalType = '';
 let modalData = {};
-function FolderList({ folderList, onClick }) {
-  const [activeFolderInfo, setActiveFolderInfo] = useState(INIT_ACTIVE_FOLDER);
+function FolderList({ folderList, onClick }: folderListProp) {
+  const [activeFolderInfo, setActiveFolderInfo] = useState<folderDataType>(INIT_ACTIVE_FOLDER);
   const [isModal, setIsModal] = useState(false);
-  const handleFolderClick = (folder) => (e) => {
+  const handleFolderClick = (folder: folderDataType) => (e: MouseEvent<HTMLButtonElement>) => {
     // 커링
-    onClick(e.target.name);
+    onClick(e.currentTarget.name);
     setActiveFolderInfo({ ...folder });
   };
-  const enableFolderAddModal = (type) => {
+  const enableFolderAddModal = (type: string) => {
     modalType = type;
     modalData = { ...activeFolderInfo };
     setIsModal(true);
@@ -30,7 +36,7 @@ function FolderList({ folderList, onClick }) {
     setIsModal(false);
   }, []);
 
-  const modalRoot = document.getElementById('modal-root');
+  const modalRoot = document.getElementById('modal-root') as HTMLDivElement;
 
   return (
     <>
@@ -47,11 +53,11 @@ function FolderList({ folderList, onClick }) {
             >
               전체
             </button>
-            {folderList.map((item, idx) => {
+            {folderList.map((item) => {
               return (
                 <button
                   key={item.id}
-                  name={item.id}
+                  name={item.id.toString()}
                   className={classNames(style.folderBtn, cond(activeFolderInfo.id === item.id, style.active))}
                   onClick={handleFolderClick(item)} // (e)=>handleFolderClick(item)(e) 를 축약한것
                 >

@@ -1,6 +1,6 @@
 const API_URL = 'https://bootcamp-api.codeit.kr/api';
 
-export async function fetchData(endPoint) {
+export async function fetchData(endPoint: string) {
   try {
     const response = await fetch(`${API_URL}${endPoint}`);
     if (!response.ok) {

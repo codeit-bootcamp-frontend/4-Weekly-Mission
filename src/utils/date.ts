@@ -1,4 +1,4 @@
-export function dateParse(dateString) {
+export function dateParse(dateString: string) {
   // 주어진 날짜 및 시간 문자열
   const dateFormat = dateString;
 
@@ -11,11 +11,11 @@ export function dateParse(dateString) {
   return formattedDate;
 }
 
-export function diffDate(dateString) {
+export function diffDate(dateString: string) {
   const now = new Date();
   const created = new Date(dateString);
 
-  const diffMilliseconds = now - created;
+  const diffMilliseconds = +now - +created;
   const diffMinutes = Math.floor(diffMilliseconds / (1000 * 60));
   const diffHours = Math.floor(diffMinutes / 60);
   const diffDays = Math.floor(diffHours / 24);

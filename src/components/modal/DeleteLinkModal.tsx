@@ -1,6 +1,11 @@
 import style from '../../styles/modal/DeleteFolderModal.module.css';
+import { modalDataProp } from './types/modal.type';
 
-function DeleteModal({ data }) {
+interface deleteModalProp {
+  data: modalDataProp;
+}
+
+function DeleteModal({ data }: deleteModalProp) {
   const { url } = data;
   return (
     <div className={style.modalContentFlex}>

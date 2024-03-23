@@ -1,6 +1,16 @@
 import style from '../styles/FolderInfo.module.css';
 
-function FolderInfo({ folderInfo }) {
+interface folderInfoProp {
+  folderInfo: {
+    name: string;
+    owner?: {
+      name: string;
+      profileImageSource: string;
+    };
+  };
+}
+
+function FolderInfo({ folderInfo }: folderInfoProp) {
   return (
     <div id={style.folderInfo}>
       <div className={style.infoBox}>

@@ -1,11 +1,16 @@
-import { useState } from 'react';
+import { MouseEvent, useState } from 'react';
 import { classNames, cond } from '../../utils/style';
 import checkImg from '../../assets/check.svg';
 import style from '../../styles/modal/LinkAddModal.module.css';
+import { modalDataProp } from './types/modal.type';
 
-function LinkAddModal({ data }) {
+interface linkAddModalProp {
+  data: modalDataProp[];
+}
+
+function LinkAddModal({ data }: linkAddModalProp) {
   const [isActive, setActive] = useState(0);
-  const handleFolderClick = (key) => (e) => {
+  const handleFolderClick = (key: number) => (e: MouseEvent) => {
     setActive(key);
   };
 
@@ -15,7 +20,7 @@ function LinkAddModal({ data }) {
       <p className={style.modalData}>{}</p>
       <div className={classNames(style.folderListBox)}>
         {data.length &&
-          data.map((data, idx) => {
+          data.map((data) => {
             return (
               <div
                 key={data.id}
@@ -23,7 +28,7 @@ function LinkAddModal({ data }) {
                 onClick={handleFolderClick(data.id)}
               >
                 <span className={style.folderName}>{data.name}</span>
-                <span className={style.linkCount}>{data.link.count}개 링크</span>
+                <span className={style.linkCount}>{data.link?.count}개 링크</span>
                 <img src={checkImg} className={style.check} alt="check" />
               </div>
             );

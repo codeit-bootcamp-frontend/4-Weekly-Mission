@@ -3,10 +3,15 @@ import kakaoShare from '../../assets/kakaoShare.png';
 import facebookShare from '../../assets/facebookShare.png';
 import linkShare from '../../assets/linkShare.png';
 import style from '../../styles/modal/ShareModal.module.css';
+import { modalDataProp } from './types/modal.type';
 
-function ShareModal({ data }) {
+interface shareModalProp {
+  data: modalDataProp;
+}
+
+function ShareModal({ data }: shareModalProp) {
   const { name, id } = data;
-  const { Kakao } = window;
+  const { Kakao }: any = window;
 
   const shareUrl = `${window.location.origin}/shared/${id}`;
 

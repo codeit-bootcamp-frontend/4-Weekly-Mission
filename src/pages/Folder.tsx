@@ -6,13 +6,22 @@ import style from '../styles/Folder.module.css';
 import useAsync from '../hooks/useAsync';
 import LinkList from '../components/LinkList';
 import { getFolderList, getLinkList } from '../services/api';
-
+import { folderDataType } from '@/types/folderDataType.type';
+interface link {
+  id: number;
+  title: string;
+  url: string;
+  createdAt: string;
+  created_at: string;
+  imageSource: string;
+  image_source: string;
+}
 function Folder() {
-  const [linkList, setLinkList] = useState([]);
+  const [linkList, setLinkList] = useState<link[]>([]);
   const [folderId, setFolderId] = useState('');
-  const [folderList, setFolderList] = useState([]);
-  const [, , asyncGetFolderList] = useAsync(getFolderList);
-  const [, , asyncGetLinkList] = useAsync(getLinkList);
+  const [folderList, setFolderList] = useState<folderDataType[]>([]);
+  const asyncGetFolderList = useAsync<any>(getFolderList);
+  const asyncGetLinkList = useAsync<any>(getLinkList);
 
   const apiGetFolderList = useCallback(async () => {
     const result = await asyncGetFolderList();
