@@ -1,11 +1,6 @@
 const BASE_URL = "https://bootcamp-api.codeit.kr";
 
 export async function getSampleCards() {
-  /* const response = await fetch(`${BASE_URL}/api/sample/folder`);
-  if (!response.ok) {
-    throw new Error(result.message || "Failed to fetch sample cards");
-  }
-  return await response.json(); */
   try {
     const response = await fetch(`${BASE_URL}/api/sample/folder`);
     const result = await response.json();
@@ -16,28 +11,6 @@ export async function getSampleCards() {
     throw error;
   }
 }
-
-// axios 쓸 때 코드
-/* export const getSampleFolderData = async () => {
-  try {
-    const response = await apiInstance.get('/api/sample/folder');
-    return response.data;
-  } catch (error) {
-    throw new Error('샘플 폴더 데이터를 불러오는데 실패했습니다');
-  }
-}; */
-
-// 아래와 같이 파일 분리해서 사용할 수 있음.
-/* import axios from 'axios';
-
-const API_BASE_URL = 'https://bootcamp-api.codeit.kr';
-
-export const apiInstance = axios.create({
-  baseURL: API_BASE_URL,
-  headers: {
-    'Content-Type': 'application/json',
-  },
-}); */
 
 export async function getSampleUser() {
   try {
@@ -94,7 +67,7 @@ export async function getCards() {
   }
 }
 
-export async function getSelectedCards(folderId) {
+export async function getSelectedCards(folderId: number | undefined) {
   try {
     const response = await fetch(
       `${BASE_URL}/api/users/4/links?folderId=${folderId}`

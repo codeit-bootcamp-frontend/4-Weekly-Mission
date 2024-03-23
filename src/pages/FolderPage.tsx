@@ -19,13 +19,15 @@ import DeleteModal from "../components/Modals/DeleteModal";
 import EditModal from "../components/Modals/EditModal";
 import ShareModal from "../components/Modals/ShareModal";
 
-interface Card {
+export interface UserCard {
   id: number;
-  created_at: string;
+  created_at?: string;
+  createdAt?: string;
   updated_at?: string;
   url: string;
   description: string;
-  image_source: string;
+  image_source?: string;
+  imageSource?: string;
   folder_id: number;
 }
 
@@ -53,7 +55,7 @@ export interface User {
 }
 
 function FolderPage() {
-  const [userCards, setUserCards] = useState<Card[]>([]);
+  const [userCards, setUserCards] = useState<UserCard[]>([]);
   const [userFolders, setUserFolders] = useState<Folder[]>([]);
   const [folderId, setFolderId] = useState<number>();
   const [folderName, setFolderName] = useState<string>();
