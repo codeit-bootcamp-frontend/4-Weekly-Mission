@@ -1,4 +1,5 @@
 import { useGetFolderList } from "../../hooks/useGetFolderList";
+import styles from "./FolderToolBar.module.scss";
 import FolderEditBar from "./FolderEditBar";
 import FolderList from "./FolderList";
 
@@ -10,7 +11,7 @@ const FolderToolBar = ({ onFolderClick, selectedFolder }) => {
       : folders?.find(({ id }) => id === selectedFolder)?.name;
 
   return (
-    <div>
+    <div className={styles.container}>
       <FolderList
         onFolderClick={onFolderClick}
         folders={folders}

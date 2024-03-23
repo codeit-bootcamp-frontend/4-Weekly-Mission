@@ -28,7 +28,7 @@ const FolderPage = () => {
           <AddLinkInput />
         </div>
         <div className={styles.wrapper}>
-          <SearchBar />
+          <SearchBar className={styles.searchBar} />
           <FolderToolBar
             onFolderClick={setSeletedFolder}
             selectedFolder={selectedFolder}

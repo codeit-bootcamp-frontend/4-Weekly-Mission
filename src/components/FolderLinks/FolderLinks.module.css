@@ -6,7 +6,7 @@
   width: 100%;
 
   @media (min-width: 768px) {
-    grid-template-columns: repeat(auto-fit, 320px);
+    grid-template-columns: repeat(auto-fit, 340px);
     column-gap: 20px;
   }
 }
