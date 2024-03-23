@@ -1,6 +1,7 @@
 import { styled } from 'styled-components';
 
 import defaultProfileImg from 'assets/profileImg.svg';
+import { UserInfoData } from 'interfaces/dataInterface';
 
 const Styled = {
   UserBtn: styled.button`
@@ -32,7 +33,7 @@ const Styled = {
   `,
 };
 
-function UserBtn({ userData }) {
+function UserBtn({ userData }: { userData: UserInfoData }) {
   const { image_source: profileImg = defaultProfileImg, email = '' } = userData || {};
 
   return (

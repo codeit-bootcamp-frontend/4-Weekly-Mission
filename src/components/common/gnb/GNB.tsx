@@ -7,7 +7,7 @@ import Button from 'components/common/button/Button';
 import UserBtn from 'components/common/gnb/UserBtn';
 
 const Styled = {
-  Container: styled.nav`
+  Container: styled.nav<{ $isFixed: boolean }>`
     position: ${({ $isFixed }) => ($isFixed ? 'fixed' : 'static')};
     left: 0;
     top: 0;
@@ -34,11 +34,15 @@ const Styled = {
   `,
 };
 
-function GNB({ $isFixed }) {
+interface GnbProps {
+  $isFixed: boolean;
+}
+
+function GNB({ $isFixed }: GnbProps) {
   const { data } = useUserInfoQuery({ userId: 1 });
   const userData = data?.data?.data[0];
   const isLoggedIn = userData !== null;
-
+  console.log(userData);
   return (
     <Styled.Container $isFixed={$isFixed}>
       <Styled.InnerWrap>
