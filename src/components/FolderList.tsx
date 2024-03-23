@@ -1,5 +1,4 @@
-import { useEffect, useState } from "react";
-import { getFolderLists } from "../api/api";
+import { useState } from "react";
 import Button from "./Button";
 import styles from "../css/FolderList.module.css";
 import plusIcon from "../images/Icon_plus.svg";
@@ -9,42 +8,37 @@ import FolderMenu from "./FolderMenu";
 
 const FIRST_SELECTED_FOLDER = "전체";
 
-function FolderList() {
-  const [folderListData, setFolderListData] = useState([]);
-  const [currentId, setCurrentId] = useState(0);
-  const [folderName, setFolderName] = useState(FIRST_SELECTED_FOLDER);
+interface Data {
+  url: string;
+  id: number;
+  imageSource: string;
+  createdAt: string;
+  description: string;
+}
+
+interface Props {
+  linkData: Data[];
+  folderNameList: string[];
+  currentId: number;
+  folderName: string;
+  onClick: (id: number, name: string) => void;
+}
+
+function FolderList({ linkData, folderNameList, currentId, folderName, onClick }: Props) {
   const [isAddModalOpen, setIsAddModalOpen] = useState(false);
 
   const openAddModal = () => setIsAddModalOpen(true);
   const closeAddModal = (): void => setIsAddModalOpen(false);
-
-  //button의 id와 이름 가져오는 함수.
-  const changeFolderClick = (id: number, name: string) => {
-    setCurrentId(id);
-    setFolderName(name);
-  }
-
-  const getFolderData = async () => {
-    const { data } = await getFolderLists();
-    
-    if (!data) return;
-
-    setFolderListData(data);
-  }
-
-  useEffect(() => {
-    getFolderData();
-  }, [])
 
   return (
     <>
     <div className={styles.content}>
       <div className={styles.container}>
         <div className={styles.folderList}>
-          <Button onClick={() => changeFolderClick(0, '전체')} type="button" key={0}>전체</Button>
-          {folderListData.map((item: any) => {
+          <Button onClick={() => onClick(0, FIRST_SELECTED_FOLDER)} type="button" key={0}>전체</Button>
+          {folderNameList.map((item: any) => {
             return (
-                <Button onClick={() => changeFolderClick(item.id, item.name)} type="button" key={item.id}>{item.name}</Button>
+                <Button onClick={() => onClick(item.id, item.name)} type="button" key={item.id}>{item.name}</Button>
             )
           })}
         </div>
@@ -61,9 +55,11 @@ function FolderList() {
         {currentId === 0 ? null : <FolderMenu placeholder={folderName} />}
       </div>
     </div>
-    <LinkList id={currentId === 0 ? '': currentId} />
+    <LinkList linkData={linkData} />
   </>
   );
 }
+
+//<LinkList linkData={linkData} id={currentId === 0 ? '': currentId} />
 
 export default FolderList;
