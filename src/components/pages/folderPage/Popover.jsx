@@ -6,11 +6,6 @@ import DeleteLink from '../../common/modal/DeleteLink';
 import Add from '../../common/modal/Add';
 
 const Popover = ({ url, show, onPopoverClick }) => {
-  // const onBtnClick = e => {
-  //   handleModalBtnClick(e);
-  //   handleSelectedLink();
-  // };
-
   const [showDeleteModal, setShowDeleteModal] = useState(false);
   const [showAddModal, setShowAddModal] = useState(false);
 
