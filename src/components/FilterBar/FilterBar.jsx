@@ -1,116 +1,92 @@
-import { useState, useEffect } from 'react';
-import axios from 'axios';
-import styled from 'styled-components';
+import { React, useState, useEffect } from 'react';
+import './FilterBar.css';
+import useGetLink from '../apis/useGetLink';
+import Card from '../Card/Card';
+import { DEFAULT_FOLDER } from '../../utils/constant';
+import { axiosInstance } from '../../utils/axiosInstance';
 
-export default function Page() {
-  const [filter, setFilter] = useState('all');
+const mapFormatDate = data => {
+  const formattedFolder = data.map(({ name, id }) => ({ name, id }));
+  return [DEFAULT_FOLDER, ...formattedFolder];
+};
+
+export default function FilterBar() {
+  const [folderId, setFolderId] = useState(DEFAULT_FOLDER.id);
   const [folderData, setFolderData] = useState([]);
-  const [isLoading, setIsLoading] = useState(true);
-  const fetchData = async () => {
-    try {
-      const response = await axios.get('https://bootcamp-api.codeit.kr/api/users/1/folders');
-      if (response.status === 200) {
-        setFolderData(response.data.data);
-      }
-    } catch (error) {
-      console.error('Error fetching data:', error);
-    }
+  const [folderName, setFolderName] = useState(DEFAULT_FOLDER.name);
+  const { loading, error, data: linksData } = useGetLink(folderId);
+
+  const handleChange = (id, name) => {
+    setFolderId(id);
+    setFolderName(name);
   };
 
   useEffect(() => {
-    setIsLoading(false);
+    async function fetchData() {
+      try {
+        const { data } = await axiosInstance.get('users/4/folders');
+        setFolderData(mapFormatDate(data.data));
+      } catch (error) {
+        console.error('Error fetching data:', error);
+      }
+    }
+
     fetchData();
-    setIsLoading(true);
-  }, [filter]);
+  }, []);
 
+  if (error) {
+    return <div>Error: {error.message}</div>;
+  }
   return (
-    <div>
-      <FilterBar filter={filter} onchangeFilter={setFilter} folderData={folderData}></FilterBar>
-    </div>
-  );
-}
-
-const Button = styled.button`
-  display: flex;
-  width: auto;
-  height: 44px;
-  flex-direction: column;
-  padding: 8px 12px;
-  align-items: center;
-  justify-content: center;
-  border-radius: 5px;
-  border: 1px solid var(--Linkbrary-primary-color, #6d6afe);
-  background: #fff;
-  font-size: 16px;
-  white-space: nowrap;
-
-  @media (min-width: 768px) and (max-width: 1199px) {
-    display: flex;
-    padding: 8px 12px;
-    flex-direction: column;
-    align-items: center;
-    border-radius: 5px;
-    border: 1px solid var(--Linkbrary-primary-color, #6d6afe);
-    background: #fff;
-  }
-  @media (min-width: 357px) and (max-width: 767px) {
-    display: flex;
-    padding: 6px 10px;
-    flex-direction: column;
-    align-items: center;
-    border-radius: 5px;
-    border: 1px solid var(--Linkbrary-primary-color, #6d6afe);
-    background: #fff;
-
-    color: #000;
-
-    /* Linkbrary/body2-regular */
-    font-size: 14px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal;
-  }
-
-  &:hover {
-    background-color: $color-gray10;
-  }
-
-  &.selected {
-    background-color: $color-primary;
-    color: $color-white;
-  }
-`;
-
-const FilterBarLeft = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: flex-start;
-  gap: 12px;
-`;
-
-function FilterBar({ filter, onchangeFilter, folderData }) {
-  return (
-    <div>
-      <FilterBarLeft>
-        <Button
-          key="all"
-          onClick={() => {
-            onchangeFilter('all');
-          }}
-          selected={filter === 'all'}>
-          <span>전체</span>
-        </Button>
-        {folderData?.map(({ id, name }) => (
-          <Button
-            key={id}
-            onClick={() => {
-              onchangeFilter(id);
-            }}
-            selected={filter === id}>
-            {name}
-          </Button>
-        ))}
-      </FilterBarLeft>
-    </div>
+    <>
+      <div className="filterBarArea">
+        <div className="floatingButton">
+          폴더 추가 <img src={`${process.env.PUBLIC_URL}/images/addWhite.svg`} alt="추가 아이콘"></img>
+        </div>
+        <div className="filterBar">
+          <div className="filterBarLeft">
+            {folderData.map(({ id, name }) => (
+              <button
+                key={id}
+                className={`filterBarButton ${folderId == id ? 'selected' : ''}`}
+                type="button"
+                value={id}
+                onClick={() => {
+                  handleChange(id, name);
+                }}>
+                {name}
+              </button>
+            ))}
+          </div>
+          <div className="filterBarRight">
+            <div className="addButton">
+              폴더 추가 <img src={`${process.env.PUBLIC_URL}/images/add.svg`} alt="추가 아이콘"></img>
+            </div>
+          </div>
+        </div>
+        <div className="nameBar">
+          <div className="folderName">{folderName}</div>
+          {folderName !== DEFAULT_FOLDER.name ? (
+            <div className="modalButtons">
+              <div className="modalButton">
+                <img src={`${process.env.PUBLIC_URL}/images/share.svg`} alt="공유 아이콘"></img>
+                <span>공유</span>
+              </div>
+              <div className="modalButton">
+                <img src={`${process.env.PUBLIC_URL}/images/pen.svg`} alt="연필 아이콘"></img>
+                <span>이름 변경</span>
+              </div>
+              <div className="modalButton">
+                <img src={`${process.env.PUBLIC_URL}/images/trashbin.svg`} alt="휴지통 아이콘"></img>
+                <span>삭제</span>
+              </div>
+            </div>
+          ) : null}
+        </div>
+        <div className={!linksData.length ? '' : 'cardStyle'}>
+          {!loading ? <Card data={linksData} /> : <div>Loading...</div>}
+        </div>
+      </div>
+    </>
   );
 }

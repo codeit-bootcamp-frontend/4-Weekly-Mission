@@ -1,19 +1,21 @@
-#headerShared {
+.headerShared {
   position: sticky;
   display: flex;
+  width: 100%;
   justify-content: space-between;
   align-items: center;
-  padding: 20px 200px;
+  padding: 20px 100px;
   top: 0;
   background-color: var(--Linkbrary-bg, #f0f6ff);
 }
 
-#headerFolder {
+.headerFolder {
   position: static;
   display: flex;
+  width: 100%;
   justify-content: space-between;
   align-items: center;
-  padding: 20px 200px;
+  padding: 20px 100px;
   top: 0;
   background-color: var(--Linkbrary-bg, #f0f6ff);
 }

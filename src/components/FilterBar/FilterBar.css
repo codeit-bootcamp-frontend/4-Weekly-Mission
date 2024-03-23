@@ -1,0 +1,171 @@
+.filterBarArea {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  padding-left: 200px;
+  padding-right: 200px;
+}
+
+.filterBarButton {
+  display: flex;
+  width: auto;
+  height: 44px;
+  flex-direction: column;
+  padding: 8px 12px;
+  align-items: flex-start;
+  justify-content: center;
+  border-radius: 5px;
+  border: 1px solid var(--Linkbrary-primary-color, #6d6afe);
+  background: #fff;
+  font-size: 16px;
+  white-space: nowrap;
+}
+
+@media (min-width: 768px) and (max-width: 1199px) {
+  .filterBarButton {
+    display: flex;
+    padding: 8px 12px;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 5px;
+    border: 1px solid var(--Linkbrary-primary-color, #6d6afe);
+    background: #fff;
+  }
+}
+@media (min-width: 357px) and (max-width: 767px) {
+  .filterBarButton {
+    display: flex;
+    padding: 6px 10px;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 5px;
+    border: 1px solid var(--Linkbrary-primary-color, #6d6afe);
+    background: white;
+    color: black;
+
+    /* Linkbrary/body2-regular */
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+  }
+}
+
+.filterBarButton:hover {
+  background-color: lightgrey;
+}
+
+.selected {
+  background-color: #6d6afe;
+  color: white;
+}
+
+.filterBar {
+  display: flex;
+  justify-content: space-between;
+  width: 1080px;
+  gap: 12px;
+}
+
+.filterBarLeft {
+  display: flex;
+  gap: 12px;
+}
+
+.cardStyle {
+  width: 1060px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
+  justify-content: center;
+  gap: 20px;
+}
+
+.folderName {
+  display: flex;
+  padding-top: 24px;
+  padding-bottom: 24px;
+  justify-content: space-between;
+  align-items: center;
+  color: #000;
+
+  /* Linkbrary/h3-semibold */
+  font-family: Pretendard;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  letter-spacing: -0.2px;
+}
+
+.addButton {
+  display: flex;
+  gap: 4px;
+  align-items: center;
+  padding-top: 10px;
+  color: #6d6afe;
+  text-align: center;
+  font-family: Pretendard;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  letter-spacing: -0.3px;
+}
+
+.floatingButton {
+  display: none;
+}
+
+.nameBar {
+  display: flex;
+  justify-content: space-between;
+  width: 1060px;
+}
+
+.modalButtons {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.modalButtons span {
+  color: var(--Linkbrary-gray60, #9fa6b2);
+
+  /* Linkbrary/body2-semibold */
+  font-family: Pretendard;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+}
+
+.modalButton {
+  display: flex;
+  align-items: center;
+}
+
+@media (min-width: 357px) and (max-width: 767px) {
+  .floatingButton {
+    position: fixed;
+    bottom: 101px;
+    display: flex;
+    padding: 8px 24px;
+    align-items: center;
+    text-align: center;
+    gap: 4px;
+    z-index: 2;
+
+    border-radius: 20px;
+    border: 1px solid var(--Linkbrary-white, #fff);
+    background: var(--Linkbrary-primary-color, #6d6afe);
+    color: var(--Linkbrary-gray10, #e7effb);
+    text-align: center;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    letter-spacing: -0.3px;
+  }
+}
