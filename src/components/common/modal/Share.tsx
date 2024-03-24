@@ -8,7 +8,7 @@ import facebookUrl from '../../../assets/facebook.svg';
 import linkUrl from '../../../assets/link.svg';
 import ShareBtn from './shareBtn/ShareBtn';
 import { sampleUrl } from '../../../util/constants';
-import { useScript } from '../../../util/hooks';
+import { useKaKaoScript } from '../../../hooks/kakao';
 import { FolderId } from '../../../types/types';
 
 interface ShareProps {

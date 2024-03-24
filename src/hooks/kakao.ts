@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 
-function useScript(src: string) {
+function useKaKaoScript(src: string) {
   const [status, setStatus] = useState(src ? 'loading' : 'idle');
 
   useEffect(() => {
@@ -46,4 +46,4 @@ function useScript(src: string) {
   return status;
 }
 
-export { useScript };
+export { useKaKaoScript };
