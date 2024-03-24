@@ -1,7 +1,8 @@
+import { ChangeEventHandler } from "react";
 import "./SearchBar.css";
 
 interface Prop {
-  handleInputChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  handleInputChange: ChangeEventHandler<HTMLInputElement>;
   handleInputClear: () => void;
   searchTerm: string;
 }

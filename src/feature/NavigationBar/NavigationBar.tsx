@@ -3,7 +3,7 @@ import Cta from "../../ui/Cta/Cta";
 import Profile from "../../ui/Profile/Profile";
 import "./NavigationBar.css";
 
-interface Props {
+interface NavProps {
   isNavFixed: boolean;
   profile: {
     profileImageSource: string;
@@ -11,7 +11,7 @@ interface Props {
   };
 }
 
-const NavigationBar = ({ profile, isNavFixed }: Props) => {
+const NavigationBar = ({ profile, isNavFixed }: NavProps) => {
   const NavBar: string = isNavFixed
     ? "NavigationBar Nav-fixed"
     : "NavigationBar";

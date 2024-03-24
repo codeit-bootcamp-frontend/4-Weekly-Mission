@@ -1,10 +1,10 @@
 import { ReactNode } from "react";
 import "./CardList.css";
 
-interface Props {
+interface CardListProp {
   children: ReactNode;
 }
 
-export const CardList = ({ children }: Props) => {
+export const CardList = ({ children }: CardListProp) => {
   return <div className="CardList">{children}</div>;
 };

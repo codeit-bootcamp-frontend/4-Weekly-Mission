@@ -5,7 +5,7 @@ import Layout from "feature/Layout/Layout";
 import { Card } from "ui/Card/Card";
 import { useGetFolder } from "hooks/useGetFolder";
 import "./SharedPage.css";
-import { useState } from "react";
+import { ChangeEventHandler, useState } from "react";
 
 export const SharedPage = () => {
   const [searchTerm, setSearchTerm] = useState("");
@@ -13,7 +13,7 @@ export const SharedPage = () => {
   const { data } = useGetFolder();
   const { profileImage, ownerName, folderName, links } = data || {};
 
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handleInputChange: ChangeEventHandler<HTMLInputElement> = (e) => {
     setSearchTerm(e.target.value);
   };
   const handleInputClear = () => {

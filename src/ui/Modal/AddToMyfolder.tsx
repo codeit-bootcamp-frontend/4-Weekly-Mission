@@ -1,5 +1,5 @@
 import styles from "./Modal.module.css";
-import { useState } from "react";
+import { MouseEventHandler, useState } from "react";
 
 interface Link {
   count: number;
@@ -22,7 +22,7 @@ function AddToMyFolder({
 }) {
   const [selectedFolder, setSelectedFolder] = useState<number>();
 
-  const handleFolderClick = (e: React.MouseEvent<HTMLDivElement>) => {
+  const handleFolderClick: MouseEventHandler<HTMLDivElement> = (e) => {
     setSelectedFolder(+e.currentTarget.id);
   };
 
