@@ -15,7 +15,7 @@ export const useGetFolders = () => {
   const { loading, error, data } = useAsync(getFolders);
 
   const folders = data?.data ?? [];
-  console.log(folders);
+
   const sortedFolders = folders.sort(
     (a: FolderType, b: FolderType) => a?.id - b?.id
   );

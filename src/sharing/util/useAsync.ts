@@ -45,7 +45,6 @@ export const useAsync = <T extends DataType | DataType>(
     try {
       const response = await asyncFunction();
       setData(response?.data);
-      console.log(response?.data);
       return response;
     } catch (error: any) {
       setError(error);

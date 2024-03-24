@@ -2,7 +2,7 @@ import { useGetFolders } from "folder/data-access-folder";
 import { AddLinkModal } from "link/ui-add-link-modal";
 import { EditableCard } from "link/ui-editable-card";
 import { NoLink } from "link/ui-no-link";
-import { useCallback, useRef, useState } from "react";
+import { useCallback, useRef, useState, useEffect } from "react";
 import { CardList as UiCardList } from "link/ui-card-list";
 import { AlertModal } from "sharing/ui-alert-modal";
 import { MODALS_ID } from "./constant";
@@ -11,14 +11,20 @@ import { KeyboardEventHandler } from "react";
 type LinkData = {
   id: number;
   url: string;
+  imageSource: string;
+  alt: string;
+  elapsedTime: string;
+  description: string;
+  createdAt: string;
   length: number;
 };
 
 type CardListType = {
   links: LinkData[];
+  searchValue: string;
 };
 
-export const CardList = ({ links }: CardListType) => {
+export const CardList = ({ links, searchValue }: CardListType) => {
   const { data: folders } = useGetFolders();
   const cardListRef = useRef(null);
   const [selectedFolderId, setSelectedFolderId] = useState<number | null>(null);
@@ -51,21 +57,48 @@ export const CardList = ({ links }: CardListType) => {
     [cardListRef]
   );
 
+  const [filterLinks, setFilterLinks] = useState<LinkData[]>([]);
+
+  useEffect(() => {
+    if (searchValue !== "") {
+      const filtered = links.filter(
+        (link) =>
+          link.alt?.toLowerCase().includes(searchValue.toLowerCase()) ||
+          link.description?.toLowerCase().includes(searchValue.toLowerCase()) ||
+          link.url?.toLowerCase().includes(searchValue.toLowerCase())
+      );
+      setFilterLinks(filtered);
+    }
+  }, [searchValue]);
+
   if (links.length === 0) return <NoLink />;
   return (
     <UiCardList ref={cardListRef}>
-      {links.map((link: LinkData, index: number) => (
-        <EditableCard
-          key={link?.id}
-          {...link}
-          popoverPosition={getPopoverPosition(index)}
-          onDeleteClick={() => {
-            setSelectedLinkUrl(link?.url);
-            setCurrentModal(MODALS_ID.deleteLink);
-          }}
-          onAddToFolderClick={() => setCurrentModal(MODALS_ID.addToFolder)}
-        />
-      ))}
+      {searchValue !== ""
+        ? filterLinks.map((link: LinkData, index: number) => (
+            <EditableCard
+              key={link?.id}
+              {...link}
+              popoverPosition={getPopoverPosition(index)}
+              onDeleteClick={() => {
+                setSelectedLinkUrl(link?.url);
+                setCurrentModal(MODALS_ID.deleteLink);
+              }}
+              onAddToFolderClick={() => setCurrentModal(MODALS_ID.addToFolder)}
+            />
+          ))
+        : links.map((link: LinkData, index: number) => (
+            <EditableCard
+              key={link?.id}
+              {...link}
+              popoverPosition={getPopoverPosition(index)}
+              onDeleteClick={() => {
+                setSelectedLinkUrl(link?.url);
+                setCurrentModal(MODALS_ID.deleteLink);
+              }}
+              onAddToFolderClick={() => setCurrentModal(MODALS_ID.addToFolder)}
+            />
+          ))}
       <AlertModal
         isOpen={currentModal === MODALS_ID.deleteLink}
         title="링크 삭제"

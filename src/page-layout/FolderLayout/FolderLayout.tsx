@@ -17,13 +17,15 @@ export const FolderLayout = ({
   cardList,
 }: FolderLayoutType) => {
   return (
-    <div className={cx("container")}>
-      {linkForm}
-      <div className={cx("items")}>
-        {searchBar}
-        <div className={cx("folder-box")}>
-          {folderToolBar}
-          {cardList}
+    <div>
+      <div className={cx("container")}>
+        {linkForm}
+        <div className={cx("items")}>
+          {searchBar}
+          <div className={cx("folder-box")}>
+            {folderToolBar}
+            {cardList}
+          </div>
         </div>
       </div>
     </div>
