@@ -1,6 +1,10 @@
 @import url("/src/common/color.css");
 
 .SearchBar {
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  gap: 10px;
   margin: 40px auto;
   border-radius: 10px;
   padding: 15px 16px;
@@ -8,17 +12,19 @@
   width: 1060px;
 }
 
-.SearchBar .container {
-  display: flex;
-  align-items: center;
+.SearchBar img {
+  width: 16px;
+  height: 16px;
 }
 
-.SearchBar .SearchText {
-  margin-left: 10px;
-  color: #666666;
+.SearchBar input {
+  border: none;
+  background: none;
+  width: 100%;
+  outline: none;
+  color: #373740;
+  text-align: left;
   font-family: Pretendard;
-  font-size: 16px;
-  font-weight: 400;
   line-height: 24px;
 }
 
