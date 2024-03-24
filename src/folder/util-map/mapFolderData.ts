@@ -1,12 +1,27 @@
 import { mapLinksData } from "../../link/util-map";
 
-interface Props {
-  name: any;
-  owner: string;
-  links: string;
+interface Owner {
+  id: number;
+  name: string;
+  profileImageSource: string;
 }
 
-export const mapFolderData = (folder: Props) => {
+interface Links {
+  id: number;
+  createdAt: Date;
+  url: string;
+  title: string;
+  description: string;
+  imageSource: string;
+}
+
+export interface PropsFolder {
+  name: string;
+  owner: Owner;
+  links: Links[];
+}
+
+export const mapFolderData = (folder: PropsFolder) => {
   if (!folder) return [];
 
   const { name, owner, links } = folder;
@@ -15,6 +30,6 @@ export const mapFolderData = (folder: Props) => {
     profileImage: owner?.profileImageSource,
     ownerName: owner?.name,
     folderName: name,
-    links: links?.map(mapLinksData) ?? [],
+    links: links?.map((link) => mapLinksData(link)) ?? [],
   };
 };

@@ -33,7 +33,7 @@ export const Popover = ({
     };
   }, [anchorPosition]);
   const handleBackgroundClick = useCallback(
-    (event) => {
+    (event: MouseEvent) => {
       const isPopover = popoverRef.current?.contains(event.target);
       const isAnchor = anchorRef.current?.contains(event.target);
       if (

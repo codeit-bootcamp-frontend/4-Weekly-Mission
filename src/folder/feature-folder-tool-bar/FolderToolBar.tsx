@@ -10,17 +10,18 @@ import {
   MODALS_ID,
 } from "./constant";
 import { ALL_LINKS_ID } from "../../link/data-access-link/constant";
-import { ChangeEvent, useState } from "react";
+import { useState } from "react";
 import { ShareModal } from "../ui-share-modal";
 import { InputModal } from "../../sharing/ui-input-modal";
 import { AlertModal } from "../../sharing/ui-alert-modal";
 import { copyToClipboard } from "../../sharing/util/copyToClipboard";
 import { useKakaoSdk } from "../../sharing/util/useKakaoSdk";
+import { PropsFolder } from "../util-map";
 
 const cx = classNames.bind(styles);
 
 interface Props {
-  folders: string;
+  folders: PropsFolder;
   selectedFolderId: string;
   onFolderClick: any;
 }

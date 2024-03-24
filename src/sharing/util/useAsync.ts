@@ -1,12 +1,10 @@
 import { useState } from "react";
 import { useEffectOnce } from "./useEffectOnce";
 
-interface Props {}
-
-export const useAsync = (asyncFunction) => {
+export const useAsync = <T>(asyncFunction: () => Promise<T>) => {
   const [loading, setLoading] = useState(false);
-  const [error, setError] = useState(null);
-  const [data, setData] = useState(null);
+  const [error, setError] = useState<Error | null>(null);
+  const [data, setData] = useState<T | null>(null);
 
   const execute = async () => {
     setLoading(true);
@@ -14,10 +12,14 @@ export const useAsync = (asyncFunction) => {
     setData(null);
     try {
       const response = await asyncFunction();
-      setData(response?.data);
+      setData(response);
       return response;
     } catch (error) {
-      setError(error);
+      if (error instanceof Error) {
+        setError(error);
+      } else {
+        setError(new Error("Unknown"));
+      }
     } finally {
       setLoading(false);
     }

@@ -6,8 +6,9 @@ import { ChangeEvent, useCallback, useRef, useState } from "react";
 import { CardList as UiCardList } from "../../link/ui-card-list";
 import { AlertModal } from "../../sharing/ui-alert-modal";
 import { MODALS_ID } from "./constant";
+import { PropsFolder } from "../../folder/util-map";
 
-export const CardList = ({ links }) => {
+export const CardList = ({ links }: PropsFolder) => {
   const { data: folders } = useGetFolders();
   const cardListRef = useRef<HTMLFormElement>(null);
   const [, setSelectedFolderId] = useState(null);
@@ -15,7 +16,7 @@ export const CardList = ({ links }) => {
   const [selectedLinkUrl, setSelectedLinkUrl] = useState(null);
 
   const closeModal = () => setCurrentModal(null);
-  const handleKeyDown = (event: ChangeEvent<HTMLInputElement>) => {
+  const handleKeyDown = (event: ChangeEvent) => {
     if (event.key === "Escape") {
       closeModal(null);
     }

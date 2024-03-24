@@ -1,8 +1,8 @@
-import format from "date-fns/format";
+import * as dateFns from "date-fns";
 import { getElapsedTime } from "../../sharing/util";
 
 interface Props {
-  id: string;
+  id: number | string;
   createdAt: Date;
   url: string;
   imageSource: string;
@@ -20,6 +20,6 @@ export const mapLinksData = (link: Props) => {
     alt: `${title ?? url}의 대표 이미지`,
     elapsedTime: getElapsedTime(createdAt),
     description,
-    createdAt: format(new Date(createdAt), "yyyy. MM. dd"),
+    createdAt: dateFns.format(new Date(createdAt), "yyyy. MM. dd"),
   };
 };
