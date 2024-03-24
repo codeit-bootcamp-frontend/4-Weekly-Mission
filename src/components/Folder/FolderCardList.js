@@ -9,7 +9,7 @@ import deleteIcon from '../../assets/images/delete.svg';
 import ModalPortal from '../common/ModalPortal';
 import Modal from '../modal/Modal';
 
-const FolderCardList = ({ id, name, folderList }) => {
+const FolderCardList = ({ id, name, folderList, searchItem }) => {
   const { result, execute, loading } = useAsync(() => getLinks(id));
   const { data: links } = result || [];
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -19,7 +19,7 @@ const FolderCardList = ({ id, name, folderList }) => {
     execute();
   }, [id]);
 
-  const handleClick = (text) => {
+  const handleModalOpen = (text) => {
     setAction(text);
     setIsModalOpen(true);
   };
@@ -30,15 +30,15 @@ const FolderCardList = ({ id, name, folderList }) => {
           <div className="folder-name">{name}</div>
           {name !== '전체' && (
             <div className="folder-icons">
-              <button onClick={() => handleClick('share')}>
+              <button onClick={() => handleModalOpen('share')}>
                 <img src={shareIcon} alt="share-icon" />
                 공유
               </button>
-              <button onClick={() => handleClick('rename')}>
+              <button onClick={() => handleModalOpen('rename')}>
                 <img src={penIcon} alt="pen-icon" />
                 이름 변경
               </button>
-              <button onClick={() => handleClick('delete-folder')}>
+              <button onClick={() => handleModalOpen('delete-folder')}>
                 <img src={deleteIcon} alt="delete-icon" />
                 삭제
               </button>
@@ -54,7 +54,12 @@ const FolderCardList = ({ id, name, folderList }) => {
             <div className="card-list">
               <div className="card-list-container">
                 {links.map((item) => (
-                  <FolderCardItem key={item.id} link={item} folderList={folderList} />
+                  <FolderCardItem
+                    key={item.id}
+                    link={item}
+                    folderList={folderList}
+                    searchItem={searchItem}
+                  />
                 ))}
               </div>
             </div>

@@ -8,7 +8,7 @@ const UserInfo = ({ email, imgSrc }) => {
   return (
     <div className="userInfo">
       <img id="userImg" src={imgSrc} alt="userImage" />
-      <a id="userEmail">{email}</a>
+      <span id="userEmail">{email}</span>
     </div>
   );
 };

@@ -4,6 +4,7 @@ import { useState } from 'react';
 import FolderCardList from './FolderCardList';
 import Modal from '../modal/Modal';
 import ModalPortal from '../common/ModalPortal';
+import classNames from 'classnames';
 
 const FolderItem = ({ data, onFolderClick, isSelected }) => {
   const { name, id } = data;
@@ -12,7 +13,7 @@ const FolderItem = ({ data, onFolderClick, isSelected }) => {
   };
   return (
     <div
-      className={`folder-button ${isSelected ? 'selected' : ''}`}
+      className={classNames('folder-button', { selected: isSelected })}
       onClick={handleFolderClick}
     >
       {name}
@@ -20,7 +21,7 @@ const FolderItem = ({ data, onFolderClick, isSelected }) => {
   );
 };
 
-const FolderList = ({ folderData }) => {
+const FolderList = ({ folderData, search }) => {
   const [selectedFolder, setSelectedFolder] = useState({ id: '', name: '전체' });
   const [isModalOpen, setIsModalOpen] = useState(false);
 
@@ -34,7 +35,9 @@ const FolderList = ({ folderData }) => {
         <div className="folder-list-container">
           <div className="folder-items">
             <div
-              className={`folder-button ${selectedFolder.name === '전체' ? 'selected' : ''}`}
+              className={classNames('folder-button', {
+                selected: selectedFolder.name === '전체',
+              })}
               onClick={() => selectFolder({ id: '', name: '전체' })}
             >
               전체
@@ -60,6 +63,7 @@ const FolderList = ({ folderData }) => {
           id={selectedFolder.id}
           name={selectedFolder.name}
           folderList={folderData}
+          searchItem={search}
         />
       ) : (
         <div>저장된 링크가 없습니다.</div>

@@ -4,7 +4,7 @@ import ModalPortal from '../common/ModalPortal';
 import Modal from '../modal/Modal';
 import { useState } from 'react';
 
-const AddLinkBar = ({ folderData }) => {
+const AddLinkBar = ({ barRef, folderData }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [value, setValue] = useState('');
 
@@ -17,7 +17,7 @@ const AddLinkBar = ({ folderData }) => {
 
   return (
     <header>
-      <div className="header-add-container">
+      <div className="header-add-container" ref={barRef}>
         <form className="add-form" onSubmit={handleSubmit}>
           <img id="add-icon" src={link} alt="add-icon" />
           <input
@@ -28,7 +28,7 @@ const AddLinkBar = ({ folderData }) => {
             value={value}
             onChange={handleChange}
           />
-          <button type="button" className="add-button" onClick={() => setIsModalOpen(true)}>
+          <button type="submit" className="add-button" onClick={() => setIsModalOpen(true)}>
             추가하기
           </button>
         </form>

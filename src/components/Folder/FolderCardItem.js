@@ -8,11 +8,25 @@ import { useState } from 'react';
 import ModalPortal from '../common/ModalPortal';
 import Modal from '../modal/Modal';
 
-const FolderCardItem = ({ link, folderList }) => {
-  const { created_at, description, image_source, title, url } = link;
+const FolderCardItem = ({ link, folderList, searchItem }) => {
+  const { created_at, description, image_source, title, url } = link || {};
   const [dropdown, setDropdown] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [action, setAction] = useState('');
+
+  const isSearchedLink = () => {
+    if (url && title && description) {
+      return (
+        url.includes(searchItem) ||
+        title.includes(searchItem) ||
+        description.includes(searchItem)
+      );
+    }
+  };
+
+  if (searchItem && !isSearchedLink()) {
+    return null;
+  }
 
   const handleClick = (text) => {
     setAction(text);
@@ -22,7 +36,7 @@ const FolderCardItem = ({ link, folderList }) => {
 
   return (
     <div className="card">
-      <a href={url} target="_blank">
+      <a href={url} target="_blank" rel="noreferrer">
         <img className="star-icon" src={starIcon} alt="star-icon" />
         {image_source ? (
           <div className="card-img">

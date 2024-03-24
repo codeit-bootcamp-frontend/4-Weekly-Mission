@@ -16,7 +16,7 @@ const ShareFolderModal = ({ data, closeModal }) => {
   };
   const handleFacebookShare = () => {
     window.open(
-      `https://www.facebook.com/sharer/sharer.php?u=${BASE_URL}/shared/${folderId}`,
+      `https://www.facebook.com/sharer/sharer.php?u=${BASE_URL}/shared/${data.id}`,
       '페이스북 공유하기',
       'width=600,height=800,location=no,status=no,scrollbars=yes'
     );
