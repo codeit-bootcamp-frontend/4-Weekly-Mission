@@ -1,14 +1,21 @@
+import { UserFolder } from '@src/pages/Folder/FolderPage';
 import * as S from './styles/TabList.styled';
 import Tab from './Tab';
 
-function TabList({ items, activeId, onSelect }) {
-  const handleSelect = (item) => {
+interface TabListProps {
+  items: UserFolder[];
+  activeId: number | null;
+  onSelect: (value: UserFolder | null) => void;
+}
+
+function TabList({ items, activeId, onSelect }: TabListProps) {
+  const handleSelect = (item: UserFolder | null) => {
     onSelect(item);
   };
 
   return (
     <S.List>
-      <Tab item={{}} active={!activeId} onSelect={handleSelect}>
+      <Tab item={null} active={!activeId} onSelect={handleSelect}>
         전체
       </Tab>
       {items?.map((item) => {

@@ -4,9 +4,9 @@ import { UserFolder } from '@src/pages/Folder/FolderPage';
 
 interface TabProps {
   children: ReactNode;
-  item: UserFolder;
+  item: UserFolder | null;
   active: boolean;
-  onSelect: (item: UserFolder) => void;
+  onSelect: (item: UserFolder | null) => void;
 }
 
 function Tab({ children, item, active = false, onSelect }: TabProps) {

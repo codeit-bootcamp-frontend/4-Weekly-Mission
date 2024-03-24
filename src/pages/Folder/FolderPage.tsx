@@ -57,7 +57,7 @@ function FolderPage() {
     }
   };
 
-  const handleSelectFolder = (folder: UserFolder) => {
+  const handleSelectFolder = (folder: UserFolder | null) => {
     setActiveFolder(folder);
   };
 
@@ -94,7 +94,7 @@ function FolderPage() {
               <S.ContentTabBox>
                 <TabList
                   items={folders}
-                  activeId={activeFolder?.id}
+                  activeId={activeFolder?.id || null}
                   onSelect={handleSelectFolder}
                 />
                 <S.ContentTabAdd>
