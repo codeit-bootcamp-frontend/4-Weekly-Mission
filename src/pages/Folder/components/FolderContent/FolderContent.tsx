@@ -8,16 +8,38 @@ import { CardItem } from "../../../components/CardItem";
 import { AddFolderContent } from "../../../../components/Modals/AddFolderContent";
 import { Button } from "../CategoryButton/CategoryButtonStyled";
 import { FolderListDataForm, getFolderDataForm } from "interface/DataForm";
+import { useRecoilValue } from "recoil";
+import { searchState } from "recoil/SearchKeyWord";
+
+interface LoadFolderDataProps {
+  folderId: string;
+  searchKeyWord: string;
+}
 
 export function FolderContent({ data }: { data: FolderListDataForm[] }) {
   const [folder, setFolder] = useState<getFolderDataForm[]>([]);
   const [folderId, setFolderId] = useState("");
   const [activeCategoryName, setActiveCategoryName] = useState("전체");
   const [isAddToFolder, setIsAddToFolder] = useState(false);
+  const searchKeyWord = useRecoilValue(searchState);
 
-  const handleLoadFolder = async ({ folderId }: { folderId: string }) => {
+  const handleLoadFolder = async ({
+    folderId,
+    searchKeyWord,
+  }: LoadFolderDataProps) => {
     const { data } = await getFolders({ folderId });
     setFolder(data);
+
+    if (searchKeyWord) {
+      setFolder((prevFolder) =>
+        prevFolder.filter(
+          (link) =>
+            link.description?.includes(searchKeyWord) ||
+            link.url?.includes(searchKeyWord) ||
+            link.title?.includes(searchKeyWord)
+        )
+      );
+    }
   };
 
   const handleCategoryActive = (e: MouseEvent<HTMLButtonElement>) => {
@@ -34,8 +56,8 @@ export function FolderContent({ data }: { data: FolderListDataForm[] }) {
   };
 
   useEffect(() => {
-    handleLoadFolder({ folderId });
-  }, [folderId]);
+    handleLoadFolder({ folderId, searchKeyWord });
+  }, [folderId, searchKeyWord]);
 
   return (
     <>
@@ -45,6 +67,13 @@ export function FolderContent({ data }: { data: FolderListDataForm[] }) {
           handleModalClose={CloseAddToFolderModal}
         />
       )}
+      {searchKeyWord && (
+        <div className="Searching-result-comment">
+          <span className="searchKeyWord">{searchKeyWord}</span>으로 검색한
+          결과입니다.
+        </div>
+      )}
+
       <div className="classification">
         <div className="classification-buttons">
           <Button onClick={handleCategoryActive} id="" value="전체">
