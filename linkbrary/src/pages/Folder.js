@@ -1,4 +1,4 @@
-import "../global.css";
+import "../styles/global.css";
 import { useEffect, useState } from "react";
 import { styled } from "styled-components";
 import { getAPI } from "../APIUtil";

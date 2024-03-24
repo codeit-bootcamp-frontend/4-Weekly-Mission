@@ -1,4 +1,4 @@
-import "../global.css";
+import "../styles/global.css";
 import { useEffect, useState } from "react";
 import { getAPI } from "../APIUtil";
 import Header from "../components/NavBottom/Header";
