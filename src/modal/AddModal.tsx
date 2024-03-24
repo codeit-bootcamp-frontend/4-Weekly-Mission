@@ -1,20 +1,15 @@
 import ModalLayout from "./ModalLayout";
-import { MODAL_TYPE } from "./modalType";
+import { MODAL_TYPE } from "../constants/modalConstans";
 import styles from "./AddModal.module.css";
 
-interface Props {
-  isOpenModal: boolean,
-  closeModal: () => void,
-}
-
-function AddModal({ isOpenModal, closeModal }: Props) {
+function AddModal({ isOpenModal, closeModal }: ModalBaseProps) {
 
   const { add } = MODAL_TYPE;
 
   return (
     <ModalLayout
       title={add.title}
-      isOpen={isOpenModal}
+      isOpenModal={isOpenModal}
       closeModal={closeModal}
     >
       <input className={styles.inputText} type="text" placeholder={add.placeholder} />

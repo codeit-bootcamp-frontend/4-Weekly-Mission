@@ -4,16 +4,8 @@ import LinkList from "../components/LinkList";
 import SearchBar from "../components/SearchBar";
 import { getSampleFolderLinks } from "../api/api";
 
-interface Data {
-  url: string;
-  id: number;
-  imageSource: string;
-  createdAt: string;
-  description: string;
-}
-
 interface SearchData extends Data {
-  title: string;
+  title?: string;
 }
 
 function SharedPage() {

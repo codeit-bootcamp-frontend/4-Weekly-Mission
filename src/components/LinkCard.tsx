@@ -8,13 +8,7 @@ import Popover from './Popover';
 
 
 interface Props {
-  item: {
-    url: string,
-    id: string,
-    imageSource: string,
-    createdAt: string,
-    description: string,
-  }
+  item: Data
 }
 
 function LinkCard({item: {url, id, imageSource, createdAt, description}}: Props) {

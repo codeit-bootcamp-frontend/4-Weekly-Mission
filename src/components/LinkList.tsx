@@ -1,14 +1,6 @@
 import LinkCard from './LinkCard';
 import styles from '../css/LinkList.module.css';
 
-interface Data {
-  url: string;
-  id: number;
-  imageSource?: string;
-  createdAt?: string;
-  description?: string;
-}
-
 interface SearchData extends Data {
   title?: string;
 }

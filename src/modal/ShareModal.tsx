@@ -3,19 +3,14 @@ import IconKakao from "../images/Icon_Kakao.svg";
 import IconFacebook from "../images/Icon_Facebook.svg";
 import IconLink from "../images/Icon_link.svg";
 import styles from "./ShareModal.module.css";
-import { MODAL_TYPE } from "./modalType";
+import { MODAL_TYPE } from "../constants/modalConstans";
 import { FacebookShareButton } from "react-share";
 import { useScript } from "../hooks";
 import { useEffect } from "react";
 
 const currentUrl = window.location.href;
 
-interface Props {
-  isOpenModal: boolean,
-  closeModal: () => void,
-}
-
-function ShareModal({ isOpenModal, closeModal }: Props) {
+function ShareModal({ isOpenModal, closeModal }: ModalBaseProps) {
   const { share } = MODAL_TYPE;
 
 	const status = useScript("https://developers.kakao.com/sdk/js/kakao.js");
@@ -48,7 +43,7 @@ function ShareModal({ isOpenModal, closeModal }: Props) {
   return (
     <ModalLayout
       title={share.title}
-      isOpen={isOpenModal}
+      isOpenModal={isOpenModal}
       closeModal={closeModal}
     >
       <div className={styles.folderName}>폴더명</div>

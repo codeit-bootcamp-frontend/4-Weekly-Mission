@@ -8,14 +8,6 @@ import FolderMenu from "./FolderMenu";
 
 const FIRST_SELECTED_FOLDER = "전체";
 
-interface Data {
-  url: string;
-  id: number;
-  imageSource?: string;
-  createdAt?: string;
-  description?: string;
-}
-
 interface SearchData extends Data {
   title?: string;
 }

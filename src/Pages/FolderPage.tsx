@@ -4,19 +4,11 @@ import FolderList from "../components/FolderList";
 import { ChangeEvent, MouseEvent, useEffect, useState } from "react";
 import { getFolderLinksData, getFolderLists } from "../api/api";
 
-interface Data {
-  url: string;
-  id: number;
-  imageSource: string;
-  createdAt: string;
-  description: string;
-}
+const FIRST_SELECTED_FOLDER = "전체";
 
 interface SearchData extends Data {
-  title: string;
+  title?: string;
 }
-
-const FIRST_SELECTED_FOLDER = "전체";
 
 function FolderPage() {
   const [folderListData, setFolderListData] = useState([]);
