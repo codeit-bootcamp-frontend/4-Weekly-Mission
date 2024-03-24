@@ -71,9 +71,9 @@ function FolderCardList({ folders }: FolderCardListProps) {
     event.preventDefault();
   }
 
-  const handleClearSearch = () => {
+  function handleClearSearch() {
     setSearchTerm("");
-  };
+  }
 
   const handleFolderClick = (folderId: string | null, folderName: string) => {
     const url = folderId ? `https://bootcamp-api.codeit.kr/api/users/1/links?folderId=${folderId}` : `https://bootcamp-api.codeit.kr/api/users/1/links`;
