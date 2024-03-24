@@ -1,8 +1,20 @@
-.header {
+.headerTop {
   display: flex;
   justify-content: center;
   background-color: var(--background);
   padding: 60px 0 90px;
+}
+
+.headerBottom {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  justify-content: center;
+  background-color: var(--background);
+  padding: 24px 0 ;
+  z-index: 1;
 }
 
 .linkAdd {
@@ -47,14 +59,22 @@ input::placeholder {
 
 /* tablet-size */
 @media (max-width: 1199px) {
-  .header {
+  .headerTop {
     padding: 60px 32px 90px;
+  }
+
+  .headerBottom {
+    padding: 24px 32px;
   }
 }
 
 /* mobile-size */
 @media (max-width: 767px) {
-  .header {
-    padding: 24px 32px 40px;
+  .headerTop {
+    padding: 16px 32px 40px;
+  }
+
+  .headerBottom {
+    padding: 16px 32px;
   }
 }
