@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { ChangeEvent, useEffect, useState } from "react";
 import CardSearchInput from "./CardSearchInput/CardSearchInput.tsx";
 import useGet from "../../hooks/useGet";
 import CardFolderList from "./CardFolderList/CardFolderList.tsx";
@@ -58,7 +58,7 @@ export default function CardListBox() {
   };
 
   // 제대로 동작하지 않는것 같습니다
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handleInputChange = (e: ChangeEvent<HTMLInputElement>) => {
     const inputValue = e.target.value;
     setSearchValue(inputValue);
     setValue(inputValue);
