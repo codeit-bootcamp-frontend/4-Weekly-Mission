@@ -1,3 +1,4 @@
+import React from "react";
 import "../style/addLink.css";
 function AddLink() {
   return (

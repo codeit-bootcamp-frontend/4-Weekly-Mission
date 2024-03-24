@@ -1,3 +1,4 @@
+import React from "react";
 import { useEffect, useState } from "react";
 import fetchData from "../api/FetchData";
 import { formatDate, getTimeDifference } from "../util";

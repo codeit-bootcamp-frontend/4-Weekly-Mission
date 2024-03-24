@@ -1,3 +1,4 @@
+import React from "react";
 import { useEffect, useState } from "react";
 import "../style/folderComponent.css";
 import fetchData from "../api/FetchData";

@@ -1,3 +1,4 @@
+import React from "react";
 import "../style/folderList.css";
 import addImg from "../assets/add.png";
 import { useEffect, useState } from "react";

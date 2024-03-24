@@ -1,3 +1,4 @@
+import React from "react";
 import "../style/searchLink.css";
 function SearchLink() {
   return (
