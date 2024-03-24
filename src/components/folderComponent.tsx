@@ -2,8 +2,13 @@ import React from "react";
 import { useEffect, useState } from "react";
 import "../style/folderComponent.css";
 import fetchData from "../api/FetchData";
+interface FolderData {
+  ownerName: string | null;
+  folderName: string | null;
+  profileImage: string | null;
+}
 function FolderComponent() {
-  const [folderData, setFolderData] = useState({
+  const [folderData, setFolderData] = useState<FolderData>({
     ownerName: null,
     folderName: null,
     profileImage: null,
@@ -20,8 +25,7 @@ function FolderComponent() {
           });
         }
       } catch (e) {
-        console.error(e);
-        alert("error", e);
+        alert("error" + e);
       }
     };
     fetchFolderData();
@@ -31,7 +35,7 @@ function FolderComponent() {
     <div className="folder-container">
       <img
         className="profileImg"
-        src={folderData.profileImage}
+        src={folderData.profileImage ?? ""}
         alt="profileImg"
       ></img>
       <p className="ownerName">{folderData.ownerName}</p>
