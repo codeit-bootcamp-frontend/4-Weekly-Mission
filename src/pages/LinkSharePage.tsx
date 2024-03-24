@@ -55,6 +55,7 @@ function LinkSharePage() {
   }, [searchParams]);
 
   const filteredLinks = filterDataBySearchKeyword(folderData?.links || [], keyword);
+  const hasFilteredLinks = filteredLinks.length !== 0;
 
   return (
     <>
@@ -63,24 +64,29 @@ function LinkSharePage() {
       <MainLayout>
         <SearchBar placeholder={PLACEHOLDER.SEARCH_LINK} uri={location.pathname} />
         {keyword && (
-          <Styled.SearchResult>
-            <span>{keyword}</span>(으)로 검색한 결과입니다.
-          </Styled.SearchResult>
+          <>
+            <Styled.SearchResult>
+              <span>{keyword}</span>(으)로 검색한 결과입니다.
+            </Styled.SearchResult>
+            {!hasFilteredLinks && <Styled.SearchResult>검색 결과가 없습니다 😢</Styled.SearchResult>}
+          </>
         )}
 
-        <Styled.Cards>
-          <GridTemplate>
-            {filteredLinks.map((link) => (
-              <Card
-                key={link.id}
-                createdAt={link.createdAt}
-                url={link.url}
-                description={link.description}
-                imageSource={link.imageSource}
-              />
-            ))}
-          </GridTemplate>
-        </Styled.Cards>
+        {hasFilteredLinks && (
+          <Styled.Cards>
+            <GridTemplate>
+              {filteredLinks.map((link) => (
+                <Card
+                  key={link.id}
+                  createdAt={link.createdAt}
+                  url={link.url}
+                  description={link.description}
+                  imageSource={link.imageSource}
+                />
+              ))}
+            </GridTemplate>
+          </Styled.Cards>
+        )}
       </MainLayout>
     </>
   );

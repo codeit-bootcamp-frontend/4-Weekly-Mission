@@ -32,11 +32,14 @@ function FolderGridCard({ selectedFolder, keyword }: FolderGridCardProps) {
   const hasLinks = folderData.length !== 0;
 
   const filterdFolderData = filterDataBySearchKeyword(folderData, keyword);
+  const hasFilteredFolderData = filterdFolderData.length !== 0;
 
   return (
     <>
       {!hasLinks ? (
         <Styled.NoLink>해당 폴더에 저장된 링크가 없습니다 🥲</Styled.NoLink>
+      ) : !hasFilteredFolderData ? (
+        <Styled.NoLink>검색 결과가 없습니다 🥲</Styled.NoLink>
       ) : (
         <GridTemplate>
           {filterdFolderData.map((data) => (
