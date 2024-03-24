@@ -7,7 +7,7 @@ export const preventScroll = () => {
   return currentScrollY;
 };
 
-export const allowScroll = prevScrollY => {
+export const allowScroll = (prevScrollY: number) => {
   document.body.style.position = '';
   document.body.style.width = '';
   document.body.style.top = '';
