@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 import iconSearch from '../../assets/search.svg';
 import TextInput from '../pages/folderPage/TextInput';
+import { ChangeEvent } from 'react';
 
 const InputGroup = styled.div`
   display: flex;
@@ -30,9 +31,25 @@ const InputGroup = styled.div`
   }
 `;
 
-const SearchBar = () => (
+const CloseButton = styled.button`
+  width: 2.4rem;
+  height: 2.4rem;
+`;
+
+interface SearchBarProps {
+  searchString: string;
+  onChangeSearchString: (e: ChangeEvent<HTMLInputElement>) => void;
+  onResetSearchString: () => void;
+}
+
+const SearchBar = ({ searchString, onChangeSearchString, onResetSearchString }: SearchBarProps) => (
   <InputGroup>
-    <TextInput type="text" placeholder="링크를 검색해 보세요" />
+    <TextInput type="text" value={searchString} onChange={onChangeSearchString} placeholder="링크를 검색해 보세요" />
+    {searchString !== '' && (
+      <CloseButton onClick={onResetSearchString}>
+        <img src="./src/assets/close.png" />
+      </CloseButton>
+    )}
   </InputGroup>
 );
 

@@ -4,7 +4,11 @@ import LinkList from './LinkList';
 import { totalFolderId } from '../../../util/constants';
 import { FolderId } from '../../../types/types';
 
-const FolderArea = () => {
+interface FolderArea {
+  searchString: string;
+}
+
+const FolderArea = ({ searchString }: FolderArea) => {
   const [selectedFolderId, setSelectedFolderId] = useState<FolderId>(totalFolderId);
 
   const handleFolderNameClick = (id: FolderId) => {
@@ -14,7 +18,7 @@ const FolderArea = () => {
   return (
     <>
       <FolderListArea selectedFolderId={selectedFolderId} onFolderNameClick={handleFolderNameClick} />
-      <LinkList selectedFolderId={selectedFolderId} />
+      <LinkList selectedFolderId={selectedFolderId} searchString={searchString}/>
     </>
   );
 };

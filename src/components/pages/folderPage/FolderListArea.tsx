@@ -65,12 +65,12 @@ const Button = styled.button`
   }
 `;
 
-interface FolderListAreaProp {
+interface FolderListAreaProps {
   selectedFolderId: FolderId;
   onFolderNameClick: (id: FolderId) => void;
 }
 
-const FolderListArea = ({ selectedFolderId, onFolderNameClick }: FolderListAreaProp) => {
+const FolderListArea = ({ selectedFolderId, onFolderNameClick }: FolderListAreaProps) => {
   const folders = useContext<Folder[]>(FoldersContext);
   const [showModal, setShowModal] = useState(false);
 

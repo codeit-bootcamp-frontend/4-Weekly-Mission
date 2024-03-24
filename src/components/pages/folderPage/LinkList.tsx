@@ -32,35 +32,41 @@ const Title = styled.h1`
   }
 `;
 
-const NoLinks = styled.p`
-  padding: 4.1rem 0 3.5rem;
-  width: 100%;
-  line-height: 2.4rem;
-  font-size: 1.6rem;
-  text-align: center;
-`;
-
 const selectFolderName = (folders: Folder[], selectedFolderId: FolderId) => {
   const selectedFolder = folders.filter(folder => folder.id === selectedFolderId)[0];
   return selectedFolder?.name || totalFolderName;
 };
 
-const LinkList = ({ selectedFolderId }: { selectedFolderId: FolderId }) => {
+interface LinkListProps {
+  selectedFolderId: FolderId;
+  searchString: string;
+}
+
+const LinkList = ({ selectedFolderId, searchString }: LinkListProps) => {
   const folders = useContext<Folder[]>(FoldersContext);
   const [links, setLinks] = useState<Link[]>([]);
 
   const selectedFolderName = selectFolderName(folders, selectedFolderId);
-
-  const fetchLinks = async (id: FolderId) => {
-    try {
-      const links = await getUserLinks(id);
-      setLinks(links);
-    } catch (err) {
-      console.error(err);
-    }
-  };
+  const searchLinks =
+    searchString === ''
+      ? links
+      : links.filter(
+          link =>
+            link.url.toLowerCase().includes(searchString.toLowerCase()) ||
+            link.title?.toLowerCase().includes(searchString.toLowerCase()) ||
+            link.description?.toLowerCase().includes(searchString.toLowerCase())
+        );
 
   useEffect(() => {
+    const fetchLinks = async (id: FolderId) => {
+      try {
+        const links = await getUserLinks(id);
+        setLinks(links);
+      } catch (err) {
+        console.error(err);
+      }
+    };
+
     fetchLinks(selectedFolderId);
   }, [selectedFolderId]);
 
@@ -72,7 +78,7 @@ const LinkList = ({ selectedFolderId }: { selectedFolderId: FolderId }) => {
           <UpdateBtnList selectedFolderId={selectedFolderId} selectedFolderName={selectedFolderName} />
         )}
       </Header>
-      {links?.length ? <FolderList folderList={links} /> : <NoLinks>저장된 링크가 없습니다</NoLinks>}
+      <FolderList folderList={searchLinks} />
     </>
   );
 };
