@@ -29,6 +29,19 @@ export const FolderItems = styled.div`
     gap: 4rem;
   }
 `;
+export const SearchResult = styled.div`
+  margin-top: 4rem;
+  color: var(--Linkbrary-gray60, #9fa6b2);
+  font-size: 32px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  letter-spacing: -0.2px;
+`;
+
+export const SearchKeyword = styled.span`
+  color: var(--Linkbrary-gray100, #373740);
+`;
 
 export const None = styled.h2`
   color: #000;

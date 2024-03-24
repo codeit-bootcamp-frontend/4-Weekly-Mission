@@ -27,9 +27,16 @@ export const Input = styled.input`
   }
 `;
 
-export const Icon = styled.img`
+export const SearchIcon = styled.img`
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
   left: 1.6rem;
+`;
+
+export const CloseIcon = styled.img`
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  right: 1.6rem;
 `;

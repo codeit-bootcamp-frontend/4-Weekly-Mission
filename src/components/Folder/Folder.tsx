@@ -18,6 +18,8 @@ function Folder() {
 
   const [activeButton, setActiveButton] = useState("전체");
   const [selectedFolder, setSelectedFolder] = useState("");
+  const [searchTerm, setSearchTerm] = useState("");
+  const [showSearchResult, setShowSearchResult] = useState(false);
 
   useEffect(() => {
     if (selectedFolder === "" && dataArray?.length > 0) {
@@ -41,7 +43,17 @@ function Folder() {
   return (
     <S.Folder>
       <S.FolderItems>
-        <SearchBar />
+        <SearchBar
+          searchTerm={searchTerm}
+          setSearchTerm={setSearchTerm}
+          setShowSearchResult={setShowSearchResult}
+        />
+        {showSearchResult && (
+          <S.SearchResult>
+            <S.SearchKeyword>{searchTerm}</S.SearchKeyword>으로 검색한
+            결과입니다.
+          </S.SearchResult>
+        )}
         <FolderList
           activeButton={activeButton}
           handleButtonClick={handleButtonClick}
