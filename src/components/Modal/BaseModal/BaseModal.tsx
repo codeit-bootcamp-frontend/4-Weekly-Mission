@@ -1,5 +1,4 @@
-import { useEffect, useRef } from "react";
-import { ReactNode } from "react";
+import { useEffect, useRef, ReactNode } from "react";
 import styles from "./base.module.css";
 import closeIcon from "assets/images/ic_close.png";
 import { CloseModal } from "../../../utils/hooks/useModal";
