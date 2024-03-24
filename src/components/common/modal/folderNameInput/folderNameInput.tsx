@@ -1,11 +1,10 @@
-import { ChangeEvent, useState } from "react";
-import styles from "./FolderNameInput.module.css";
+import { ChangeEvent, useState } from 'react';
+import styles from './FolderNameInput.module.css';
 
-const FolderNameInput = ({ folderName = "" }) => {
+const FolderNameInput = ({ folderName = '' }) => {
   const [value, setValue] = useState(folderName);
-  const handleChange = (e: ChangeEvent<HTMLInputElement>) =>
-    setValue(e.target.value);
-  const active = value ? "active" : "";
+  const handleChange = (e: ChangeEvent<HTMLInputElement>) => setValue(e.target.value);
+  const active = value ? 'active' : '';
 
   return (
     <input
