@@ -7,15 +7,15 @@ import { FoldersContext } from '../../context/foldersContext';
 
 const Add = ({ link, onCloseModal }: { link: string; onCloseModal: () => void }) => {
   const folders = useContext(FoldersContext);
-  
+
   return (
     <Frame onCloseModal={onCloseModal}>
       <Title title="폴더에 추가" content={link} />
       <ul className={styles.optionList}>
         {folders.map(({ id, name, link: { count } }) => (
           <li className={styles.optionName} key={id}>
-            <input type="radio" id={id} name="folder" value={name} className={styles.inputRadio} />
-            <label className={styles.label} htmlFor={id}>
+            <input type="radio" id={`${id}`} name="folder" value={name} className={styles.inputRadio} />
+            <label className={styles.label} htmlFor={`${id}`}>
               <div className={styles.folderInfo}>
                 <span className={styles.folderName}>{name}</span>
                 <span className={styles.linkCount}>{count}개 링크</span>
