@@ -5,11 +5,13 @@ import "./Folder.css";
 import FolderLinkList from "../components/folder/FolderLinkList";
 import Footer from "../components/Footer";
 import "./Main.css";
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 function Folder() {
   const [Folderkeywords, setFolderKeywords] = useState("");
   const [addLinkOn, setAddLinkOn] = useState(false);
+  const [addLinkState, setAddLinkState] = useState(true);
+  const [footerState, setFooterState] = useState(false);
   const [domNode, setDomNode] = useState<HTMLDivElement | null>(null);
   const footerRef = useRef<HTMLDivElement>(null);
 
@@ -18,10 +20,19 @@ function Folder() {
 
   function handleIntersect(entries: any, observe: any) {
     entries.forEach((entry: any) => {
-      if (entry.isIntersecting === false) {
-        setAddLinkOn(true);
-      } else {
-        setAddLinkOn(false);
+      if (entry.target === AddLinkElement) {
+        if (entry.isIntersecting === false) {
+          setAddLinkState(false);
+        } else {
+          setAddLinkState(true);
+        }
+      }
+      if (entry.target === footerElement) {
+        if (entry.isIntersecting === false) {
+          setFooterState(false);
+        } else {
+          setFooterState(true);
+        }
       }
     });
   }
@@ -51,6 +62,14 @@ function Folder() {
     },
     false
   );
+
+  useEffect(() => {
+    if (addLinkState === false && footerState === false) {
+      setAddLinkOn(true);
+    } else {
+      setAddLinkOn(false);
+    }
+  }, [addLinkState, footerState]);
 
   return (
     <>
