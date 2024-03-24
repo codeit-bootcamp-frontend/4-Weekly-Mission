@@ -3,6 +3,7 @@ import classNames from "classnames/bind";
 import {
   InputHTMLAttributes,
   MouseEvent,
+  MouseEventHandler,
   useCallback,
   useRef,
   useState,
@@ -21,8 +22,8 @@ interface Props extends InputHTMLAttributes<HTMLInputElement> {
   description: string;
   createdAt: Date;
   popoverPosition: string;
-  onDeleteClick: (e: MouseEvent) => void;
-  onAddToFolderClick: (e: MouseEvent) => void;
+  onDeleteClick: MouseEventHandler<HTMLButtonElement>;
+  onAddToFolderClick: MouseEventHandler<HTMLButtonElement>;
 }
 
 export const EditableCard = ({

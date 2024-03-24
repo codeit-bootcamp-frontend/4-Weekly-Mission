@@ -6,7 +6,12 @@ import { ModalContentBox } from "../../sharing/ui-modal-content-box";
 import { ModalContentButton } from "../../sharing/ui-modal-content-button";
 import { ModalContentDescription } from "../../sharing/ui-modal-content-description";
 import { ModalContentTitle } from "../../sharing/ui-modal-content-title";
-import { ChangeEvent, MouseEvent } from "react";
+import {
+  ChangeEvent,
+  KeyboardEventHandler,
+  MouseEvent,
+  MouseEventHandler,
+} from "react";
 
 const cx = classNames.bind(styles);
 
@@ -14,11 +19,11 @@ interface Props {
   isOpen: boolean;
   folders: string;
   selectedLinkUrl: string;
-  selectedFolderId: number;
-  setSelectedFolderId: string;
-  onAddClick: (e: MouseEvent) => void;
-  onCloseClick: (e: MouseEvent) => void;
-  onKeyDown: (e: ChangeEvent) => void;
+  selectedFolderId: number | string;
+  setSelectedFolderId: number | string;
+  onAddClick: MouseEventHandler<HTMLButtonElement>;
+  onCloseClick: MouseEventHandler<HTMLButtonElement>;
+  onKeyDown: KeyboardEventHandler<HTMLElement>;
 }
 
 export const AddLinkModal = ({

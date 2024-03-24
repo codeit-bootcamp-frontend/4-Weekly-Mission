@@ -1,11 +1,11 @@
-import { ReactNode } from "react";
+import { MouseEventHandler, ReactNode } from "react";
 import styles from "./ModalContentButton.module.scss";
 import classNames from "classnames/bind";
 
 interface Props {
   children: ReactNode;
-  // onClick: any;
-  themeColor: string;
+  onClick: MouseEventHandler<HTMLButtonElement>;
+  themeColor?: string;
 }
 
 const cx = classNames.bind(styles);

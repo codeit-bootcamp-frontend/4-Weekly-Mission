@@ -110,6 +110,7 @@ export const FolderToolBar = ({
             onKeyDown={handleKeyDown}
           />
           <AlertModal
+            onClick={null}
             isOpen={currentModal === MODALS_ID.delete}
             title="폴더 삭제"
             description={folderName}
