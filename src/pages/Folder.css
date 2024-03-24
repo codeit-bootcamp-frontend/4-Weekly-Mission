@@ -13,3 +13,15 @@
   align-items: center;
   justify-content: center;
 }
+
+.add-link-background-bottom {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  height: 117px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #f0f6ff;
+  z-index: 999;
+}

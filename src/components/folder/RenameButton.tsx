@@ -13,7 +13,7 @@ function RenameButton() {
   return (
     <>
       <button onClick={handleModalOn} className="share-rename-delete-button">
-        <img src={rename} />
+        <img src={rename} alt="rename" />
         이름 변경
       </button>
       {modalOn && (

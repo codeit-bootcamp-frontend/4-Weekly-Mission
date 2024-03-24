@@ -3,9 +3,18 @@ import "../common.css";
 import card1 from "../../images/card1.png";
 import { formatDate, getDaysAgo } from "../../util/date-calculator";
 import { useEffect, useState } from "react";
-import { GetFolder } from "../../api/api";
+import { GetFolder } from "../../api";
 
-function CardListItem({ item }) {
+interface Item {
+  id: number;
+  createdAt: string;
+  url: string;
+  title: string;
+  description: string;
+  imageSource: string;
+}
+
+function CardListItem({ item }: { item: Item }) {
   const href = item.url;
 
   return (
@@ -48,7 +57,7 @@ function CardList() {
   }, []);
   return (
     <ul>
-      {links.map((item, i) => {
+      {links.map((item: Item, i) => {
         return (
           <li key={item.id}>
             <CardListItem item={item} />

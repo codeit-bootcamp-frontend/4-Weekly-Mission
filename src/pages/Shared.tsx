@@ -4,8 +4,10 @@ import LinkSearch from "../components/LinkSearch";
 import CardList from "../components/shared/CardList";
 import Footer from "../components/Footer";
 import "./Main.css";
+import { useState } from "react";
 
 function Shared() {
+  const [sharedKeywords, setSharedKeywords] = useState("");
   return (
     <>
       <div className="flex flex-col">
@@ -13,7 +15,7 @@ function Shared() {
         <Favorites />
       </div>
       <div className="link-search-card-list">
-        <LinkSearch />
+        <LinkSearch setKeywords={setSharedKeywords} />
         <CardList />
       </div>
       <Footer />

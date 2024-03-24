@@ -7,7 +7,7 @@ import styled from "styled-components";
 // kakao 기능 동작을 위해 넣어준다.
 const { Kakao } = window;
 
-const handleShareKakao = (shareLink) => {
+const handleShareKakao = (shareLink: string) => {
   Kakao.Share.sendDefault({
     objectType: "feed",
     content: {
@@ -50,7 +50,7 @@ const SNSImg = styled.button`
   border: none;
 `;
 
-export default function ShareKakao({ folderId }) {
+export default function ShareKakao({ folderId }: { folderId: number }) {
   // 배포한 자신의 사이트
   const realUrl = "";
   // 로컬 주소 (localhost 3000 같은거)
@@ -61,7 +61,7 @@ export default function ShareKakao({ folderId }) {
     // init 해주기 전에 clean up 을 해준다.
     Kakao.cleanup();
     // 자신의 js 키를 넣어준다.
-    Kakao.init("cce6117ad83541674709950190592811");
+    Kakao.init(process.env.REACT_APP_KAKAO_INIT_KEY);
     // 잘 적용되면 true 를 뱉는다.
     // console.log(Kakao.isInitialized());
   }, []);

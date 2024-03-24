@@ -2,7 +2,13 @@ import styled from "styled-components";
 import modalCloseIcon from "../../images/cancel-icon.png";
 import "../../colors.css";
 
-function EditModal({ purpose, handleModalOff }) {
+function EditModal({
+  purpose,
+  handleModalOff,
+}: {
+  purpose: string;
+  handleModalOff: any;
+}) {
   let buttonText = "";
   if (purpose === "폴더 이름 변경") {
     buttonText = "변경하기";

@@ -1,4 +1,6 @@
-function Profile({ info }) {
+import Info from "./Info";
+
+function Profile({ info }: { info: Info }) {
   if (Object.keys(info).length === 0) {
     return <button className="btn cta">로그인</button>;
   }

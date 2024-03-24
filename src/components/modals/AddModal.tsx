@@ -3,12 +3,23 @@ import modalCloseIcon from "../../images/cancel-icon.png";
 import "../../colors.css";
 import { useState } from "react";
 import checkImg from "../../images/check.png";
+import FolderData from "../folder/FolderData";
 
-function AddModal({ purpose, url, handleModalOff, folderListData }) {
-  const [checkOn, setCheckOn] = useState(null);
+function AddModal({
+  purpose,
+  url,
+  handleModalOff,
+  folderListData,
+}: {
+  purpose: string;
+  url: string;
+  handleModalOff: any;
+  folderListData: FolderData[];
+}) {
+  const [checkOn, setCheckOn] = useState<number | null>(null);
   let buttonText = "";
   let message = "";
-  if ((purpose = "폴더에 추가")) {
+  if (purpose === "폴더에 추가") {
     buttonText = "추가하기";
     message = url;
   }

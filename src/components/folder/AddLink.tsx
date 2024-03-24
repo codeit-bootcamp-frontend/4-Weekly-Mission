@@ -2,11 +2,12 @@ import { useEffect, useState } from "react";
 import link from "../../images/link.png";
 import AddModal from "../modals/AddModal";
 import "./AddLink.css";
-import { GetFolderList } from "../../api/api";
+import { GetFolderList } from "../../api";
 
-function AddLink() {
-  const [modalOn, setModalOn] = useState(false);
-  const [folderListData, setFolderListData] = useState([]);
+function AddLink({ setDomNode }: { setDomNode: any }) {
+  const [modalOn, setModalOn] = useState<boolean>(false);
+  const [folderListData, setFolderListData] = useState<any[]>([]);
+
   useEffect(() => {
     const GetMyFolderList = async () => {
       const result = await GetFolderList();
@@ -15,6 +16,7 @@ function AddLink() {
     };
     try {
       GetMyFolderList();
+      setDomNode(document.querySelector(".add-link-input-form"));
     } catch (err) {
       console.log(err);
     }
@@ -26,7 +28,7 @@ function AddLink() {
   return (
     <>
       <div className="add-link-input-form">
-        <img className="link-image" src={link} />
+        <img className="link-image" src={link} alt="link" />
         <input className="add-link-input" placeholder="링크를 추가해 보세요" />
 
         <button onClick={() => setModalOn(true)} className="btn cta add-button">
