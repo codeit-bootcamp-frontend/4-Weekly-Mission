@@ -3,7 +3,7 @@ import { CardList } from "@components/CardList";
 import { Profile } from "@components/Profile";
 import Footer from "@components/Footer/Footer";
 import { END_POINT } from "@/constants";
-import CardSearchInput from "@components/CardListBox/CardSearchInput/CardSearchInput";
+// import CardSearchInput from "@components/CardListBox/CardSearchInput/CardSearchInput";
 import styles from "./SharedPage.module.scss";
 import { CSSProperties, useEffect, useState } from "react";
 import { FolderData } from "@/constants/index.types";
@@ -27,7 +27,7 @@ export default function SharedPage() {
       <Header headerPosition={headerPosition} />
       <Profile fetchData={fetchData} />
       <section className={styles.CardListBox}>
-        <CardSearchInput />
+        {/* <CardSearchInput /> */}
         <CardList links={fetchData?.links} />
       </section>
       <Footer />

@@ -1,9 +1,6 @@
 import { useEffect, useState } from "react";
 
 export default function useGet<T>(url: string) {
-  // const [data, setData] = useState<
-  //   UserFolderProps | UserDataProps | FormetLinkProps
-  // >();
   const [data, setData] = useState<T | []>([]);
   const [isLoading, setIsLoading] = useState(true);
 
@@ -12,7 +9,7 @@ export default function useGet<T>(url: string) {
       const response = await fetch(url);
       const result = await response.json();
       setData(result.data);
-      console.log(result.data);
+      // console.log(result.data);
     } catch (error: unknown) {
       if (error instanceof Error) {
         console.log(error.message);

@@ -19,6 +19,10 @@ export default function CardListBox() {
   const [changeLinksFolder, setChangeLinksFolder] = useState(END_POINT.links);
   const [linksTitle, setLinksTitle] = useState(`전체`);
 
+  // 작업중 =====
+  const [searchLinks, setSearchLinks] = useState<LinkProps[]>([]);
+  const [searchValue, setSearchValue] = useState("");
+
   const { data: foldersData, isLoading: isFoldersLoading } = useGet<
     UserFolderProps[]
   >(END_POINT.folders);
@@ -32,6 +36,7 @@ export default function CardListBox() {
       const strangeData = linksData;
       const rightData = getFormattedLinks(strangeData);
       setLinks(rightData);
+      setSearchLinks(rightData);
     }
   }, [foldersData, isFoldersLoading, linksData, isLinksLoading]);
 
@@ -45,13 +50,25 @@ export default function CardListBox() {
     setLinksTitle(`전체`);
   };
 
-  // const handleInputChange = (value) => {
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const inputValue = e.target.value;
+    setSearchValue(inputValue);
+  };
 
-  // }
+  useEffect(() => {
+    if (searchValue !== "") {
+      const filteredLinks = links.filter((link) => {
+        return Object.values(link).join("").includes(searchValue);
+      });
+      setLinks(filteredLinks);
+    } else {
+      setLinks(searchLinks);
+    }
+  }, [searchValue]);
 
   return (
     <main className={styles.CardListBox}>
-      <CardSearchInput />
+      <CardSearchInput handleInputChange={handleInputChange} />
       <section className={styles.cardList}>
         <CardFolderList
           folders={folders}
