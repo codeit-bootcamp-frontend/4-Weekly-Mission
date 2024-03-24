@@ -5,7 +5,13 @@ import styles from './Popover.module.css';
 import DeleteLink from '../../common/modal/DeleteLink';
 import Add from '../../common/modal/Add';
 
-const Popover = ({ url, show, onPopoverClick }) => {
+interface PopoverProps {
+  url: string;
+  show: boolean;
+  onPopoverClick: (e: MouseEvent) => void;
+}
+
+const Popover = ({ url, show, onPopoverClick }: PopoverProps) => {
   const [showDeleteModal, setShowDeleteModal] = useState(false);
   const [showAddModal, setShowAddModal] = useState(false);
 

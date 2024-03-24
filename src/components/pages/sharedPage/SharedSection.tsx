@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import { getSampleFolder } from '../../../util/api';
 import SearchBar from '../../common/SearchBar';
 import FolderList from './FolderList';
+import { Link } from '../../../types/types';
 
 const SharedArea = styled.section`
   margin: 0 auto;
@@ -19,7 +20,7 @@ const SharedArea = styled.section`
 `;
 
 const SharedSection = () => {
-  const [folderList, setFolderList] = useState([]);
+  const [folderList, setFolderList] = useState<Link[]>([]);
 
   const fetchFolder = async () => {
     try {
