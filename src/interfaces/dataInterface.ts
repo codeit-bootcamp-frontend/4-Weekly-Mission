@@ -31,6 +31,7 @@ export interface UserInfoData {
 export interface UserLinksData {
   id: number;
   url: string;
+  title: string;
   description: string;
   image_source: string | null;
   created_at: string;

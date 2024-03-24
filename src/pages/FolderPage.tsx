@@ -71,19 +71,18 @@ const Styled = {
 };
 
 function FolderPage() {
-  const { data } = useUserFoldersQuery({ userId: 1 });
-  let folderList = [{ id: 1, name: '전체' }, ...(data?.data?.data || [])];
-  const [selectedTabName, setSelectedTabName] = useState('전체');
-  const [selectedFolder, setSelectedFolder] = useState(1);
-
   const location = useLocation();
   const [searchParams] = useSearchParams();
+  const [selectedTabName, setSelectedTabName] = useState('전체');
+  const [selectedFolder, setSelectedFolder] = useState(1);
   const [keyword, setKeyword] = useState(searchParams.get('keyword'));
 
   useEffect(() => {
     setKeyword(searchParams.get('keyword'));
   }, [searchParams]);
 
+  const { data } = useUserFoldersQuery({ userId: 1 });
+  let folderList = [{ id: 1, name: '전체' }, ...(data?.data?.data || [])];
   const hasFolders = folderList.length !== 0;
 
   return (
@@ -118,7 +117,7 @@ function FolderPage() {
               {selectedTabName !== '전체' && <OptionBtns />}
             </Styled.TitleAndOptions>
             <FloatButton>폴더추가</FloatButton>
-            <FolderGridCard selectedFolder={selectedFolder} />
+            <FolderGridCard keyword={keyword} selectedFolder={selectedFolder} />
           </>
         )}
       </MainLayout>

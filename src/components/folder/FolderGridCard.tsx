@@ -5,6 +5,7 @@ import useUserSpecipicLinkQuery from 'hooks/api/link/useUserSpecipicLinkQuery';
 
 import Card from 'components/common/card/Card';
 import { UserLinksData } from 'interfaces/dataInterface';
+import filterDataBySearchKeyword from 'utils/filterDataBySearchKeyword';
 
 const Styled = {
   NoLink: styled.div`
@@ -17,7 +18,12 @@ const Styled = {
   `,
 };
 
-function FolderGridCard({ selectedFolder }: { selectedFolder: number }) {
+interface FolderGridCardProps {
+  selectedFolder: number;
+  keyword: string | null;
+}
+
+function FolderGridCard({ selectedFolder, keyword }: FolderGridCardProps) {
   let queryHook;
   selectedFolder === 1 ? (queryHook = useUserLinksQuery) : (queryHook = useUserSpecipicLinkQuery);
 
@@ -25,13 +31,15 @@ function FolderGridCard({ selectedFolder }: { selectedFolder: number }) {
   const folderData: UserLinksData[] = data?.data?.data || [];
   const hasLinks = folderData.length !== 0;
 
+  const filterdFolderData = filterDataBySearchKeyword(folderData, keyword);
+
   return (
     <>
       {!hasLinks ? (
         <Styled.NoLink>해당 폴더에 저장된 링크가 없습니다 🥲</Styled.NoLink>
       ) : (
         <GridTemplate>
-          {folderData.map((data) => (
+          {filterdFolderData.map((data) => (
             <Card
               key={data.id}
               createdAt={data.created_at}
