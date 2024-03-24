@@ -12,12 +12,26 @@ const List = styled.ul`
   }
 `;
 
+const NoLinks = styled.p`
+  padding: 4.1rem 0 3.5rem;
+  width: 100%;
+  line-height: 2.4rem;
+  font-size: 1.6rem;
+  text-align: center;
+`;
+
 const FolderList = ({ folderList }: { folderList: Link[] }) => (
-  <List>
-    {folderList.map(({ id, url, description, createdAt, imageSource }) => (
-      <LinkCard key={id} url={url} createdAt={createdAt} description={description} imageSource={imageSource} />
-    ))}
-  </List>
+  <>
+    {folderList.length === 0 ? (
+      <NoLinks>저장된 링크가 없습니다</NoLinks>
+    ) : (
+      <List>
+        {folderList.map(({ id, url, description, createdAt, imageSource }) => (
+          <LinkCard key={id} url={url} createdAt={createdAt} description={description} imageSource={imageSource} />
+        ))}
+      </List>
+    )}
+  </>
 );
 
 export default FolderList;
