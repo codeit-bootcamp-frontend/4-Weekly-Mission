@@ -2,17 +2,17 @@ import styled from "styled-components";
 
 export const Container = styled.button`
   ${({ theme }) => theme.displays.rowCenter};
-  width: 120px;
-  gap: 4px;
+  width: 7.5rem;
+  gap: 0.25rem;
 
   @media ${({ theme }) => theme.devices.mobile} {
     position: fixed;
     left: 50%;
-    bottom: 101px;
+    bottom: 6.3rem;
     transform: translateX(-50%);
     z-index: 33;
-    width: 140px;
-    padding: 8px 24px;
+    width: 8.75rem;
+    padding: 0.5rem 1.5rem;
 
     border-radius: 20px;
     border: 1px solid ${({ theme }) => theme.colors.white};

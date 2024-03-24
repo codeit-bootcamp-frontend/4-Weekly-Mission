@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef, forwardRef } from "react";
-import SelectMenu from "../Popover/SelectMenu";
+import SelectMenu from "./Popover/SelectMenu";
 import {
   CARD_NONE_IMAGE,
   CARD_STAR,
@@ -27,9 +27,8 @@ const Card = forwardRef(({ cardData, folderList }: Props, ref) => {
       if (
         selectMenuRef.current &&
         !selectMenuRef.current.contains(event.target as Node)
-      ) {
-        setIsToggledKebab(null);
-      }
+      )
+        return setIsToggledKebab(null);
     };
 
     document.addEventListener("mousedown", handleClickOutside);
@@ -39,7 +38,7 @@ const Card = forwardRef(({ cardData, folderList }: Props, ref) => {
   }, []);
 
   return cardData.map((card) => (
-    <S.Container key={card.id} target="_blank" rel="noreferrer">
+    <S.Container key={card.id} href={card.url} target="_blank" rel="noreferrer">
       <S.ImageBox>
         <S.Image
           src={card.image_source ?? CARD_NONE_IMAGE}
@@ -56,7 +55,10 @@ const Card = forwardRef(({ cardData, folderList }: Props, ref) => {
           <S.Kebab
             src={CARD_KEBAB}
             alt="kebab"
-            onClick={() => handleClickKebab(card.id)}
+            onClick={(e) => {
+              e.preventDefault();
+              handleClickKebab(card.id);
+            }}
           />
         </S.KebabBox>
         {isToggledKebab === card.id && (

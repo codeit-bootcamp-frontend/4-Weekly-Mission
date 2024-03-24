@@ -1,7 +1,7 @@
 import LandingHeader from "./Header/LandingHeader";
 import LandingMain from "./Main/LandingMain";
 
-const Landing = () => {
+const LandingPage = () => {
   return (
     <>
       <LandingHeader />
@@ -10,4 +10,4 @@ const Landing = () => {
   );
 };
 
-export default Landing;
+export default LandingPage;

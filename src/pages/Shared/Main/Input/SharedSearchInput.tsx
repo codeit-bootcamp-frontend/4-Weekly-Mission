@@ -9,8 +9,8 @@ interface Props {
 }
 
 const SearchLink = ({ cardData, setSearchFilter }: Props) => {
-  const [search, setSearch] = useState("");
   const [showMessage, setShowMessage] = useState(false);
+  const [search, setSearch] = useState("");
 
   const showSearchData = (event: React.ChangeEvent<HTMLInputElement>) => {
     const keyword = event.target.value;
@@ -27,9 +27,9 @@ const SearchLink = ({ cardData, setSearchFilter }: Props) => {
   };
 
   const resetSearchData = () => {
-    setSearch("");
-    setShowMessage(false);
     setSearchFilter(cardData);
+    setShowMessage(false);
+    setSearch("");
   };
 
   useEffect(() => {

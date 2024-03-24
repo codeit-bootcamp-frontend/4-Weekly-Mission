@@ -2,17 +2,17 @@ import styled from "styled-components";
 
 export const Container = styled.main`
   ${({ theme }) => theme.displays.columnCenter};
-  padding: 120px 0;
-  gap: 100px;
+  padding: 7.5rem 0;
+  gap: 6.25rem;
 
   background: ${({ theme }) => theme.colors.white};
 
   @media ${({ theme }) => theme.devices.tablet} {
-    padding: 80px 0;
+    padding: 5rem 0;
   }
   @media ${({ theme }) => theme.devices.mobile} {
-    padding: 40px 32px;
-    gap: 80px;
+    padding: 2.5rem 2rem;
+    gap: 5rem;
   }
 `;
 
@@ -21,13 +21,13 @@ export const Section = styled.section`
   grid-template-columns: repeat(2, auto);
   grid-template-rows: repeat(2, auto);
 
-  width: 998px;
-  column-gap: 100px;
-  row-gap: 10px;
+  width: 62.4rem;
+  column-gap: 6.25rem;
+  row-gap: 0.6rem;
 
   @media ${({ theme }) => theme.devices.tablet} {
-    width: 700px;
-    column-gap: 51px;
+    width: 43.8rem;
+    column-gap: 3.2rem;
   }
   @media ${({ theme }) => theme.devices.mobile} {
     grid-template-columns: auto;
@@ -43,9 +43,9 @@ export const Title = styled.h2<{ $isEven: boolean }>`
   align-self: end;
   justify-self: ${({ $isEven }) => ($isEven ? "start" : "end")};
 
-  width: 291px;
-  grid-row: 1;
+  width: 18.2rem;
   grid-column: ${({ $isEven }) => ($isEven ? 1 : 2)};
+  grid-row: 1;
 
   ${({ theme }) => theme.fonts.title};
   ${({ theme }) => theme.bolds.titleBold};
@@ -86,8 +86,8 @@ export const Image = styled.img<{ $isEven: boolean }>`
   width: 550px;
   height: 450px;
 
-  grid-row: span 2;
   grid-column: ${({ $isEven }) => ($isEven ? 2 : 1)};
+  grid-row: span 2;
 
   border-radius: 15px;
 
@@ -101,7 +101,7 @@ export const Image = styled.img<{ $isEven: boolean }>`
 
     width: 100%;
     height: 100%;
-    padding: 20px 0 16px;
+    padding: 1.25rem 0 1rem;
 
     grid-column: 1;
     grid-row: 2;

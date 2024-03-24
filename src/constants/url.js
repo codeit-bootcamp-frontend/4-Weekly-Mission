@@ -13,9 +13,9 @@ export const BASE_URL = "https://bootcamp-api.codeit.kr/api";
 export const SHARED_API_URL =
   "https://bootcamp-api.codeit.kr/api/sample/folder";
 export const FOLDER_LIST_API_URL =
-  "https://bootcamp-api.codeit.kr/api/users/1/folders";
+  "https://bootcamp-api.codeit.kr/api/users/4/folders";
 export const FOLDER_CARD_DATA_API_URL =
-  "https://bootcamp-api.codeit.kr/api/users/1/links";
+  "https://bootcamp-api.codeit.kr/api/users/4/links";
 
 /* SECTION - 공유 링크 */
 

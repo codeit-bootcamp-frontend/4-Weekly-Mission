@@ -4,15 +4,18 @@ export const Container = styled.nav<{ $path: string }>`
   position: ${({ $path }) =>
     $path !== "/folder" && $path !== "/shared" ? "sticky" : "static"};
   top: 0;
-  gap: 8px;
-  padding: 20px 200px;
-  z-index: 99;
 
   ${({ theme }) => theme.displays.spaceBetween};
+
+  padding: 1.25rem 12.5rem;
+  gap: 8px;
+
   background: ${({ theme }) => theme.colors.background};
 
+  z-index: 99;
+
   @media ${({ theme }) => theme.devices.tablet} {
-    padding: 20px 32px 20px 0;
+    padding: 1.25rem 2rem 1.25rem 0;
   }
 
   @media ${({ theme }) => theme.devices.mobile} {
@@ -24,7 +27,7 @@ export const Logo = styled.img`
   height: 24px;
 
   @media ${({ theme }) => theme.devices.tablet} {
-    padding-left: 32px;
+    padding-left: 2rem;
   }
 
   @media ${({ theme }) => theme.devices.mobile} {

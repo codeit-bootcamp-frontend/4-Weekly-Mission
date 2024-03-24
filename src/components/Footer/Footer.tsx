@@ -46,15 +46,14 @@ const Footer = () => {
         <Link to="/faq">FAQ</Link>
       </S.LinkBox>
       <S.SocialBox>
-        {FOOTER_ICON_LIST &&
-          FOOTER_ICON_LIST.map((icon) => (
-            <Icon
-              key={icon.alt}
-              url={icon.url}
-              image={icon.image}
-              alt={icon.alt}
-            />
-          ))}
+        {FOOTER_ICON_LIST.map((icon) => (
+          <Icon
+            key={icon.alt}
+            url={icon.url}
+            image={icon.image}
+            alt={icon.alt}
+          />
+        ))}
       </S.SocialBox>
     </S.Container>
   );

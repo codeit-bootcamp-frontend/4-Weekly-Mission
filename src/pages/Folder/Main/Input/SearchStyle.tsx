@@ -4,9 +4,9 @@ export const Container = styled.section`
   display: flex;
   flex-direction: column;
 
-  max-width: 1060px;
+  max-width: 66.25rem;
   width: 100%;
-  gap: 40px;
+  gap: 2.5rem;
 `;
 
 export const InputBox = styled.div`
@@ -14,8 +14,8 @@ export const InputBox = styled.div`
   align-items: center;
 
   width: 100%;
-  padding: 15px 16px;
-  gap: 10px;
+  padding: 0.94rem 1rem;
+  gap: 0.625rem;
   border-radius: 10px;
   background: ${({ theme }) => theme.colors.grayLight};
 `;

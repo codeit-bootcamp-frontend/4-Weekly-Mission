@@ -11,18 +11,19 @@ interface Props {
 
 const SelectMenu = forwardRef<HTMLDivElement, Props>(
   ({ url, folderList }, ref) => {
-    const [isToggledListModal, setIsToggledListModal] = useState(false);
     const [isToggledDeleteModal, setIsToggledDeleteModal] = useState(false);
+    const [isToggledListModal, setIsToggledListModal] = useState(false);
 
-    const handleListModal = () => {
-      setIsToggledListModal(!isToggledListModal);
-    };
     const handleDeleteModal = () => {
       setIsToggledDeleteModal(!isToggledDeleteModal);
     };
 
+    const handleListModal = () => {
+      setIsToggledListModal(!isToggledListModal);
+    };
+
     return (
-      <S.Container ref={ref}>
+      <S.Container ref={ref} onClick={(e) => e.preventDefault()}>
         <S.Delete onClick={handleDeleteModal}>삭제하기</S.Delete>
         <S.Add onClick={handleListModal}>폴더에 추가</S.Add>
         {isToggledDeleteModal && (

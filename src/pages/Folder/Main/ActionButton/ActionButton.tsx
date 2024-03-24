@@ -4,8 +4,8 @@ import { ADD_FOLDER_ICON, ACTION_BUTTON_ICON } from "constants/image";
 import * as S from "./ActionButtonStyle";
 
 const ActionButton = () => {
-  const [changeIcon, setChangeIcon] = useState(ADD_FOLDER_ICON);
   const [isToggledModal, setIsToggeldModal] = useState(false);
+  const [changeIcon, setChangeIcon] = useState(ADD_FOLDER_ICON);
 
   useEffect(() => {
     const handleChangeIcon = () => {

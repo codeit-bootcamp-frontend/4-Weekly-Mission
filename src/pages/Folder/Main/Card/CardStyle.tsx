@@ -2,10 +2,10 @@ import styled from "styled-components";
 
 export const Container = styled.a`
   position: relative;
-  width: 340px;
+  width: 21.25rem;
 
-  box-shadow: 0px 5px 25px 0px rgba(0, 0, 0, 0.08);
   border-radius: 15px;
+  box-shadow: 0px 5px 25px 0px rgba(0, 0, 0, 0.08);
 `;
 
 export const Image = styled.img`
@@ -21,7 +21,7 @@ export const Image = styled.img`
 
 export const ImageBox = styled.div`
   position: relative;
-  height: 200px;
+  height: 12.5rem;
   overflow: hidden;
   border-radius: 15px 15px 0 0;
 `;
@@ -29,9 +29,9 @@ export const ImageBox = styled.div`
 export const TextBox = styled.div`
   display: flex;
   flex-direction: column;
-  width: 340px;
-  padding: 15px 20px;
-  gap: 10px;
+  width: 21.25rem;
+  padding: 0.94rem 1.25rem;
+  gap: 0.62rem;
   border-radius: 0 0 15px 15px;
   background: ${({ theme }) => theme.colors.white};
 
@@ -46,7 +46,7 @@ export const Time = styled.div`
 `;
 
 export const Content = styled.p`
-  height: 49px;
+  height: 3.1rem;
   align-self: stretch;
   overflow: hidden;
   color: ${({ theme }) => theme.colors.black};
@@ -73,6 +73,8 @@ export const Kebab = styled.img`
   width: 21px;
   height: 17px;
   cursor: pointer;
+
+  z-index: 10;
 `;
 
 export const KebabBox = styled.div`

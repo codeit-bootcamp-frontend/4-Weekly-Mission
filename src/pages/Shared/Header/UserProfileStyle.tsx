@@ -3,11 +3,11 @@ import styled from "styled-components";
 export const Container = styled.header`
   ${({ theme }) => theme.displays.columnCenter}
   margin: 0 auto;
-  padding: 20px 0 60px;
-  gap: 8px;
+  padding: 1.25rem 0 3.75rem;
+  gap: 0.5rem;
 
   @media ${({ theme }) => theme.devices.mobile} {
-    padding: 10px 0 40px;
+    padding: 0.63rem 0 2.5rem;
   }
 `;
 
@@ -38,6 +38,5 @@ export const Folder = styled.h2`
 
   @media ${({ theme }) => theme.devices.mobile} {
     ${({ theme }) => theme.fonts.subTitleSmall};
-    letter-spacing: -0.2px;
   }
 `;

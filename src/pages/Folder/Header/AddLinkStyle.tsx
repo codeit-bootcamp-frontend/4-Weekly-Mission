@@ -1,21 +1,27 @@
 import styled from "styled-components";
 
-export const Container = styled.div`
-  ${({ theme }) => theme.displays.spaceBetween};
-  max-width: 800px;
+export const Container = styled.header`
+  ${({ theme }) => theme.displays.rowCenter};
   width: 100%;
-  padding: 16px 20px;
-  gap: 8px;
+  padding: 3.75rem 2rem 5.62rem;
+`;
+
+export const Box = styled.div`
+  ${({ theme }) => theme.displays.spaceBetween};
+  max-width: 50rem;
+  width: 100%;
+  padding: 1rem 1.25rem;
+  gap: 0.5rem;
 
   border-radius: 15px;
   border: 1px solid ${({ theme }) => theme.colors.primary};
   background: ${({ theme }) => theme.colors.white};
 `;
 
-export const Box = styled.div`
+export const BoxInput = styled.div`
   ${({ theme }) => theme.displays.rowCenter};
   width: 100%;
-  gap: 12px;
+  gap: 0.75rem;
 `;
 
 export const Image = styled.img`
