@@ -1,7 +1,7 @@
-export function timeCalculate(createdAt) {
+export function timeCalculate(createdAt: Date | string): string | undefined {
   const createdDate = new Date(createdAt);
   const now = new Date();
-  const timeDiffInSeconds = Math.floor((now - createdDate) / 1000);
+  const timeDiffInSeconds = Math.floor((now.getTime() - createdDate.getTime()) / 1000);
   const timeDiffInMinutes = Math.floor(timeDiffInSeconds / 60);
   const timeDiffInHours = Math.floor(timeDiffInMinutes / 60);
   const timeDiffInDays = Math.floor(timeDiffInHours / 24);
@@ -49,10 +49,11 @@ export function timeCalculate(createdAt) {
   }
 }
 
-export function getDateText(date) {
-  const year = date.getFullYear();
-  const month = (date.getMonth() + 1).toString().padStart(2, "0");
-  const day = date.getDate().toString().padStart(2, "0");
+export function getDateText(date: Date | string): string {
+  const dateObj = new Date(date);
+  const year = dateObj.getFullYear();
+  const month = (dateObj.getMonth() + 1).toString().padStart(2, "0");
+  const day = dateObj.getDate().toString().padStart(2, "0");
 
-  return year + ". " + month + ". " + day;
+  return `${year}. ${month}. ${day}`;
 }

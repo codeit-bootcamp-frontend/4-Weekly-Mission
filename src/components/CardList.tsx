@@ -1,17 +1,16 @@
-import React from "react";
 import { useCardsData } from "./Card";
 import "../styles/cardlist.css";
 
 const defaultCardImg = "img/card_default.png";
 
-function handleImageError(event) {
+function handleImageError(event: any) {
   event.target.src = defaultCardImg;
 }
 
 function CardList() {
   const data = useCardsData();
 
-  function handleSubmit(event) {
+  function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
   }
 

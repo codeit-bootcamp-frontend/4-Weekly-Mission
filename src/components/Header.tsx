@@ -1,18 +1,17 @@
-import React from "react";
-import FolderProfile from "./FolderProfile";
+import Profile from "./Profile";
 import "../styles/header.css";
 
-function FolderHeader() {
+function Header() {
   return (
     <header className="header">
       <a href="/">
         <img className="header-logo" src="img/logo.svg" alt="홈 연결 로고" />
       </a>
       <div className="header-profile">
-        <FolderProfile />
+        <Profile />
       </div>
     </header>
   );
 }
 
-export default FolderHeader;
+export default Header;
