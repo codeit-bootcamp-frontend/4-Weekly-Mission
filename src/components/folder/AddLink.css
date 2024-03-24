@@ -9,6 +9,7 @@
   border: 1px solid #6d6afe;
   background-color: white;
   height: 70px;
+  z-index: 999;
 }
 .link-image {
   display: block;

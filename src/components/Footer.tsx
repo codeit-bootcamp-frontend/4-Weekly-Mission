@@ -17,16 +17,16 @@ function Footer() {
       </div>
       <div className="social flex">
         <a href="https://www.facebook.com/">
-          <img className="icon" src={facebook} />
+          <img className="icon" src={facebook} alt="facebookIcon" />
         </a>
         <a href="https://twitter.com/?lang=en">
-          <img className="icon" src={twitter} />
+          <img className="icon" src={twitter} alt="twitterIcon" />
         </a>
         <a href="https://www.youtube.com/">
-          <img className="icon" src={youtube} />
+          <img className="icon" src={youtube} alt="youtubeIcon" />
         </a>
         <a href="https://www.instagram.com/">
-          <img className="icon" src={instagram} />
+          <img className="icon" src={instagram} alt="instagramIcon" />
         </a>
       </div>
     </footer>

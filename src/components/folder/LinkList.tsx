@@ -2,18 +2,29 @@ import { formatDate, getDaysAgo } from "../../util/date-calculator";
 import card from "../../images/linkbrary-card.png";
 import star from "../../images/star.png";
 import kebab from "../../images/kebab.png";
-import { useEffect, useState } from "react";
+import { FocusEvent, MouseEvent, useState } from "react";
 import AddModal from "../modals/AddModal";
 import DeleteModal from "../modals/DeleteModal";
+import FolderData from "./FolderData";
+import LinkData from "./LinkData";
 
-function LinkListItem({ folderListData, linkData }) {
+function LinkListItem({
+  folderListData,
+  linkData,
+}: {
+  folderListData: FolderData[];
+  linkData: LinkData;
+}) {
   const [kebabOn, setKebabOn] = useState(false);
   const [addModalOn, setAddModalOn] = useState(false);
   const [deleteModalOn, setDeleteModalOn] = useState(false);
   const url = linkData.url;
   let image = linkData.image_source || card;
 
-  const handleKebab = (e, isIn) => {
+  const handleKebab = (
+    e: MouseEvent<HTMLButtonElement> | FocusEvent<HTMLButtonElement>,
+    isIn: boolean
+  ) => {
     e.preventDefault();
     setKebabOn(isIn);
   };
@@ -31,7 +42,7 @@ function LinkListItem({ folderListData, linkData }) {
     setDeleteModalOn(false);
   }
 
-  function kebabMenuBlur(e) {
+  function kebabMenuBlur(e: FocusEvent<HTMLButtonElement>) {
     const kebabMenuButtons = document.querySelectorAll(".kebab-menu");
 
     if (
@@ -55,7 +66,7 @@ function LinkListItem({ folderListData, linkData }) {
           style={{ backgroundImage: `url(${image})` }}
         >
           <button className="star">
-            <img src={star} />
+            <img src={star} alt="star" />
           </button>
         </div>
         <div className="card-content">
@@ -69,7 +80,7 @@ function LinkListItem({ folderListData, linkData }) {
               }}
               className="kebab"
             >
-              <img src={kebab} />
+              <img src={kebab} alt="kebab" />
             </button>
             {kebabOn && (
               <div className="kebab-menus">
@@ -112,6 +123,7 @@ function LinkListItem({ folderListData, linkData }) {
         <DeleteModal
           purpose="링크 삭제"
           link={linkData.url}
+          folderName=""
           handleModalOff={handleDeleteModalOff}
         />
       )}
@@ -119,10 +131,25 @@ function LinkListItem({ folderListData, linkData }) {
   );
 }
 
-function LinkList({ linksData, folderListData }) {
+function LinkList({
+  linksData,
+  folderListData,
+  keywords,
+}: {
+  linksData: LinkData[];
+  folderListData: FolderData[];
+  keywords: string;
+}) {
+  const filteredLinksData = linksData.filter((el) => {
+    return (
+      (el.description !== null && el.description.includes(keywords)) ||
+      (el.title !== null && el.title.includes(keywords)) ||
+      (el.url !== null && el.url.includes(keywords))
+    );
+  });
   return (
     <div className="link-list">
-      {linksData.map((data) => {
+      {filteredLinksData.map((data) => {
         return (
           <LinkListItem
             folderListData={folderListData}

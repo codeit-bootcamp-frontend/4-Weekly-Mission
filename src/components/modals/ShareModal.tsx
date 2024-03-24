@@ -6,7 +6,13 @@ import linkimg from "../../images/link2.png";
 import CopyToClipboard from "react-copy-to-clipboard";
 import ShareKakao from "./ShareKakao";
 
-function SNSIcons({ className, folderId }) {
+function SNSIcons({
+  className,
+  folderId,
+}: {
+  className: string;
+  folderId: number;
+}) {
   const host = window.location.host;
   let shareLink = `${host}/shared?user=1&folder=${folderId}`;
   return (
@@ -27,7 +33,7 @@ function SNSIcons({ className, folderId }) {
             );
           }}
         >
-          <img src={facebook} width={18} height={18} />
+          <img src={facebook} width={18} height={18} alt="facebook" />
         </SNSImg>
         페이스북
       </SNSIcon>
@@ -45,6 +51,7 @@ function SNSIcons({ className, folderId }) {
               width={18}
               height={18}
               style={{ opacity: 1, zIndex: 9999 }}
+              alt="linkimage"
             />
           </SNSImg>
         </CopyToClipboard>
@@ -73,7 +80,17 @@ const SNSImg = styled.button`
   border: none;
 `;
 
-function ShareModal({ purpose, folderName, folderId, handleModalOff }) {
+function ShareModal({
+  purpose,
+  folderName,
+  folderId,
+  handleModalOff,
+}: {
+  purpose: string;
+  folderName: string;
+  folderId: number;
+  handleModalOff: any;
+}) {
   return (
     <ModalContainer onClick={handleModalOff}>
       <ModalForm
@@ -86,7 +103,7 @@ function ShareModal({ purpose, folderName, folderId, handleModalOff }) {
         </CloseButton>
         <Title>{purpose}</Title>
         <Message>{folderName}</Message>
-        <StyledSNSIcon folderId={folderId} />
+        <StyledSNSIcon folderId={folderId} className="" />
       </ModalForm>
     </ModalContainer>
   );

@@ -1,9 +1,13 @@
 import { useEffect, useState } from "react";
-import { GetFolder } from "../../api/api";
+import { GetFolder } from "../../api";
 
 function Favorites() {
-  const [folderName, setFolderName] = useState("");
-  const [owner, setOwner] = useState({});
+  const [folderName, setFolderName] = useState<string>("");
+  const [owner, setOwner] = useState<{
+    id: number | null;
+    name: string;
+    profileImageSource: string;
+  }>({ id: null, name: "", profileImageSource: "" });
 
   useEffect(() => {
     const GetMyFolder = async () => {
@@ -21,7 +25,7 @@ function Favorites() {
   }, []);
   return (
     <div className="favorites flex flex-col justify-between items-center">
-      <img width={60} src={owner.profileImageSource} />
+      <img width={60} src={owner.profileImageSource} alt="profileImage" />
       <p className="avatar-id">{owner.name}</p>
       <h1>{folderName}</h1>
     </div>

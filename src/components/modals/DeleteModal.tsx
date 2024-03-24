@@ -2,7 +2,17 @@ import styled from "styled-components";
 import "../../colors.css";
 import cancelIcon from "../../images/cancel-icon.png";
 
-function DeleteModal({ purpose, link, folderName, handleModalOff }) {
+function DeleteModal({
+  purpose,
+  link = "",
+  folderName = "",
+  handleModalOff,
+}: {
+  purpose: string;
+  link: string;
+  folderName: string;
+  handleModalOff: any;
+}) {
   let title = "";
   let message = "";
   if (purpose === "폴더 삭제") {

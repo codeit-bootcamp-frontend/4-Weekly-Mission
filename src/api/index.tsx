@@ -85,7 +85,7 @@ export async function GetFolderList() {
 //"favorite":false,"link":{"count":0}},{"id":513,"created_at":"2024-01-18T15:55:27.603912+00:00",
 //"name":"string2","user_id":1,"favorite":false,"link":{"count":0}}]}
 
-export async function GetLinks(id) {
+export async function GetLinks(id: number) {
   const response = await fetch(`${BASEURL}users/1/links?folderId=${id}`);
   const result = await response.json();
   if (!response.ok) {
@@ -94,7 +94,7 @@ export async function GetLinks(id) {
   return result;
 }
 
-export async function GetAllLinks(id) {
+export async function GetAllLinks() {
   const response = await fetch(`${BASEURL}users/1/links`);
   const result = await response.json();
   if (!response.ok) {

@@ -1,8 +1,8 @@
 import { useState } from "react";
-import share from "../../images/share.png";
-import ShareModal from "../modals/ShareModal";
+import deleteimg from "../../images/delete.png";
+import DeleteModal from "../modals/DeleteModal";
 
-function ShareButton({ folderName, folderId }) {
+function DeleteButton({ folderName }: { folderName: string }) {
   const [modalOn, setModalOn] = useState(false);
   function handleModalOn() {
     setModalOn(true);
@@ -13,18 +13,18 @@ function ShareButton({ folderName, folderId }) {
   return (
     <>
       <button onClick={handleModalOn} className="share-rename-delete-button">
-        <img src={share} />
-        공유
+        <img src={deleteimg} alt="deleteimg" />
+        삭제
       </button>
       {modalOn && (
-        <ShareModal
-          purpose={"폴더 공유"}
+        <DeleteModal
+          link=""
+          purpose={"폴더 삭제"}
           folderName={folderName}
-          folderId={folderId}
           handleModalOff={handleModalOff}
         />
       )}
     </>
   );
 }
-export default ShareButton;
+export default DeleteButton;

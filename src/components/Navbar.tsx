@@ -1,10 +1,11 @@
-import Profile from "./Profile.js";
+import Profile from "./Profile";
 import logo from "../images/logo.png";
 import { useEffect, useState } from "react";
-import { GetProfile } from "../api/api.js";
+import { GetProfile } from "../api";
+import Info from "./Info.js";
 
 function Navbar() {
-  const [myProfile, setMyProfile] = useState({});
+  const [myProfile, setMyProfile] = useState<Info>({} as Info);
 
   useEffect(() => {
     const GetMyProfile = async () => {
@@ -21,7 +22,7 @@ function Navbar() {
   return (
     <header>
       <nav>
-        <img src={logo} />
+        <img src={logo} alt="logo" />
         <Profile info={myProfile} />
       </nav>
     </header>
