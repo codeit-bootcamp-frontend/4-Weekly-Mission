@@ -10,7 +10,7 @@
   }
 
   .button_add {
-    z-index: 100;
+    z-index: 50;
     position: fixed;
     left: 50%;
     bottom: 120px;

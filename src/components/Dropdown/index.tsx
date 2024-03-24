@@ -9,7 +9,7 @@ interface Props {
 
 const Dropdown = ({ children, dropdownList, className }: Props) => {
   const [isDropdownView, setDropdownView] = useState(false);
-  const handleClickBtn = (e: MouseEvent<HTMLButtonElement>) => {
+  const handleClickBtn = (e: MouseEvent<HTMLDivElement>) => {
     e.preventDefault();
     setDropdownView(!isDropdownView);
   };
@@ -19,11 +19,7 @@ const Dropdown = ({ children, dropdownList, className }: Props) => {
   };
 
   return (
-    <button
-      className={className}
-      onClick={handleClickBtn}
-      onBlur={handleBlurBtn}
-    >
+    <div className={className} onClick={handleClickBtn} onBlur={handleBlurBtn}>
       {children}
       {isDropdownView && (
         <ul className={styles.dropdown}>
@@ -40,7 +36,7 @@ const Dropdown = ({ children, dropdownList, className }: Props) => {
           })}
         </ul>
       )}
-    </button>
+    </div>
   );
 };
 
