@@ -65,20 +65,20 @@ footer {
 @media (min-width: 375px) and (max-width: 767px) {
   section {
     width: 350px;
-    height: 3300px;
+    height: 100%;
   }
 }
 
 @media (min-width: 768px) and (max-width: 1124px) {
   section {
     width: 704px;
-    height: 1146px;
+    height: 100%;
   }
 }
 
 @media (min-width: 1125px) {
   section {
     width: 1060px;
-    height: 1146px;
+    height: 100%;
   }
 }

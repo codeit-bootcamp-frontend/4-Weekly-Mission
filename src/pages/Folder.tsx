@@ -11,6 +11,8 @@ function Folder() {
   const [folderList, setFolderList] = useState<FolderList[]>([]);
   const [linksData, setLinksData] = useState<LinksData[]>([]);
 
+  console.log(linksData);
+
   const getFolderList = async () => {
     try {
       const folderListData = await getFolderListData();

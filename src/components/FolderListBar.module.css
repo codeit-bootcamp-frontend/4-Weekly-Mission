@@ -2,6 +2,10 @@
   display: none;
 }
 
+.container {
+  cursor: pointer;
+}
+
 @media (min-width: 375px) and (max-width: 767px) {
   .container {
     display: flex;

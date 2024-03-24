@@ -17,14 +17,14 @@ export const getData = async ({ path = "" }): Promise<FetchResponse> => {
 };
 
 export const getFolderListData = async (): Promise<FetchResponse> => {
-  const detailPath = `${URL}/api/users/1/folders`;
+  const detailPath = `${URL}/api/users/4/folders`;
   return fetchToGetData(detailPath);
 };
 
 export const getFolderLinksData = async ({
   folderId = "",
 }): Promise<FetchResponse> => {
-  const path = `${URL}/api/users/1/links`;
+  const path = `${URL}/api/users/4/links`;
   const detailPath = folderId === "1" ? path : `${path}?folderId=${folderId}`;
   return fetchToGetData(detailPath);
 };
