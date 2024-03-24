@@ -7,7 +7,7 @@ export function formatRelativeDate(date = new Date()) {
   const A_MONTH = 31 * A_DAY;
   const A_YEAR = 12 * A_MONTH;
 
-  const diff = new Date() - new Date(date);
+  const diff = new Date().valueOf() - new Date(date).valueOf();
 
   if (diff < A_MINUTE * 2) {
     return '1 minute ago';
