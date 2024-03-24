@@ -95,9 +95,11 @@ export const FolderPage: React.FC = () => {
 
   const filteredLinks = links?.filter(
     (link) =>
-      link.title?.toLowerCase().includes(searchTerm.toLowerCase()) ||
-      link.description?.toLowerCase().includes(searchTerm.toLowerCase()) ||
-      link.url.toLowerCase().includes(searchTerm.toLowerCase()),
+      link.title?.toLowerCase().includes(searchTerm.trim().toLowerCase()) ||
+      link.description
+        ?.toLowerCase()
+        .includes(searchTerm.trim().toLowerCase()) ||
+      link.url.toLowerCase().includes(searchTerm.trim().toLowerCase()),
   );
 
   return (

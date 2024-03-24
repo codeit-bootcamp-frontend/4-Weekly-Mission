@@ -40,3 +40,13 @@
   width: 2.4rem;
   height: 2.4rem;
 }
+
+.SearchResult {
+  width: 100%;
+  text-align: left;
+  font-size: 2.4rem;
+  font-weight: 600;
+}
+.lightText {
+  color: var(--gray60);
+}
