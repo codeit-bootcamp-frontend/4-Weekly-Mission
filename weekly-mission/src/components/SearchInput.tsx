@@ -11,7 +11,7 @@ interface Props {
 
 const SearchInput: React.FC<Props> = ({ folderData, setData, setLength }) => {
   const [inputValue, setInputValue] = useState<string>("");
-  console.log(folderData);
+
   const onChangeEvent = (e: React.ChangeEvent<HTMLInputElement>) => {
     setInputValue(e.target.value);
     setLength(e.target.value.length);
