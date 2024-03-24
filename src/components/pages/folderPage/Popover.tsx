@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, MouseEvent } from 'react';
 import { createPortal } from 'react-dom';
 import { modalTypes } from '../../../util/constants';
 import styles from './Popover.module.css';
@@ -8,7 +8,7 @@ import Add from '../../common/modal/Add';
 interface PopoverProps {
   url: string;
   show: boolean;
-  onPopoverClick: (e: MouseEvent) => void;
+  onPopoverClick: (e: MouseEvent<HTMLDivElement>) => void;
 }
 
 const Popover = ({ url, show, onPopoverClick }: PopoverProps) => {

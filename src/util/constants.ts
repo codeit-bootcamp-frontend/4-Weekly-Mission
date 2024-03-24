@@ -9,7 +9,9 @@ export const updateBtnsId = {
   delete: uuidv4(),
 };
 
-export const modalTypes = {
+export const modalTypes: {
+  [key: string]: string;
+} = {
   edit: uuidv4(),
   addFolder: uuidv4(),
   share: uuidv4(),

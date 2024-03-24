@@ -59,7 +59,10 @@ const UpdateBtnList = ({ selectedFolderId, selectedFolderName }: UpdateBtnListPr
     e.preventDefault();
     setShowModal(true);
 
-    setActiveModal(e.target.dataset.modal);
+    // Error 'dataset' does not exist on type 'EventTarget'
+    // Error 'string | undefined' 형식의 인수는 'SetStateAction<string>' 형식의 매개 변수에 할당될 수 없습니다.
+    if (!(e.target instanceof HTMLButtonElement)) return;
+    setActiveModal(e.target.dataset.modal || '');
   };
 
   const handleCloseModal = () => {

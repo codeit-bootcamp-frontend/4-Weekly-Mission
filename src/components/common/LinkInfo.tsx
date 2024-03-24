@@ -71,7 +71,7 @@ const LinkInfo = ({ url, createdAt, description }: LinkInfoProps) => {
     setShowPopover(true);
   };
 
-  const handlePopoverClick = (e: MouseEvent) => {
+  const handlePopoverClick = (e: MouseEvent<HTMLDivElement>) => {
     e.preventDefault();
 
     // TODO: eventTarget에 dataset 속성이 없다라고 뜬다.
