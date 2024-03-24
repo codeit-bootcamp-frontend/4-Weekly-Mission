@@ -6,7 +6,7 @@ import { IconKebabMenu, IconStar } from '../Icon';
 import { MouseEvent, SyntheticEvent } from 'react';
 
 export interface CardItem {
-  id: string;
+  id: number;
   title: string;
   description: string;
   url: string;
