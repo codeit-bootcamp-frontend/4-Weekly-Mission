@@ -11,7 +11,7 @@ function formatLinkData(link: FormetLinkProps) {
   };
 }
 
-export default function getFormattedLinks(links?: FormetLinkProps[]) {
+export default function getFormattedLinks(links: FormetLinkProps[]) {
   return (
     links &&
     links.map((link: FormetLinkProps) => {

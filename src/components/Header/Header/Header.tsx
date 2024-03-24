@@ -11,7 +11,7 @@ interface HeaderProps {
 }
 
 export default function Header({ headerPosition }: HeaderProps) {
-  const [fetchData, setFetchData] = useState<UserDataProps | undefined>();
+  const [fetchData, setFetchData] = useState<UserDataProps>();
   const { data, isLoading } = useGet<UserDataProps[]>(END_POINT.user);
 
   useEffect(() => {
@@ -20,7 +20,6 @@ export default function Header({ headerPosition }: HeaderProps) {
       // fetch data가 배열로 들어와요
       // 로그인 기능 구현되면 수정 가능할 듯 싶습니다.
 
-      // typeScript 추가 - 우선 any로 처리하긴 했는데 이런 상황에는 어떤식으로 type을 사용해야 할까요?
       setFetchData(data[0]);
     }
   }, [data, isLoading]);

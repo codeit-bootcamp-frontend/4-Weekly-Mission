@@ -14,8 +14,8 @@ import {
 } from "@/constants/index.types";
 
 export default function CardListBox() {
-  const [folders, setFolders] = useState<UserFolderProps[] | undefined>([]);
-  const [links, setLinks] = useState<LinkProps[] | undefined>([]);
+  const [folders, setFolders] = useState<UserFolderProps[]>([]);
+  const [links, setLinks] = useState<LinkProps[]>([]);
   const [changeLinksFolder, setChangeLinksFolder] = useState(END_POINT.links);
   const [linksTitle, setLinksTitle] = useState(`전체`);
 
@@ -23,9 +23,8 @@ export default function CardListBox() {
     UserFolderProps[]
   >(END_POINT.folders);
 
-  const { data: linksData, isLoading: isLinksLoading } = useGet<
-    FormetLinkProps[] | undefined
-  >(changeLinksFolder);
+  const { data: linksData, isLoading: isLinksLoading } =
+    useGet<FormetLinkProps[]>(changeLinksFolder);
 
   useEffect(() => {
     if (!isFoldersLoading && !isLinksLoading) {
@@ -39,7 +38,6 @@ export default function CardListBox() {
   const handleFolderClick = (folder: UserFolderProps) => {
     setChangeLinksFolder(`${END_POINT.links}?folderId=${folder.id}`);
     setLinksTitle(folder.name);
-    console.log(folder);
   };
 
   const handleTotalBtnClick = () => {
@@ -47,25 +45,29 @@ export default function CardListBox() {
     setLinksTitle(`전체`);
   };
 
+  // const handleInputChange = (value) => {
+
+  // }
+
   return (
     <main className={styles.CardListBox}>
       <CardSearchInput />
-      {links ? (
-        <section className={styles.cardList}>
-          <CardFolderList
-            folders={folders}
-            onClick={handleFolderClick}
-            handleTotalBtnClick={handleTotalBtnClick}
-          />
-          <div className={styles.titleBox}>
-            <h1 className={styles.linksTitle}>{linksTitle}</h1>
-            모달 추가 예정
-          </div>
+      <section className={styles.cardList}>
+        <CardFolderList
+          folders={folders}
+          handleFolderClick={handleFolderClick}
+          handleTotalBtnClick={handleTotalBtnClick}
+        />
+        <div className={styles.titleBox}>
+          <h1 className={styles.linksTitle}>{linksTitle}</h1>
+          모달 추가 예정
+        </div>
+        {links && links.length > 0 ? (
           <CardList links={links} />
-        </section>
-      ) : (
-        <LinksEmptyCase />
-      )}
+        ) : (
+          <LinksEmptyCase />
+        )}
+      </section>
     </main>
   );
 }

@@ -3,12 +3,12 @@ import styles from "./Folder.module.scss";
 
 interface FolderProps {
   folder: UserFolderProps;
-  onClick: (folder: UserFolderProps) => void;
+  handleFolderClick: (folder: UserFolderProps) => void;
 }
 
-export default function Folder({ folder, onClick }: FolderProps) {
+export default function Folder({ folder, handleFolderClick }: FolderProps) {
   return (
-    <button className={styles.folder} onClick={() => onClick(folder)}>
+    <button className={styles.folder} onClick={() => handleFolderClick(folder)}>
       {folder.name}
     </button>
   );

@@ -4,7 +4,7 @@ export default function useGet<T>(url: string) {
   // const [data, setData] = useState<
   //   UserFolderProps | UserDataProps | FormetLinkProps
   // >();
-  const [data, setData] = useState<T>();
+  const [data, setData] = useState<T | []>([]);
   const [isLoading, setIsLoading] = useState(true);
 
   const fetchData = async (url: string) => {

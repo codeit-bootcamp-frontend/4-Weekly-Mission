@@ -4,13 +4,13 @@ import { UserFolderProps } from "@/constants/index.types";
 
 interface CardFolderListProps {
   folders?: UserFolderProps[];
-  onClick: (folder: UserFolderProps) => void;
+  handleFolderClick: (folder: UserFolderProps) => void;
   handleTotalBtnClick: () => void;
 }
 
 export default function CardFolderList({
   folders,
-  onClick,
+  handleFolderClick,
   handleTotalBtnClick,
 }: CardFolderListProps) {
   return (
@@ -20,7 +20,13 @@ export default function CardFolderList({
       </button>
       {folders &&
         folders.map((folder) => {
-          return <Folder onClick={onClick} key={folder.id} folder={folder} />;
+          return (
+            <Folder
+              handleFolderClick={handleFolderClick}
+              key={folder.id}
+              folder={folder}
+            />
+          );
         })}
     </section>
   );

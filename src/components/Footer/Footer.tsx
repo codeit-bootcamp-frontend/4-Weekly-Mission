@@ -16,7 +16,7 @@ export default function Footer() {
         <Link to="/">FAQ</Link>
       </div>
       <ul className={styles.snsBox}>
-        {/* 여기에서는 li 태그로 하는게 더 시맨틱하지 않을까요? */}
+        {/* 여기에서는 ul - li 태그로 하는게 더 시맨틱하지 않을까요? */}
         <Link to="https://www.facebook.com">
           <Facebook />
         </Link>

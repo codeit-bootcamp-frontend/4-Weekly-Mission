@@ -10,7 +10,7 @@ import { FolderData } from "@/constants/index.types";
 import useFetchFolder from "@/hooks/useFetchFolder";
 
 export default function SharedPage() {
-  const [fetchData, setFetchData] = useState<FolderData | undefined>();
+  const [fetchData, setFetchData] = useState<FolderData>();
   const { data } = useFetchFolder<FolderData>(END_POINT.sharedLinks);
   const headerPosition: CSSProperties = {
     position: "fixed",
