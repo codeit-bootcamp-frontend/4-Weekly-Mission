@@ -1,0 +1,56 @@
+/* 푸터 */
+.footerBox{
+  display: flex;
+  justify-content: space-between;
+  height: 160px;
+  padding: 32px 104px 64px 104px;
+  flex-direction: row;
+  align-items: center;
+  flex-shrink: 0;
+  align-self: stretch;
+  background: #111322;
+}
+.copyright{
+  color: #676767;
+  text-align: center;
+  font-family: Acme;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+.footerLink{
+  display: flex;
+  width: 181.111px;
+  align-items: flex-start;
+  gap: 30px;
+}
+.footerLink a{
+  color: #CFCFCF;
+  font-family: Acme;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+.icons{
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+}
+.icons img{
+  width: 20px;
+  height: 20px;
+}
+/* 모바일 */
+@media screen and (min-width:375px) and (max-width:767px){
+  .footerBox{
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: flex-start;
+    height: 65px;
+  }
+  .text{
+    display: flex;
+  }
+}
