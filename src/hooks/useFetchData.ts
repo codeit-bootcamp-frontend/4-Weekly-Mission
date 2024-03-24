@@ -15,20 +15,20 @@ const useFetchData = <T>(url: string): FetchDataResponse<T> => {
 
   useEffect(() => {
     const fetchData = async () => {
-    setIsLoading(true);
-  try {
-        const {data: response } = await axios.get<T>(url);
-    setData(response);
+      setIsLoading(true);
+      try {
+        const { data: response } = await axios.get<T>(url);
+        setData(response);
       } catch (error) {
-      setIsError(true);
+        setIsError(true);
       } finally {
-      setIsLoading(false);
+        setIsLoading(false);
       }
     };
     fetchData();
   }, [url]);
 
-    return {data, isLoading, isError};
+  return { data, isLoading, isError };
 };
 
-    export default useFetchData;
+export default useFetchData;
