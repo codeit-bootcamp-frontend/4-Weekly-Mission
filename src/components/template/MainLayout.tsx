@@ -1,8 +1,5 @@
 import { styled } from 'styled-components';
 
-import SearchBar from 'components/SearchBar';
-import PLACEHOLDER from 'constants/FORM_MESSAGE';
-
 import { Children } from 'interfaces/componentsInterface';
 
 const Styled = {
@@ -17,28 +14,18 @@ const Styled = {
       padding: 2rem 3.2rem;
     }
   `,
-
-  InnerWrap: styled.div`
-    margin-top: 4rem;
-
-    @media (max-width: 767px) {
-      margin-top: 3.2rem;
-    }
-  `,
 };
-
-interface MainLayoutProps extends Children {}
 
 /**
  * MainLayout - 검색바와 메인콘텐츠를 포함한 반응형 레이아웃
  */
+
+interface MainLayoutProps extends Children {}
+
 function MainLayout({ children }: MainLayoutProps) {
   return (
     <>
-      <Styled.Container>
-        <SearchBar placeholder={PLACEHOLDER.SEARCH_LINK} />
-        <Styled.InnerWrap>{children}</Styled.InnerWrap>
-      </Styled.Container>
+      <Styled.Container>{children}</Styled.Container>
     </>
   );
 }

@@ -4,6 +4,7 @@ import { styled } from 'styled-components';
 const Styled = {
   Container: styled.ul`
     display: flex;
+    align-items: center;
     flex-wrap: wrap; // 모바일에서 자동 줄바꿈 되도록
     /* min-width: 70%; */
   `,

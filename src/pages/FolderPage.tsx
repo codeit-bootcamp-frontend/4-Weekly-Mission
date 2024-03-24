@@ -1,7 +1,6 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
+import { useLocation, useSearchParams } from 'react-router-dom';
 import { styled } from 'styled-components';
-
-import useUserFoldersQuery from 'hooks/api/folder/useUserFoldersQuery';
 
 import PageTitle from 'components/common/PageTitle';
 import FolderHeader from 'components/folder/FolderHeader';
@@ -11,6 +10,10 @@ import TabButton from 'components/common/button/TabButton';
 import OptionBtns from 'components/folder/OptionBtns';
 import FolderGridCard from 'components/folder/FolderGridCard';
 import FloatButton from 'components/common/button/FloatButton';
+import SearchBar from 'components/SearchBar';
+
+import PLACEHOLDER from 'constants/FORM_MESSAGE';
+import useUserFoldersQuery from 'hooks/api/folder/useUserFoldersQuery';
 
 const Styled = {
   NoLink: styled.div`
@@ -21,12 +24,35 @@ const Styled = {
     align-items: center;
   `,
 
+  SearchResult: styled.div`
+    margin-top: 4rem;
+    font-size: 3.2rem;
+    font-weight: 600;
+    line-height: 3.82rem;
+
+    color: ${({ theme }) => theme.color.gray4};
+    span {
+      color: ${({ theme }) => theme.color.black};
+    }
+
+    @media (max-width: 767px) {
+      margin-top: 3.2rem;
+
+      font-size: 2.4rem;
+      line-height: 2.86rem;
+    }
+  `,
+
   ButtonBox: styled.div`
-    margin-bottom: 2.4rem;
+    margin: 4rem 0 2.4rem;
 
     display: flex;
     justify-content: space-between;
     align-items: center;
+
+    @media (max-width: 767px) {
+      margin-top: 3.2rem;
+    }
   `,
 
   TitleAndOptions: styled.div`
@@ -50,6 +76,14 @@ function FolderPage() {
   const [selectedTabName, setSelectedTabName] = useState('전체');
   const [selectedFolder, setSelectedFolder] = useState(1);
 
+  const location = useLocation();
+  const [searchParams] = useSearchParams();
+  const [keyword, setKeyword] = useState(searchParams.get('keyword'));
+
+  useEffect(() => {
+    setKeyword(searchParams.get('keyword'));
+  }, [searchParams]);
+
   const hasFolders = folderList.length !== 0;
 
   return (
@@ -61,6 +95,13 @@ function FolderPage() {
           <Styled.NoLink>저장된 링크가 없습니다 🥲</Styled.NoLink>
         ) : (
           <>
+            <SearchBar placeholder={PLACEHOLDER.SEARCH_LINK} uri={location.pathname} />
+            {keyword && (
+              <Styled.SearchResult>
+                <span>{keyword}</span>(으)로 검색한 결과입니다.
+              </Styled.SearchResult>
+            )}
+
             <Styled.ButtonBox>
               <TabButton
                 tabInfo={folderList}
