@@ -26,7 +26,7 @@ const Header = ({ fix }: Props) => {
         {userProfile ? (
           <S.UserWrapper>
             <S.UserImage
-              src={userProfile.image}
+              src={userProfile?.image ? userProfile?.image : undefined}
               alt="profile"
               width={28}
               height={28}
