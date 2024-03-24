@@ -2,8 +2,12 @@ import React from "react";
 import { useEffect, useState } from "react";
 import "../style/profile.css";
 import fetchData from "../api/FetchData";
+interface User {
+  userEmail: string | null;
+  userImg: string | null;
+}
 function Profile() {
-  const [user, setUser] = useState({
+  const [user, setUser] = useState<User | null>({
     userEmail: null,
     userImg: null,
   });
@@ -20,7 +24,7 @@ function Profile() {
         }
       } catch (e) {
         console.error(e);
-        alert("error", e);
+        alert("error" + e);
       }
     };
     fetchUserData();
@@ -32,7 +36,7 @@ function Profile() {
         <button>로그인</button>
       ) : (
         <div className="profile-container">
-          <img className="userImg" src={user.userImg} alt="userImg" />
+          <img className="userImg" src={user.userImg ?? ""} alt="userImg" />
           <p className="userEmail">{user.userEmail}</p>
         </div>
       )}
