@@ -25,3 +25,9 @@
   background-color: #f0f6ff;
   z-index: 999;
 }
+
+@media (max-width: 768px) {
+  .add-link-background-bottom {
+    height: 85px;
+  }
+}

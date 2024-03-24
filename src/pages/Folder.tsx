@@ -5,7 +5,7 @@ import "./Folder.css";
 import FolderLinkList from "../components/folder/FolderLinkList";
 import Footer from "../components/Footer";
 import "./Main.css";
-import { useEffect, useRef, useState } from "react";
+import { useRef, useState } from "react";
 
 function Folder() {
   const [Folderkeywords, setFolderKeywords] = useState("");
@@ -17,7 +17,6 @@ function Folder() {
   let footerElement: HTMLDivElement;
 
   function handleIntersect(entries: any, observe: any) {
-    console.log("end!");
     entries.forEach((entry: any) => {
       if (entry.isIntersecting === false) {
         setAddLinkOn(true);
@@ -37,11 +36,8 @@ function Folder() {
     };
 
     observer = new IntersectionObserver(handleIntersect, options);
+    observer.observe(footerElement);
     observer.observe(AddLinkElement);
-    console.log(addLinkOn);
-    if (addLinkOn === true) {
-      observer.observe(footerElement);
-    }
   }
 
   window.addEventListener(
