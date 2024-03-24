@@ -1,4 +1,4 @@
-import React, { useState, useEffect, FormEvent, ChangeEvent, MouseEvent } from 'react';
+import React, { useState, useEffect, FormEvent, ChangeEvent, MouseEvent, useRef } from 'react';
 import Content from '../Content/Content';
 import { API_PATH } from '../../services/api-path';
 import FETCH_API from '../../services/fetch-data';
@@ -28,6 +28,7 @@ function FolderContent({
   });
   const [linkList, setLinkList] = useState<LinkType[]>([]); // 유저가 가지고 있는 링크
   const [searchInputValue, setSearchInputValue] = useState<string>('');
+  const linkAddElement = useRef<HTMLElement>(null);
 
   // 유저가 가지고 있는 카테고리 로드(데이터 통신, 첫 렌더링 시에만 실행)
   useEffect(() => {
@@ -118,9 +119,28 @@ function FolderContent({
     setLinkList
   };
 
+  const checkScrollY = () => {
+    if (linkAddElement.current) {
+      if (scrollY > 144) {
+        linkAddElement.current.style.position = 'fixed';
+        linkAddElement.current.style.bottom = '0px';
+        linkAddElement.current.style.padding = '1rem 0';
+        return;
+      }
+      linkAddElement.current.style.position = 'static';
+      linkAddElement.current.style.padding = '3rem 0';
+    }
+  };
+
+  useEffect(() => {
+    window.addEventListener('scroll', checkScrollY);
+
+    return () => window.removeEventListener('scroll', checkScrollY);
+  }, []);
+
   return (
     <Styled.Folder onClick={(e) => getClickArea(e)}>
-      <Styled.Link>
+      <Styled.Link ref={linkAddElement}>
         <Styled.LinkBox>
           <form onSubmit={handleSearchFromSumbit}>
             <Styled.Label htmlFor="link--add">링크 추가</Styled.Label>

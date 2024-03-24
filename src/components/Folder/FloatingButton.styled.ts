@@ -7,7 +7,7 @@ export const FloatingButton = styled.div`
   display: none;
   position: fixed;
   left: 50%;
-  bottom: 101px;
+  bottom: 120px;
   transform: translateX(-50%);
   border: none;
   outline: none;

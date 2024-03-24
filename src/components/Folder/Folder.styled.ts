@@ -12,8 +12,7 @@ export const Folder = styled.main`
 `;
 
 export const Link = styled.section`
-  position: sticky;
-  top: 0;
+  width: 100%;
   z-index: 999;
   padding: 3rem 0;
   height: 70px;
@@ -81,7 +80,6 @@ export const LinkAddButton = styled.button`
   right: -1rem;
   top: 1rem;
   @media screen and (max-width: 767px) {
-    right: 0.62rem;
-    top: 1rem;
+    top: 0.5rem;
   }
 `;
