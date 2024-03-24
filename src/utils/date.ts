@@ -7,7 +7,7 @@ export function formatRelativeDate(date = new Date()) {
   const A_MONTH = 31 * A_DAY;
   const A_YEAR = 12 * A_MONTH;
 
-  const diff = new Date().valueOf() - new Date(date).valueOf();
+  const diff = new Date().valueOf() - date.valueOf();
 
   if (diff < A_MINUTE * 2) {
     return '1 minute ago';
@@ -31,10 +31,9 @@ export function formatDate(pDate = new Date()) {
   // 2023-01-12T22:27:22Z
   // 위 날짜는 변환 했을 때 2023. 1. 13이 나온다.
   // 변경 필요.
-  const parseDate = new Date(pDate);
-  const year = parseDate.getFullYear();
-  const month = parseDate.getMonth() + 1;
-  const date = parseDate.getDate();
+  const year = pDate.getFullYear();
+  const month = pDate.getMonth() + 1;
+  const date = pDate.getDate();
 
   return `${year}. ${month}. ${date}`;
 }
