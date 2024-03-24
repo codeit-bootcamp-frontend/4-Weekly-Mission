@@ -1,7 +1,9 @@
 import styles from "./UserProfile.module.css";
+//types
+import { FolderData } from "../types/commonTypes";
 
-function UserProfile({ folderData }) {
-  const owner = folderData && folderData.owner;
+function UserProfile({ folderData }: { folderData: FolderData | {} }) {
+  const owner = folderData && (folderData as FolderData).owner;
   const profileImageSource = owner && owner.profileImageSource;
   const profileName = owner && owner.name;
   return (
@@ -10,7 +12,7 @@ function UserProfile({ folderData }) {
         <img className={styles.img} src={profileImageSource} alt="" />
       )}
       {profileName && <div className={styles.name}>{profileName}</div>}
-      <div className={styles.folderName}>{folderData.name}</div>
+      <div className={styles.folderName}>{(folderData as FolderData).name}</div>
     </div>
   );
 }

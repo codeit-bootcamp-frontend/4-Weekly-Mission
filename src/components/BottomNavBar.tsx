@@ -4,8 +4,10 @@ import facebooklogo from "../images/facebook.svg";
 import twitterlogo from "../images/twitter.svg";
 import youtubelogo from "../images/youtube.svg";
 import instagramlogo from "../images/instagram.svg";
+//types
+import { MediaLink } from "../types/commonTypes";
 
-const MEDIA_LINK = [
+const MEDIA_LINK: MediaLink[] = [
   {
     id: 1,
     type: "facebook",
@@ -35,13 +37,13 @@ const MEDIA_LINK = [
 function BottomNavBar() {
   return (
     <footer>
-      <div class={styles.container}>
-        <div class={styles.left}>©codeit - 2023</div>
-        <div class={styles.center}>
-          <span class={styles.centerText}> Privacy Policy </span>
-          <span class={styles.centerText}> FAQ </span>
+      <div className={styles.container}>
+        <div className={styles.left}>©codeit - 2023</div>
+        <div className={styles.center}>
+          <span className={styles.centerText}> Privacy Policy </span>
+          <span className={styles.centerText}> FAQ </span>
         </div>
-        <div class={styles.right}>
+        <div className={styles.right}>
           {MEDIA_LINK.map((media) => (
             <Icon key={media.id} mediaType={media} />
           ))}

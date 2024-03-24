@@ -28,3 +28,31 @@ export interface Link {
   title: string;
   url: string;
 }
+
+export interface ProfileData {
+  email: string;
+  id: number;
+  name: string;
+  profileImageSource: string;
+}
+
+interface Owner {
+  id: number;
+  name: string;
+  profileImageSource: string;
+}
+
+export interface FolderData {
+  count: number;
+  id: number;
+  links: Link[];
+  name: string;
+  owner: Owner;
+}
+
+export interface MediaLink {
+  id: number;
+  type: string;
+  link: string;
+  logo: string;
+}
