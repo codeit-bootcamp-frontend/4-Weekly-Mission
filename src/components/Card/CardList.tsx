@@ -1,6 +1,10 @@
-import Card from './Card';
+import Card, { CardItem } from './Card';
 
-function CardList({ items = [] }) {
+interface CardListProps {
+  items: CardItem[];
+}
+
+function CardList({ items }: CardListProps) {
   return (
     <div className="card-list">
       {items?.map((item) => (

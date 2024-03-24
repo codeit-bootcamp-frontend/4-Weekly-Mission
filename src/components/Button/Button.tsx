@@ -1,6 +1,10 @@
 import styled from 'styled-components';
 
-const Button = styled.button`
+interface Props {
+  fontSize: number;
+}
+
+const Button = styled.button<Props>`
   background: linear-gradient(91deg, #6d6afe 0.12%, #6ae3fe 101.84%);
   border: none;
   border-radius: ${({ fontSize }) => fontSize / 2 || 8}px;

@@ -1,19 +1,29 @@
+import { CardItem } from '@src/components/Card/Card';
 import { getFolder } from '../../api';
 import { CardList } from '../../components/Card';
 import SearchBox from '../../components/SearchBox/SearchBox';
 import './SharedPage.css';
 import { useEffect, useState } from 'react';
 
-const LIMIT = 9;
+interface FolderInfo {
+  id: number;
+  name: string;
+}
+
+interface Owner {
+  id: number;
+  name: string;
+  profileImageSource: string;
+}
 
 function SharedPage() {
-  const [folderInfo, setFolderInfo] = useState({});
-  const [owner, setOwner] = useState({});
-  const [items, setItems] = useState([]);
+  const [folderInfo, setFolderInfo] = useState<FolderInfo | null>(null);
+  const [owner, setOwner] = useState<Owner | null>(null);
+  const [items, setItems] = useState<CardItem[]>([]);
 
-  const handleLoad = async (options) => {
+  const handleLoad = async () => {
     try {
-      const { folder } = await getFolder(options);
+      const { folder } = await getFolder();
       const { id, name, owner, links } = folder;
       setFolderInfo({ id, name });
       setOwner(owner);
@@ -24,8 +34,12 @@ function SharedPage() {
   };
 
   useEffect(() => {
-    handleLoad({ limit: LIMIT });
+    handleLoad();
   }, []);
+
+  if (!folderInfo || !owner) {
+    return null;
+  }
 
   return (
     <div className="shared">
@@ -35,7 +49,12 @@ function SharedPage() {
   );
 }
 
-function SharedHeader({ folderInfo, owner }) {
+interface SharedHeaderProps {
+  folderInfo: FolderInfo;
+  owner: Owner;
+}
+
+function SharedHeader({ folderInfo, owner }: SharedHeaderProps) {
   return (
     <header className="shared-header">
       <div className="profile">
@@ -53,7 +72,11 @@ function SharedHeader({ folderInfo, owner }) {
   );
 }
 
-function SharedContent({ items = [] }) {
+interface SharedContentProps {
+  items: CardItem[];
+}
+
+function SharedContent({ items = [] }: SharedContentProps) {
   return (
     <div className="shared-content">
       <header className="shared-content__header">

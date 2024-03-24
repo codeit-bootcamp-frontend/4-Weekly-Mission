@@ -4,11 +4,15 @@ import { IconLogo } from '../../Icon';
 import { useLoginUser, useSetLoginUser } from '../../../contexts/LoginContext';
 import { Link } from 'react-router-dom';
 import { getUser } from '../../../api';
+import { User } from '@src/types/common';
 
 function Header() {
   const loginUser = useLoginUser();
   const setLoginUser = useSetLoginUser();
 
+  /**
+   * @todo locaion에서 주소 받아서 /folder일 경우 style 적용
+   */
   const handleLoginClick = async () => {
     try {
       const { data } = await getUser(4);
@@ -42,16 +46,29 @@ function Header() {
   );
 }
 
-function ButtonLogin({ onClick }) {
+interface ButtonLoginProps {
+  onClick: () => void;
+}
+
+/**
+ * @todo 컴포넌트 분리
+ */
+function ButtonLogin({ onClick }: ButtonLoginProps) {
   return (
-    <Button type="button" onClick={onClick} fontSize="18">
+    <Button type="button" onClick={onClick} fontSize={18}>
       로그인
     </Button>
   );
 }
 
-// 컴포넌트 분리 예정
-function ButtonUser({ user }) {
+interface ButtonUserProps {
+  user: User;
+}
+
+/**
+ * @todo 컴포넌트 분리
+ */
+function ButtonUser({ user }: ButtonUserProps) {
   return (
     <button type="button" className="button-user">
       <div className="button-user__img__container">

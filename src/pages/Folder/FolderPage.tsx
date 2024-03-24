@@ -11,12 +11,40 @@ import {
   IconPen,
   IconShare,
 } from '../../components/Icon';
+import { CardItem } from '@src/components/Card/Card';
+
+export interface UserFolder {
+  id: number;
+  created_at: string;
+  name: string;
+  user_id: number;
+  favorite: boolean;
+  link: {
+    count: number;
+  };
+}
+
+export interface LinkBase {
+  id: number;
+  created_at: string;
+  updated_at: string | null;
+  url: string;
+  title: string;
+  description: string;
+  image_source: string;
+  folder_id: number;
+}
+
+export interface Link extends CardItem {
+  updatedAt: string | null;
+  folderId: number;
+}
 
 function FolderPage() {
   const loginUser = useLoginUser();
-  const [activeFolder, setActiveFolder] = useState({});
-  const [folders, setFolders] = useState([]);
-  const [links, setLinks] = useState([]);
+  const [activeFolder, setActiveFolder] = useState<UserFolder | null>(null);
+  const [folders, setFolders] = useState<UserFolder[]>([]);
+  const [links, setLinks] = useState<Link[]>([]);
 
   const handleLoadFolders = async () => {
     const userId = loginUser?.id;
@@ -29,16 +57,16 @@ function FolderPage() {
     }
   };
 
-  const handleSelectFolder = (folder) => {
+  const handleSelectFolder = (folder: UserFolder | null) => {
     setActiveFolder(folder);
   };
 
   const handleLoadLinks = async () => {
     const userId = loginUser?.id;
-    const folderId = activeFolder?.id;
+    const folderId = activeFolder?.id || null;
     if (!userId) return;
     try {
-      const { data } = await getLinks(userId, folderId);
+      const data = await getLinks(userId, folderId);
       setLinks(data);
     } catch (error) {
       console.error(error);
@@ -66,7 +94,7 @@ function FolderPage() {
               <S.ContentTabBox>
                 <TabList
                   items={folders}
-                  activeId={activeFolder.id}
+                  activeId={activeFolder?.id || null}
                   onSelect={handleSelectFolder}
                 />
                 <S.ContentTabAdd>
@@ -74,8 +102,8 @@ function FolderPage() {
                 </S.ContentTabAdd>
               </S.ContentTabBox>
               <S.ContentTitleBox>
-                <S.ContentTitle>{activeFolder.name || '전체'}</S.ContentTitle>
-                {activeFolder.name && (
+                <S.ContentTitle>{activeFolder?.name || '전체'}</S.ContentTitle>
+                {activeFolder?.name && (
                   <S.ContentOptionBox>
                     <S.ContentOptionItem>
                       <IconShare />
