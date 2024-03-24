@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const StyledTab = styled.button`
+export const StyledTab = styled.button<{ $active: boolean }>`
   background-color: var(--color-white);
   border-radius: 5px;
   border: 1px solid var(--color-primary);
