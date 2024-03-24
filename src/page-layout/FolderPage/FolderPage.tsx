@@ -19,10 +19,13 @@ export const FolderPage: React.FC = () => {
   const [modal, setModal] = useState("");
   const [currentUrl, setCurrentUrl] = useState("");
   const [searchTerm, setSearchTerm] = useState("");
-  const [isAddLinkFixed, setIsAddLinkFixed] = useState(true);
+
+  const [isAddLinkShown, setIsAddLinkShown] = useState(true);
+  const [isFooterShown, setIsFooterShown] = useState(false);
+
   const addLinkRef = useRef(null);
   const footerRef = useRef(null);
-  console.log(isAddLinkFixed);
+  const isAddLinkFixed = !isAddLinkShown && !isFooterShown;
 
   const { data: linkData } = useGetLink();
   const { folderData } = useGetFolderByLink(folderId);
@@ -57,13 +60,13 @@ export const FolderPage: React.FC = () => {
   useEffect(() => {
     const addLinkObserver = new IntersectionObserver(
       ([entry]) => {
-        setIsAddLinkFixed(entry.isIntersecting);
+        setIsAddLinkShown(entry.isIntersecting);
       },
       { threshold: 0 },
     );
     const footerObserver = new IntersectionObserver(
       ([entry]) => {
-        setIsAddLinkFixed(entry.isIntersecting);
+        setIsFooterShown(entry.isIntersecting);
       },
       { threshold: 0 },
     );
@@ -105,7 +108,7 @@ export const FolderPage: React.FC = () => {
       )}
       <Layout isNavFixed={navFixed} footerRef={footerRef}>
         <div className="FolderPage">
-          <AddLink addLinkRef={addLinkRef} isAddLinkFixed={isAddLinkFixed} />
+          <AddLink addLinkRef={addLinkRef} />
           <div className="FolderPage-items">
             <SearchBar
               handleInputChange={handleInputChange}
@@ -137,6 +140,7 @@ export const FolderPage: React.FC = () => {
               <div className="NoLink">저장된 링크가 없습니다.</div>
             )}
             <button className="mobile-add-button">폴더 추가하기 +</button>
+            {isAddLinkFixed && <AddLink isAddLinkFixed={isAddLinkFixed} />}
           </div>
         </div>
       </Layout>
