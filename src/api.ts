@@ -1,3 +1,5 @@
+import { Link, LinkBase } from '@src/pages/Folder/FolderPage';
+
 const BASE_URL = 'https://bootcamp-api.codeit.kr/api';
 
 export async function getFolder() {
@@ -49,7 +51,18 @@ export async function getLinks(userId: number, folderId: number) {
     if (!response.ok) {
       throw new Error('링크 목록을 불러오는데 실패했습니다.');
     }
-    const data = await response.json();
+    const links = await response.json();
+    const data = links?.map((link: LinkBase) => {
+      const { created_at, updated_at, image_source, folder_id } = link;
+      const revertLink: Link = {
+        ...link,
+        createdAt: created_at,
+        updatedAt: updated_at,
+        imageSource: image_source,
+        folderId: folder_id,
+      };
+      return revertLink;
+    });
     return data;
   } catch (error) {
     console.error(error);
