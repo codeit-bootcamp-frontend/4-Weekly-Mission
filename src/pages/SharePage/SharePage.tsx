@@ -5,7 +5,7 @@ import Footer from '../../components/Footer/Footer';
 import { API_PATH } from '../../services/api-path';
 import FETCH_API from '../../services/fetch-data';
 import * as Styled from './Share.styled';
-import { LinkType } from '../../components/types/type';
+import { LinkType } from '../../types/type';
 
 interface UserProfile {
   profileImg: string;

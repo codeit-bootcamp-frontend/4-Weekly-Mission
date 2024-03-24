@@ -4,7 +4,7 @@ import ShareIcon from '../../assets/category-share.svg';
 import ModifyIcon from '../../assets/category-modify.svg';
 import DeleteIcon from '../../assets/category-delete.svg';
 import * as Styled from './Category.styled';
-import { SelectCategoryType, CategoryType } from '../types/type';
+import { SelectCategoryType, CategoryType } from '../../types/type';
 interface CategoryControlListType {
   img: string;
   actionText: string;

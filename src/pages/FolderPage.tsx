@@ -4,7 +4,7 @@ import FolderContent from '../components/Folder/FolderContent';
 import Footer from '../components/Footer/Footer';
 import FloatingButton from '../components/Folder/FloatingButton';
 import Modal from '../components/Modal/Modal';
-import { CategoryType, DefaultCategoryType, ModalActionType } from '../components/types/type';
+import { CategoryType, DefaultCategoryType, ModalActionType } from '../types/type';
 
 let prevId: number = 999;
 

@@ -6,7 +6,7 @@ import ModalTitle from './ModalTitle';
 import ModalForm from './ModalForm';
 import * as Styled from './Modal.styled';
 import modalActionScript from '../../constant/modalActionScript';
-import { ModalActionType, CategoryType } from '../types/type';
+import { ModalActionType, CategoryType } from '../../types/type';
 
 interface ModalType {
   modalAction: ModalActionType;

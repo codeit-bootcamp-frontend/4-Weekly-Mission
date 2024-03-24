@@ -4,7 +4,7 @@ import { API_PATH } from '../../services/api-path';
 import FETCH_API from '../../services/fetch-data';
 import linkIcon from '../../assets/link.svg';
 import * as Styled from './Folder.styled';
-import { LinkType, CategoryType, SelectCategoryType } from '../types/type';
+import { LinkType, CategoryType, SelectCategoryType } from '../../types/type';
 
 interface FolderContentPropsType {
   handleKebabClick: (id: number) => void;

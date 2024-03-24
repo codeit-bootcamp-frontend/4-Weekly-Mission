@@ -2,7 +2,7 @@ import React, { ChangeEvent, useState, useEffect, SetStateAction, Dispatch, useR
 import CardList from '../Card/CardList';
 import Category from '../Category/Category';
 import * as Styled from './Content.styled';
-import { LinkType, CategoryType, SelectCategoryType } from '../types/type';
+import { LinkType, CategoryType, SelectCategoryType } from '../../types/type';
 
 interface ContentPropsType {
   categoryList?: CategoryType[];

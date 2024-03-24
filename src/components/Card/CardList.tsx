@@ -5,7 +5,7 @@ import StarIcon from '../../assets/star.svg';
 import KebabIcon from '../../assets/kebab.svg';
 import CardDefaultIcon from '../../assets/default-card.svg';
 import * as Styled from './CardList.styled';
-import { LinkType } from '../types/type';
+import { LinkType } from '../../types/type';
 
 interface CardListPropsType {
   handleKebabClick?: (id: number) => void;
