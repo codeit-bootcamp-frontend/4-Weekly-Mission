@@ -1,9 +1,11 @@
-import { FolderCard } from "../card/folderCard";
 import "./favoriteList.css";
 import { useFavoriteList } from "../../hooks/useFavoriteList";
 import styled from "styled-components";
-
-const FavoriteButton = styled.div`
+import { favoriteListDataType } from "../../types/folderListTypes";
+interface IFavoriteButton {
+  selected: boolean;
+}
+const FavoriteButton = styled.div<IFavoriteButton>`
   cursor: pointer;
   padding: 8px 12px;
   border-radius: 5px;
@@ -21,16 +23,26 @@ const FavoriteButton = styled.div`
   transition: all 0.3s ease-in;
 `;
 
-export const FavoriteList = ({ handleChange, id }) => {
+interface IFavoriteList {
+  handleChange: (v: favoriteListDataType | null) => void;
+
+  id: null | number;
+}
+
+export const FavoriteList = ({ handleChange, id }: IFavoriteList) => {
   const { favoriteList } = useFavoriteList();
-  console.log("id", id);
+
   return (
     <div className="favoriteWrapper">
       <FavoriteButton selected={id === null} onClick={() => handleChange(null)}>
         전체
       </FavoriteButton>
       {favoriteList?.map((v) => (
-        <FavoriteButton selected={id === v.id} onClick={() => handleChange(v)}>
+        <FavoriteButton
+          key={v.id}
+          selected={id === v.id}
+          onClick={() => handleChange(v)}
+        >
           {v.name}
         </FavoriteButton>
       ))}

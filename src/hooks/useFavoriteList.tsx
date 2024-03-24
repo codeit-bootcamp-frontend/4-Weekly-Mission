@@ -1,23 +1,24 @@
 import { useEffect, useState } from "react";
-import axios from "axios";
+import axios, { AxiosResponse } from "axios";
 import { API_URL } from "./const";
+import { favoriteListDataType } from "../types/folderListTypes";
 
 export const useFavoriteList = () => {
-  const [favoriteList, setFavoriteList] = useState(null);
+  const [favoriteList, setFavoriteList] = useState<favoriteListDataType[]>([]);
 
   useEffect(() => {
     fetchGetFolder();
   }, []);
 
-  const fetchGetFolder = async () => {
+  const fetchGetFolder = async (): Promise<void> => {
     try {
-      const fetch = await axios.get(`${API_URL}/users/1/folders`);
+      const fetch: AxiosResponse<{ data: favoriteListDataType[] }> =
+        await axios.get(`${API_URL}/users/1/folders`);
+
       const { data } = fetch;
       if (data) {
-        console.log("data", data);
         const { data: favoriteList } = data;
         setFavoriteList([...favoriteList]);
-        console.log('data',data);
       }
     } catch (e) {
       console.error();

@@ -1,18 +1,20 @@
 import { useEffect, useState } from "react";
 import { API_URL } from "./const";
-import axios from "axios";
-export const useFolderList = (id) => {
-  const [list, setList] = useState([]);
+import axios, { AxiosResponse } from "axios";
+import { folderListType, folderListDataType } from "../types/folderListTypes";
 
-  const fetchList = async () => {
+export const useFolderList = (id: number | null) => {
+  const [list, setList] = useState<folderListDataType[]>([]);
+
+  const fetchList = async (): Promise<void> => {
     try {
       const apiUrl = id
         ? `${API_URL}/users/1/links?folderId=${id}`
         : `${API_URL}/users/1/links`;
-      const fetch = await axios.get(apiUrl);
+      const fetch: AxiosResponse<folderListType> = await axios.get(apiUrl);
       const { data } = fetch;
       if (data) {
-        console.log("DATA", data);
+        // console.log("DATA", data);
         setList([...data?.data]);
       }
     } catch (e) {
