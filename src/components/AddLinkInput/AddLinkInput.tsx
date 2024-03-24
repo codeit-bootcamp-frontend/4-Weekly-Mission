@@ -2,10 +2,6 @@ import { CSSProperties, useEffect, useRef, useState } from "react";
 import styles from "./AddLinkInput.module.scss";
 import InputIcon from "@/assets/svg/InputIcon";
 
-// interface AddLinkInputProps {
-//   ref:
-// }
-
 export default function AddLinkInput() {
   const [isAddLinkInputVisible, setAddLinkInputVisible] = useState(true);
   const addLinkInputRef = useRef(null);
