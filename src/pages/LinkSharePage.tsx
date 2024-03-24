@@ -33,6 +33,14 @@ const Styled = {
     }
   `,
 
+  NoLink: styled.div`
+    height: 10rem;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  `,
+
   Cards: styled.div`
     margin-top: 4rem;
 
@@ -68,7 +76,7 @@ function LinkSharePage() {
             <Styled.SearchResult>
               <span>{keyword}</span>(으)로 검색한 결과입니다.
             </Styled.SearchResult>
-            {!hasFilteredLinks && <Styled.SearchResult>검색 결과가 없습니다 😢</Styled.SearchResult>}
+            {!hasFilteredLinks && <Styled.NoLink>검색 결과가 없습니다 😢</Styled.NoLink>}
           </>
         )}
 
