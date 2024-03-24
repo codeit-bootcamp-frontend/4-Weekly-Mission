@@ -1,6 +1,6 @@
 import LinkSearchBar from './LinkSearchBar';
 import '../styles/folderList.css';
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import FolderSortBar from '../pages/FolderPage/components/FolderSortBar';
 import FolderOptionBar from '../pages/FolderPage/components/FolderOptionBar';
 import { USERS_LINKS_URL, USERS_FOLDERS_URL } from '../constants/urls';
