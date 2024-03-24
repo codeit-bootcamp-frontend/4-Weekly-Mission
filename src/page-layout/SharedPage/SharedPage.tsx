@@ -20,6 +20,15 @@ export const SharedPage = () => {
     setSearchTerm("");
   };
 
+  const filteredLinks = links?.filter(
+    (link) =>
+      link.alt?.toLowerCase().includes(searchTerm.trim().toLowerCase()) ||
+      link.description
+        ?.toLowerCase()
+        .includes(searchTerm.trim().toLowerCase()) ||
+      link.url.toLowerCase().includes(searchTerm.trim().toLowerCase()),
+  );
+
   return (
     <Layout>
       <div className="SharedPage">
@@ -35,7 +44,7 @@ export const SharedPage = () => {
             searchTerm={searchTerm}
           />
           <CardList>
-            {links?.map((link) => <Card key={link?.id} {...link} />)}
+            {filteredLinks?.map((link) => <Card key={link?.id} {...link} />)}
           </CardList>
         </div>
       </div>
