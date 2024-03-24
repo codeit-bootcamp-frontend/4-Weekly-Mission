@@ -11,7 +11,7 @@ export const useUserQuery = () => {
  * @param {string} queryKey
  * @returns {Object}
  */
-export const useSampleFolderQuery = queryKey => {
+export const useSampleFolderQuery = (queryKey: string) => {
   return useQuery(['sampleFolder', queryKey], sampleFolderInquire);
 };
 
@@ -22,7 +22,13 @@ export const useSampleFolderQuery = queryKey => {
  * @param {number} props.folderId
  * @returns {QueryResult}
  */
-export const useFolderQuery = ({ queryKey, folderId }) => {
+export const useFolderQuery = ({
+  queryKey,
+  folderId,
+}: {
+  queryKey: string;
+  folderId: 'all' | string;
+}) => {
   return useQuery(['folder', queryKey], () => {
     return getFolderLink(folderId);
   });
@@ -34,7 +40,7 @@ export const useFolderQuery = ({ queryKey, folderId }) => {
  * @param {number} userId
  * @returns {QueryResult}
  */
-export const useCategoryQuery = (queryKey, userId) => {
+export const useCategoryQuery = (queryKey: string, userId: number) => {
   return useQuery(['folder', queryKey], () => {
     return getCategory(userId);
   });

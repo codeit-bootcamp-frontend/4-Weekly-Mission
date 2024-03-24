@@ -7,7 +7,7 @@ import { useSampleFolderQuery } from 'hook/useFetchData';
 import CardError from 'components/common/main/CardError';
 import Loader from 'components/common/Loader';
 
-const SharedPage = () => {
+const SharedPage: React.FC = () => {
   const { data, isLoading, isError } = useSampleFolderQuery('sharedDatas');
   const sharedDatas = data?.folder.links;
   if (isError) {

@@ -5,5 +5,5 @@ export const AUTH = Object.freeze({
   sampleUser: 'api/users/1',
   sampleFolder: 'api/sample/folder',
   folderLink: 'api/users/1/links',
-  category: `api/users`,
+  category: `api/users` as const,
 });

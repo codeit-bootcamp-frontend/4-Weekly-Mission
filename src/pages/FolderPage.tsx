@@ -10,8 +10,11 @@ import Loader from 'components/common/Loader';
 import CardGrid from 'components/common/main/CardGrid';
 import CardError from 'components/common/main/CardError';
 
-const FolderPage = () => {
-  const [currentCategory, setCurrentCategory] = useState({
+const FolderPage: React.FC = () => {
+  const [currentCategory, setCurrentCategory] = useState<{
+    id: string;
+    name: string;
+  }>({
     id: 'all',
     name: '전체',
   });
@@ -19,7 +22,7 @@ const FolderPage = () => {
   const folderId = currentCategory.id === 'all' ? '' : currentCategory.id;
 
   const { data: folderDatas, isLoading } = useFolderQuery({
-    queryKey: folderId,
+    queryKey: folderId.toString(),
     folderId: folderId,
   });
 
@@ -29,8 +32,11 @@ const FolderPage = () => {
     ...datas?.data,
   ];
 
-  const handleCategoryButton = e => {
-    setCurrentCategory({ id: e.target.id, name: e.target.innerText });
+  const handleCategoryButton = (e: React.MouseEvent<HTMLButtonElement>) => {
+    setCurrentCategory({
+      id: e.currentTarget.id,
+      name: e.currentTarget.innerText,
+    });
   };
 
   return (

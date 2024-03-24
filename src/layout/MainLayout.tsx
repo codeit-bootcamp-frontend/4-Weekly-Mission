@@ -2,7 +2,7 @@ import GNB from 'components/common/header/GNB';
 import Footer from 'components/common/footer/Footer';
 import { Outlet } from 'react-router-dom';
 
-const MainLayout = () => {
+const MainLayout: React.FC = () => {
   return (
     <>
       <GNB />

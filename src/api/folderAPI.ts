@@ -3,10 +3,10 @@ import { CATEGORY, FOLDER_LINK } from 'config.js';
 
 /**
  * folderId에 따른 데이터를 불러오는 함수
- * @param {number|'all'} folderId 폴더의 ID. 'all'을 입력하면 모든 폴더의 데이터 의미.
+ * @param {string|'all'} folderId 폴더의 ID. 'all'을 입력하면 모든 폴더의 데이터 의미.
  * @returns {Promise<any>}
  */
-export const getFolderLink = async (folderId: number | 'all'): Promise<any> => {
+export const getFolderLink = async (folderId: string | 'all'): Promise<any> => {
   if (folderId !== 'all') {
     const resData = await fetchRequest({
       url: FOLDER_LINK + `?folderId=${folderId}`,

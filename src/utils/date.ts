@@ -4,7 +4,7 @@
  * @param {string} dateString
  * @returns {string} 형식화된 날짜
  */
-export function formatDate(dateString) {
+export function formatDate(dateString: string): string {
   const date = new Date(dateString);
   const year = date.getFullYear().toString().substr(2, 2);
   const month = (date.getMonth() + 1).toString().padStart(2, '0');
@@ -19,10 +19,12 @@ export function formatDate(dateString) {
  * @param {string} createdAt 생성된 날짜
  * @returns {string} 경과한 시간
  */
-export function calculateTime(createdAt) {
+export function calculateTime(createdAt: string): string {
   const createdDate = new Date(createdAt);
   const now = new Date();
-  const diffSeconds = Math.floor((now - createdDate) / 1000);
+  const diffSeconds = Math.floor(
+    (now.getTime() - createdDate.getTime()) / 1000,
+  );
   const diffMinutes = Math.floor(diffSeconds / 60);
   const diffHours = Math.floor(diffMinutes / 60);
   const diffDays = Math.floor(diffHours / 24);
