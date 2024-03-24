@@ -1,3 +1,4 @@
+import React from "react";
 import Card from "../components/Card";
 import FolderComponent from "../components/folderComponent";
 import SearchLink from "../components/searchLink";
