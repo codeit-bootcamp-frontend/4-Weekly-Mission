@@ -1,0 +1,26 @@
+{
+  "compilerOptions": {
+    "target": "ES6",
+    "lib": ["DOM", "DOM.Iterable", "ESNext"],
+    "jsx": "react-jsx",
+    "module": "ESNext",
+    "rootDir": "./",
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
+    "allowJs": true,
+    "outDir": "./dist",
+    "removeComments": true /*컴파일 시 주석이 제거된다.*/,
+    "noEmit": true /* true로 설정하면, 컴파일 해도 .js 파일이 생성되지 않는다.
+.js 파일을 생성하지 않고 .ts 파일에 에러가 없는지 확인 하고 싶을 때 사용한다.*/,
+    "noEmitOnError": true /* ts파일에 에러가 있으면 .js파일을 생성하지 않는다. */,
+    "isolatedModules": true,
+    "allowSyntheticDefaultImports": true,
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+    "strict": true,
+    "noFallthroughCasesInSwitch": true,
+    "skipLibCheck": true /* 이 옵션은 외부 라이브러리(타입 정의 파일)에 대한 타입 체크를 건너뛸지 여부를 설정한다. true로 설정하면 TypeScript 컴파일러는 외부 라이브러리의 타입을 체크하지 않는다*/
+  },
+  "include": ["src", "react-app-env.d.ts"],
+  "exclude": ["node_modules"]
+}

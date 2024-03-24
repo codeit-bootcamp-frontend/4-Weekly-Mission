@@ -1,6 +1,14 @@
 import "./Folder.css";
 
-export default function Folder({ user, folderName, owner }) {
+interface FolderProps {
+  folderName: string | null;
+  owner: Owner | null;
+}
+interface Owner {
+  profileImageSource: string;
+  name: string;
+}
+export default function Folder({ folderName, owner }: FolderProps) {
   const { profileImageSource, name } = owner || {};
   //   const folderInfo = () => {
   //     return <div></div>;

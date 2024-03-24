@@ -4,12 +4,42 @@ import { useState } from "react";
 import noImg from "../../assets/noImage.png";
 import kebab from "../../assets/kebab.png";
 import KebabFolder from "../Modal/KebabFolder";
+import { AllMenuData } from "../../hooks/useFetch";
 
-function FolderCard({ data, isShowModal, linkModal, linkDeleteModal }) {
+interface CardDate {
+  id: number;
+  created_at: Date;
+  updated_at: null;
+  url: string;
+  title: null | string;
+  description: null | string;
+  image_source: null | string;
+  folder_id: null;
+}
+interface FolderCardProps {
+  data: CardDate[] | undefined;
+  isShowModal: (modalState: {
+    linkModal: boolean;
+    folderAddModal: boolean;
+    shareAddModal: boolean;
+    editAddModal: boolean;
+    deleteAddModal: boolean;
+    linkDeleteModal: boolean;
+  }) => void;
+  allMenuData: AllMenuData[] | undefined;
+  linkInput: string;
+}
+function FolderCard({
+  data,
+  isShowModal,
+  allMenuData,
+  linkInput,
+}: FolderCardProps) {
+  console.log(data);
   const isMobile = useMediaQuery({ maxWidth: 767 });
   const isTablet = useMediaQuery({ maxWidth: 1124 });
-  const [kebabMenu, setKebabMenu] = useState({});
-  const formatDate = (value) => {
+  const [kebabMenu, setKebabMenu] = useState<{ [key: number]: boolean }>({});
+  const formatDate = (value: number) => {
     const date = new Date(value);
     const now = new Date();
 
@@ -18,7 +48,7 @@ function FolderCard({ data, isShowModal, linkModal, linkDeleteModal }) {
     const dayInMillis = 24 * hourInMillis;
     const monthInMillis = 30 * dayInMillis;
 
-    const elapsedMillis = now - date;
+    const elapsedMillis = Number(now) - Number(date);
 
     if (elapsedMillis < minuteInMillis) {
       const minutes = Math.floor(elapsedMillis / 1000 / 60);
@@ -42,7 +72,7 @@ function FolderCard({ data, isShowModal, linkModal, linkDeleteModal }) {
       return `${years} year${years > 1 ? "s" : ""} ago`;
     }
   };
-  const getFormatDate = (createdAt) => {
+  const getFormatDate = (createdAt: Date) => {
     const date = new Date(createdAt);
 
     const year = date.getFullYear();
@@ -51,10 +81,32 @@ function FolderCard({ data, isShowModal, linkModal, linkDeleteModal }) {
 
     return `${year}-${month}-${day}`;
   };
-  const CardItem = ({ link, url, dataArray, dataId, isShowModal, dataUrl }) => {
+
+  interface CardItemProps {
+    link: CardDate;
+    url: string;
+    dataId: number;
+    isShowModal: (modalState: {
+      linkModal: boolean;
+      folderAddModal: boolean;
+      shareAddModal: boolean;
+      editAddModal: boolean;
+      deleteAddModal: boolean;
+      linkDeleteModal: boolean;
+    }) => void;
+    dataUrl: string;
+  }
+
+  const CardItem = ({
+    link,
+    url,
+    dataId,
+    isShowModal,
+    dataUrl,
+  }: CardItemProps) => {
     const timeStamp = new Date(link.created_at).getTime();
 
-    const handleKebabClick = (event) => {
+    const handleKebabClick = (event: React.MouseEvent<HTMLImageElement>) => {
       event.preventDefault();
 
       setKebabMenu((prevMenus) => ({
@@ -64,7 +116,12 @@ function FolderCard({ data, isShowModal, linkModal, linkDeleteModal }) {
     };
 
     return (
-      <a className="folder-card-url" href={url} target="_blank">
+      <a
+        className="folder-card-url"
+        href={url}
+        target="_blank"
+        rel="noreferrer"
+      >
         {link.image_source ? (
           <img
             className="folder-card-image"
@@ -72,17 +129,22 @@ function FolderCard({ data, isShowModal, linkModal, linkDeleteModal }) {
             alt="카드 이미지"
           />
         ) : (
-          <img src={noImg} />
+          <img src={noImg} alt="이미지 없음" />
         )}
         <div className="date-and-kebab">
           <p>{formatDate(timeStamp)}</p>
-          <img className="kebab" src={kebab} onClick={handleKebabClick} />
+          <img
+            className="kebab"
+            src={kebab}
+            onClick={handleKebabClick}
+            alt="케밥 버튼"
+          />
           {kebabMenu[dataId] ? (
             <KebabFolder
               isShowModal={isShowModal}
               dataUrl={dataUrl}
-              linkModal={linkModal}
-              linkDeleteModal={linkDeleteModal}
+              // linkModal={linkModal}
+              // linkDeleteModal={linkDeleteModal}
             />
           ) : null}
         </div>
@@ -92,8 +154,25 @@ function FolderCard({ data, isShowModal, linkModal, linkDeleteModal }) {
       </a>
     );
   };
-  const dataArray = data || [];
-
+  const getFilteredData = () => {
+    if (linkInput === "") {
+      return data;
+    }
+    console.log(allMenuData);
+    return (
+      data &&
+      data.filter(
+        (oneData) =>
+          (oneData.description && oneData.description.includes(linkInput)) ||
+          (oneData.title && oneData.title.includes(linkInput)) ||
+          (oneData.url &&
+            oneData.url.toLowerCase().includes(linkInput.toLowerCase()))
+      )
+    );
+  };
+  const filteredData = getFilteredData();
+  const dataArray: CardDate[] = filteredData || [];
+  console.log(dataArray.length);
   return (
     <article
       className={isTablet ? "folder-article-box-tablet" : "folder-article-box"}
@@ -116,7 +195,6 @@ function FolderCard({ data, isShowModal, linkModal, linkDeleteModal }) {
                   url={data.url}
                   dataId={data.id}
                   dataUrl={data.url}
-                  dataArray={dataArray}
                   isShowModal={isShowModal}
                 />
               </div>

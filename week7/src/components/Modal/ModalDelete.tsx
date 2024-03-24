@@ -1,6 +1,9 @@
 import "./ModalDelete.css";
 
-const ModalDelete = ({ link }) => {
+interface ModalDeleteProps {
+  link?: string;
+}
+const ModalDelete = ({ link }: ModalDeleteProps) => {
   return (
     <div className="modal-delete-content">
       <div className="delete-area">{link}</div>

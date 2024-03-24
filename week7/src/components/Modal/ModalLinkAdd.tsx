@@ -1,6 +1,11 @@
 import "./ModalAdd.css";
+import { FolderCardData, SortedMenusData } from "../../hooks/useFetch";
 
-const ModalLinkAdd = ({ folderData, folderMenus }) => {
+interface ModalLinkAddProps {
+  folderData: FolderCardData[] | undefined;
+  folderMenus: SortedMenusData[] | undefined;
+}
+const ModalLinkAdd = ({ folderData, folderMenus }: ModalLinkAddProps) => {
   const menusDataArray = folderMenus || [];
   const dataArray = folderData || [];
   return (

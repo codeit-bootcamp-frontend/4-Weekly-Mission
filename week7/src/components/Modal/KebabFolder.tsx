@@ -1,9 +1,21 @@
 import "./KebabFolder.css";
 
-const KebabFolder = ({ isShowModal, dataUrl }) => {
-  const isDeleteModal = (e) => {
+interface KebabFolderProps {
+  isShowModal: (modalState: {
+    linkModal: boolean;
+    folderAddModal: boolean;
+    shareAddModal: boolean;
+    editAddModal: boolean;
+    deleteAddModal: boolean;
+    linkDeleteModal: boolean;
+    dataUrl?: string;
+  }) => void;
+  dataUrl: string;
+}
+const KebabFolder = ({ isShowModal, dataUrl }: KebabFolderProps) => {
+  const isDeleteModal = (e: React.MouseEvent<HTMLDivElement>) => {
     e.preventDefault();
-    isShowModal((prev) => ({
+    isShowModal({
       linkModal: false,
       folderAddModal: false,
       shareAddModal: false,
@@ -11,20 +23,19 @@ const KebabFolder = ({ isShowModal, dataUrl }) => {
       deleteAddModal: false,
       linkDeleteModal: true,
       dataUrl: dataUrl,
-    }));
-    console.log();
+    });
   };
 
-  const isFolderAddModal = (e) => {
+  const isFolderAddModal = (e: React.MouseEvent<HTMLDivElement>) => {
     e.preventDefault();
-    isShowModal((prev) => ({
+    isShowModal({
       linkModal: true,
       folderAddModal: false,
       shareAddModal: false,
       editAddModal: false,
       deleteAddModal: false,
       linkDeleteModal: false,
-    }));
+    });
   };
 
   return (

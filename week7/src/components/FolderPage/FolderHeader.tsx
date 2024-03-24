@@ -1,8 +1,31 @@
 import logoImg from "../../assets/Linkbrary.png";
 import "./FolderHeader.css";
-import AddLink from "./AddLink.js";
+import AddLink from "./AddLink";
 import { useMediaQuery } from "react-responsive";
-const profileAccount = ({ user, imageSource, email }) => {
+
+interface Props {
+  user: UserData | null;
+  imageSource: string | undefined;
+  email: string | undefined;
+  isShowModal?: (modalState: {
+    linkModal: boolean;
+    folderAddModal: boolean;
+  }) => void;
+}
+
+export interface UserData {
+  data: Datum[];
+}
+
+interface Datum {
+  id: number;
+  created_at: Date;
+  name: string;
+  image_source: string;
+  email: string;
+  auth_id: string;
+}
+const profileAccount = ({ user, imageSource, email }: Props) => {
   if (!user) {
     return false;
   }
@@ -14,7 +37,12 @@ const profileAccount = ({ user, imageSource, email }) => {
     </div>
   );
 };
-function FolderHeader({ user, imageSource, email, onClick }) {
+const FolderHeader: React.FC<Props> = ({
+  user,
+  imageSource,
+  email,
+  isShowModal,
+}) => {
   const isTablet = useMediaQuery({ maxWidth: 1199 });
   return (
     <>
@@ -32,9 +60,9 @@ function FolderHeader({ user, imageSource, email, onClick }) {
           </div>
         </nav>
       </form>
-      <AddLink setIsShowModal={onClick} />
+      <AddLink setIsShowModal={isShowModal} />
     </>
   );
-}
+};
 
 export default FolderHeader;

@@ -1,27 +1,41 @@
 import { useEffect, useState } from "react";
 import "./App.css";
-import FolderHeader from "./components/FolderPage/FolderHeader.js";
-import Input from "./components/Input.js";
-import FolderCard from "./components/FolderPage/FolderCard.js";
-import Footer from "./components/Footer.js";
-import useFetch from "../src/hooks/useFetch.js";
-import SortedMenus from "./components/FolderPage/SortedMenus.js";
+import FolderHeader from "./components/FolderPage/FolderHeader";
+import Input from "./components/Input";
+import FolderCard from "./components/FolderPage/FolderCard";
+import Footer from "./components/Footer";
+import {
+  useFolderUserFetch,
+  useFolderCardDataFetch,
+  useSortedMenusDataFetch,
+  useAllMenuDataFetch,
+} from "./hooks/useFetch";
+import SortedMenus from "./components/FolderPage/SortedMenus";
 import { useMediaQuery } from "react-responsive";
 import shareImg from "./assets/share.png";
 import deleteImg from "./assets/delete.png";
 import penImg from "./assets/pen.png";
-import Modal from "./components/Modal/Modal.js";
-export const ALL_MENU_URL = "https://bootcamp-api.codeit.kr/api/users/1/links";
+import Modal from "./components/Modal/Modal";
 
+export const ALL_MENU_URL = "https://bootcamp-api.codeit.kr/api/users/4/links";
+export type LinkAddModal = {
+  linkModal: boolean;
+  folderAddModal: boolean;
+  shareAddModal?: boolean;
+  editAddModal?: boolean;
+  deleteAddModal?: boolean;
+  linkDeleteModal?: boolean;
+  dataUrl?: string;
+};
 function FolderPage() {
   const isTablet = useMediaQuery({ maxWidth: 1124 });
   // const isMobile = useMediaQuery({ maxWidth: 767 });
   const [folderName, setFolderName] = useState("");
-  const [allMenuId, setAllMenuId] = useState(null);
-
+  const [menusId, setAllMenuId] = useState<number | undefined>(undefined);
+  console.log(menusId);
   const [subUrl, setSubUrl] = useState(``);
 
-  const [addModal, setAddModal] = useState({
+  const [addModal, setAddModal] = useState<LinkAddModal>({
     linkModal: false,
     folderAddModal: false,
     shareAddModal: false,
@@ -30,75 +44,73 @@ function FolderPage() {
     linkDeleteModal: false,
     dataUrl: "",
   });
+  const [linkInput, setLinkInput] = useState<string>("");
 
   const userUrl = "https://bootcamp-api.codeit.kr/api/users/1";
 
   const SortedAllMenusUrl =
-    "https://bootcamp-api.codeit.kr/api/users/1/folders";
+    "https://bootcamp-api.codeit.kr/api/users/4/folders";
 
-  const { data: userData } = useFetch(userUrl);
-  const { data: sortedAllMenusData } = useFetch(SortedAllMenusUrl);
-  const { data: folderData } = useFetch(subUrl);
+  const { data: userData } = useFolderUserFetch(userUrl);
+  const { data: sortedAllMenus } = useSortedMenusDataFetch(SortedAllMenusUrl);
+  const { data: folderData } = useFolderCardDataFetch(subUrl);
+  const { data: allMenuData } = useAllMenuDataFetch(ALL_MENU_URL);
 
-  const { data: AllMenuData } = useFetch(ALL_MENU_URL);
-  const handleGetFolderId = (id) => {
+  console.log(userData); //로그인 부분
+  console.log(sortedAllMenus); //'전체' 메뉴 제외한 메뉴들
+  console.log(folderData); // '전체' 메뉴 제외한 메뉴들 데이터
+  console.log(allMenuData); // '전체' 메뉴 데이터
+
+  const handleGetFolderId = (id: number | undefined) => {
     setAllMenuId(id);
   };
 
-  const handleChangeUrl = (url) => {
+  const handleChangeUrl = (url: string) => {
     setSubUrl(url);
-    return;
   };
 
-  const handlePrintFolderName = (name) => {
+  const handlePrintFolderName = (name: string) => {
     setFolderName(name);
   };
-  const isShowModal = (linkAddModal) => {
+  const isShowModal = (linkAddModal: LinkAddModal) => {
     setAddModal(linkAddModal);
   };
 
-  const isShareModal = (e) => {
+  const isShareModal = (e: React.MouseEvent<HTMLAnchorElement>) => {
     e.preventDefault();
-    isShowModal((prev) => ({
+    isShowModal({
       linkModal: false,
       folderAddModal: false,
       shareAddModal: true,
-    }));
+    });
   };
 
-  const isEditModal = (e) => {
+  const isEditModal = (e: React.MouseEvent<HTMLAnchorElement>) => {
     e.preventDefault();
-    isShowModal((prev) => ({
+    isShowModal({
       linkModal: false,
       folderAddModal: false,
       shareAddModal: false,
       editAddModal: true,
-    }));
+    });
   };
 
-  const isDeleteModal = (e) => {
+  const isDeleteModal = (e: React.MouseEvent<HTMLAnchorElement>) => {
     e.preventDefault();
-    isShowModal((prev) => ({
+    isShowModal({
       linkModal: false,
       folderAddModal: false,
       shareAddModal: false,
       editAddModal: false,
       deleteAddModal: true,
-    }));
+    });
   };
 
-  // const isLinkDeleteModal = (e) => {
-  //   e.preventDefault();
-  //   isShowModal((prev) => ({
-  //     linkModal: false,
-  //     folderAddModal: false,
-  //     shareAddModal: false,
-  //     editAddModal: false,
-  //     deleteAddModal: false,
-  //     linkDeleteModal: true,
-  //   }));
-  // };
-  useEffect(() => {}, [subUrl, folderData, sortedAllMenusData]);
+  const handleChangeInput = (data: string) => {
+    setLinkInput(data);
+  };
+
+  useEffect(() => {}, [subUrl, folderData, sortedAllMenus, allMenuData]);
 
   return (
     <div className="App">
@@ -106,7 +118,7 @@ function FolderPage() {
         className={
           Object.values(addModal).some((value) => value === true)
             ? "background-container"
-            : null
+            : ""
         }
       ></div>
       <div className="page-container">
@@ -114,13 +126,13 @@ function FolderPage() {
           user={userData}
           imageSource={userData?.data[0]?.image_source}
           email={userData?.data[0]?.email}
-          onClick={isShowModal}
+          isShowModal={isShowModal}
         />
         {addModal.linkModal ? (
           <Modal
             title="폴더에 추가"
             folderData={folderData?.data}
-            folderMenus={sortedAllMenusData?.data}
+            folderMenus={sortedAllMenus?.data}
             isShowModal={isShowModal}
             linkAddModal={addModal.linkModal}
           />
@@ -129,7 +141,7 @@ function FolderPage() {
           <Modal
             title="폴더 추가"
             folderData={folderData?.data}
-            folderMenus={sortedAllMenusData?.data}
+            folderMenus={sortedAllMenus?.data}
             isShowModal={isShowModal}
             folderAddModal={addModal.folderAddModal}
           />
@@ -138,17 +150,17 @@ function FolderPage() {
           <Modal
             title="폴더 공유"
             folderData={folderData?.data}
-            folderMenus={sortedAllMenusData?.data}
+            folderMenus={sortedAllMenus?.data}
             isShowModal={isShowModal}
             shareModal={addModal.shareAddModal}
-            menusId={allMenuId}
+            menusId={menusId}
           />
         ) : null}
         {addModal.editAddModal ? (
           <Modal
             title="폴더 이름 변경"
             folderData={folderData?.data}
-            folderMenus={sortedAllMenusData?.data}
+            folderMenus={sortedAllMenus?.data}
             isShowModal={isShowModal}
             editModal={addModal.editAddModal}
           />
@@ -158,7 +170,7 @@ function FolderPage() {
           <Modal
             title="폴더 삭제"
             folderData={folderData?.data}
-            folderMenus={sortedAllMenusData?.data}
+            folderMenus={sortedAllMenus?.data}
             isShowModal={isShowModal}
             deleteModal={addModal.deleteAddModal}
           />
@@ -167,17 +179,18 @@ function FolderPage() {
           <Modal
             title="링크 삭제"
             folderData={folderData?.data}
-            folderMenus={sortedAllMenusData?.data}
+            folderMenus={sortedAllMenus?.data}
             isShowModal={isShowModal}
             linkDeleteModal={addModal.linkDeleteModal}
             dataUrl={addModal.dataUrl}
           />
         ) : null}
-        <Input />
+
+        <Input linkInput={linkInput} handleChangeInput={handleChangeInput} />
         <SortedMenus
-          menusData={sortedAllMenusData?.data}
+          menusData={sortedAllMenus?.data}
           onClickSubMenu={handleGetFolderId}
-          allMenuData={AllMenuData?.data}
+          allMenuData={allMenuData?.data}
           onChangeUrl={handleChangeUrl}
           onChangeTitle={handlePrintFolderName}
           isShowModal={isShowModal}
@@ -189,23 +202,24 @@ function FolderPage() {
           <h2 className={isTablet ? "title-tablet" : "title"}>{folderName}</h2>
           <div className={isTablet ? "tool-tablet" : "tool"}>
             <a href="/" onClick={isShareModal}>
-              <img src={shareImg} />
+              <img src={shareImg} alt="공유 버튼" />
               공유
             </a>
             <a href="/" onClick={isEditModal}>
-              <img src={penImg} />
+              <img src={penImg} alt="이름 변경 버튼" />
               이름 변경
             </a>
             <a href="/" onClick={isDeleteModal}>
-              <img src={deleteImg} />
+              <img src={deleteImg} alt="삭제 버튼" />
               삭제
             </a>
           </div>
         </div>
         <FolderCard
           data={folderData?.data}
-          allMenuId={allMenuId}
           isShowModal={isShowModal}
+          allMenuData={allMenuData?.data}
+          linkInput={linkInput}
         />
         <Footer />
       </div>

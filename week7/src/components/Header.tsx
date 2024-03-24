@@ -1,8 +1,9 @@
 import logoImg from "../assets/Linkbrary.png";
 import "./Header.css";
-import Folder from "./Folder.js";
+import Folder from "./Folder";
 import { useMediaQuery } from "react-responsive";
-const profileAccount = ({ user }) => {
+import { UserType, Owner } from "../SharedPage";
+const profileAccount = ({ user }: { user: UserType | null }) => {
   if (!user) {
     return false;
   }
@@ -14,7 +15,23 @@ const profileAccount = ({ user }) => {
     </div>
   );
 };
-function Header({ user, folderName, owner }) {
+// interface User {
+//   id: number;
+//   name: string;
+//   email: string;
+//   profileImageSource: string;
+// }
+// interface HeaderProps {
+//   user: User | null;
+//   folderName: string | null;
+//   owner: string | null;
+// }
+interface HeaderProps {
+  user: UserType | null;
+  folderName: string | null;
+  owner: Owner | null;
+}
+function Header({ user, folderName, owner }: HeaderProps) {
   const isTablet = useMediaQuery({ maxWidth: 1199 });
   return (
     <>
@@ -26,7 +43,7 @@ function Header({ user, folderName, owner }) {
           {user ? profileAccount({ user }) : <button>Login</button>}
         </div>
       </nav>
-      <Folder user={user} folderName={folderName} owner={owner} />
+      <Folder folderName={folderName} owner={owner} />
     </>
   );
 }
