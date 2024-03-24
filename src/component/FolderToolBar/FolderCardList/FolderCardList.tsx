@@ -10,7 +10,7 @@ import kebab from "../../../images/kebab.svg";
 import "./FolderCardList.css";
 
 const FolderCardList = ({
-  links,
+  filteredItems,
   isModalOpen,
   modalType,
   openModal,
@@ -46,7 +46,7 @@ const FolderCardList = ({
 
   return (
     <div className="card-list">
-      {links?.map((link) => (
+      {filteredItems?.map((link) => (
         <a
           key={link.id}
           href={link.url}

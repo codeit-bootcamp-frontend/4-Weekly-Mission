@@ -17,7 +17,6 @@ export const fetchFolders = async () => {
 export const fetchLinks = async (folderId?: string | number) => {
   const baseUrl = "https://bootcamp-api.codeit.kr/api/users/4/links";
   const url = folderId ? `${baseUrl}?folderId=${folderId}` : baseUrl;
-  console.log(folderId);
   try {
     const response = await fetch(url);
     if (!response.ok) {

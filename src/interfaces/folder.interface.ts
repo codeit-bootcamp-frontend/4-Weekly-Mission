@@ -21,7 +21,7 @@ export interface linksType extends folderDataType {
 
 export interface folderToolBarProps {
   folderData: folderDataType[];
-  links?: linksType[];
+  filteredItems?: linksType[];
   selectedButtonName?: string;
   onFolderSelect?: (folderId: string | number, folderName?: string) => void;
 }
@@ -53,4 +53,8 @@ export interface handleModalType {
   title: string;
   buttonName?: string;
   modalType: string;
+}
+
+export interface searchBarProps {
+  onSearch: (searchTerm: string) => void;
 }

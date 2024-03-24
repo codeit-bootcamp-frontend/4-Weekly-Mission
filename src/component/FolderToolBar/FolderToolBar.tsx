@@ -16,7 +16,7 @@ import deleteIcon from "../../images/delete.svg";
 
 const FolderToolBar = ({
   folderData,
-  links,
+  filteredItems,
   selectedButtonName,
   onFolderSelect,
 }: folderToolBarProps) => {
@@ -98,7 +98,7 @@ const FolderToolBar = ({
         )}
       </div>
       <FolderCardList
-        links={links}
+        filteredItems={filteredItems}
         isModalOpen={isModalOpen}
         modalType={modalType}
         openModal={openModal}
