@@ -48,7 +48,7 @@ export async function getUserFolders(): Promise<Folder[]> {
 }
 
 export async function getUserLinks(id: number | string): Promise<Link[]> {
-  const query = id === totalFolderId ? 'users/4/links' : `users/1/links?folderId=${id}`;
+  const query = id === totalFolderId ? 'users/4/links' : `users/4/links?folderId=${id}`;
   const response = await getAPI(query);
 
   const parsedData = response.data.map(({ created_at, image_source, ...rest }: LinkAPI) => ({
