@@ -7,7 +7,7 @@ import { Children } from 'interfaces/componentsInterface';
 const Styled = {
   Button: styled.button`
     position: fixed;
-    bottom: 10.1rem;
+    bottom: 12rem;
     left: 50%;
     transform: translateX(-50%);
 

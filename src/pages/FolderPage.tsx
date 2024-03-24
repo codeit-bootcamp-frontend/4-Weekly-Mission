@@ -14,6 +14,8 @@ import SearchBar from 'components/SearchBar';
 
 import PLACEHOLDER from 'constants/FORM_MESSAGE';
 import useUserFoldersQuery from 'hooks/api/folder/useUserFoldersQuery';
+import useIntersectionObserver from 'hooks/useIntersectionObserver';
+import FixedLinkBar from 'components/folder/FixedLinkBar';
 
 const Styled = {
   NoLink: styled.div`
@@ -85,10 +87,22 @@ function FolderPage() {
   let folderList = [{ id: 1, name: '전체' }, ...(data?.data?.data || [])];
   const hasFolders = folderList.length !== 0;
 
+  const { isVisible: isHeaderVisible, targetRef: headerTargetRef } = useIntersectionObserver({
+    root: null,
+    threshold: 0,
+  });
+
+  const { isVisible: isFooterVisible, targetRef: footerTargetRef } = useIntersectionObserver({
+    root: null,
+    threshold: 0,
+  });
+
   return (
     <>
       <PageTitle title="폴더" />
-      <FolderHeader />
+      <div ref={headerTargetRef}>
+        <FolderHeader />
+      </div>
       <MainLayout>
         {!hasFolders ? (
           <Styled.NoLink>저장된 링크가 없습니다 🥲</Styled.NoLink>
@@ -116,8 +130,11 @@ function FolderPage() {
               <h2 style={{ fontSize: '2.4rem', fontWeight: 600 }}>{selectedTabName}</h2>
               {selectedTabName !== '전체' && <OptionBtns />}
             </Styled.TitleAndOptions>
-            <FloatButton>폴더추가</FloatButton>
             <FolderGridCard keyword={keyword} selectedFolder={selectedFolder} />
+
+            <FloatButton>폴더추가</FloatButton>
+            <div ref={footerTargetRef}></div>
+            {!isHeaderVisible && !isFooterVisible && <FixedLinkBar />}
           </>
         )}
       </MainLayout>
