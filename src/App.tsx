@@ -1,4 +1,4 @@
-import React, { BrowserRouter, Routes, Route } from 'react-router-dom';
+import React, { createBrowserRouter, RouterProvider, BrowserRouter, Routes, Route } from 'react-router-dom';
 import MainPage from './pages/MainPage';
 import SharePage from './pages/SharePage/SharePage';
 import FolderPage from './pages/FolderPage';
@@ -6,20 +6,27 @@ import FolderPage from './pages/FolderPage';
 // import RegisterPage from './pages/RegisterPage';
 import GlobalStyles from './styles/Global.styled';
 
+const router = createBrowserRouter([
+  {
+    path: '/',
+    element: <MainPage />
+  },
+  {
+    path: '/share',
+    element: <SharePage />
+  },
+  {
+    path: '/folder',
+    element: <FolderPage />
+  }
+]);
+
 function App() {
   return (
-    <BrowserRouter>
+    <>
       <GlobalStyles />
-      <div className="App">
-        <Routes>
-          <Route index element={<MainPage />} />
-          {/* <Route path="signin" element={<LoginPage />} />
-          <Route path="signup" element={<RegisterPage />} /> */}
-          <Route path="share" element={<SharePage />} />
-          <Route path="folder" element={<FolderPage />} />
-        </Routes>
-      </div>
-    </BrowserRouter>
+      <RouterProvider router={router} />
+    </>
   );
 }
 
