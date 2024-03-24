@@ -45,7 +45,7 @@ const FolderPage: React.FC = () => {
         <AddLink />
       </HeaderContainer>
       <MainContainer>
-        <Search />
+        <Search links={datas} />
         <CategoryTabList
           categoryDatas={categoryDatas}
           currentCategory={currentCategory.name}

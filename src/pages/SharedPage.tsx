@@ -10,6 +10,7 @@ import Loader from 'components/common/Loader';
 const SharedPage: React.FC = () => {
   const { data, isLoading, isError } = useSampleFolderQuery('sharedDatas');
   const sharedDatas = data?.folder.links;
+
   if (isError) {
     return <CardError />;
   }
@@ -17,7 +18,7 @@ const SharedPage: React.FC = () => {
     <>
       <SharedHeader />
       <MainContainer>
-        <Search />
+        <Search links={sharedDatas} />
         {isLoading ? (
           <Loader />
         ) : (

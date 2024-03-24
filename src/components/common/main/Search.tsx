@@ -1,7 +1,24 @@
-import React, { FormEvent } from 'react';
+import React, { FormEvent, useEffect, useState } from 'react';
+import { useSearchParams } from 'react-router-dom';
 import styled from 'styled-components';
+import filterByKeyword, { Link, UserLinksData } from 'utils/filterByKeyword';
 
-const Search: React.FC = () => {
+interface SearchProps {
+  links: (UserLinksData | Link)[];
+}
+
+const Search: React.FC<SearchProps> = ({ links }) => {
+  const [searchParams] = useSearchParams();
+  const [searchTerm, setSearchTerm] = useState<string>(
+    searchParams.get('keyword'),
+  );
+  const filteredLinks = filterByKeyword(links || [], searchTerm);
+  const hasFilteredLinks = filteredLinks.length !== 0;
+  console.log(filteredLinks);
+  useEffect(() => {
+    setSearchTerm(searchParams.get('keyword'));
+  }, [searchParams]);
+
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
   };
@@ -9,7 +26,20 @@ const Search: React.FC = () => {
   return (
     <SearchBar onSubmit={handleSubmit}>
       <img src="/images/icons/search.svg" alt="Search Icon" />
-      <SearchInput type="text" placeholder="링크를 검색해 보세요." />
+      <SearchInput
+        type="text"
+        placeholder="링크를 검색해 보세요."
+        value={searchTerm}
+        onChange={e => setSearchTerm(e.target.value)}
+      />
+      {searchTerm && (
+        <>
+          <SearchResult>
+            <span>{searchTerm}</span>으로 검색한 결과입니다.
+          </SearchResult>
+          {!hasFilteredLinks && <NoLink>검색 결과가 없습니다 😢</NoLink>}
+        </>
+      )}
     </SearchBar>
   );
 };
@@ -37,5 +67,26 @@ const SearchInput = styled.input`
   padding: 1rem;
   width: 100rem;
   background-color: #f5f5f5;
+`;
+const SearchResult = styled.div`
+  margin-top: 4rem;
+  font-size: 3.2rem;
+  font-weight: 600;
+  line-height: 3.82rem;
+  color: ${({ theme }) => theme.gray60};
+  span {
+    color: ${({ theme }) => theme.black};
+  }
+  @media (max-width: 767px) {
+    margin-top: 3.2rem;
+    font-size: 2.4rem;
+    line-height: 2.86rem;
+  }
+`;
+const NoLink = styled.div`
+  height: 10rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 `;
 export default Search;

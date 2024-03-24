@@ -11,6 +11,7 @@ function AppRouter() {
   return (
     <Routes>
       <Route element={<MainLayout />}>
+        <Route index element={<FolderPage />} />
         <Route path={routes.home} element={<HomePage />}></Route>
         <Route path={routes.shared} element={<SharedPage />}></Route>
         <Route path={routes.folder} element={<FolderPage />}></Route>
