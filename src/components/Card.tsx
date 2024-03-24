@@ -3,8 +3,15 @@ import { useEffect, useState } from "react";
 import "../style/card.css";
 import { formatDate, getTimeDifference } from "../util";
 import fetchData from "../api/FetchData";
+
+interface Item {
+  imageSource: string;
+  url: string;
+  createdAt: string;
+  description: string;
+}
 function Card() {
-  const [items, setItems] = useState(null);
+  const [items, setItems] = useState<Item[] | null>(null);
 
   useEffect(() => {
     const fetchCardData = async () => {
