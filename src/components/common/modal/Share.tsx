@@ -19,18 +19,18 @@ interface ShareProps {
 
 const Share = ({ selectedFolderId, onCloseModal, selectedFolderName }: ShareProps) => {
   const url = `${sampleUrl}${selectedFolderId}`;
-  const status = useScript('https://developers.kakao.com/sdk/js/kakao.js');
+  const status = useKaKaoScript('https://developers.kakao.com/sdk/js/kakao.js');
 
   useEffect(() => {
-    if (status === 'ready' && window.Kakao) {
-      if (!window.Kakao.isInitialized()) {
-        window.Kakao.init('8f1f7e5843d6ce8bbd69bc426167fb9b');
+    if (status === 'ready' && (window as any).Kakao) {
+      if (!(window as any).Kakao.isInitialized()) {
+        (window as any).Kakao.init('8f1f7e5843d6ce8bbd69bc426167fb9b');
       }
     }
   }, [status]);
 
   const handleKaKaoButton = () => {
-    window.Kakao.Link.sendScrap({
+    (window as any).Kakao.Link.sendScrap({
       requestUrl: url,
     });
   };
