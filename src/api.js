@@ -12,7 +12,7 @@ const getRequest = async (endPoint) => {
     console.error(error);
     throw error;
   }
-}
+};
 export const getSharedUser = async () => {
   return getRequest('/sample/user');
 };

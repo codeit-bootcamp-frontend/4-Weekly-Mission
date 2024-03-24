@@ -1,9 +1,12 @@
-import '../styles/CardList.css';
+import styles from '../styles/CardList.module.css';
+import classNames from 'classnames/bind';
+const cn = classNames.bind(styles);
+
 import Card from '../components/Card';
 
 const CardList = ({ folderInfo, isIconVisible = false }) => {
   return (
-    <div className="cardlist">
+    <div className={cn('cardlist')}>
       {folderInfo && folderInfo.length !== 0 ? (
         <>
           {folderInfo.map((card) => (
@@ -11,10 +14,10 @@ const CardList = ({ folderInfo, isIconVisible = false }) => {
           ))}
         </>
       ) : (
-        <div className='none-link'>저장된 링크가 없습니다.</div>
+        <div className={cn('none-link')}>저장된 링크가 없습니다.</div>
       )}
     </div>
   );
-}
+};
 
 export default CardList;

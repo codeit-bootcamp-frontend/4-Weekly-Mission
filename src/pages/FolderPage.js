@@ -1,6 +1,9 @@
+import styles from '../styles/FolderPage.module.css';
+import classNames from 'classnames/bind';
+const cn = classNames.bind(styles);
+
 import { useState, useEffect } from 'react';
 import { getFolderUser, getFolderList } from '../api';
-import '../styles/FolderPage.css';
 
 import Header from '../components/Header';
 import AddLink from '../components/AddLink';
@@ -28,7 +31,7 @@ const FolderPage = () => {
   }, []);
 
   return (
-    <div className='folder-layout'>
+    <div className={cn('folder-layout')}>
       <Header userInfo={user?.[0]} isSticky={false} />
 
       <AddLink folderList={folderList?.data} />
@@ -40,6 +43,6 @@ const FolderPage = () => {
       <Footer />
     </div>
   );
-}
+};
 
 export default FolderPage;

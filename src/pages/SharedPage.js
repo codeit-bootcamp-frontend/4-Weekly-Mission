@@ -1,6 +1,9 @@
+import styles from '../styles/SharedPage.module.css';
+import classNames from 'classnames/bind';
+const cn = classNames.bind(styles);
+
 import { useState, useEffect } from 'react';
 import { getSharedFolder, getSharedUser } from '../api';
-import '../styles/SharedPage.css';
 
 import Header from '../components/Header';
 import FolderInfo from '../components/FolderInfo';
@@ -29,7 +32,7 @@ const SharedPage = () => {
   }, []);
 
   return (
-    <div className='shared-layout'>
+    <div className={cn('shared-layout')}>
       <Header userInfo={user} />
 
       <FolderInfo folderInfo={folder} />
@@ -41,6 +44,6 @@ const SharedPage = () => {
       <Footer />
     </div>
   );
-}
+};
 
 export default SharedPage;

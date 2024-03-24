@@ -1,13 +1,15 @@
-import '../styles/ModalDelete.css';
+import styles from '../styles/ModalDelete.module.css';
+import classNames from 'classnames/bind';
+const cn = classNames.bind(styles);
 
 const ModalDelete = ({ subTitle }) => {
 
   return (
-    <div className='modal-delete-content'>
-      <div className='delete-area'>{subTitle}</div>
-      <button className='delete-button'>삭제하기</button>
+    <div className={cn('modal-delete-content')}>
+      <div className={cn('delete-area')}>{subTitle}</div>
+      <button className={cn('delete-button')}>삭제하기</button>
     </div>
   );
-}
+};
 
 export default ModalDelete;

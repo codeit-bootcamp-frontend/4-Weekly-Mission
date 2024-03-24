@@ -1,6 +1,3 @@
-@import url('./global.css');
-@import url('./FolderList.css');
-
 .folder {
   display: flex;
   height: 2.5rem;

@@ -1,11 +1,13 @@
-import '../styles/FolderContent.css';
+import styles from '../styles/FolderContent.module.css';
+import classNames from 'classnames/bind';
+const cn = classNames.bind(styles);
 
 const FolderContent = ({ children }) => {
   return (
-    <main className="folder-content">
+    <main className={cn('folder-content')}>
       {children}
     </main>
   );
-}
+};
 
 export default FolderContent;

@@ -1,7 +1,11 @@
-import '../styles/Card.css';
+import styles from '../styles/Card.module.css';
+import classNames from 'classnames/bind';
+const cn = classNames.bind(styles);
+
 import noneData from '../assets/images/none-data.png';
 import iconStar from '../assets/icons/star-off.svg';
 import iconKebab from '../assets/icons/kebab.svg';
+
 import CardPopover from './CardPopover';
 
 const createDate = (value) => {
@@ -46,28 +50,28 @@ const Card = ({ card, isIconVisible = true }) => {
   const cardImage = imageSource ? imageSource : noneData;
 
   return (
-    <div className="card-container">
+    <div className={cn('card-container')}>
       <CardPopover />
-      <div className="card">
+      <div className={cn('card')}>
         {isIconVisible && (
           <>
-            <img className="star-icon" src={iconStar} />
-            <img className="kebab-icon" src={iconKebab} />
+            <img className={cn('star-icon')} src={iconStar} />
+            <img className={cn('kebab-icon')} src={iconKebab} />
           </>
         )}
         <a href={url} target="_blank" rel="noreferrer">
-          <div className="card-image-content">
-            <img className="card-image" src={cardImage} alt={title + "로 이동하기."} />
+          <div className={cn('card-image-content')}>
+            <img className={cn('card-image')} src={cardImage} alt={title + '로 이동하기.'} />
           </div>
-          <div className="card-content">
-            <div className="card-interval-date">{intervalDate(createdAt)}</div>
-            <div className="card-description">{description}</div>
-            <div className="card-create-date">{createDate(createdAt)}</div>
+          <div className={cn('card-content')}>
+            <div className={cn('card-interval-date')}>{intervalDate(createdAt)}</div>
+            <div className={cn('card-description')}>{description}</div>
+            <div className={cn('card-create-date')}>{createDate(createdAt)}</div>
           </div>
         </a>
       </div>
     </div>
   );
-}
+};
 
 export default Card;
