@@ -9,7 +9,7 @@ import PopOverButton from '../PopOverButton/PopOverButton';
 import { CardProps } from './Card.types';
 import styles from './Card.module.scss';
 
-const Card = ({ createdAt, url, title, imageURL }: CardProps) => {
+const Card = ({ createdAt, url, title, imageURL, bookmark, popover }: CardProps) => {
   const [selectedItem, setSelectedItem] = useState<string | null>(null);
   const handleItemClick = (item: string) => {
     setSelectedItem(item);
@@ -25,13 +25,13 @@ const Card = ({ createdAt, url, title, imageURL }: CardProps) => {
     [POPOVER_ITEMS[0]]: (
       <Modal title='링크 삭제' onClose={closeModal}>
         <p>http://tmp.com</p>
-        <button>삭제하기</button>
+        <button className={styles.removeButton}>삭제하기</button>
       </Modal>
     ),
     [POPOVER_ITEMS[1]]: (
       <Modal title='폴더에 추가' onClose={closeModal}>
         <p>링크 주소</p>
-        <button></button>
+        <button className={styles.addButton}>추가하기</button>
       </Modal>
     )
   };
@@ -50,13 +50,16 @@ const Card = ({ createdAt, url, title, imageURL }: CardProps) => {
             alt={title}
           />
         </div>
-        <FaStar className={styles.starIcon} />
+        {bookmark && <FaStar className={styles.starIcon} />}
         <div className={styles.textBox}>
           <div className={styles.timeBox}>
             <p className={styles.timeAgo}>{timeAgo}</p>
-            <PopOverButton items={POPOVER_ITEMS} onClick={handleItemClick}>
-              <BsThreeDots className={styles.kebabIcon} />
-            </PopOverButton>
+            {popover && (
+              <PopOverButton items={POPOVER_ITEMS} onClick={handleItemClick}>
+                <BsThreeDots className={styles.kebabIcon} />
+              </PopOverButton>
+            )}
+
             {selectedItem && POPOVER_MODALS[selectedItem]}
           </div>
           <h2 className={styles.title}>{title}</h2>
