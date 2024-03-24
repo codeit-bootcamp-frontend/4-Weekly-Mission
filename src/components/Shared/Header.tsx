@@ -1,5 +1,14 @@
-import "../../assets/styles/Header.css";
-const Header = ({ name, owner }) => {
+import '../../assets/styles/Header.css';
+interface Owner {
+  name: string;
+  profileImageSource: string;
+}
+
+interface HeaderProps {
+  name: string;
+  owner: Owner;
+}
+const Header = ({ name, owner }: HeaderProps) => {
   return (
     <header>
       {name ? (

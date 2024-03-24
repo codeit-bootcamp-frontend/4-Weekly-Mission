@@ -1,0 +1,19 @@
+.search-result-container {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  margin-top: 2.5rem;
+
+  color: #373740;
+  font-size: 2rem;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  letter-spacing: -0.0125rem;
+}
+.search-result {
+  width: 66.25rem;
+}
+.search-result span {
+  color: #9fa6b2;
+}

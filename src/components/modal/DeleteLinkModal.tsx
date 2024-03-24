@@ -1,6 +1,13 @@
 import closeIcon from '../../assets/icons/close.svg';
 
-const DeleteLinkModal = ({ data, closeModal }) => {
+interface DeleteLinkModalProps {
+  data: {
+    link: string;
+  };
+  closeModal: () => void;
+}
+
+const DeleteLinkModal = ({ data, closeModal }: DeleteLinkModalProps) => {
   const { link } = data;
   return (
     <>
@@ -10,7 +17,7 @@ const DeleteLinkModal = ({ data, closeModal }) => {
       </div>
       <button className="modal-button red">삭제하기</button>
       <button className="modal-close" onClick={closeModal}>
-        <img src={closeIcon} />
+        <img src={closeIcon} alt="close-icon" />
       </button>
     </>
   );

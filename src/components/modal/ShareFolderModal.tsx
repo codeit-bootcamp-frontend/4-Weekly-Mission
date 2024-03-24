@@ -3,10 +3,18 @@ import facebookIcon from '../../assets/images/facebook.svg';
 import linkIcon from '../../assets/images/link.svg';
 import KakaoShare from '../../utils/KakaoShare';
 
-const ShareFolderModal = ({ data, closeModal }) => {
+interface ShareFolderModalProps {
+  data: {
+    name: string;
+    id: string;
+  };
+  closeModal: () => void;
+}
+
+const ShareFolderModal = ({ data, closeModal }: ShareFolderModalProps) => {
   const BASE_URL = 'http://localhost:3000';
 
-  const handleCopyClipBoard = async (text) => {
+  const handleCopyClipBoard = async (text: string) => {
     try {
       await navigator.clipboard.writeText(text);
       alert('클립보드에 링크가 복사되었습니다.');
@@ -44,7 +52,7 @@ const ShareFolderModal = ({ data, closeModal }) => {
         </div>
       </div>
       <button className="modal-close" onClick={closeModal}>
-        <img src={closeIcon} />
+        <img src={closeIcon} alt="close-icon" />
       </button>
     </>
   );

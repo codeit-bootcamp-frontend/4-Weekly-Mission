@@ -2,16 +2,21 @@ import '../../assets/styles/AddLinkBar.css';
 import link from '../../assets/images/link.svg';
 import ModalPortal from '../common/ModalPortal';
 import Modal from '../modal/Modal';
-import { useState } from 'react';
+import { ChangeEvent, FormEvent, useState } from 'react';
 
-const AddLinkBar = ({ barRef, folderData }) => {
+interface AddLinkBarProps {
+  barRef: React.RefObject<HTMLDivElement>;
+  folderData: any;
+}
+
+const AddLinkBar = ({ barRef, folderData }: AddLinkBarProps) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [value, setValue] = useState('');
 
-  const handleChange = (e) => {
+  const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
     setValue(e.target.value);
   };
-  const handleSubmit = (e) => {
+  const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
   };
 

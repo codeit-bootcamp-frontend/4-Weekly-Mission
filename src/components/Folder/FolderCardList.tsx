@@ -9,8 +9,24 @@ import deleteIcon from '../../assets/images/delete.svg';
 import ModalPortal from '../common/ModalPortal';
 import Modal from '../modal/Modal';
 
-const FolderCardList = ({ id, name, folderList, searchItem }) => {
-  const { result, execute, loading } = useAsync(() => getLinks(id));
+interface Link {
+  id: string;
+  created_at: string;
+  description: string;
+  image_source: string;
+  title: string;
+  url: string;
+}
+
+interface FolderCardListProps {
+  id: string;
+  name: string;
+  folderList: any;
+  searchItem: string;
+}
+
+const FolderCardList = ({ id, name, folderList, searchItem }: FolderCardListProps) => {
+  const { result, execute, loading } = useAsync(() => getLinks(Number(id)));
   const { data: links } = result || [];
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [action, setAction] = useState('');
@@ -19,7 +35,7 @@ const FolderCardList = ({ id, name, folderList, searchItem }) => {
     execute();
   }, [id]);
 
-  const handleModalOpen = (text) => {
+  const handleModalOpen = (text: string) => {
     setAction(text);
     setIsModalOpen(true);
   };
@@ -53,7 +69,7 @@ const FolderCardList = ({ id, name, folderList, searchItem }) => {
           {links && links.length > 0 ? (
             <div className="card-list">
               <div className="card-list-container">
-                {links.map((item) => (
+                {links.map((item: Link) => (
                   <FolderCardItem
                     key={item.id}
                     link={item}

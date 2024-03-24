@@ -6,7 +6,23 @@ import Modal from '../modal/Modal';
 import ModalPortal from '../common/ModalPortal';
 import classNames from 'classnames';
 
-const FolderItem = ({ data, onFolderClick, isSelected }) => {
+interface FolderData {
+  id: string;
+  name: string;
+}
+
+interface FolderItemProps {
+  data: FolderData;
+  onFolderClick: (folder: FolderData) => void;
+  isSelected: boolean;
+}
+
+interface FolderListProps {
+  folderData: FolderData[];
+  search: string;
+}
+
+const FolderItem = ({ data, onFolderClick, isSelected }: FolderItemProps) => {
   const { name, id } = data;
   const handleFolderClick = () => {
     onFolderClick({ id, name });
@@ -21,12 +37,12 @@ const FolderItem = ({ data, onFolderClick, isSelected }) => {
   );
 };
 
-const FolderList = ({ folderData, search }) => {
-  const [selectedFolder, setSelectedFolder] = useState({ id: '', name: '전체' });
+const FolderList = ({ folderData, search }: FolderListProps) => {
+  const [selectedFolder, setSelectedFolder] = useState<FolderData>({ id: '', name: '전체' });
   const [isModalOpen, setIsModalOpen] = useState(false);
 
-  const selectFolder = ({ id, name }) => {
-    setSelectedFolder({ id, name });
+  const selectFolder = (folder: FolderData) => {
+    setSelectedFolder(folder);
   };
 
   return (

@@ -1,19 +1,26 @@
-import { useEffect } from 'react';
+import React, { useEffect } from 'react';
 import kakaoIcon from '../assets/icons/kakao.svg';
 
-const { Kakao } = window;
+declare global {
+  interface Window {
+    Kakao: any;
+  }
+}
+interface KakaoShareProps {
+  folderId: string;
+}
 
-const KakaoShare = ({ folderId }) => {
-  const url = `http://localhost:3000/shared/${folderId}`;
+const KakaoShare = ({ folderId }: KakaoShareProps) => {
+  const url: string = `http://localhost:3000/shared/${folderId}`;
 
   useEffect(() => {
-    Kakao.cleanup();
-    Kakao.init(process.env.REACT_APP_KAKAO_KEY);
-    console.log(Kakao.isInitialized());
+    window.Kakao.cleanup();
+    window.Kakao.init(process.env.REACT_APP_KAKAO_KEY);
+    console.log(window.Kakao.isInitialized());
   }, []);
 
   const shareKakao = () => {
-    Kakao.Share.sendDefault({
+    window.Kakao.Share.sendDefault({
       objectType: 'feed',
       content: {
         title: '예진 Linkbrary',
@@ -27,6 +34,7 @@ const KakaoShare = ({ folderId }) => {
       },
     });
   };
+
   return (
     <div className="icon-box">
       <div id="kakao-icon" onClick={shareKakao}>

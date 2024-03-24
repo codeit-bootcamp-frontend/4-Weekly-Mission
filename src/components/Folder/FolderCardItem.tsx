@@ -8,11 +8,26 @@ import { useState } from 'react';
 import ModalPortal from '../common/ModalPortal';
 import Modal from '../modal/Modal';
 
-const FolderCardItem = ({ link, folderList, searchItem }) => {
+interface Link {
+  created_at: string;
+  description: string;
+  image_source: string;
+  title: string;
+  url: string;
+}
+
+interface FolderCardItemProps {
+  link: Link | null;
+  folderList: any;
+  searchItem: string;
+}
+
+const FolderCardItem = ({ link, folderList, searchItem }: FolderCardItemProps) => {
   const { created_at, description, image_source, title, url } = link || {};
   const [dropdown, setDropdown] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [action, setAction] = useState('');
+  const formattedCreatedAt: string = created_at as string;
 
   const isSearchedLink = () => {
     if (url && title && description) {
@@ -28,7 +43,7 @@ const FolderCardItem = ({ link, folderList, searchItem }) => {
     return null;
   }
 
-  const handleClick = (text) => {
+  const handleClick = (text: string) => {
     setAction(text);
     setIsModalOpen(true);
     setDropdown(false);
@@ -48,9 +63,9 @@ const FolderCardItem = ({ link, folderList, searchItem }) => {
           </div>
         )}
         <div className="card-contents">
-          <h3 id="card-created-time">{caculateTime(created_at)}</h3>
+          <h3 id="card-created-time">{caculateTime(formattedCreatedAt)}</h3>
           <h2 id="card-description">{description}</h2>
-          <h3 id="card-date">{formatDate(created_at)}</h3>
+          <h3 id="card-date">{formatDate(new Date(formattedCreatedAt))}</h3>
         </div>
       </a>
       <img
@@ -73,7 +88,7 @@ const FolderCardItem = ({ link, folderList, searchItem }) => {
         <ModalPortal>
           <Modal
             action={action}
-            data={{ link: link.url, folderList }}
+            data={{ link: link?.url, folderList }}
             closeModal={() => setIsModalOpen(false)}
           />
         </ModalPortal>

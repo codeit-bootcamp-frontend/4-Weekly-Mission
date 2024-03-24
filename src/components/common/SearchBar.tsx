@@ -1,9 +1,15 @@
 import '../../assets/styles/SearchBar.css';
 import searchIcon from '../../assets/images/search.svg';
 import cancelIcon from '../../assets/icons/cancel.svg';
+import React, { ChangeEvent } from 'react';
 
-const SearchBar = ({ value, onInputChange }) => {
-  const handleInputChange = (e) => {
+interface SearchBarProps {
+  value: string;
+  onInputChange: (value: string) => void;
+}
+
+const SearchBar = ({ value, onInputChange }: SearchBarProps) => {
+  const handleInputChange = (e: ChangeEvent<HTMLInputElement>) => {
     onInputChange(e.target.value);
   };
   const handleCancelInput = () => {

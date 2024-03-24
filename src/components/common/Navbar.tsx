@@ -4,7 +4,16 @@ import { Link } from 'react-router-dom';
 import useAsync from '../hooks/useAsync';
 import { getUserInfo } from '../../api';
 
-const UserInfo = ({ email, imgSrc }) => {
+interface UserInfoProps {
+  email: string;
+  imgSrc: string;
+}
+interface UserData {
+  email: string;
+  image_source: string;
+}
+
+const UserInfo = ({ email, imgSrc }: UserInfoProps) => {
   return (
     <div className="userInfo">
       <img id="userImg" src={imgSrc} alt="userImage" />
@@ -15,9 +24,9 @@ const UserInfo = ({ email, imgSrc }) => {
 
 const Nav = () => {
   const { result } = useAsync(getUserInfo);
-  const { data } = result || {};
-  const initialUserData = { email: '', image_source: '' };
-  const userData = data ? data[0] : initialUserData;
+  const data = result ? result['data'] : [];
+  const initialUserData: UserData = { email: '', image_source: '' };
+  const userData = data.length > 0 ? data[0] : initialUserData;
   const { email, image_source } = userData;
 
   return (
