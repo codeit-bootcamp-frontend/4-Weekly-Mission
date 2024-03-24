@@ -27,7 +27,6 @@ function FolderCardList() {
   const [links, setLinks] = useState([]);
   const [searchResult] = useSearchParams();
   const searchValue = searchResult.get("search");
-  console.log(links);
   const { folderFilter } = useFolder();
 
   useEffect(() => {

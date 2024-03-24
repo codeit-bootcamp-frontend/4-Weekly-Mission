@@ -1,4 +1,3 @@
-import React from "react";
 import styled from "styled-components";
 import ModalContainer from "../common/Modal/Modal";
 import * as Modal from "../common/Modal/Modal";
@@ -76,6 +75,7 @@ const Button = styled.div`
 
 function Banner() {
   const { openModal, handleModalOpen, handleModalClose } = useModal();
+
   return (
     <>
       {openModal && (

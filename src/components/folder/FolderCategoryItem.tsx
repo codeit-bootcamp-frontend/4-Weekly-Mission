@@ -21,7 +21,7 @@ const SelectedFolder = styled(DefaultFolder)`
 `;
 
 interface FolderCategoryItemProps {
-  id: number;
+  id: number | null;
   children: ReactNode;
 }
 

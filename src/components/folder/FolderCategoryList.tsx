@@ -23,6 +23,7 @@ function FolderCategoryList() {
 
   return (
     <FolderCategory>
+      <FolderCategoryItem id={null}>전체</FolderCategoryItem>
       {folders.data.map((folder: any) => (
         <FolderCategoryItem key={folder.id} {...folder}>
           {folder.name}

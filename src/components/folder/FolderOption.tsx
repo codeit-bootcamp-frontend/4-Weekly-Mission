@@ -29,9 +29,7 @@ function FolderOption() {
   const { openModal, handleModalOpen, handleModalClose } = useModal();
   const [option, setOption] = useState("");
 
-  return folderFilter.name === "전체" ? (
-    ""
-  ) : (
+  return (
     <>
       {option === "삭제" && openModal && (
         <ModalContainer onClick={handleModalClose}>
