@@ -6,12 +6,12 @@ import './SharedPage.css';
 import { useEffect, useState } from 'react';
 
 interface FolderInfo {
-  id: string;
+  id: number;
   name: string;
 }
 
 interface Owner {
-  id: string;
+  id: number;
   name: string;
   profileImageSource: string;
 }
