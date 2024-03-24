@@ -3,12 +3,21 @@ import classNames from "classnames/bind";
 import { useGetUser } from "user/data-access-user";
 import { Footer } from "sharing/ui-footer";
 import { NavigationBar } from "sharing/ui-navigation-bar";
+import { ProfileProps } from "sharing/share";
 
 const cx = classNames.bind(styles);
 
-export const Layout = ({ children, isSticky = true }) => {
-  const { data } = useGetUser();
-  const { email, profileImageSource } = data || {};
+interface LayoutProps {
+  children: React.ReactNode;
+  isSticky?: boolean;
+}
+
+export const Layout: React.FC<LayoutProps> = ({
+  children,
+  isSticky = true,
+}) => {
+  const data: any = useGetUser();
+  const { email, profileImageSource }: ProfileProps = data || {};
   const profile = data ? { email, profileImageSource } : null;
 
   return (

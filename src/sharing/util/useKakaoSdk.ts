@@ -1,9 +1,20 @@
 import { useEffectOnce } from "./useEffectOnce";
 
+interface ShareKakaoProps {
+  url: string;
+  title: string;
+  description: string;
+  imageUrl: string;
+}
 export const useKakaoSdk = () => {
-  const shareKakao = ({ url, title, description, imageUrl }) => {
-    if (window.Kakao) {
-      const kakao = window.Kakao;
+  const shareKakao = ({
+    url,
+    title,
+    description,
+    imageUrl,
+  }: ShareKakaoProps) => {
+    const kakao = (window as any).Kakao;
+    if (kakao) {
       if (!kakao.isInitialized()) {
         kakao.init(process.env.REACT_APP_KAKAO_SDK_KEY);
       }

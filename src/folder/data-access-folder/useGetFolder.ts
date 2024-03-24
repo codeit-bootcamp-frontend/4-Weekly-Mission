@@ -4,9 +4,9 @@ import { axiosInstance } from "sharing/util";
 
 export const useGetFolder = () => {
   const getFolder = () => axiosInstance.get("sample/folder");
-  const { loading, error, data } = useAsync(getFolder);
+  const { loading, data } = useAsync(getFolder);
 
-  const folderData = mapFolderData(data?.folder);
+  const folderData = mapFolderData((data as any)?.folder);
 
-  return { loading, error, data: folderData };
+  return { loading, data: folderData };
 };

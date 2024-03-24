@@ -1,21 +1,29 @@
 import { useState } from "react";
 import { useEffectOnce } from "./useEffectOnce";
 
-export const useAsync = (asyncFunction) => {
+export const useAsync = (asyncFunction: any) => {
   const [loading, setLoading] = useState(false);
-  const [error, setError] = useState(null);
   const [data, setData] = useState(null);
 
+  interface CustomError extends Error {
+    response?: {
+      date: any;
+      status: number;
+      headers: string;
+    };
+  }
   const execute = async () => {
     setLoading(true);
-    setError(null);
     setData(null);
     try {
       const response = await asyncFunction();
       setData(response?.data);
       return response;
-    } catch (error) {
-      setError(error);
+    } catch (error: unknown) {
+      const customErr = error as CustomError;
+      console.error(customErr.response?.date);
+      console.error(customErr.response?.status);
+      console.error(customErr.response?.headers);
     } finally {
       setLoading(false);
     }
@@ -23,5 +31,5 @@ export const useAsync = (asyncFunction) => {
 
   useEffectOnce(execute);
 
-  return { execute, loading, error, data };
+  return { execute, loading, data };
 };

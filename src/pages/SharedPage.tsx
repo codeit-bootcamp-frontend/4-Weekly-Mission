@@ -8,18 +8,22 @@ import { SearchBar } from "link/ui-search-bar";
 
 export const SharedPage = () => {
   const { data } = useGetFolder();
-  const { profileImage, ownerName, folderName, links } = data || {};
+  const { profileImage, ownerName, folderName, links } = (data as any) || {};
 
   return (
     <Layout>
       <SharedLayout
         folderInfo={
-          <FolderInfo profileImage={profileImage} ownerName={ownerName} folderName={folderName} />
+          <FolderInfo
+            profileImage={profileImage}
+            ownerName={ownerName}
+            folderName={folderName}
+          />
         }
         searchBar={<SearchBar />}
         cardList={
           <CardList>
-            {links?.map((link) => (
+            {links?.map((link: any) => (
               <ReadOnlyCard key={link?.id} {...link} />
             ))}
           </CardList>

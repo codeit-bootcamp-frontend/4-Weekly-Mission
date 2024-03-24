@@ -3,6 +3,6 @@ import { axiosInstance } from "sharing/util";
 
 export const useGetUser = () => {
   const getUser = () => axiosInstance.get("sample/user");
-  const { loading, error, data } = useAsync(getUser);
-  return { loading, error, data };
+  const { loading, data } = useAsync(getUser);
+  return { loading, data };
 };
