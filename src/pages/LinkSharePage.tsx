@@ -1,30 +1,16 @@
 import { GridTemplate } from 'styles/commonStyle';
-import { useEffect, useState } from 'react';
-
-import sampleAPI from 'api/sampleAPI';
 
 import PageTitle from 'components/common/PageTitle';
 import ShareHeader from 'components/share/ShareHeader';
 import MainLayout from 'components/template/MainLayout';
 import Card from 'components/common/card/Card';
 
+import useSampleFolderQuery from 'hooks/api/folder/useSampleFolderQuery';
+import { Link } from 'interfaces/dataInterface';
+
 function LinkSharePage() {
-  const [folderData, setFolderData] = useState(null);
-
-  const fetchFolderData = async () => {
-    try {
-      const res = await sampleAPI.getSampleFolderInfo();
-      const folderData = res.data.folder;
-
-      setFolderData(folderData);
-    } catch (error) {
-      console.log(error.message);
-    }
-  };
-
-  useEffect(() => {
-    fetchFolderData();
-  }, []);
+  const { data } = useSampleFolderQuery();
+  const folderData = data?.data.folder;
 
   return (
     <>
@@ -32,7 +18,7 @@ function LinkSharePage() {
       <ShareHeader folderData={folderData} />
       <MainLayout>
         <GridTemplate>
-          {folderData?.links.map((link) => (
+          {folderData?.links.map((link: Link) => (
             <Card
               key={link.id}
               createdAt={link.createdAt}
