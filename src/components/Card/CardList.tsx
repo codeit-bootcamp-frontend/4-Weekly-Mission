@@ -30,7 +30,7 @@ function CardList({ handleKebabClick, selectCardId, linkList, option, handleModa
     }
   };
 
-  if (!linkList?.length) {
+  if (!linkList.length) {
     return (
       <Styled.CardBox>
         <Styled.CardListEmpty>저장된 링크가 없습니다</Styled.CardListEmpty>
