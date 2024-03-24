@@ -14,7 +14,7 @@ export async function getFolder() {
   }
 }
 
-export async function getUser(userId: string) {
+export async function getUser(userId: number) {
   try {
     const response = await fetch(`${BASE_URL}/users/${userId}`);
     if (!response.ok) {
@@ -28,7 +28,7 @@ export async function getUser(userId: string) {
   }
 }
 
-export async function getFolders(userId: string) {
+export async function getFolders(userId: number) {
   try {
     const response = await fetch(`${BASE_URL}/users/${userId}/folders`);
     if (!response.ok) {
@@ -42,7 +42,7 @@ export async function getFolders(userId: string) {
   }
 }
 
-export async function getLinks(userId: string, folderId: string) {
+export async function getLinks(userId: number, folderId: number) {
   const query = `${folderId && 'folderId=' + folderId}`;
   try {
     const response = await fetch(`${BASE_URL}/users/${userId}/links?${query}`);
