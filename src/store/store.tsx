@@ -38,3 +38,11 @@ export const contentsLink = atom({
   key: "contentsLink",
   default: null,
 });
+export const searchData = atom({
+  key: "searchData",
+  default: "",
+});
+export const searchText = atom({
+  key: "searchText",
+  default: false,
+});

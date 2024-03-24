@@ -51,7 +51,6 @@ function FolderButton({
   const setLinkContents = useSetRecoilState(folderLinkContents);
 
   const handleLinkClick = (name: string, id: number | string) => {
-    console.log(id);
     setClickedLink(name);
     folderLinksData(id)
       .then((data) => setLinkContents(data))

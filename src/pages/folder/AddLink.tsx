@@ -3,7 +3,7 @@ import styled from "styled-components";
 import { useSetRecoilState } from "recoil";
 import { contentsLink } from "../../store/store";
 import { ChangeEvent, useRef } from "react";
-import { ModalNames, ModalProps } from "./type";
+import { ModalProps } from "./type";
 
 const AddLinkInput = styled.input`
   width: 100%;

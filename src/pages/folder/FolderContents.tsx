@@ -41,6 +41,7 @@ function FolderContents({
   modalName,
 }: ModalProps) {
   const [contents, setContents] = useRecoilState<Contents>(folderLinkContents);
+
   useEffect(() => {
     folderLinksData("all")
       .then((data) => setContents(data))
@@ -83,11 +84,11 @@ function FolderContents({
   // link 전역변수 설정
   return (
     <article>
-      {contents.data.length === 0 ? (
+      {contents?.data?.length === 0 ? (
         <FolderNoData>저장된 링크가 없습니다.</FolderNoData>
       ) : (
         <ul className="contentsBox">
-          {contents.data.map(
+          {contents?.data?.map(
             ({
               id,
               title,
