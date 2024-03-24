@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { Button, Popover, OverlayTrigger } from "react-bootstrap";
 import { getTimeAgo } from "../../utils/Utilities";
 import Modal from "../modal/Modal";
@@ -8,7 +8,7 @@ import kebabIcon from "../../assets/kebab.svg";
 import noImage from "../../assets/noimage.jpeg";
 import "./Cards.css";
 
-function Cards({ cardList, showStarKebab }) {
+function Cards({ cardList, showStarKebab, searchKeyword }) {
   const isListEmpty = cardList.length === 0;
 
   const [popoverShow, setPopoverShow] = useState(false);
@@ -29,6 +29,22 @@ function Cards({ cardList, showStarKebab }) {
     createdAt: card.createdAt || card.created_at,
     ...card,
   }));
+
+  const filteredCards =
+    searchKeyword && searchKeyword.length > 0
+      ? cards.filter(
+          (data) =>
+            (data.url || "")
+              .toLowerCase()
+              .includes(searchKeyword.toLowerCase()) ||
+            (data.title || "")
+              .toLowerCase()
+              .includes(searchKeyword.toLowerCase()) ||
+            (data.description || "")
+              .toLowerCase()
+              .includes(searchKeyword.toLowerCase())
+        )
+      : cards;
 
   const handleKebabClick = (e, data) => {
     e.preventDefault();
@@ -54,7 +70,7 @@ function Cards({ cardList, showStarKebab }) {
   return (
     <div className="Cards">
       <div className="cardItemBox">
-        {cards.map((data) => (
+        {filteredCards.map((data) => (
           <a href={data.url} className="cardItem" key={data.id} target="_blank">
             <div className="imgBox">
               <img
@@ -64,7 +80,10 @@ function Cards({ cardList, showStarKebab }) {
               />
               {showStarKebab && (
                 <button className="starBtn" onClick={handleStarClick}>
-                  <img src={starClick ? checkedStarIcon : starIcon} />
+                  <img
+                    src={starClick ? checkedStarIcon : starIcon}
+                    alt="star"
+                  />
                 </button>
               )}
             </div>
@@ -88,7 +107,7 @@ function Cards({ cardList, showStarKebab }) {
                       className="kebabBtn"
                       onClick={(e) => handleKebabClick(e, data)}
                     >
-                      <img src={kebabIcon} />
+                      <img src={kebabIcon} alt="kebab" />
                     </button>
                   </OverlayTrigger>
                 )}

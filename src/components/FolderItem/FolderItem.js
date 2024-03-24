@@ -7,7 +7,7 @@ import deleteIcon from "../../assets/delete.svg";
 import addIcon from "../../assets/add.svg";
 import "./FolderItem.css";
 
-function FolderItem({ usersFolderData }) {
+function FolderItem({ usersFolderData, searchKeyword }) {
   const folderList = [{ id: 1, name: "전체" }, ...usersFolderData];
 
   const [selectedFolder, setSelectedFolder] = useState({ id: 1, name: "전체" });
@@ -54,7 +54,7 @@ function FolderItem({ usersFolderData }) {
           </div>
           <button className="addFolder">
             <p>폴더 추가</p>
-            <img src={addIcon}></img>
+            <img src={addIcon} alt="폴더 추가"></img>
           </button>
         </div>
         <div className="optionBar">
@@ -64,21 +64,25 @@ function FolderItem({ usersFolderData }) {
           ) : (
             <div className="optionList">
               <button className="option">
-                <img src={shareIcon} />
+                <img src={shareIcon} alt="공유" />
                 <span>공유</span>
               </button>
               <button className="option">
-                <img src={penIcon} />
+                <img src={penIcon} alt="이름 변경" />
                 <span>이름 변경</span>
               </button>
               <button className="option">
-                <img src={deleteIcon} />
+                <img src={deleteIcon} alt="삭제" />
                 <span>삭제</span>
               </button>
             </div>
           )}
         </div>
-        <Cards cardList={cardList} showStarKebab={true} />
+        <Cards
+          cardList={cardList}
+          showStarKebab={true}
+          searchKeyword={searchKeyword}
+        />
       </div>
     </div>
   );

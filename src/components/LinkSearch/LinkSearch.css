@@ -2,9 +2,16 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-direction: column;
 }
 
-.LinkSearch > input {
+.inputBox {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.linkSearchInput {
   display: flex;
   box-sizing: border-box;
   width: 1060px;
@@ -13,17 +20,42 @@
   background: #f5f5f5;
   border: none;
   margin: 0 32px;
-  background-image: url(/src/assets/Search.svg);
-  background-repeat: no-repeat;
-  background-position: 20px center;
   text-indent: 32px;
 }
 
-.LinkSearch > input::placeholder {
+.linkSearchInput::placeholder {
   color: #666;
   font-family: Pretendard;
   font-size: 16px;
   font-style: normal;
   font-weight: 400;
   line-height: 24px;
+}
+
+.delete {
+  position: absolute;
+  right: 50px;
+  align-items: center;
+  cursor: pointer;
+}
+
+.searchBtn {
+  position: absolute;
+  left: 50px;
+  align-items: center;
+}
+
+.searchResultText {
+  display: flex;
+  color: var(--Linkbrary-gray60, #9fa6b2);
+  font-family: Pretendard;
+  font-size: 32px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  letter-spacing: -0.2px;
+}
+
+.searchValue {
+  color: var(--Linkbrary-gray100, #373740);
 }

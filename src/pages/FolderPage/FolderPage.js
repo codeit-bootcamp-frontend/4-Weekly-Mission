@@ -1,12 +1,13 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { getUsersFolder, getUser } from "../../apis/Api";
 import AddLinkInput from "../../components/AddLinkInput/AddLinkInput";
 import LinkSearch from "../../components/LinkSearch/LinkSearch";
 import FolderItem from "../../components/FolderItem/FolderItem";
 
 function FolderPage() {
-  // FloderItem
   const [usersFolderData, setUsersFolderData] = useState([]);
+  const [searchKeyword, setSearchKeyword] = useState("");
+  const inputRef = useRef(null);
 
   useEffect(() => {
     const getData = async () => {
@@ -21,11 +22,26 @@ function FolderPage() {
     getData();
   }, []);
 
+  const handleResetSearch = () => {
+    setSearchKeyword("");
+    inputRef.current.value = "";
+  };
+
+  console.log(searchKeyword);
+
   return (
     <>
       <AddLinkInput />
-      <LinkSearch />
-      <FolderItem usersFolderData={usersFolderData} />
+      <LinkSearch
+        value={searchKeyword}
+        onChange={(e) => setSearchKeyword(e.target.value)}
+        onReset={handleResetSearch}
+        inputRef={inputRef}
+      />
+      <FolderItem
+        usersFolderData={usersFolderData}
+        searchKeyword={searchKeyword}
+      />
     </>
   );
 }
