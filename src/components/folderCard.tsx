@@ -5,8 +5,17 @@ import { formatDate, getTimeDifference } from "../util";
 import "../style/card.css";
 import starImg from "../assets/star.png";
 import kebabImg from "../assets/kebab.png";
-function FolderCard({ linkToFetch }) {
-  const [items, setItems] = useState(null);
+interface Item {
+  image_source: string;
+  url: string;
+  created_at: string;
+  description: string;
+}
+interface FolderCardProps {
+  linkToFetch: string;
+}
+function FolderCard({ linkToFetch }: FolderCardProps) {
+  const [items, setItems] = useState<Item[] | null>(null);
 
   useEffect(() => {
     console.log(linkToFetch);
