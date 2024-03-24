@@ -1,0 +1,23 @@
+{
+  "compilerOptions": {
+    "target": "ES5",
+    "jsx": "react-jsx",
+    "moduleDetection": "force",
+    "module": "ESNext",
+    "moduleResolution": "Node",
+    "allowJs": true,
+    "outDir": "dist",
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+    "strict": true,
+    "skipLibCheck": true,
+    "baseUrl": ".",
+    "paths": {
+      "~/*": ["./src/*"]
+    }
+  },
+  "include": ["src"],
+  "ts-node": {
+    "esm": true
+  }
+}
