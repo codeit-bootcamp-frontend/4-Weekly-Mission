@@ -8,6 +8,7 @@ import Share from '../../common/modal/Share';
 import Edit from '../../common/modal/Edit';
 import DeleteFolder from '../../common/modal/DeleteFolder';
 import { FolderId } from '../../../types/types';
+import { useOpenModal } from '../../../hooks/modal';
 
 const ButtonList = [
   {
@@ -52,12 +53,12 @@ interface UpdateBtnListProps {
 }
 
 const UpdateBtnList = ({ selectedFolderId, selectedFolderName }: UpdateBtnListProps) => {
-  const [showModal, setShowModal] = useState(false);
   const [activeModal, setActiveModal] = useState('');
+  const { isOpenModal, openModal, closeModal } = useOpenModal(false);
 
   const handleBtnClick = (e: MouseEvent) => {
     e.preventDefault();
-    setShowModal(true);
+    openModal();
 
     // Error 'dataset' does not exist on type 'EventTarget'
     // Error 'string | undefined' 형식의 인수는 'SetStateAction<string>' 형식의 매개 변수에 할당될 수 없습니다.
@@ -66,7 +67,7 @@ const UpdateBtnList = ({ selectedFolderId, selectedFolderName }: UpdateBtnListPr
   };
 
   const handleCloseModal = () => {
-    setShowModal(false);
+    closeModal();
     setActiveModal('');
   };
 
@@ -82,17 +83,17 @@ const UpdateBtnList = ({ selectedFolderId, selectedFolderName }: UpdateBtnListPr
           </li>
         ))}
       </UpdateButtonList>
-      {showModal && activeModal === modalTypes.share && (
+      {isOpenModal && activeModal === modalTypes.share && (
         <Share
           selectedFolderId={selectedFolderId}
           selectedFolderName={selectedFolderName}
           onCloseModal={handleCloseModal}
         />
       )}
-      {showModal && activeModal === modalTypes.edit && (
+      {isOpenModal && activeModal === modalTypes.edit && (
         <Edit onCloseModal={handleCloseModal} selectedFolderName={selectedFolderName} />
       )}
-      {showModal && activeModal === modalTypes.deleteFolder && (
+      {isOpenModal && activeModal === modalTypes.deleteFolder && (
         <DeleteFolder onCloseModal={handleCloseModal} selectedFolderName={selectedFolderName} />
       )}
     </>

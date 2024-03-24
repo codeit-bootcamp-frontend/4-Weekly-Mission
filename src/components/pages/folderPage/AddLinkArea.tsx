@@ -6,6 +6,7 @@ import SubHeader from '../../common/SubHeader';
 import TextInput from './TextInput';
 import { modalTypes } from '../../../util/constants';
 import Add from '../../common/modal/Add';
+import { useOpenModal } from '../../../hooks/modal';
 
 const InputGroup = styled.div`
   display: flex;
@@ -54,7 +55,7 @@ const Button = styled.button`
 `;
 
 const AddLinkArea = () => {
-  const [showModal, setShowModal] = useState(false);
+  const { isOpenModal, openModal, closeModal } = useOpenModal(false);
   const [linkString, setLinkString] = useState('');
 
   const handleInputChange = (e: ChangeEvent<HTMLInputElement>) => {
@@ -63,11 +64,7 @@ const AddLinkArea = () => {
 
   const handleBtnClick = () => {
     if (linkString.trim() === '') return;
-    setShowModal(true);
-  };
-
-  const handleModalClose = () => {
-    setShowModal(false);
+    openModal();
   };
 
   return (
@@ -84,7 +81,7 @@ const AddLinkArea = () => {
           추가하기
         </Button>
       </InputGroup>
-      {showModal && createPortal(<Add link={linkString} onCloseModal={handleModalClose} />, document.body)}
+      {isOpenModal && createPortal(<Add link={linkString} onCloseModal={closeModal} />, document.body)}
     </SubHeader>
   );
 };
