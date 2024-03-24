@@ -15,6 +15,8 @@ import { ClickSortButton } from '../types/functionsType';
 function FolderList() {
   //선택된 폴더 state (초기값은 "전체"폴더)
   const [selectedFolder, setSelectedFolder] = useState({ id: 1, name: '전체' });
+  //LinkSearchBar Input state
+  const [inputValue, setInputValue] = useState<string>('');
 
   //URL State
   const [linksFetchUrl, setLinksFetchUrl] = useState(USERS_LINKS_URL);
@@ -35,7 +37,10 @@ function FolderList() {
   return (
     <div className="folders-container">
       <div className="folders">
-        <LinkSearchBar></LinkSearchBar>
+        <LinkSearchBar
+          inputValue={inputValue}
+          setInputValue={setInputValue}
+        ></LinkSearchBar>
         <div className="folder-list">
           <FolderSortBar
             folders={folders}
@@ -55,18 +60,26 @@ function FolderList() {
               </div>
             ) : (
               <div className="folder-list__links">
-                {links.map((card) => (
-                  <Card
-                    key={card.id}
-                    id={card.id}
-                    time={card.lastTimeString}
-                    imgUrl={card.imgUrl}
-                    title={card.title}
-                    description={card.description}
-                    date={card.uploadDate}
-                    url={card.url}
-                  />
-                ))}
+                {links
+                  .filter((card) => {
+                    return (
+                      card.description?.includes(inputValue) ||
+                      card.url?.includes(inputValue) ||
+                      card.title?.includes(inputValue)
+                    );
+                  })
+                  .map((card) => (
+                    <Card
+                      key={card.id}
+                      id={card.id}
+                      time={card.lastTimeString}
+                      imgUrl={card.imgUrl}
+                      title={card.title}
+                      description={card.description}
+                      date={card.uploadDate}
+                      url={card.url}
+                    />
+                  ))}
               </div>
             )
           }

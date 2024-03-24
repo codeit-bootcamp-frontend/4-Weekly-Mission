@@ -1,11 +1,9 @@
-import { useState } from 'react';
 import $ from 'jquery';
 import searchIcon from '../assets/searchIcon.svg';
 import searchClearIcon from '../assets/searchClearIcon.svg';
 import '../styles/linkSearchBar.css';
 
-function LinkSearchBar() {
-  const [inputValue, setInputValue] = useState<string>();
+function LinkSearchBar({ inputValue, setInputValue }: any) {
   const placeholder = '링크를 검색해 보세요.';
 
   const handleInputValueChange = (e: React.ChangeEvent<HTMLInputElement>) => {
