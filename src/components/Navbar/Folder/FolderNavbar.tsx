@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { CiShare1 } from 'react-icons/ci';
 import { RiDeleteBinLine } from 'react-icons/ri';
 import { TiPencil } from 'react-icons/ti';
+import { SHARE_LIST } from '../../../constant/constant';
 import Modal from '../../Modal/Modal';
 import styles from './FolderNavbar.module.scss';
 
@@ -18,7 +19,15 @@ const FolderNavbar = ({ folderName }: { folderName: string }) => {
       icon: <CiShare1 />,
       modal: (
         <Modal title='폴더 공유' onClose={closeModal}>
-          <p className={styles.modalSubTitle}>폴더명</p>
+          <p className={styles.modalSubTitle}>{folderName}</p>
+          <section className={styles.shareModalIconLayout}>
+            {SHARE_LIST.map(item => (
+              <div className={styles.shareModalIconBox} key={item.image}>
+                <img src={`assets/icons/share-${item.image}.svg`} alt={item.title} />
+                <p>{item.title}</p>
+              </div>
+            ))}
+          </section>
         </Modal>
       )
     },
