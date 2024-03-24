@@ -4,10 +4,9 @@ import LinkSearchInput from "../../component/LinkSearchInput";
 import { useEffect, useState } from "react";
 import {
 	FolderListDatum,
-	FolderList as FolderListType,
 	getSavedFolderList,
 	getLinkData,
-	LinkDatum,
+	LinkDatum
 } from "../../apis/api";
 import LinkItems from "../../component/LinkItems";
 import { Container, FolderName } from "./style";
@@ -20,13 +19,13 @@ const ALL: FolderListDatum = {
 	favorite: false,
 	created_at: "",
 	link: {
-		count: 0,
+		count: 0
 	},
-	user_id: 0,
+	user_id: 0
 };
 
 const FolderPage = () => {
-	const [folders, setFolders] = useState<FolderListType["data"]>([]);
+	const [folders, setFolders] = useState<FolderListDatum[]>([]);
 	const [selectedFolder, setSelectedFolder] = useState<FolderListDatum>(ALL);
 	const [links, setLinks] = useState<LinkDatum[]>([]);
 	const [isLoading, setIsLoading] = useState(true);

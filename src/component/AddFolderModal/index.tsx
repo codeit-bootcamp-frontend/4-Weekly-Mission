@@ -1,12 +1,16 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { ModalBackground, ModalBox } from "./style";
 import { faXmark } from "@fortawesome/free-solid-svg-icons";
-import { useState } from "react";
+import { ChangeEvent, useState } from "react";
 
-const AddFolderModal = ({ setAddFolderModalOpen }) => {
+const AddFolderModal = ({
+	setAddFolderModalOpen
+}: {
+	setAddFolderModalOpen: (arg: boolean) => void;
+}) => {
 	const [value, setValue] = useState("");
 
-	const handleChange = (e) => {
+	const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
 		setValue(e.target.value);
 	};
 

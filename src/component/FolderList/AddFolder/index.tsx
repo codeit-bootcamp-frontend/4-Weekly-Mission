@@ -3,7 +3,7 @@ import { useState } from "react";
 import { Button } from "./style";
 
 const AddFolder = () => {
-	const [addFolderModalOpen, setAddFolderModalOpen] = useState(false);
+	const [addFolderModalOpen, setAddFolderModalOpen] = useState<boolean>(false);
 
 	const handleClick = () => {
 		setAddFolderModalOpen(true);
