@@ -9,6 +9,7 @@ function LinkSearchBar({ inputValue, setInputValue }: any) {
   const handleInputValueChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setInputValue(e.currentTarget.value);
   };
+
   const handleClickInputValueClear = (
     e: React.MouseEvent<HTMLButtonElement>
   ) => {

@@ -7,9 +7,11 @@ import LinkSearchBar from './LinkSearchBar';
 import { CARDS } from '../constants/fetchConstants';
 import { SAMPLE_FOLDER_URL } from '../constants/urls';
 import { SharedPageLink } from '../types/interfaces/fetchDatas';
+import { useDebounce } from '../hooks/useDebounce';
 
 function CardList() {
   const [inputValue, setInputValue] = useState<string>('');
+  const debouncedValue = useDebounce(inputValue);
   const cardsArray = useCardsData(CARDS, SAMPLE_FOLDER_URL) as SharedPageLink[];
 
   return (
@@ -23,9 +25,9 @@ function CardList() {
           cardsArray
             .filter((card) => {
               return (
-                card.description?.includes(inputValue) ||
-                card.url?.includes(inputValue) ||
-                card.title?.includes(inputValue)
+                card.description?.includes(debouncedValue) ||
+                card.url?.includes(debouncedValue) ||
+                card.title?.includes(debouncedValue)
               );
             })
             .map((card) => (

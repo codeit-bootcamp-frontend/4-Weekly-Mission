@@ -9,6 +9,7 @@ import useLinksData from '../hooks/useLinksData';
 import useFoldersData from '../hooks/useFoldersData';
 import { FolderAddButtonMobile } from '../pages/FolderPage/components/FolderAddButton';
 import { ClickSortButton } from '../types/functionsType';
+import { useDebounce } from '../hooks/useDebounce';
 
 //폴더리스트 컴포넌트(폴더 페이지)
 
@@ -17,7 +18,7 @@ function FolderList() {
   const [selectedFolder, setSelectedFolder] = useState({ id: 1, name: '전체' });
   //LinkSearchBar Input state
   const [inputValue, setInputValue] = useState<string>('');
-
+  const debouncedValue = useDebounce(inputValue);
   //URL State
   const [linksFetchUrl, setLinksFetchUrl] = useState(USERS_LINKS_URL);
   const [foldersFetchUrl, setFoldersFetchUrl] = useState(USERS_FOLDERS_URL);
@@ -63,9 +64,9 @@ function FolderList() {
                 {links
                   .filter((card) => {
                     return (
-                      card.description?.includes(inputValue) ||
-                      card.url?.includes(inputValue) ||
-                      card.title?.includes(inputValue)
+                      card.description?.includes(debouncedValue) ||
+                      card.url?.includes(debouncedValue) ||
+                      card.title?.includes(debouncedValue)
                     );
                   })
                   .map((card) => (
