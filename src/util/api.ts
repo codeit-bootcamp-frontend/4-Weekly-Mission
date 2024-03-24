@@ -32,12 +32,12 @@ export async function getUser(): Promise<User> {
   const response = await getAPI('users/1');
   const data = response.data[0];
 
-  const parsedData = { ...data, imageSource: data['image_source'], auth_id: data['auth_id'] };
+  const parsedData = { ...data, imageSource: data['image_source'], authId: data['auth_id'] };
   return parsedData;
 }
 
 export async function getUserFolders(): Promise<Folder[]> {
-  const response = await getAPI(`users/1/folders`);
+  const response = await getAPI(`users/4/folders`);
   const parsedData = response.data.map(({ created_at, user_id, ...rest }: FolderAPI) => ({
     ...rest,
     createdAt: created_at,
@@ -48,7 +48,7 @@ export async function getUserFolders(): Promise<Folder[]> {
 }
 
 export async function getUserLinks(id: number | string): Promise<Link[]> {
-  const query = id === totalFolderId ? 'users/1/links' : `users/1/links?folderId=${id}`;
+  const query = id === totalFolderId ? 'users/4/links' : `users/1/links?folderId=${id}`;
   const response = await getAPI(query);
 
   const parsedData = response.data.map(({ created_at, image_source, ...rest }: LinkAPI) => ({
