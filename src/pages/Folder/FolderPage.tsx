@@ -66,7 +66,7 @@ function FolderPage() {
     const folderId = activeFolder?.id;
     if (!userId || !folderId) return;
     try {
-      const { data } = await getLinks(userId, folderId);
+      const data = await getLinks(userId, folderId);
       setLinks(data);
     } catch (error) {
       console.error(error);

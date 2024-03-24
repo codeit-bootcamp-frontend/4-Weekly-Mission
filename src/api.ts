@@ -52,7 +52,7 @@ export async function getLinks(userId: number, folderId: number) {
       throw new Error('링크 목록을 불러오는데 실패했습니다.');
     }
     const links = await response.json();
-    const data = links?.map((link: LinkBase) => {
+    const data = links.data?.map((link: LinkBase) => {
       const { created_at, updated_at, image_source, folder_id } = link;
       const revertLink: Link = {
         ...link,
