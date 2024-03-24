@@ -11,9 +11,7 @@ export interface CardItem {
   description: string;
   url: string;
   createdAt: string;
-  created_at: string;
   imageSource: string;
-  image_source: string;
 }
 
 interface CardProps {
@@ -21,15 +19,7 @@ interface CardProps {
 }
 
 function Card({ item }: CardProps) {
-  const {
-    title,
-    description,
-    url,
-    created_at,
-    createdAt = created_at,
-    image_source,
-    imageSource = image_source,
-  } = item;
+  const { title, description, url, createdAt, imageSource } = item;
 
   const handleImgError = (e: SyntheticEvent<HTMLImageElement>) => {
     e.currentTarget.src = cardImg;
