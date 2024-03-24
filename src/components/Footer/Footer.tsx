@@ -12,20 +12,21 @@ export default function Footer() {
     <footer className={styles.footer}>
       <p className={styles.codeit}>©codeit - 2024</p>
       <div className={styles.linkBox}>
-        <Link>Privacy Policy</Link>
-        <Link>FAQ</Link>
+        <Link to="/">Privacy Policy</Link>
+        <Link to="/">FAQ</Link>
       </div>
       <ul className={styles.snsBox}>
-        <Link>
+        {/* 여기에서는 li 태그로 하는게 더 시맨틱하지 않을까요? */}
+        <Link to="https://www.facebook.com">
           <Facebook />
         </Link>
-        <Link>
+        <Link to="https://twitter.com">
           <Twitter />
         </Link>
-        <Link>
+        <Link to="https://www.youtube.com">
           <Youtube />
         </Link>
-        <Link>
+        <Link to="https://www.instagram.com">
           <Instagram />
         </Link>
       </ul>
