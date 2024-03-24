@@ -44,7 +44,7 @@ export async function getFolders(userId: number) {
   }
 }
 
-export async function getLinks(userId: number, folderId: number) {
+export async function getLinks(userId: number, folderId: number | null) {
   const query = `${folderId && 'folderId=' + folderId}`;
   try {
     const response = await fetch(`${BASE_URL}/users/${userId}/links?${query}`);

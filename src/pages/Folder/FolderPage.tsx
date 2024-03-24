@@ -63,8 +63,8 @@ function FolderPage() {
 
   const handleLoadLinks = async () => {
     const userId = loginUser?.id;
-    const folderId = activeFolder?.id;
-    if (!userId || !folderId) return;
+    const folderId = activeFolder?.id || null;
+    if (!userId) return;
     try {
       const data = await getLinks(userId, folderId);
       setLinks(data);
