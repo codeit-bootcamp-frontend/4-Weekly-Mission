@@ -12,15 +12,18 @@ import AddFolderModal from 'components/common/modal/AddFolderModal';
  * @param {string} url 카드에 해당하는 링크
  * @returns
  */
-const KebabButton = ({ url }) => {
-  const [showMenu, setShowMenu] = useState(false);
-  const [showModal, setShowModal] = useState(false);
-  const [optionName, setOptionName] = useState('');
-  const handleMenu = e => {
+interface KebabButtonProps {
+  url: string;
+}
+const KebabButton: React.FC<KebabButtonProps> = ({ url }) => {
+  const [showMenu, setShowMenu] = useState<boolean>(false);
+  const [showModal, setShowModal] = useState<boolean>(false);
+  const [optionName, setOptionName] = useState<string>('');
+  const handleMenu = (e: React.MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
     return setShowMenu(!showMenu);
   };
-  const handleClick = option => {
+  const handleClick = (option: string) => {
     setShowMenu(false);
     setShowModal(true);
     setOptionName(option);

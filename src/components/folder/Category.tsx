@@ -13,8 +13,23 @@ import PostModal from 'components/common/modal/PostModal';
  * @param {function} props.handleCategoryButton 카테고리 버튼 핸들러 함수
  * @returns {JSX.Element}
  */
-const Category = ({ categoryDatas, currentCategory, handleCategoryButton }) => {
-  const [showModal, setShowModal] = useState(false);
+
+interface CategoryData {
+  id: string;
+  name: string;
+}
+
+interface CategoryProps {
+  categoryDatas: CategoryData[];
+  currentCategory: string;
+  handleCategoryButton: (event: React.MouseEvent<HTMLButtonElement>) => void;
+}
+const Category: React.FC<CategoryProps> = ({
+  categoryDatas,
+  currentCategory,
+  handleCategoryButton,
+}) => {
+  const [showModal, setShowModal] = useState<boolean>(false);
   const handleClick = () => {
     setShowModal(true);
   };
@@ -48,7 +63,9 @@ const Category = ({ categoryDatas, currentCategory, handleCategoryButton }) => {
     </>
   );
 };
-
+interface ButtonProps {
+  checked?: boolean;
+}
 const Wrapper = styled.div`
   display: flex;
   justify-content: space-between;
@@ -69,7 +86,7 @@ const CategoryContainer = styled.div`
   flex-flow: wrap;
   gap: 0.8rem;
 `;
-const CategoryButton = styled.button`
+const CategoryButton = styled.button<ButtonProps>`
   background: transparent;
   border-radius: 0.5rem;
   height: 3.9rem;

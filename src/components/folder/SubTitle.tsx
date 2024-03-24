@@ -9,7 +9,11 @@ import styled from 'styled-components';
  * @param {number} props.categoryId 현재 선택된 카테고리의 id
  * @returns
  */
-const SubTitle = ({ currentCategory, categoryId }) => {
+interface SubTitleProps {
+  currentCategory: string;
+  categoryId: number;
+}
+const SubTitle: React.FC<SubTitleProps> = ({ currentCategory, categoryId }) => {
   return (
     <TitleContainer>
       <CategoryName>{Object.values(currentCategory)}</CategoryName>

@@ -16,16 +16,25 @@ import ShareModal from 'components/common/modal/ShareModal';
  * @param {number} props.categoryId 해당 카테고리(폴더) 아이디
  * @returns
  */
-const OptionButton = ({ placeholder, folderName, categoryId }) => {
+interface OptionButtonProps {
+  placeholder: string;
+  folderName: string;
+  categoryId: number;
+}
+const OptionButton: React.FC<OptionButtonProps> = ({
+  placeholder,
+  folderName,
+  categoryId,
+}) => {
   const BUTTON = [
     { url: Share, name: '공유' },
     { url: Rename, name: '이름 변경' },
     { url: Delete, name: '삭제' },
   ];
-  const [showModal, setShowModal] = useState(false);
-  const [modalName, setModalName] = useState('');
+  const [showModal, setShowModal] = useState<boolean>(false);
+  const [modalName, setModalName] = useState<string>('');
 
-  const handleClick = name => {
+  const handleClick = (name: string) => {
     setShowModal(true);
     setModalName(name);
   };
@@ -75,7 +84,7 @@ const Option = styled.button`
   gap: 0.4rem;
   cursor: pointer;
 `;
-const OptionIcon = styled.div`
+const OptionIcon = styled.div<{ $url: string }>`
   width: 1.8rem;
   height: 1.8rem;
   background-image: url(${({ $url }) => $url});

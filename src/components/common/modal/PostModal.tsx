@@ -12,7 +12,7 @@ import styled from 'styled-components';
  */
 interface PostModalProps {
   title: string;
-  placeholder: string;
+  placeholder?: string;
   isAdd: boolean;
 }
 const PostModal: React.FC<PostModalProps> = ({
