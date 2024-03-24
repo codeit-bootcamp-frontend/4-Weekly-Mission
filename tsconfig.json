@@ -1,6 +1,10 @@
 {
   "compilerOptions": {
-    "target": "es5",
+    "target": "ES6",
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["src/*"]
+    },
     "lib": ["dom", "dom.iterable", "esnext"],
     "allowJs": true,
     "skipLibCheck": true,
@@ -15,11 +19,9 @@
     "isolatedModules": true,
     "noEmit": true,
     "jsx": "react-jsx",
-    // "baseUrl": ".",
-    // "paths": {
-    //   "pages/*": ["src/pages/*"]
-    // },
-    "typeRoots": ["./node_modules/@types", "./@types"]
-  },
-  "include": ["src"]
+    "noImplicitAny": true,
+    "noImplicitThis": true,
+    "strictNullChecks": true,
+    "typeRoots": ["node_modules/@types", "src/types"]
+  }
 }

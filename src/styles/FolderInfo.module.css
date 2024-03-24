@@ -1,0 +1,25 @@
+#folderInfo {
+  background-color: #f0f6ff;
+}
+
+#folderInfo .infoBox {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 15px;
+  padding-block: 40px;
+  text-align: center;
+}
+
+#folderInfo .profileImg img {
+  width: 60px;
+}
+
+#folderInfo .userName {
+  font-size: 16px;
+}
+
+#folderInfo .folderName {
+  margin-top: 20px;
+  font-size: 48px;
+}
