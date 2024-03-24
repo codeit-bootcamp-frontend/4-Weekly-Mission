@@ -69,6 +69,10 @@
   .searchBar {
     width: 704px;
   }
+
+  .searchResult {
+    width: 704px;
+  }
 }
 
 /* mobile-size */
@@ -83,6 +87,7 @@
 
   .searchResult{
     font-size: 24px;
+    width: 100%;
     margin-top: 32px;
   }
 }
