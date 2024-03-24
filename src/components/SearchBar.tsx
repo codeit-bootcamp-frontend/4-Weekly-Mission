@@ -1,29 +1,56 @@
-import styles from '../css/SearchBar.module.css'
+import { ChangeEvent, KeyboardEvent, MouseEvent } from 'react';
+import styles from '../css/SearchBar.module.css';
 import closeIcon from '../images/Icon_close.svg';
+import {ReactComponent as SearchIcon} from '../images/Icon_search.svg';
 
-function SearchBar({ inputValue, onChange, onClick }: any) {
+interface Props {
+  inputValue: string;
+  searchWord: string;
+  onChange: (e: ChangeEvent<HTMLInputElement>) => void;
+  onClick: (e: MouseEvent<HTMLButtonElement>) => void;
+  onSubmit: (searchQuery: string) => void;
+}
+
+function SearchBar({ inputValue, searchWord, onChange, onClick, onSubmit }: Props) {
+  const color = inputValue ? 'var(--primary)' : '#666666';
+
+  const handleSubmit = (e: KeyboardEvent<HTMLFormElement>) => {
+    if(e.key === 'Enter') {
+      e.preventDefault();
+      onSubmit(inputValue);
+    }
+  }
+
   return(
-    <div className={styles.searchBar}>
+    <>
+      <form className={styles.container} onKeyDown={handleSubmit}>
+        <div className={styles.searchBar}>
+          <SearchIcon stroke={color}/>
+          <input
+            type="text"
+            name="search"
+            value={inputValue}
+            onChange={onChange}
+            placeholder='링크를 검색해 보세요.'
+          />
+          {inputValue && (
+            <button
+              className={styles.closeBtn}
+              onClick={onClick}
+            >
+              <img src={closeIcon} alt='closeBtn'/>
+            </button>
+            )
+          }
+        </div>
+      </form>
       <div className={styles.container}>
-        <div className={styles.searchIcon}></div>
-        <input
-          type="text"
-          name="search"
-          value={inputValue}
-          onChange={onChange}
-          placeholder='링크를 검색해 보세요.'
-        />
-        {inputValue && (
-          <button
-            className={styles.closeBtn}
-            onClick={onClick}
-          >
-            <img className={styles.closeImg} src={closeIcon} alt='closeBtn'/>
-          </button>
-          )
-        }
+        {inputValue && searchWord &&
+          <div className={styles.searchResult}>
+            <span className={styles.searchKeyword}>{inputValue}</span>로 검색한 결과입니다.
+          </div>}
       </div>
-    </div>
+    </>
   );
 }
 

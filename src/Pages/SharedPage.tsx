@@ -19,24 +19,20 @@ interface SearchData extends Data {
 function SharedPage() {
   const [linkData, setLinkData] = useState<SearchData[]>([]);
   const [search, setSearch] = useState('');
+  const [searchWord, setSearchWord] = useState('');
 
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
     setSearch(e.target.value);
   }
 
-  const handleCloseButtonClick = (e: MouseEvent) => {
+  const handleCloseButtonClick = (e: MouseEvent<HTMLButtonElement>) => {
     setSearch('');
+    setSearchWord('');
   }
 
-  const searchData = linkData.filter((data) => {
-    const SEARCH_WORD = search.toLowerCase();
-    const URL = data.url.toLowerCase();
-    const TITLE = data.title.toLowerCase();
-    const DESCRIPTION = data.description.toLowerCase();
-    
-    return URL.includes(SEARCH_WORD) || TITLE.includes(SEARCH_WORD) || DESCRIPTION.includes(SEARCH_WORD)
-  })
-
+  const handleSubmit = (searchQuery: string) => {
+    setSearchWord(searchQuery);
+  };
 
   const getLinkData = async () => {
     const { folder } = await getSampleFolderLinks();
@@ -53,8 +49,13 @@ function SharedPage() {
   return (
     <>
       <Header />
-      <SearchBar inputValue={search} onChange={handleChange} onClick={handleCloseButtonClick}/>
-      <LinkList linkData={searchData}/>
+      <SearchBar
+        inputValue={search}
+        searchWord={searchWord}
+        onChange={handleChange}
+        onClick={handleCloseButtonClick}
+        onSubmit={handleSubmit}/>
+      <LinkList keyword={searchWord} linkData={linkData}/>
     </>
   )
 }
