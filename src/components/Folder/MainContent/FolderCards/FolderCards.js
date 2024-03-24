@@ -1,6 +1,6 @@
 import React from 'react';
-import Card from './Card';
-import { NonLink } from '../../style/styledComponents';
+import Card from './Card/Card';
+import { NonLink } from '../../../../style/styledComponents';
 import { Link } from 'react-router-dom';
 
 export const FolderCards = ({ folder }) => {

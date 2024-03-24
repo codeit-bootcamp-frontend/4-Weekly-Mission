@@ -1,6 +1,6 @@
 import { Helmet, HelmetProvider } from 'react-helmet-async';
-import FolderHeader from '../components/Folder/FolderHeader';
-import FolderContent from '../components/Folder/FolderContent';
+import TopContent from '../components/Folder/TopContent/TopContent';
+import MainContent from '../components/Folder/MainContent/MainContent';
 
 function FolderPage() {
   return (
@@ -8,8 +8,8 @@ function FolderPage() {
       <Helmet>
         <title>Linkbrary - Folder</title>
       </Helmet>
-      <FolderHeader />
-      <FolderContent />
+      <TopContent />
+      <MainContent />
     </HelmetProvider>
   );
 }

@@ -6,7 +6,7 @@ import {
   AddButtonWrapper,
   AddButtonText,
   AddButtonImage,
-} from '../../style/styledComponents';
+} from '../../../../style/styledComponents';
 
 function FolderCategory({ category, currentCategory, handleCategoryButton }) {
   return (

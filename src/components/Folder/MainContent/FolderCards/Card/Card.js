@@ -1,8 +1,8 @@
 import React from 'react';
-import defaultImg from '../../images/no-image.svg';
-import starImg from '../../images/star.svg';
-import kebabImg from '../../images/kebab.svg';
-import { updateStatus } from './cardUpdate';
+import defaultImg from '../../../../../images/no-image.svg';
+import starImg from '../../../../../images/star.svg';
+import kebabImg from '../../../../../images/kebab.svg';
+import { updateStatus } from '../../../../../utils/cardUpdate';
 
 export default function Card({ imageSource, createdAt, description, folder }) {
   const date = new Date(createdAt).toLocaleDateString();

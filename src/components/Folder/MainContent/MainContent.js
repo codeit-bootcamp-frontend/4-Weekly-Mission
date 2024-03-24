@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
-import SearchBar from '../SearchBar/SearchBar';
-import useFetchFolderCategoryData from '../../hooks/useFetchFolderCategoryData';
-import useFetchFolderCardsData from '../../hooks/useFetchFolderCardsData';
-import FolderCategory from './FolderCategory';
-import { FolderTitle } from './FolderTitle';
-import { FolderCards } from './FolderCards';
+import SearchBar from '../../SearchBar/SearchBar';
+import useFetchFolderCategoryData from '../../../hooks/useFetchFolderCategoryData';
+import useFetchFolderCardsData from '../../../hooks/useFetchFolderCardsData';
+import FolderCategory from './FolderCategory/FolderCategory';
+import { FolderTitle } from './FolderTitle/FolderTitle';
+import { FolderCards } from './FolderCards/FolderCards';
 
-function FolderContent() {
+function MainContent() {
   const [currentCategory, setCurrentCategory] = useState('전체');
 
   const [folderId, setFolderId] = useState(0);
@@ -40,4 +40,4 @@ function FolderContent() {
   );
 }
 
-export default FolderContent;
+export default MainContent;
