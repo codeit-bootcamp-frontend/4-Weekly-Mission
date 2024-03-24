@@ -74,6 +74,7 @@ export default function CardListBox() {
       setLinks(searchLinks);
     }
   }, [searchValue]);
+  // 여기까지
 
   return (
     <main className={styles.CardListBox}>
