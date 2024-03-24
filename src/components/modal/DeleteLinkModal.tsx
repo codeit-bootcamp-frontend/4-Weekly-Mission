@@ -2,12 +2,27 @@ import React from 'react';
 import styled from 'styled-components';
 import close from '../../assets/modal/close.svg';
 
-const DeleteLinkModal = ({ onClose, linksInfo }) => {
-  const handleClose = () => {
-    onClose(false);
-  };
+interface LinksInfoProps {
+  created_at: Date;
+  description: string | null;
+  id: number;
+  image_source: string | null;
+  url: string;
+}
 
-  const handleStopEvent = (e) => {
+interface Props {
+  onClose: ModalCloseHandler;
+  linksInfo: LinksInfoProps;
+}
+
+type ModalCloseHandler = () => void;
+
+const DeleteLinkModal = ({ onClose, linksInfo }: Props) => {
+  const handleClose = () => {
+    onClose();
+  };
+  console.log(linksInfo);
+  const handleStopEvent = (e: React.MouseEvent<HTMLDivElement>) => {
     e.stopPropagation();
   };
 

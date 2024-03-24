@@ -7,13 +7,21 @@ import Card from './Card';
 import { getFolderInfo, getLinksInfo, getSelectLinksInfo } from '../apis/api';
 import { ModalData } from './modal/ModalData';
 
+interface FolderInfo {
+  id: number;
+  name: string;
+}
+
+type ModalOpenHandler = (name: string) => void;
+type ModalCloseHandler = () => void;
+
 const Folder = () => {
-  const [folderInfo, setFolderInfo] = useState([]);
-  const [linksInfo, setLinksInfo] = useState([]);
-  const [selectFolder, setSelectFolder] = useState(null);
-  const [selectFolderName, setSelectFolderName] = useState('전체');
-  const [isOpenModal, setIsOpenModal] = useState(false);
-  const [selectModal, setSelectModal] = useState(null);
+  const [folderInfo, setFolderInfo] = useState<FolderInfo[]>([]);
+  const [linksInfo, setLinksInfo] = useState<any>([]);
+  const [selectFolder, setSelectFolder] = useState<number | null>(null);
+  const [selectFolderName, setSelectFolderName] = useState<string>('전체');
+  const [isOpenModal, setIsOpenModal] = useState<boolean>(false);
+  const [selectModal, setSelectModal] = useState<string | null>(null);
 
   const handleLoadFolderInfo = async () => {
     try {
@@ -41,7 +49,7 @@ const Folder = () => {
     }
   };
 
-  const handleSelectLinksInfo = async (folderId) => {
+  const handleSelectLinksInfo = async (folderId?: number) => {
     try {
       const linksInfo = await getSelectLinksInfo(folderId);
       if (Object.keys(linksInfo).length === 0) return;
@@ -51,29 +59,29 @@ const Folder = () => {
     }
   };
 
-  const handleClickLinkFolder = (id, name) => {
+  const handleClickLinkFolder = (id: number, name: string) => {
     setSelectFolder(id);
     setSelectFolderName(name);
     getFolderBackground(id);
   };
 
-  const getFolderBackground = (folderId) => {
+  const getFolderBackground = (folderId: number) => {
     return selectFolder === folderId ? 'var(--primary)' : 'var(--white)';
   };
 
-  const filteredLinks = linksInfo.filter((link) => {
+  const filteredLinks = linksInfo.filter((link: any) => {
     if (selectFolder === null || selectFolder === 1) {
       return true;
     }
     return link.folderId === selectFolder;
   });
 
-  const handleOpenModal = (name) => {
+  const handleOpenModal: ModalOpenHandler = (name: string) => {
     setIsOpenModal(true);
     setSelectModal(name);
   };
 
-  const handleCloseModal = () => {
+  const handleCloseModal: ModalCloseHandler = () => {
     setIsOpenModal(false);
   };
 
@@ -82,7 +90,7 @@ const Folder = () => {
     handleLoadLinksInfo();
     handleSelectLinksInfo();
   }, []);
-  console.log(linksInfo);
+
   return (
     <>
       {isOpenModal === true ? (

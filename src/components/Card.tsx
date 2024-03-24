@@ -3,10 +3,23 @@ import '../style/Card.css';
 import { Link } from 'react-router-dom';
 import undefinedImg from '../assets/share/undefinedImg.svg';
 
-const Card = ({ folderLinkInfo, handleOpenModal }) => {
-  const [isSelete, setIsSelete] = useState(null);
+interface Props {
+  folderLinkInfo: folderLinkInfoProps[];
+  handleOpenModal?: (name: string) => void;
+}
 
-  const getCreateDate = (created_at) => {
+interface folderLinkInfoProps {
+  createdAt: Date | undefined;
+  created_at: Date | undefined;
+  description: string | null;
+  imageSource: string | undefined;
+  image_source: string | null;
+  url: string | null;
+}
+
+const Card = ({ folderLinkInfo, handleOpenModal }: Props) => {
+  const [isSelete, setIsSelete] = useState(null);
+  const getCreateDate = (created_at: Date) => {
     const createDate = new Date(created_at);
     const formattedDate = `${createDate.getFullYear()}. ${
       createDate.getMonth() + 1
@@ -14,10 +27,13 @@ const Card = ({ folderLinkInfo, handleOpenModal }) => {
     return formattedDate;
   };
 
-  const getTimeDifference = (created_at) => {
+  const getTimeDifference = (created_at: Date) => {
     const createDate = new Date(created_at);
     const currentDate = new Date();
-    const differenceIntime = Math.floor((currentDate - createDate) / 1000);
+    const differenceIntime: number = Math.floor(
+      (currentDate.getTime() - createDate.getTime()) / 1000
+    );
+
     const timeInMinute = 60;
     const timeInHour = 3600;
     const timeInDay = 86400;
@@ -49,14 +65,14 @@ const Card = ({ folderLinkInfo, handleOpenModal }) => {
     }
   };
 
-  const handleOnOffSelete = (id) => {
+  const handleOnOffSelete = (id: null) => {
     setIsSelete(isSelete === id ? null : id);
   };
 
   return (
     <div className='SharedCardContent'>
       {folderLinkInfo.length !== 0 ? (
-        folderLinkInfo.map((link) => {
+        folderLinkInfo.map((link: any) => {
           const {
             createdAt,
             created_at,
@@ -85,14 +101,18 @@ const Card = ({ folderLinkInfo, handleOpenModal }) => {
                   <button onClick={() => handleOnOffSelete(link.id)} />
                   {isSelete === link.id && (
                     <div className='CardBtnContent'>
-                      <button
-                        onClick={() => handleOpenModal('DeleteLinkModal')}
-                      >
-                        삭제하기
-                      </button>
-                      <button onClick={() => handleOpenModal('AddLinkModal')}>
-                        폴더에 추가
-                      </button>
+                      {handleOpenModal && (
+                        <button
+                          onClick={() => handleOpenModal('DeleteLinkModal')}
+                        >
+                          삭제하기
+                        </button>
+                      )}
+                      {handleOpenModal && (
+                        <button onClick={() => handleOpenModal('AddLinkModal')}>
+                          폴더에 추가
+                        </button>
+                      )}
                     </div>
                   )}
                 </div>

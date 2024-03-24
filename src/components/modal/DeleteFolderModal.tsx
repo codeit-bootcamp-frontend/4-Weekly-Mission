@@ -2,12 +2,18 @@ import React from 'react';
 import styled from 'styled-components';
 import close from '../../assets/modal/close.svg';
 
-const EditModal = ({ onClose }) => {
+interface Props {
+  onClose: ModalCloseHandler;
+}
+
+type ModalCloseHandler = () => void;
+
+const DeleteFolderModal = ({ onClose }: Props) => {
   const handleClose = () => {
-    onClose(false);
+    onClose();
   };
 
-  const handleStopEvent = (e) => {
+  const handleStopEvent = (e: React.MouseEvent<HTMLDivElement>) => {
     e.stopPropagation();
   };
 
@@ -15,11 +21,11 @@ const EditModal = ({ onClose }) => {
     <ModalContainer onClick={handleClose}>
       <ContentContainer onClick={handleStopEvent}>
         <ModalContent>
-          <h2>폴더 이름 변경</h2>
-          <InputContent>
-            <input />
-            <button>변경하기</button>
-          </InputContent>
+          <TitleContent>
+            <h2>폴더 삭제</h2>
+            <span>폴더명</span>
+          </TitleContent>
+          <button>삭제하기</button>
         </ModalContent>
         <ModalCloseBtn onClick={handleClose} />
       </ContentContainer>
@@ -27,7 +33,7 @@ const EditModal = ({ onClose }) => {
   );
 };
 
-export default EditModal;
+export default DeleteFolderModal;
 
 const ModalContainer = styled.div`
   width: 100%;
@@ -41,7 +47,7 @@ const ModalContainer = styled.div`
 
 const ContentContainer = styled.div`
   width: 36rem;
-  height: 23.8rem;
+  height: 19.3rem;
   position: relative;
   display: flex;
   flex-direction: column;
@@ -60,36 +66,6 @@ const ModalContent = styled.div`
   align-items: center;
   gap: 2.4rem;
 
-  & > h2 {
-    color: var(--gray100);
-    font-size: 2rem;
-    font-weight: 700;
-    line-height: normal;
-  }
-`;
-
-const InputContent = styled.div`
-  width: 28rem;
-  height: 12.6rem;
-  display: flex;
-  flex-direction: column;
-  gap: 1.5rem;
-
-  & > input {
-    width: 28rem;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 1.8rem 1.5rem;
-    border-radius: 8px;
-    border: 0.1rem solid var(--primary);
-    background-color: var(--white);
-    color: var(--gray100);
-    font-size: 1.6rem;
-    font-weight: 400;
-    line-height: 1.5;
-  }
-
   & > button {
     width: 28rem;
     display: flex;
@@ -97,11 +73,34 @@ const InputContent = styled.div`
     align-items: center;
     padding: 1.6rem 2rem;
     border-radius: 0.8rem;
-    background-image: linear-gradient(91deg, #6d6afe 0.12%, #6ae3fe 101.84%);
+    background-color: var(--red);
     color: #f5f5f5;
     font-size: 1.6rem;
     font-weight: 600;
     line-height: normal;
+  }
+`;
+
+const TitleContent = styled.div`
+  width: 28rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 0.8rem;
+
+  & > h2 {
+    color: var(--gray100);
+    font-size: 2rem;
+    font-weight: 700;
+    line-height: normal;
+  }
+
+  & > span {
+    color: var(--gray60);
+    font-size: 1.4rem;
+    font-weight: 400;
+    line-height: 1.57143;
   }
 `;
 
