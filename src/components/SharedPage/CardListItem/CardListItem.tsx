@@ -16,13 +16,13 @@ interface Props {
 
 function CardListItem({ link } : Props) {
   return (
-    <a href={link.url} target="_blank" className={style["l_col"]}>
+    <a href={link.url} target="_blank" className={style["l_col"]}  rel="noreferrer">
       <div className={style.link}>
         <div className={style["link-cover"]}>
           <img src={link.imageSource || noImg} alt="card-cover" />:
         </div>
         <button className={style["star-btn"]}>
-          <img src={starImg} />
+          <img src={starImg}  alt="즐겨찾기 이미지"/>
         </button>
         <div className={style["link-contents"]}>
           <div className={style["content-Header"]}>

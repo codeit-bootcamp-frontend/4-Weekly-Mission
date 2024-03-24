@@ -2,6 +2,7 @@
   /* max-width: 1540px; */
   padding: 40px 200px;
   margin: 0 auto;
+  position: relative;
 }
 @media (max-width: 1199px) {
   .wrapper {
@@ -24,4 +25,17 @@
   background-color: #f5f5f5;
   border: none;
   width: 100%;
+}
+
+.closeBtn {
+  border-radius: 15px;
+  position: absolute;
+  right: 22rem;
+  top: 5rem;
+}
+
+@media (max-width: 1199px) {
+  .closeBtn {
+    right: 5rem;
+  }
 }

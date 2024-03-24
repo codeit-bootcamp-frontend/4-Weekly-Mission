@@ -20,7 +20,7 @@ const Nav = () => {
 
   return (
     <>
-      <div className={styles["nav"]}>
+      <div className={`${styles["nav"]} ${loading ? styles["loading"] : ""}`} >
         <div className={styles["navContainer"]}>
           <div className={styles["navLogo"]}>
             <a href="/">

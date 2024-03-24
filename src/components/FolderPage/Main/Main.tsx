@@ -27,6 +27,7 @@ interface Props {
   folderListInfo: [{ id: string; name: string; link:{count : number}}];
   handleSearchChange: (e : ChangeEvent) => void;
   setModal: (value: string) => void;
+  handleCloseClick: (e: React.MouseEvent) => void;
 }
 function Main({
   selectedModal,
@@ -39,6 +40,7 @@ function Main({
   folderListInfo,
   handleSearchChange,
   setModal,
+  handleCloseClick
 } : Props) {
   const [selectedLink, setSeletedLink] = useState("");
 
@@ -69,6 +71,7 @@ function Main({
         loadingError={loadingError}
         search={search}
         handleSearchChange={handleSearchChange}
+        handleCloseClick={handleCloseClick}
       />
       {links[0] ? (
         <CardList setLink={setLink} links={links} setModal={setModal} />

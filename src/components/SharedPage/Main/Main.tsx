@@ -30,18 +30,22 @@ interface Props {
       links: string;
     }
   ]
-    };
+  };
+    handleCloseClick: (e: React.MouseEvent) => void;
   handleSearchChange: (e : ChangeEvent) => void;
   setModal: (value: string) => void;
 }
 
-function Main({ loadingError, search, folderInfo, handleSearchChange } : Props) {
+function Main({ loadingError, search, folderInfo, handleSearchChange, handleCloseClick
+ }: Props) {
+
   return (
     <>
       <SearchInput
         loadingError={loadingError}
         search={search}
         handleSearchChange={handleSearchChange}
+        handleCloseClick={handleCloseClick}
       />
       <CardList links={folderInfo?.links} />
     </>

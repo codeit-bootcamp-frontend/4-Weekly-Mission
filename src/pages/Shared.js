@@ -9,10 +9,14 @@ import { useState, useEffect } from "react";
 function Folder() {
   const [search, setSerch] = useState("");
   const [folderInfo, setFolderInfo] = useState({});
-  const [loadingError, AsyncedGetFolderInfo] = useAsync(GetFolderInfo);
+  const [loadingError] = useAsync(GetFolderInfo);
 
   const handleSearchChange = (e) => {
     setSerch(e.target.value);
+  };
+
+  const handleCloseClick = (e) => {
+    setSerch("");
   };
 
   const loadFolderInfo = async () => {
@@ -33,6 +37,7 @@ function Folder() {
         folderInfo={folderInfo}
         onChange={handleSearchChange}
         loadingError={loadingError}
+        handleCloseClick={handleCloseClick}
       />
       <Footer />
     </>

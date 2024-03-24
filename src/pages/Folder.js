@@ -3,19 +3,24 @@ import Header from "components/FolderPage/Header/Header";
 import Main from "components/FolderPage/Main/Main";
 import Nav from "components/FolderPage/Nav/Nav";
 import { GetUserFolder, GetLinks } from "api/GetUserFolder";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import styled from "styled-components";
 
 function Folder() {
   const [search, setSerch] = useState("");
   const [folderListInfo, setFolderListInfo] = useState([]);
   const [selectedName, setSelectedName] = useState("전체");
-  const [selectedId, setSelectedId] = useState(null);
+  const [selectedId, setSelectedId] = useState();
   const [links, setLinks] = useState([]);
   const [selectedModal, setSelectedModal] = useState("");
+  const [searchInputInvisible, setSearchInputInvisible] = useState(false);
 
   const handleSearchChange = (e) => {
     setSerch(e.target.value);
+  };
+
+  const handleCloseClick = (e) => {
+    setSerch("");
   };
 
   const handleSelectedFolder = ({ name, id }) => {
@@ -43,6 +48,10 @@ function Folder() {
 
   const setModal = (value) => {
     setSelectedModal(value);
+  };
+
+  const observeHeader = () => {
+    setSearchInputInvisible(true);
   };
 
   // const ModalOverlay = styled.div`
@@ -74,7 +83,6 @@ function Folder() {
 
   return (
     <>
-      {/* <ModalOverlay /> */}
       <Nav />
       <Header />
       <Main
@@ -85,8 +93,9 @@ function Folder() {
         links={links}
         selectedModal={selectedModal}
         onSelectedFolder={handleSelectedFolder}
-        onChange={handleSearchChange}
+        handleSearchChange={handleSearchChange}
         setModal={setModal}
+        handleCloseClick={handleCloseClick}
       />
       <Footer />
     </>
