@@ -1,17 +1,21 @@
-import { getFolderListData, getFolderLinksData } from "../api/api";
 import { useEffect, useState } from "react";
+
+import { getFolderListData, getFolderLinksData } from "../api/api";
 import CardBox from "../components/CardBox";
 import SearchBar from "../components/SearchBar";
 import FolderListBar from "../components/FolderListBar";
 import EmptyFolder from "../components/EmptyFolder";
+import { useSearchBar } from "../hooks/useSearchBar";
 //types
 import { FolderList, LinksData } from "../types/commonTypes";
 
 function Folder() {
   const [folderList, setFolderList] = useState<FolderList[]>([]);
   const [linksData, setLinksData] = useState<LinksData[]>([]);
-
-  console.log(linksData);
+  const [searchVal, handleChange, filterdData, handleClickClose] = useSearchBar(
+    "",
+    linksData
+  );
 
   const getFolderList = async () => {
     try {
@@ -42,9 +46,17 @@ function Folder() {
 
   return (
     <section>
-      <SearchBar />
+      <SearchBar
+        searchVal={searchVal}
+        onChange={handleChange}
+        handleClickClose={handleClickClose}
+      />
       <FolderListBar folderList={folderList} onClick={getLinks} />
-      {linksData?.length ? <CardBox linksData={linksData} /> : <EmptyFolder />}
+      {linksData?.length ? (
+        <CardBox linksData={filterdData} />
+      ) : (
+        <EmptyFolder />
+      )}
     </section>
   );
 }
