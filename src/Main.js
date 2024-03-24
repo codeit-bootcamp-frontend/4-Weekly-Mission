@@ -1,6 +1,6 @@
-import Layout from './pages/Layout';
-import SharedPage from './pages/SharedPage';
-import FolderPage from './pages/FolderPage';
+import Layout from './pages/Layout/Layout';
+import SharedPage from './pages/SharedPage/SharedPage';
+import FolderPage from './pages/FolderPage/FolderPage';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
 function Main() {

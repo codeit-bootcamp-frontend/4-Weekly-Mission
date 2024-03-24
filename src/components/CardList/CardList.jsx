@@ -1,6 +1,6 @@
 import './CardList.css';
 import SearchBar from '../SearchBar/SearchBar';
-import CardListItem from './CardListItem';
+import CardListItem from './CardListItem/CardListItem';
 
 function CardList() {
   return (
