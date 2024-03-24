@@ -27,3 +27,16 @@
 .search-clear--button {
   border: none;
 }
+
+.search--value {
+  color: var(--Linkbrary-gray60, #9fa6b2);
+
+  font-size: 32px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  letter-spacing: -0.2px;
+}
+.search--value span {
+  color: var(--Linkbrary-gray100, #373740);
+}

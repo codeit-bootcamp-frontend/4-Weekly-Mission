@@ -20,27 +20,34 @@ function LinkSearchBar() {
   };
 
   return (
-    <div className="cards-container__search">
-      <img className="search--icon" src={searchIcon} alt="searchIcon" />
-      <input
-        id="search--input"
-        className="search--input"
-        placeholder={placeholder}
-        onChange={handleInputValueChange}
-      />
+    <>
+      <div className="cards-container__search">
+        <img className="search--icon" src={searchIcon} alt="searchIcon" />
+        <input
+          id="search--input"
+          className="search--input"
+          placeholder={placeholder}
+          onChange={handleInputValueChange}
+        />
+        {inputValue && (
+          <button
+            className="search-clear--button"
+            onClick={handleClickInputValueClear}
+          >
+            <img
+              src={searchClearIcon}
+              alt="search-clear"
+              className="search-clear--icon"
+            />
+          </button>
+        )}
+      </div>
       {inputValue && (
-        <button
-          className="search-clear--button"
-          onClick={handleClickInputValueClear}
-        >
-          <img
-            src={searchClearIcon}
-            alt="search-clear"
-            className="search-clear--icon"
-          />
-        </button>
+        <p className="search--value">
+          <span>{inputValue}</span>으로 검색한 결과입니다.
+        </p>
       )}
-    </div>
+    </>
   );
 }
 export default LinkSearchBar;
