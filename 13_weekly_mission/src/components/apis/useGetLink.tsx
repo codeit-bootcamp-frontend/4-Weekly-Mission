@@ -2,41 +2,51 @@ import { useCallback, useEffect } from 'react';
 import { axiosInstance } from '../../utils/axiosInstance';
 import { DEFAULT_FOLDER } from '../../utils/constant';
 import { useAsync } from '../../hooks/useAsync';
-import format from 'date-fns/format';
+import { format } from 'date-fns/format';
 import { getElapsedTime } from '../../utils/getElapsedTime';
 
-const mapLinksData = link => {
-  const { id, createdAt, url, imageSource, title, description } = link;
+interface Link {
+  id: number;
+  created_at: string;
+  url: string;
+  image_source: string;
+  title: string;
+  description: string;
+}
+
+const mapLinksData = (link: Link) => {
+  const { id, created_at, url, image_source, title, description } = link;
   return {
     id,
     url,
-    imageSource,
+    image_source,
     alt: `${title ?? url}의 대표 이미지`,
-    elapsedTime: getElapsedTime(createdAt),
+    elapsedTime: getElapsedTime(created_at),
     description,
-    createdAt: format(new Date(createdAt), 'yyyy. MM. dd'),
+    created_at: format(new Date(created_at), 'yyyy. MM. dd'),
   };
 };
 
 const useGetLink = (folderId = DEFAULT_FOLDER.id) => {
   const queryString = folderId === DEFAULT_FOLDER.id ? '' : `?folderId=${folderId}`;
-  const getLinks = useCallback(() => axiosInstance.get(`users/4/links${queryString}`), [queryString]);
+  const getLinks = useCallback(() => axiosInstance.get<Link[]>(`users/4/links${queryString}`), [queryString]);
   const { execute, loading, error, data } = useAsync(getLinks);
 
   useEffect(() => {
     execute();
   }, [folderId]);
 
-  const mapDataFormat = ({ id, created_at, url, image_source, title, description }) => ({
+  const mapDataFormat = ({ id, created_at, url, image_source, title, description }: Link) => ({
     id,
-    createdAt: created_at,
-    imageSource: image_source,
+    created_at,
+    image_source,
     url,
     title,
     description,
   });
 
-  const linksData = data?.data.map(mapDataFormat).map(mapLinksData) ?? [];
+  const linksData = (data?.data || []).map(mapDataFormat).map(mapLinksData);
+
   return { execute, loading, error, data: linksData };
 };
 

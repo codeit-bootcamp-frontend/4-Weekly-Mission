@@ -29,12 +29,14 @@ export default function Card({ data }) {
             <a href={link.url}>
               <img
                 className="cardImage"
-                src={link.imageSource ? link.imageSource : '/images/noImage.png'}
+                src={
+                  link.image_source || link.imageSource ? link.image_source || link.imageSource : '/images/noImage.png'
+                }
                 alt={link.title}
               />
               <div className="cardTextArea">
                 <div className="uploadTime">
-                  <div>{getElapsedTime(link.createdAt)} </div>
+                  <div>{getElapsedTime(link.created_at || link.createdAt)} </div>
                   <div
                     onClick={() => {
                       <PopoverMenu />;
@@ -43,7 +45,7 @@ export default function Card({ data }) {
                   </div>
                 </div>
                 <div className="cardText">{link.description}</div>
-                <div className="uploadDate">{Moment(link.createdAt).format('YYYY.MM.DD')}</div>
+                <div className="uploadDate">{Moment(link.created_at || link.createdAt).format('YYYY.MM.DD')}</div>
               </div>
             </a>
           </div>
