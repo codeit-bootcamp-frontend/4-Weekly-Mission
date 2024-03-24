@@ -2,7 +2,10 @@ import iconFacebook from '../assets/logo/facebook.svg';
 import iconYoutube from '../assets/logo/instagram.svg';
 import iconTwitter from '../assets/logo/twitter.svg';
 import iconInstargram from '../assets/logo/youtube.svg';
+
 import '../styles/footer.css';
+// eslint-disable-next-line import/order
+import React from 'react';
 
 const Footer = () => {
   const facebook = 'https://www.facebook.com/?locale=ko_KR';

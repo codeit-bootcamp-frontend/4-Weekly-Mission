@@ -1,6 +1,7 @@
 import '../styles/info.css';
+import React from 'react';
 
-const Info = ({ folderInfo }) => {
+const Info = ({ folderInfo }: any) => {
   const folderImage = folderInfo?.folder.owner.profileImageSource;
   const folderUsername = folderInfo?.folder.owner.name;
   const folderName = folderInfo?.folder.name;

@@ -1,6 +1,6 @@
 const baseUrl = 'https://bootcamp-api.codeit.kr/api';
 
-const getRequest = async endpoint => {
+const getRequest = async <T>(endpoint: string): Promise<T> => {
   try {
     const response = await fetch(`${baseUrl}${endpoint}`);
     if (!response.ok) {
@@ -31,10 +31,10 @@ export const getFolderList = async () => {
   return getRequest('/users/1/folders');
 };
 
-export const getFolderLink = async folderId => {
-  const folderUrl = folderId && '?folderId=' + folderId;
-  const data = await getRequest(`/users/1/links${folderUrl}`);
-  const result = data.data.map(item => ({
+export const getFolderLink = async (folderId: string) => {
+  const folderUrl = folderId ? `?folderId=${folderId}` : '';
+  const data: any = await getRequest(`/users/1/links${folderUrl}`);
+  const result = data.data.map((item: any) => ({
     ...item,
     createdAt: item.created_at,
     imageSource: item.image_source,

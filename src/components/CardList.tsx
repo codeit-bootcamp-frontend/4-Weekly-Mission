@@ -1,15 +1,23 @@
 import '../styles/CardList.css';
+import React from 'react';
+
 import Card from './Card';
 
-const CardList = ({ folderLink, folderInfo, isIconVisible }) => {
-  const card = folderLink || folderInfo?.folder.links;
+interface Props {
+  folderLink: any;
+  folderInfo: any;
+  isIconVisible: boolean;
+}
+
+const CardList = ({ folderLink, folderInfo, isIconVisible }: Props) => {
+  const card = folderInfo?.folder.links;
 
   return (
     <>
       <div className='cardlist'>
         {card && card.length !== 0 ? (
           <>
-            {card.map(card => (
+            {card.map((card: any) => (
               <Card card={card} key={card.id} isIconVisible={isIconVisible} />
             ))}
           </>

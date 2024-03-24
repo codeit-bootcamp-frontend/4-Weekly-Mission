@@ -1,15 +1,20 @@
 import React, { useState, useRef } from 'react';
 
-const Popover = ({ children, content }) => {
+interface Props {
+  children: React.ReactNode;
+  content: React.ReactNode;
+}
+
+const Popover = ({ children, content }: Props) => {
   const [show, setShow] = useState(false);
-  const popOverRef = useRef(null);
+  const popOverRef = useRef<HTMLDivElement>(null);
 
   const handleClick = () => {
     setShow(!show);
   };
 
-  const handleOutsideClick = event => {
-    if (popOverRef.current && !popOverRef.current.contains(event.target)) setShow(false);
+  const handleOutsideClick = (event: MouseEvent) => {
+    if (popOverRef.current!.contains(event.target as Node)) setShow(false);
   };
 
   return (
