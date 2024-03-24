@@ -1,5 +1,11 @@
+import { useRef } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { styled } from 'styled-components';
+
+import IconButton from 'components/common/button/IconButton';
 import { ReactComponent as SearchIcon } from 'assets/icon/search.svg';
+import closeIcon from 'assets/icon/close-icon.svg';
+import handleEnterKeyDown from 'utils/handleEnterKeyDown';
 
 const Styled = {
   Container: styled.div`
@@ -29,20 +35,54 @@ const Styled = {
       color: ${({ theme }) => theme.color.addition};
     }
   `,
+
+  CloseButton: styled(IconButton)`
+    width: 2.4rem;
+    height: 2.4rem;
+    background-color: #e7effb;
+  `,
 };
 
 interface SearchBarProps {
   placeholder: string;
-  value?: string;
-  onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  uri: string;
   style?: React.CSSProperties;
 }
 
-function SearchBar({ placeholder, value, onChange, style }: SearchBarProps) {
+function SearchBar({ placeholder, uri, style }: SearchBarProps) {
+  const inputRef = useRef<HTMLInputElement>(null);
+  const navigate = useNavigate();
+
+  const navigateToKeyword = (input: string) => {
+    const keyword = input?.replace(/(\s*)/g, '');
+    if (keyword === '') return;
+
+    navigate({
+      pathname: uri,
+      search: `?keyword=${keyword}`,
+    });
+  };
+
+  const clearInput = () => {
+    if (inputRef.current) {
+      inputRef.current.value = '';
+      navigate({
+        pathname: uri,
+        search: '',
+      });
+    }
+  };
+
   return (
     <Styled.Container style={style}>
       <SearchIcon />
-      <Styled.Input type="text" value={value} placeholder={placeholder} onChange={onChange}></Styled.Input>
+      <Styled.Input
+        type="text"
+        ref={inputRef}
+        placeholder={placeholder}
+        onKeyDown={(e) => handleEnterKeyDown(e, () => navigateToKeyword(inputRef.current?.value || ''))}
+      />
+      <Styled.CloseButton icon={closeIcon} onClick={clearInput} />
     </Styled.Container>
   );
 }
