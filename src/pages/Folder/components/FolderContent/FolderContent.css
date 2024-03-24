@@ -36,15 +36,3 @@
     z-index: 1;
   }
 }
-
-.Searching-result-comment {
-  align-self: flex-start;
-  font-size: 3.2rem;
-  font-weight: 600;
-  letter-spacing: -0.02rem;
-  color: var(--gray60);
-}
-
-.searchKeyWord {
-  color: var(--black);
-}

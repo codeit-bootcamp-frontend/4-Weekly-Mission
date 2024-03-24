@@ -10,6 +10,7 @@ import { Button } from "../CategoryButton/CategoryButtonStyled";
 import { FolderListDataForm, getFolderDataForm } from "interface/DataForm";
 import { useRecoilValue } from "recoil";
 import { searchState } from "recoil/SearchKeyWord";
+import { SearchResultComment } from "@pages/components/SearchResultComment/SearchResultComment";
 
 interface LoadFolderDataProps {
   folderId: string;
@@ -67,12 +68,7 @@ export function FolderContent({ data }: { data: FolderListDataForm[] }) {
           handleModalClose={CloseAddToFolderModal}
         />
       )}
-      {searchKeyWord && (
-        <div className="Searching-result-comment">
-          <span className="searchKeyWord">{searchKeyWord}</span>으로 검색한
-          결과입니다.
-        </div>
-      )}
+      {searchKeyWord && <SearchResultComment searchKeyWord={searchKeyWord} />}
 
       <div className="classification">
         <div className="classification-buttons">

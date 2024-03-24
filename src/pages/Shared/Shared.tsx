@@ -13,6 +13,7 @@ import {
 } from "interface/DataForm";
 import { useRecoilValue } from "recoil";
 import { searchState } from "recoil/SearchKeyWord";
+import { SearchResultComment } from "@pages/components/SearchResultComment/SearchResultComment";
 
 export const Shared = () => {
   const [folders, setFolders] = useState<FolderListDataForm[]>([]);
@@ -58,6 +59,7 @@ export const Shared = () => {
       )}
       <div className="SharedPage-items">
         <SearchBar />
+        {searchKeyWord && <SearchResultComment searchKeyWord={searchKeyWord} />}
         <CardList>
           {folderLinks &&
             folderLinks?.map((link) => (
