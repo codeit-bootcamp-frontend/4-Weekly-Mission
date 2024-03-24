@@ -6,6 +6,7 @@ const Styled = {
   Container: styled.div`
     width: 100%;
     padding: 4rem calc((100vw - 110rem) / 2 + 2rem);
+    margin-bottom: 6rem;
 
     @media (min-width: 768px) and (max-width: 1199px) {
       padding: 4rem 3.2rem;

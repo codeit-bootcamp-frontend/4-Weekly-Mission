@@ -133,11 +133,11 @@ function FolderPage() {
             <FolderGridCard keyword={keyword} selectedFolder={selectedFolder} />
 
             <FloatButton>폴더추가</FloatButton>
-            <div ref={footerTargetRef}></div>
             {!isHeaderVisible && !isFooterVisible && <FixedLinkBar />}
           </>
         )}
       </MainLayout>
+      <div ref={footerTargetRef}></div>
     </>
   );
 }
