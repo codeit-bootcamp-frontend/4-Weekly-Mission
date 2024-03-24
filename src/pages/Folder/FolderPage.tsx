@@ -13,7 +13,7 @@ import {
 } from '../../components/Icon';
 import { CardItem } from '@src/components/Card/Card';
 
-interface UserFolder {
+export interface UserFolder {
   id: number;
   created_at: string;
   name: string;
