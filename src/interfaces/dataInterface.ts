@@ -3,8 +3,10 @@ export interface Link {
   title: string;
   url: string;
   description: string;
-  createdAt: string;
+  createdAt: string; // 서버에서 내려주는 데이터가...
+  created_at: string;
   imageSource: string;
+  image_source: string;
 }
 
 export interface FolderInfoData {
@@ -34,5 +36,11 @@ export interface UserLinksData {
   title: string;
   description: string;
   image_source: string | null;
+  imageSource: string;
   created_at: string;
+  createdAt: string;
 }
+
+// todo
+// Link랑 UserLinksData에 imageSource, image_source 이런거 추가된 부분 다시 리팩토링 필요!
+// filterDataBySearchKeyword 같이 공유하려다 보니 이렇게 되었는데 문제점 파악하기!
