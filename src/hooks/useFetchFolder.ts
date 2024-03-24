@@ -1,4 +1,3 @@
-import { FolderData } from "@/constants/index.types";
 import { useEffect, useState } from "react";
 
 export default function useFetchFolder<T>(url: string) {

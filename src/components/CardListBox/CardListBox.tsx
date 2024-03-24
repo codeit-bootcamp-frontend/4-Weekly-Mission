@@ -7,17 +7,25 @@ import CardList from "../CardList/CardList.tsx";
 import { END_POINT } from "../../constants/index.ts";
 import getFormattedLinks from "@/hooks/getFormattedLinks";
 import LinksEmptyCase from "./LinksEmptyCase/LinksEmptyCase.tsx";
-import { LinkProps, UserFolderProps } from "@/constants/index.types";
+import {
+  FormetLinkProps,
+  LinkProps,
+  UserFolderProps,
+} from "@/constants/index.types";
 
 export default function CardListBox() {
-  const [folders, setFolders] = useState<UserFolderProps | undefined>();
-  const [links, setLinks] = useState<LinkProps[]>([]);
+  const [folders, setFolders] = useState<UserFolderProps[] | undefined>([]);
+  const [links, setLinks] = useState<LinkProps[] | undefined>([]);
   const [changeLinksFolder, setChangeLinksFolder] = useState(END_POINT.links);
   const [linksTitle, setLinksTitle] = useState(`전체`);
-  const { data: foldersData, isLoading: isFoldersLoading } =
-    useGet<UserFolderProps>(END_POINT.folders);
-  const { data: linksData, isLoading: isLinksLoading } =
-    useGet<LinkProps[]>(changeLinksFolder);
+
+  const { data: foldersData, isLoading: isFoldersLoading } = useGet<
+    UserFolderProps[]
+  >(END_POINT.folders);
+
+  const { data: linksData, isLoading: isLinksLoading } = useGet<
+    FormetLinkProps[] | undefined
+  >(changeLinksFolder);
 
   useEffect(() => {
     if (!isFoldersLoading && !isLinksLoading) {

@@ -11,8 +11,11 @@ function formatLinkData(link: FormetLinkProps) {
   };
 }
 
-export default function getFormattedLinks(links: FormetLinkProps[]) {
-  return links.map((link: FormetLinkProps) => {
-    return formatLinkData(link);
-  });
+export default function getFormattedLinks(links?: FormetLinkProps[]) {
+  return (
+    links &&
+    links.map((link: FormetLinkProps) => {
+      return formatLinkData(link);
+    })
+  );
 }

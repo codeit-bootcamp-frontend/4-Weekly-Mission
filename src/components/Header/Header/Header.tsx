@@ -12,10 +12,10 @@ interface HeaderProps {
 
 export default function Header({ headerPosition }: HeaderProps) {
   const [fetchData, setFetchData] = useState<UserDataProps | undefined>();
-  const { data, isLoading } = useGet(END_POINT.user);
+  const { data, isLoading } = useGet<UserDataProps[]>(END_POINT.user);
 
   useEffect(() => {
-    if (!isLoading) {
+    if (data && !isLoading) {
       // 이쁘게 고치고 싶읍니다. ㅠㅠ
       // fetch data가 배열로 들어와요
       // 로그인 기능 구현되면 수정 가능할 듯 싶습니다.

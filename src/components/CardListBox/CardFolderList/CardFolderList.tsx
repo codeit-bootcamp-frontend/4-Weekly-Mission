@@ -1,15 +1,18 @@
 import Folder from "./Folder/Folder";
 import styles from "./CardFolderList.module.scss";
+import { UserFolderProps } from "@/constants/index.types";
 
-interface FoldersProps {
-  folders: UserFolderProps;
+interface CardFolderListProps {
+  folders?: UserFolderProps[];
+  onClick: (folder: UserFolderProps) => void;
+  handleTotalBtnClick: () => void;
 }
 
 export default function CardFolderList({
   folders,
   onClick,
   handleTotalBtnClick,
-}: ) {
+}: CardFolderListProps) {
   return (
     <section className={styles.CardFolderList}>
       <button className={styles.totalBtn} onClick={() => handleTotalBtnClick()}>
