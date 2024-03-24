@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { FaSearch } from 'react-icons/fa';
-import { ImCross } from 'react-icons/im';
+import { IoIosCloseCircle } from 'react-icons/io';
 import { SearchBarProps } from './SearchBar.types';
 import styles from './SearchBar.module.scss';
 
@@ -8,6 +8,10 @@ const SearchBar = ({ links, onUpdateLinks }: SearchBarProps) => {
   const [keyword, setKeyword] = useState('');
   const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setKeyword(event.currentTarget.value);
+  };
+
+  const handleCloseIconClick = () => {
+    setKeyword('');
   };
 
   useEffect(() => {
@@ -33,7 +37,7 @@ const SearchBar = ({ links, onUpdateLinks }: SearchBarProps) => {
           onChange={handleInputChange}
           placeholder='링크를 검색해 보세요'
         />
-        {keyword && <ImCross />}
+        {keyword && <IoIosCloseCircle className={styles.closeIcon} onClick={handleCloseIconClick} />}
       </div>
       {keyword && (
         <p className={styles.resultText}>
