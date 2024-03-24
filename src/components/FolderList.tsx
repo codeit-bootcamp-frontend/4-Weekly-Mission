@@ -11,20 +11,25 @@ const FIRST_SELECTED_FOLDER = "전체";
 interface Data {
   url: string;
   id: number;
-  imageSource: string;
-  createdAt: string;
-  description: string;
+  imageSource?: string;
+  createdAt?: string;
+  description?: string;
+}
+
+interface SearchData extends Data {
+  title?: string;
 }
 
 interface Props {
-  linkData: Data[];
+  keyword: string;
+  linkData: SearchData[];
   folderNameList: string[];
   currentId: number;
   folderName: string;
   onClick: (id: number, name: string) => void;
 }
 
-function FolderList({ linkData, folderNameList, currentId, folderName, onClick }: Props) {
+function FolderList({ keyword, linkData, folderNameList, currentId, folderName, onClick }: Props) {
   const [isAddModalOpen, setIsAddModalOpen] = useState(false);
 
   const openAddModal = () => setIsAddModalOpen(true);
@@ -55,11 +60,9 @@ function FolderList({ linkData, folderNameList, currentId, folderName, onClick }
         {currentId === 0 ? null : <FolderMenu placeholder={folderName} />}
       </div>
     </div>
-    <LinkList linkData={linkData} />
+    <LinkList keyword={keyword} linkData={linkData} />
   </>
   );
 }
-
-//<LinkList linkData={linkData} id={currentId === 0 ? '': currentId} />
 
 export default FolderList;

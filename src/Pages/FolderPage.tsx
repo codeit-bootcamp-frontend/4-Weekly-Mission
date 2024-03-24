@@ -1,7 +1,7 @@
 import LinkAdd from "../components/LinkAdd";
 import SearchBar from "../components/SearchBar";
 import FolderList from "../components/FolderList";
-import { useEffect, useState } from "react";
+import { ChangeEvent, MouseEvent, useEffect, useState } from "react";
 import { getFolderLinksData, getFolderLists } from "../api/api";
 
 interface Data {
@@ -12,13 +12,32 @@ interface Data {
   description: string;
 }
 
+interface SearchData extends Data {
+  title: string;
+}
+
 const FIRST_SELECTED_FOLDER = "전체";
 
 function FolderPage() {
   const [folderListData, setFolderListData] = useState([]);
-  const [linkData, setLinkData] = useState<Data[]>([]);
+  const [linkData, setLinkData] = useState<SearchData[]>([]);
   const [currentId, setCurrentId] = useState(0);
   const [folderName, setFolderName] = useState(FIRST_SELECTED_FOLDER);
+  const [search, setSearch] = useState('');
+  const [searchWord, setSearchWord] = useState('');
+
+  const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
+    setSearch(e.target.value);
+  }
+
+  const handleCloseButtonClick = (e: MouseEvent<HTMLButtonElement>) => {
+    setSearch('');
+    setSearchWord('');
+  }
+
+  const handleSubmit = (searchQuery: string) => {
+    setSearchWord(searchQuery);
+  };
 
   //button의 id와 이름 가져오는 함수.
   const handleFolderButtonClick = (id: number, name: string) => {
@@ -68,8 +87,14 @@ function FolderPage() {
   return (
     <>
       <LinkAdd />
-      <SearchBar />
+      <SearchBar
+        inputValue={search}
+        searchWord={searchWord}
+        onChange={handleChange}
+        onClick={handleCloseButtonClick}
+        onSubmit={handleSubmit}/>
       <FolderList
+        keyword={searchWord}
         linkData={linkData}
         folderNameList={folderListData}
         currentId={currentId}
