@@ -12,6 +12,9 @@ export interface Folder {
   name: string;
   userId: number;
   favorite: boolean;
+  link: {
+    count: number;
+  }
 }
 
 export interface LinkAPI {
