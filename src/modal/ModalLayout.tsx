@@ -1,5 +1,5 @@
 import styles from "./ModalLayout.module.css";
-import close from "../images/Icon_close.svg";
+import {ReactComponent as CloseIcon} from '../images/Icon_close.svg';
 import { ReactNode } from "react";
 
 interface Props {
@@ -10,6 +10,9 @@ interface Props {
 }
 
 function ModalLayout({ title, isOpen, children, closeModal }: Props) {
+  const closeBtnBackground = 'var(--gray10)';
+  const closeBtnIcon = 'var(--gray60)';
+  
   return (
     <div
       className={styles.background}
@@ -18,7 +21,7 @@ function ModalLayout({ title, isOpen, children, closeModal }: Props) {
       <div className={styles.container}>
         <div className={styles.modalTitle}>{title}</div>
         <div className={styles.closeButton} onClick={closeModal}>
-          <img src={close} alt="Icon-close" />
+          <CloseIcon fill={closeBtnBackground} stroke={closeBtnIcon}/>
         </div>
         {children}
       </div>

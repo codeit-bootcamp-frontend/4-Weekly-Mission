@@ -1,6 +1,6 @@
 import { ChangeEvent, KeyboardEvent, MouseEvent } from 'react';
 import styles from '../css/SearchBar.module.css';
-import closeIcon from '../images/Icon_close.svg';
+import {ReactComponent as CloseIcon} from '../images/Icon_close.svg';
 import {ReactComponent as SearchIcon} from '../images/Icon_search.svg';
 
 interface Props {
@@ -13,6 +13,8 @@ interface Props {
 
 function SearchBar({ inputValue, searchWord, onChange, onClick, onSubmit }: Props) {
   const color = inputValue ? 'var(--primary)' : '#666666';
+  const closeBtnBackground = 'var(--gray20)';
+  const closeBtnIcon = 'var(--white)';
 
   const handleSubmit = (e: KeyboardEvent<HTMLFormElement>) => {
     if(e.key === 'Enter') {
@@ -25,7 +27,7 @@ function SearchBar({ inputValue, searchWord, onChange, onClick, onSubmit }: Prop
     <>
       <form className={styles.container} onKeyDown={handleSubmit}>
         <div className={styles.searchBar}>
-          <SearchIcon stroke={color}/>
+          <SearchIcon className={styles.searchIcon} stroke={color}/>
           <input
             type="text"
             name="search"
@@ -38,7 +40,7 @@ function SearchBar({ inputValue, searchWord, onChange, onClick, onSubmit }: Prop
               className={styles.closeBtn}
               onClick={onClick}
             >
-              <img src={closeIcon} alt='closeBtn'/>
+              <CloseIcon fill={closeBtnBackground} stroke={closeBtnIcon}/>
             </button>
             )
           }
@@ -47,7 +49,7 @@ function SearchBar({ inputValue, searchWord, onChange, onClick, onSubmit }: Prop
       <div className={styles.container}>
         {inputValue && searchWord &&
           <div className={styles.searchResult}>
-            <span className={styles.searchKeyword}>{inputValue}</span>로 검색한 결과입니다.
+            <span className={styles.searchKeyword}>{inputValue}</span> 로 검색한 결과입니다.
           </div>}
       </div>
     </>
