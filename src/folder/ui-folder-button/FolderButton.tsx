@@ -1,10 +1,11 @@
+import { MouseEvent } from "react";
 import styles from "./FolderButton.module.scss";
 import classNames from "classnames/bind";
 
 interface Props {
   text: string;
+  onClick: (e: MouseEvent) => void;
   isSelected: boolean;
-  onClick: any;
 }
 
 const cx = classNames.bind(styles);

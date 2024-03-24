@@ -1,6 +1,8 @@
 import { useState } from "react";
 import { useEffectOnce } from "./useEffectOnce";
 
+interface Props {}
+
 export const useAsync = (asyncFunction) => {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);

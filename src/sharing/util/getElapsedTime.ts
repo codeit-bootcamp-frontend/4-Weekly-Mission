@@ -1,9 +1,9 @@
 import { TIME_IN_MILLISECONDS } from "./constant";
 
-export const getElapsedTime = (createdAt) => {
-  const now = new Date();
-  const createdAtDate = new Date(createdAt);
-  const elapsedTime = now - createdAtDate;
+export const getElapsedTime = (createdAt: Date) => {
+  const now: Date = new Date();
+  const createdAtDate: Date = new Date(createdAt);
+  const elapsedTime: number = now.getDate() - createdAtDate.getDate();
   const { minute, hour, day, month, year } = TIME_IN_MILLISECONDS;
 
   if (year * 2 <= elapsedTime) {

@@ -1,21 +1,21 @@
-import { useGetFolders } from "folder/data-access-folder";
-import { AddLinkModal } from "link/ui-add-link-modal";
-import { EditableCard } from "link/ui-editable-card";
-import { NoLink } from "link/ui-no-link";
-import { useCallback, useRef, useState } from "react";
-import { CardList as UiCardList } from "link/ui-card-list";
-import { AlertModal } from "sharing/ui-alert-modal";
+import { useGetFolders } from "../../folder/data-access-folder";
+import { AddLinkModal } from "../../link/ui-add-link-modal";
+import { EditableCard } from "../../link/ui-editable-card";
+import { NoLink } from "../../link/ui-no-link";
+import { ChangeEvent, useCallback, useRef, useState } from "react";
+import { CardList as UiCardList } from "../../link/ui-card-list";
+import { AlertModal } from "../../sharing/ui-alert-modal";
 import { MODALS_ID } from "./constant";
 
 export const CardList = ({ links }) => {
   const { data: folders } = useGetFolders();
-  const cardListRef = useRef(null);
-  const [selectedFolderId, setSelectedFolderId] = useState(null);
+  const cardListRef = useRef<HTMLFormElement>(null);
+  const [, setSelectedFolderId] = useState(null);
   const [currentModal, setCurrentModal] = useState(null);
   const [selectedLinkUrl, setSelectedLinkUrl] = useState(null);
 
   const closeModal = () => setCurrentModal(null);
-  const handleKeyDown = (event) => {
+  const handleKeyDown = (event: ChangeEvent<HTMLInputElement>) => {
     if (event.key === "Escape") {
       closeModal(null);
     }
@@ -65,7 +65,7 @@ export const CardList = ({ links }) => {
         isOpen={currentModal === MODALS_ID.addToFolder}
         folders={folders}
         selectedLinkUrl={selectedLinkUrl}
-        selectedFolderId={selectedFolderId}
+        ={selectedFolderId}
         setSelectedFolderId={setSelectedFolderId}
         onAddClick={() => {}}
         onCloseClick={() => {

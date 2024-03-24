@@ -1,13 +1,25 @@
 import styles from "./AddLinkModal.module.scss";
 import classNames from "classnames/bind";
-import { FolderItem } from "folder/ui-folder-item";
-import { Modal } from "sharing/ui-modal";
-import { ModalContentBox } from "sharing/ui-modal-content-box";
-import { ModalContentButton } from "sharing/ui-modal-content-button";
-import { ModalContentDescription } from "sharing/ui-modal-content-description";
-import { ModalContentTitle } from "sharing/ui-modal-content-title";
+import { FolderItem } from "../../folder/ui-folder-item";
+import { Modal } from "../../sharing/ui-modal";
+import { ModalContentBox } from "../../sharing/ui-modal-content-box";
+import { ModalContentButton } from "../../sharing/ui-modal-content-button";
+import { ModalContentDescription } from "../../sharing/ui-modal-content-description";
+import { ModalContentTitle } from "../../sharing/ui-modal-content-title";
+import { ChangeEvent, MouseEvent } from "react";
 
 const cx = classNames.bind(styles);
+
+interface Props {
+  isOpen: boolean;
+  folders: string;
+  selectedLinkUrl: string;
+  selectedFolderId: number;
+  setSelectedFolderId: string;
+  onAddClick: (e: MouseEvent) => void;
+  onCloseClick: (e: MouseEvent) => void;
+  onKeyDown: (e: ChangeEvent) => void;
+}
 
 export const AddLinkModal = ({
   isOpen,
@@ -18,7 +30,7 @@ export const AddLinkModal = ({
   onAddClick,
   onCloseClick,
   onKeyDown,
-}) => {
+}: Props) => {
   return (
     <Modal isOpen={isOpen} onBackdropClick={onCloseClick} onKeyDown={onKeyDown}>
       <ModalContentBox
@@ -41,7 +53,9 @@ export const AddLinkModal = ({
                 />
               ))}
             </div>
-            <ModalContentButton onClick={onAddClick}>추가하기</ModalContentButton>
+            <ModalContentButton onClick={onAddClick}>
+              추가하기
+            </ModalContentButton>
           </div>
         }
         onCloseClick={onCloseClick}

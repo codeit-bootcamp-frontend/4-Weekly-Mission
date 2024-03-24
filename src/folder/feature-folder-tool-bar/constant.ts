@@ -5,7 +5,13 @@ export const MODALS_ID = {
   delete: "delete",
 };
 
-export const BUTTONS = [
+interface Props {
+  iconSource: string;
+  text: string;
+  modalId: string;
+}
+
+export const BUTTONS: Props[] = [
   {
     iconSource: "images/share.svg",
     text: "공유",
@@ -23,7 +29,7 @@ export const BUTTONS = [
   },
 ];
 
-export const ALL_LINKS_TEXT = "전체";
+export const ALL_LINKS_TEXT: string = "전체";
 
 export const KAKAO_SHARE_DATA = {
   title: "Linkbrary",

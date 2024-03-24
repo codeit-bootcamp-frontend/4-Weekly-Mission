@@ -1,12 +1,29 @@
 import styles from "./EditableCard.module.scss";
 import classNames from "classnames/bind";
-import { useCallback, useRef, useState } from "react";
-import { Card } from "sharing/ui-card";
-import { CardContent } from "sharing/ui-card-content";
-import { CardImage } from "sharing/ui-card-image";
-import { Popover } from "sharing/ui-popover";
+import {
+  InputHTMLAttributes,
+  MouseEvent,
+  useCallback,
+  useRef,
+  useState,
+} from "react";
+import { Card } from "../../sharing/ui-card";
+import { CardContent } from "../../sharing/ui-card-content";
+import { CardImage } from "../../sharing/ui-card-image";
+import { Popover } from "../../sharing/ui-popover";
 
 const cx = classNames.bind(styles);
+
+interface Props extends InputHTMLAttributes<HTMLInputElement> {
+  url: string;
+  imageSource: string;
+  elapsedTime: number;
+  description: string;
+  createdAt: Date;
+  popoverPosition: string;
+  onDeleteClick: (e: MouseEvent) => void;
+  onAddToFolderClick: (e: MouseEvent) => void;
+}
 
 export const EditableCard = ({
   url,
@@ -18,25 +35,25 @@ export const EditableCard = ({
   popoverPosition,
   onDeleteClick,
   onAddToFolderClick,
-}) => {
+}: Props) => {
   const [isHovered, setIsHovered] = useState(false);
   const [isPopoverOpen, setIsPopoverOpen] = useState(false);
-  const kebabButtonRef = useRef(null);
+  const kebabButtonRef = useRef<HTMLButtonElement>(null);
   const handleMouseOver = () => setIsHovered(true);
   const handleMouseLeave = () => setIsHovered(false);
-  const handleKebabClick = (event) => {
+  const handleKebabClick = (event: MouseEvent) => {
     event.preventDefault();
     setIsPopoverOpen(true);
   };
   const handleBackgroundClick = useCallback(() => {
     setIsPopoverOpen(false);
   }, []);
-  const handleDeleteClick = (event) => {
+  const handleDeleteClick = (event: MouseEvent) => {
     event.preventDefault();
     onDeleteClick();
     setIsPopoverOpen(false);
   };
-  const handleAddToFolderClick = (event) => {
+  const handleAddToFolderClick = (event: MouseEvent) => {
     event.preventDefault();
     onAddToFolderClick();
     setIsPopoverOpen(false);
@@ -52,10 +69,17 @@ export const EditableCard = ({
           createdAt={createdAt}
           isHovered={isHovered}
         />
-        <button className={cx("star")} onClick={(event) => event.preventDefault()}>
+        <button
+          className={cx("star")}
+          onClick={(event) => event.preventDefault()}
+        >
           <img src="images/star.svg" alt="즐겨찾기를 나타내는 별" />
         </button>
-        <button ref={kebabButtonRef} className={cx("kebab")} onClick={handleKebabClick}>
+        <button
+          ref={kebabButtonRef}
+          className={cx("kebab")}
+          onClick={handleKebabClick}
+        >
           <img src="images/kebab.svg" alt="더보기를 나타내는 점 3개" />
         </button>
         <Popover

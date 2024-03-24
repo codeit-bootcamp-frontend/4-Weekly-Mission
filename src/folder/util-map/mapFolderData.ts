@@ -1,6 +1,12 @@
-import { mapLinksData } from "link/util-map";
+import { mapLinksData } from "../../link/util-map";
 
-export const mapFolderData = (folder) => {
+interface Props {
+  name: any;
+  owner: string;
+  links: string;
+}
+
+export const mapFolderData = (folder: Props) => {
   if (!folder) return [];
 
   const { name, owner, links } = folder;

@@ -1,28 +1,43 @@
 import styles from "./FolderToolBar.module.scss";
 import classNames from "classnames/bind";
-import { AddFolderButton } from "folder/ui-add-folder-button";
-import { FolderButton } from "folder/ui-folder-button";
-import { IconAndTextButton } from "sharing/ui-icon-and-text-button";
-import { ALL_LINKS_TEXT, BUTTONS, KAKAO_SHARE_DATA, MODALS_ID } from "./constant";
-import { ALL_LINKS_ID } from "link/data-access-link/constant";
-import { useState } from "react";
-import { ShareModal } from "folder/ui-share-modal";
-import { InputModal } from "sharing/ui-input-modal";
-import { AlertModal } from "sharing/ui-alert-modal";
-import { copyToClipboard } from "sharing/util/copyToClipboard";
-import { useKakaoSdk } from "sharing/util/useKakaoSdk";
+import { AddFolderButton } from "../ui-add-folder-button";
+import { FolderButton } from "../ui-folder-button";
+import { IconAndTextButton } from "../../sharing/ui-icon-and-text-button";
+import {
+  ALL_LINKS_TEXT,
+  BUTTONS,
+  KAKAO_SHARE_DATA,
+  MODALS_ID,
+} from "./constant";
+import { ALL_LINKS_ID } from "../../link/data-access-link/constant";
+import { ChangeEvent, useState } from "react";
+import { ShareModal } from "../ui-share-modal";
+import { InputModal } from "../../sharing/ui-input-modal";
+import { AlertModal } from "../../sharing/ui-alert-modal";
+import { copyToClipboard } from "../../sharing/util/copyToClipboard";
+import { useKakaoSdk } from "../../sharing/util/useKakaoSdk";
 
 const cx = classNames.bind(styles);
 
-export const FolderToolBar = ({ folders, selectedFolderId, onFolderClick }) => {
+interface Props {
+  folders: string;
+  selectedFolderId: string;
+  onFolderClick: any;
+}
+
+export const FolderToolBar = ({
+  folders,
+  selectedFolderId,
+  onFolderClick,
+}: Props) => {
   const { shareKakao } = useKakaoSdk();
   const [currentModal, setCurrentModal] = useState(null);
 
   const folderName =
     ALL_LINKS_ID === selectedFolderId
       ? ALL_LINKS_TEXT
-      : folders?.find(({ id }) => id === selectedFolderId)?.name;
-  const shareLink = `${window.location.origin}/shared?user=1&folder=${selectedFolderId}`;
+      : folders?.find(({ id }: any) => id === selectedFolderId)?.name;
+  const shareLink: string = `${window.location.origin}/shared?user=1&folder=${selectedFolderId}`;
 
   const closeModal = () => setCurrentModal(null);
   const handleKeyDown = (event) => {
@@ -33,9 +48,9 @@ export const FolderToolBar = ({ folders, selectedFolderId, onFolderClick }) => {
   const handleKakaoClick = () => {
     shareKakao({ url: shareLink, ...KAKAO_SHARE_DATA });
   };
-  const handleFacebookClick = () =>
+  const handleFacebookClick = (e: MouseEvent) =>
     window.open(`http://www.facebook.com/sharer.php?u=${shareLink}`);
-  const handleLinkCopyClick = () => copyToClipboard(shareLink);
+  const handleLinkCopyClick = (e: MouseEvent) => copyToClipboard(shareLink);
 
   return (
     <div className={cx("container")}>
