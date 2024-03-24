@@ -3,18 +3,24 @@ import cardImg from '../../assets/card_default.png';
 import { formatDate, formatRelativeDate } from '../../utils/date';
 import { Link } from 'react-router-dom';
 import { IconKebabMenu, IconStar } from '../Icon';
+import { MouseEvent, SyntheticEvent } from 'react';
 
-function Card({
-  item = {
-    title: '',
-    description: '',
-    url: '',
-    createdAt: '',
-    created_at: '',
-    imageSource: '',
-    image_source: '',
-  },
-}) {
+export interface CardItem {
+  id: string;
+  title: string;
+  description: string;
+  url: string;
+  createdAt: string;
+  created_at: string;
+  imageSource: string;
+  image_source: string;
+}
+
+interface CardProps {
+  item: CardItem;
+}
+
+function Card({ item }: CardProps) {
   const {
     title,
     description,
@@ -25,20 +31,26 @@ function Card({
     imageSource = image_source,
   } = item;
 
-  const handleImgError = (e) => {
-    e.target.src = cardImg;
+  const handleImgError = (e: SyntheticEvent<HTMLImageElement>) => {
+    e.currentTarget.src = cardImg;
   };
 
-  const handleBookmarkClick = (e) => {
+  /**
+   *
+   * @todo 북마크 눌렀을 때 동작 추가
+   */
+  const handleBookmarkClick = (e: MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
     e.stopPropagation();
-    console.log('TODO: handleBookmarkClick');
   };
 
-  const handleMenuClick = (e) => {
+  /**
+   *
+   * @todo 메뉴 눌렀을 때 동작 추가
+   */
+  const handleMenuClick = (e: MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
     e.stopPropagation();
-    console.log('TODO: handleMenuClick');
   };
 
   return (
@@ -62,7 +74,9 @@ function Card({
         <div className="card__info">
           <div className="info">
             <header className="info__header">
-              <div className="info__time">{formatRelativeDate(createdAt)}</div>
+              <div className="info__time">
+                {formatRelativeDate(new Date(createdAt))}
+              </div>
               <button
                 type="button"
                 className="info__menu"
@@ -74,7 +88,9 @@ function Card({
             <div className="info__content">
               <div className="info__description">{description}</div>
             </div>
-            <footer className="info__footer">{formatDate(createdAt)}</footer>
+            <footer className="info__footer">
+              {formatDate(new Date(createdAt))}
+            </footer>
           </div>
         </div>
       </div>
