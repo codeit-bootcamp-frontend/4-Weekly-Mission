@@ -2,15 +2,8 @@ import { getData } from "../api/api";
 import { useEffect, useState } from "react";
 import CardBox from "../components/CardBox";
 import SearchBar from "../components/SearchBar";
-
-export interface Link {
-  createdAt: string;
-  description: string;
-  id: number;
-  imageSource: string;
-  title: string;
-  url: string;
-}
+//types
+import { Link } from "../types/commonTypes";
 
 function Shared() {
   const [linksData, setLinksData] = useState<Link[]>([]);

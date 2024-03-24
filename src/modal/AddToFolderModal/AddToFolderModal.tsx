@@ -6,7 +6,7 @@ import { getFolderListData } from "../../api/api";
 import FolderInModal from "./FolderInModal";
 
 //types
-import { FolderList } from "../../pages/Folder";
+import { FolderList } from "../../types/commonTypes";
 
 interface Props {
   url: string;

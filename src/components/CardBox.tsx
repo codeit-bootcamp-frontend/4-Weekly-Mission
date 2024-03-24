@@ -1,8 +1,7 @@
 import styles from "./CardBox.module.css";
 import Card from "./Card";
 //type
-import { LinksData } from "../pages/Folder";
-import { Link } from "../pages/Shared";
+import { LinksData, Link } from "../types/commonTypes";
 
 function CardBox({ linksData }: { linksData: LinksData[] | Link[] }) {
   return (

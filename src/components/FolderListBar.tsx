@@ -10,7 +10,7 @@ import DeleteFolderModal from "../modal/DeleteFolderModal/DeleteFolderModal";
 import ShareModal from "../modal/ShareModal/ShareModal";
 import { copyClipBoard } from "../util/copyClipBoard";
 //type
-import { FolderList } from "../pages/Folder";
+import { FolderList } from "../types/commonTypes";
 
 const WHOLE_BUTTON = {
   id: 1,

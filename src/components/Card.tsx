@@ -9,8 +9,7 @@ import SelectMenu from "./SelectMenu";
 import DeleteLinkModal from "../modal/DeleteLinkModal/DeleteLinkModal";
 import AddToFolderModal from "../modal/AddToFolderModal/AddToFolderModal";
 //type
-import { Link } from "../pages/Shared";
-import { LinksData } from "../pages/Folder";
+import { Link, LinksData } from "../types/commonTypes";
 
 function Card({ link }: { link: Link | LinksData }) {
   const [isKebabClicked, setIsKebabClicked] = useState<boolean>(false);

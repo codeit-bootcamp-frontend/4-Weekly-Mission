@@ -4,28 +4,8 @@ import CardBox from "../components/CardBox";
 import SearchBar from "../components/SearchBar";
 import FolderListBar from "../components/FolderListBar";
 import EmptyFolder from "../components/EmptyFolder";
-
-export interface FolderList {
-  created_at: string;
-  favorite: boolean;
-  id: number;
-  link: {
-    count: number;
-  };
-  name: string;
-  user_id: number;
-}
-
-export interface LinksData {
-  created_at: string;
-  description: string | null;
-  folder_id: number | null;
-  id: number;
-  image_source: string | undefined;
-  title: string | null;
-  updated_at: string | null;
-  url: string;
-}
+//types
+import { FolderList, LinksData } from "../types/commonTypes";
 
 function Folder() {
   const [folderList, setFolderList] = useState<FolderList[]>([]);
