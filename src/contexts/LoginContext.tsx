@@ -1,6 +1,18 @@
-import { createContext, useContext, useEffect, useState } from 'react';
+import { User } from '@src/types/common';
+import {
+  ReactNode,
+  createContext,
+  useContext,
+  useEffect,
+  useState,
+} from 'react';
 
-const LoginContext = createContext();
+interface LoginContextValue {
+  loginUser: User | null;
+  setLoginUser: (user: User) => void;
+}
+
+const LoginContext = createContext<LoginContextValue | null>(null);
 
 // 아직 Provider의 역할을 하지 못한다.
 // 해당 Context를 통해 하고 싶은 행위는 이렇다.
@@ -8,9 +20,9 @@ const LoginContext = createContext();
 // user 검증이 됐다면 자동 로그인과 로그인 상태 유지하기.
 
 // 모든 컴포넌트에서 로그인 상태를 유지하고 싶은 목적으로 생성.
-export function LoginProvider({ children }) {
+export function LoginProvider({ children }: { children: ReactNode }) {
   const [isLogin, setIsLogin] = useState(false);
-  const [loginUser, setLoginUser] = useState(null);
+  const [loginUser, setLoginUser] = useState<User | null>(null);
   const [time, setTime] = useState(3600);
 
   const handleAutoLogin = async () => {
@@ -37,7 +49,7 @@ export function LoginProvider({ children }) {
     */
   };
 
-  const handleLogin = (user) => {
+  const handleLogin = (user: User) => {
     setLoginUser(user);
     setIsLogin(true);
     // netlify 배포용...
