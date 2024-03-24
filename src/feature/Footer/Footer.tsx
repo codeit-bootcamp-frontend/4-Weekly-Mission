@@ -1,10 +1,11 @@
 import { ROUTE } from "util/constant";
 import "./Footer.css";
 import TEXT from "./constant";
+import { RefObject } from "react";
 
-const Footer = () => {
+const Footer = ({ footerRef }: { footerRef: RefObject<HTMLDivElement> }) => {
   return (
-    <footer className="Footer">
+    <footer className="Footer" ref={footerRef}>
       <div className="Footer-items">
         <span className="Footer-copyright">{TEXT.codeit}</span>
         <div className="Footer-links">

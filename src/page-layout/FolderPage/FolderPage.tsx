@@ -10,15 +10,19 @@ import { EditLink } from "ui/EditLink/EditLink";
 import Modal from "ui/Modal/Modal";
 
 import "./FolderPage.css";
-import { MouseEvent, useState } from "react";
+import { MouseEvent, useState, useRef, useEffect } from "react";
 
 export const FolderPage: React.FC = () => {
   const [currentCategory, setCurrentCategory] = useState("전체");
   const [folderId, setFolderId] = useState("0");
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const [modal, setModal] = useState<string | null>(null);
+  const [modal, setModal] = useState("");
   const [currentUrl, setCurrentUrl] = useState("");
   const [searchTerm, setSearchTerm] = useState("");
+  const [isAddLinkFixed, setIsAddLinkFixed] = useState(true);
+  const addLinkRef = useRef(null);
+  const footerRef = useRef(null);
+  console.log(isAddLinkFixed);
 
   const { data: linkData } = useGetLink();
   const { folderData } = useGetFolderByLink(folderId);
@@ -36,12 +40,11 @@ export const FolderPage: React.FC = () => {
     setCurrentCategory(category);
     setFolderId(Id);
   };
-  const handleModalClick = (e: MouseEvent, url?: string) => {
+  const handleModalClick = (e: MouseEvent) => {
     const eventTarget = e.target as HTMLElement;
     e.preventDefault();
     setIsModalOpen(true);
     setModal(e.currentTarget.id);
-    setCurrentUrl(url);
     setCurrentUrl(eventTarget.getAttribute("data-url"));
   };
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -50,6 +53,36 @@ export const FolderPage: React.FC = () => {
   const handleInputClear = () => {
     setSearchTerm("");
   };
+
+  useEffect(() => {
+    const addLinkObserver = new IntersectionObserver(
+      ([entry]) => {
+        setIsAddLinkFixed(entry.isIntersecting);
+      },
+      { threshold: 0 },
+    );
+    const footerObserver = new IntersectionObserver(
+      ([entry]) => {
+        setIsAddLinkFixed(entry.isIntersecting);
+      },
+      { threshold: 0 },
+    );
+    if (addLinkRef.current) {
+      addLinkObserver.observe(addLinkRef.current);
+    }
+    if (footerRef.current) {
+      footerObserver.observe(footerRef.current);
+    }
+
+    return () => {
+      if (addLinkRef.current) {
+        addLinkObserver.unobserve(addLinkRef.current);
+      }
+      if (footerRef.current) {
+        footerObserver.unobserve(footerRef.current);
+      }
+    };
+  }, []);
 
   const filteredLinks = links?.filter(
     (link) =>
@@ -70,9 +103,9 @@ export const FolderPage: React.FC = () => {
           selectedId={+folderId}
         />
       )}
-      <Layout isNavFixed={navFixed}>
+      <Layout isNavFixed={navFixed} footerRef={footerRef}>
         <div className="FolderPage">
-          <AddLink />
+          <AddLink addLinkRef={addLinkRef} isAddLinkFixed={isAddLinkFixed} />
           <div className="FolderPage-items">
             <SearchBar
               handleInputChange={handleInputChange}

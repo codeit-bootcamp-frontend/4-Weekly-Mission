@@ -1,14 +1,15 @@
 import { useGetUser } from "hooks/useGetUser";
 import Footer from "../Footer/Footer";
 import NavigationBar from "../NavigationBar/NavigationBar";
-import { ReactNode } from "react";
+import { ReactNode, RefObject } from "react";
 
 interface layoutProps {
   children: ReactNode;
+  footerRef?: RefObject<HTMLDivElement>;
   isNavFixed?: boolean;
 }
 
-const Layout = ({ children, isNavFixed }: layoutProps) => {
+const Layout = ({ children, isNavFixed, footerRef }: layoutProps) => {
   const { data } = useGetUser();
   const { email, profileImageSource } = data || {};
   const profile = data ? { email, profileImageSource } : null;
@@ -17,7 +18,7 @@ const Layout = ({ children, isNavFixed }: layoutProps) => {
     <div>
       <NavigationBar profile={profile} isNavFixed={isNavFixed} />
       <main>{children}</main>
-      <Footer />
+      <Footer footerRef={footerRef} />
     </div>
   );
 };
