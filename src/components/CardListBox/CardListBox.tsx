@@ -22,6 +22,7 @@ export default function CardListBox() {
   // 작업중 =====
   const [searchLinks, setSearchLinks] = useState<LinkProps[]>([]);
   const [searchValue, setSearchValue] = useState("");
+  const [value, setValue] = useState("");
 
   const { data: foldersData, isLoading: isFoldersLoading } = useGet<
     UserFolderProps[]
@@ -50,9 +51,17 @@ export default function CardListBox() {
     setLinksTitle(`전체`);
   };
 
+  const handleSearchInputCancel = () => {
+    setSearchValue("");
+    setLinks(searchLinks);
+    setValue("");
+  };
+
+  // 제대로 동작하지 않는것 같습니다
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const inputValue = e.target.value;
     setSearchValue(inputValue);
+    setValue(inputValue);
   };
 
   useEffect(() => {
@@ -68,7 +77,11 @@ export default function CardListBox() {
 
   return (
     <main className={styles.CardListBox}>
-      <CardSearchInput handleInputChange={handleInputChange} />
+      <CardSearchInput
+        value={value}
+        handleInputChange={handleInputChange}
+        handleSearchInputCancel={handleSearchInputCancel}
+      />
       <section className={styles.cardList}>
         <CardFolderList
           folders={folders}

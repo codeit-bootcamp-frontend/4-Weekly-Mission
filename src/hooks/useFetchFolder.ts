@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 
 export default function useFetchFolder<T>(url: string) {
-  const [data, setData] = useState<T | undefined>();
+  const [data, setData] = useState<T>();
   const [isLoading, setIsLoading] = useState(true);
 
   const fetchData = async (url: string) => {
