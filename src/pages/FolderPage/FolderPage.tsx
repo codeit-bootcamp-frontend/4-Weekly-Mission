@@ -120,11 +120,11 @@ function FolderPage() {
                   <span>폴더 추가</span>
                   <AddIcon className={styles.addIcon} />
                 </button>
-
-                {modals[ADD_FOLDER] && (
-                  <FolderModal variant={ADD_FOLDER} closeModal={closeModal} />
-                )}
               </div>
+
+              {modals[ADD_FOLDER] && (
+                <FolderModal variant={ADD_FOLDER} closeModal={closeModal} />
+              )}
 
               <div className={styles.bar}>
                 <div className={styles.categoryName}>
@@ -137,29 +137,33 @@ function FolderPage() {
                   }`}
                 >
                   <ActionButton openModal={openModal} variant={SHARED} />
-                  {modals[SHARED] && (
-                    <SharedModal
-                      variant={SHARED}
-                      closeModal={closeModal}
-                      folder={selectedCategory.name}
-                    />
-                  )}
 
                   <ActionButton openModal={openModal} variant={EDIT} />
-                  {modals[EDIT] && (
-                    <FolderModal variant={EDIT} closeModal={closeModal} />
-                  )}
 
                   <ActionButton openModal={openModal} variant={DELETE_FOLDER} />
-                  {modals[DELETE_FOLDER] && (
-                    <DeleteModal
-                      variant={DELETE_FOLDER}
-                      closeModal={closeModal}
-                      deleted={selectedCategory.name}
-                    />
-                  )}
                 </div>
               </div>
+
+              {modals[SHARED] && (
+                <SharedModal
+                  variant={SHARED}
+                  closeModal={closeModal}
+                  folder={selectedCategory.name}
+                />
+              )}
+
+              {modals[EDIT] && (
+                <FolderModal variant={EDIT} closeModal={closeModal} />
+              )}
+              
+              {modals[DELETE_FOLDER] && (
+                <DeleteModal
+                  variant={DELETE_FOLDER}
+                  closeModal={closeModal}
+                  deleted={selectedCategory.name}
+                />
+              )}
+
               {folderLinks && (
                 <CardList
                   items={filterSearchText(folderLinks)}

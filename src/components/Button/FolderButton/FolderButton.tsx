@@ -13,7 +13,7 @@ function FolderButton({ children, onClick, ischecked }: Props) {
       className={`${styles.btn} ${ischecked ? styles.checked : ""}`}
       onClick={onClick}
     >
-      {children}
+      <p className={styles.text}>{children}</p>
     </button>
   );
 }

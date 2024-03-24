@@ -5,6 +5,10 @@
   border: 0.1rem solid var(--primary-color);
 }
 
+.text{
+  line-height: 1.6rem;
+}
+
 .checked {
   color: #fff;
   background: var(--primary-color);
@@ -13,5 +17,8 @@
 @media screen and (max-width: 767px) {
   .btn {
     padding: 0.6rem 1rem;
+  }
+  .text{
+    line-height: 1.4rem;
   }
 }
