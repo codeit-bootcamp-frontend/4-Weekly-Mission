@@ -1,11 +1,19 @@
+import { MouseEventHandler } from "react";
 import "./Category.css";
+
+interface Prop {
+  buttonClicked: MouseEventHandler<HTMLButtonElement>;
+  linkData: any;
+  currentCategory: string;
+  handleModalClick: MouseEventHandler<HTMLButtonElement>;
+}
 
 const Category = ({
   buttonClicked,
   linkData,
   currentCategory,
   handleModalClick,
-}: any) => {
+}: Prop) => {
   return (
     <div className="Category-wrapper">
       <div className="Categories">

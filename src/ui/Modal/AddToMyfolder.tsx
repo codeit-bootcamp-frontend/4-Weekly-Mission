@@ -31,14 +31,14 @@ function AddToMyFolder({
       <div className={styles.ModalTitle}>폴더에 추가</div>
       <div className={styles.ModalSubtitle}>{currentUrl}</div>
       <div className={styles.folderWrapper}>
-        {categoryData?.map((link: any) => (
+        {categoryData?.map((link) => (
           <div
             key={link.name}
             className={`${styles.folderButton} ${
               selectedFolder === link.id ? styles.selectedFolder : ""
             }`}
             onClick={handleFolderClick}
-            id={link.id}
+            id={`${link.id}`}
           >
             <span className={styles.folderButtonName}>{link.name}</span>
             <span

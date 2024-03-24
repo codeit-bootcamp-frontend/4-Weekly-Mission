@@ -10,7 +10,13 @@ import { EditLink } from "ui/EditLink/EditLink";
 import Modal from "ui/Modal/Modal";
 
 import "./FolderPage.css";
-import { MouseEvent, useState, useRef, useEffect } from "react";
+import {
+  useState,
+  useRef,
+  useEffect,
+  ChangeEventHandler,
+  MouseEventHandler,
+} from "react";
 
 export const FolderPage: React.FC = () => {
   const [currentCategory, setCurrentCategory] = useState("전체");
@@ -36,21 +42,21 @@ export const FolderPage: React.FC = () => {
     : [];
   const navFixed = true;
 
-  const handleCategoryClick = (e: MouseEvent) => {
+  const handleCategoryClick: MouseEventHandler<HTMLButtonElement> = (e) => {
     const eventTarget = e.target as HTMLElement;
     const category = eventTarget.innerText;
     const Id = eventTarget.getAttribute("data-id");
     setCurrentCategory(category);
     setFolderId(Id);
   };
-  const handleModalClick = (e: MouseEvent) => {
+  const handleModalClick: MouseEventHandler<HTMLButtonElement> = (e) => {
     const eventTarget = e.target as HTMLElement;
     e.preventDefault();
     setIsModalOpen(true);
     setModal(e.currentTarget.id);
     setCurrentUrl(eventTarget.getAttribute("data-url"));
   };
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handleInputChange: ChangeEventHandler<HTMLInputElement> = (e) => {
     setSearchTerm(e.target.value);
   };
   const handleInputClear = () => {
@@ -120,7 +126,6 @@ export const FolderPage: React.FC = () => {
               linkData={linkDataWithAll}
               currentCategory={currentCategory}
               handleModalClick={handleModalClick}
-              handleEditClick={handleModalClick}
             />
             <EditLink
               currentCategory={currentCategory}
@@ -128,7 +133,7 @@ export const FolderPage: React.FC = () => {
             />
             {filteredLinks && filteredLinks.length > 0 ? (
               <CardList>
-                {filteredLinks?.map((link: any) => (
+                {filteredLinks?.map((link) => (
                   <Card
                     key={link?.id}
                     {...link}

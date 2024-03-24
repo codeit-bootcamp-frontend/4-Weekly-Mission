@@ -5,7 +5,10 @@ import "./NavigationBar.css";
 
 interface Props {
   isNavFixed: boolean;
-  profile: any;
+  profile: {
+    profileImageSource: string;
+    email: string;
+  };
 }
 
 const NavigationBar = ({ profile, isNavFixed }: Props) => {

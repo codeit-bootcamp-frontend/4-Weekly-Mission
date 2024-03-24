@@ -6,7 +6,7 @@ interface Prop {
   imageSource: string;
   alt: string;
   elapsedTime: string;
-  description: string;
+  description?: string;
   createdAt: string;
   favorite?: boolean;
   handleModalClick?: MouseEventHandler<HTMLElement>;
