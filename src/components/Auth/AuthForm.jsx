@@ -8,6 +8,12 @@ import FETCH_API from '../../services/fetch-data';
 
 const ACCESSTOKEN = 'accessToken';
 
+const INITIAL_ERROR_MESSAGE = {
+  email: '',
+  password: '',
+  passwordConfirm: ''
+};
+
 function AuthForm({ option }) {
   const navigate = useNavigate();
   // 패스워드 인풋 타입 변경
@@ -17,11 +23,7 @@ function AuthForm({ option }) {
   });
 
   // 에러 메세지
-  const [errorMsg, setErrorMsg] = useState({
-    email: '',
-    password: '',
-    passwordConfirm: ''
-  });
+  const [errorMsg, setErrorMsg] = useState(INITIAL_ERROR_MESSAGE);
 
   // 인풋 값 처리
   const [userInput, setUserInput] = useState({
@@ -57,18 +59,15 @@ function AuthForm({ option }) {
       };
       const response = await FETCH_API.post(API_PATH.SIGNIN, userInfo);
       if (!response.ok) {
-        setErrorMsg({
-          ...errorMsg,
+        setErrorMsg((prevErrorMsg) => ({
+          ...prevErrorMsg,
           email: '이메일을 확인해 주세요!',
           password: '비밀번호를 확인해 주세요!'
-        });
+        }));
         throw new Error('로그인 에러 발생');
       }
       const result = await response.json();
-      setErrorMsg({
-        email: '',
-        password: ''
-      });
+      setErrorMsg(INITIAL_ERROR_MESSAGE);
       localStorage.setItem(ACCESSTOKEN, result.data.accessToken);
       navigate('/share');
     } catch (error) {
@@ -124,20 +123,16 @@ function AuthForm({ option }) {
       };
       const registerResponse = await FETCH_API.post(API_PATH.SIGNUP, userInfo);
       if (!registerResponse.ok) {
-        setErrorMsg({
-          ...errorMsg,
+        setErrorMsg((prevErrorMsg) => ({
+          ...prevErrorMsg,
           email: '이메일을 확인해 주세요!',
           password: '비밀번호를 확인해 주세요!'
-        });
+        }));
         throw new Error('회원가입 실패');
       }
       const result = await registerResponse.json();
       localStorage.setItem(ACCESSTOKEN, result.data.accessToken);
-      setErrorMsg({
-        email: '',
-        password: '',
-        passwordConfirm: ''
-      });
+      setErrorMsg(INITIAL_ERROR_MESSAGE);
       navigate('/share');
     } catch (err) {
       console.error(err);
