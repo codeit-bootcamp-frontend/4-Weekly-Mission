@@ -20,3 +20,16 @@ export interface ModalProps {
   setButtonName: React.Dispatch<React.SetStateAction<string>>;
   modalName: ModalNames;
 }
+
+export interface Props {
+  id: number | string;
+  title?: string;
+  image_source?: string;
+  created_at: string;
+  url: string;
+  updated_at?: string;
+  description?: string;
+}
+export interface Contents {
+  data: Props[];
+}

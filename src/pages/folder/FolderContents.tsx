@@ -5,19 +5,7 @@ import { folderLinkContents, searchContents } from "../../store/store";
 import { timeChange, dateChange } from "../../dateFunction";
 import styled from "styled-components";
 import KebabModal from "./kebabModal";
-import { ModalProps } from "./type";
-
-interface Props {
-  id: number | string;
-  title: string;
-  image_source?: string;
-  created_at: string;
-  url: string;
-  description: string;
-}
-interface Contents {
-  data: Props[];
-}
+import { Contents, ModalProps, Props } from "./type";
 
 const FolderNoData = styled.div`
   display: flex;
@@ -42,6 +30,7 @@ function FolderContents({
 }: ModalProps) {
   const setBasicData = useSetRecoilState<Contents>(folderLinkContents);
   const [contents, setContents]: any = useRecoilState(searchContents);
+  console.log(contents);
   useEffect(() => {
     folderLinksData("all")
       .then((data) => {

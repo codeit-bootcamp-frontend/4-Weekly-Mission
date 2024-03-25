@@ -37,6 +37,7 @@ const Search = styled.input`
 `;
 
 function SearchInput({ contents }: any) {
+  console.log(contents);
   const inputRef = useRef<HTMLInputElement>();
   const setSearchCon: any = useSetRecoilState(searchContents);
   const [searchValues, setSearchValues] = useRecoilState<string>(searchData);
