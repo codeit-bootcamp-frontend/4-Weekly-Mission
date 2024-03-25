@@ -1,19 +1,25 @@
 {
-  "name": "weekly-mission-react",
+  "name": "min3eo-weekly",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
     "@testing-library/jest-dom": "^5.17.0",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
-    "axios": "^1.5.1",
-    "classnames": "^2.3.2",
+    "@types/jest": "^27.5.2",
+    "@types/node": "^16.18.91",
+    "@types/react": "^18.2.67",
+    "@types/react-dom": "^18.2.22",
+    "axios": "^1.6.8",
+    "classnames": "^2.5.1",
     "date-fns": "^2.30.0",
+    "date-fns-tz": "^2.0.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "react-router-dom": "^6.17.0",
-    "react-scripts": "5.0.1",
-    "sass": "^1.69.4",
+    "react-router": "^6.22.3",
+    "react-router-dom": "^6.22.3",
+    "react-scripts": "^5.0.1",
+    "typescript": "^4.9.5",
     "web-vitals": "^2.1.4"
   },
   "scripts": {
@@ -41,6 +47,6 @@
     ]
   },
   "devDependencies": {
-    "@babel/plugin-proposal-private-property-in-object": "^7.21.11"
+    "@types/react-router-dom": "^5.3.3"
   }
 }
