@@ -1,20 +1,20 @@
-import styles from '../styles/FolderList.module.css';
+import styles from './FolderList.module.css';
 import classNames from 'classnames/bind';
 const cn = classNames.bind(styles);
 
 import { useState, useEffect } from 'react';
-import { getFolderLink } from '../api';
+import { getFolderLink } from '../../apis/api';
 
-import Folder from '../components/Folder';
-import CardList from './CardList';
+import Folder from '../common/Folder';
+import CardList from '../common/CardList';
 
-import iconShare from '../assets/icons/share.svg';
-import iconPen from '../assets/icons/pen.svg';
-import iconDelete from '../assets/icons/delete.svg';
-import iconPlus from '../assets/icons/plus.svg';
+import iconShare from '../../assets/icons/share.svg';
+import iconPen from '../../assets/icons/pen.svg';
+import iconDelete from '../../assets/icons/delete.svg';
+import iconPlus from '../../assets/icons/plus.svg';
 
-import Modal from './Modal';
-import ModalPortal from './Portal';
+import Modal from '../common/modal/Modal';
+import ModalPortal from '../Portal';
 
 const FolderList = ({ folderList }) => {
   const [selected, setSelected] = useState({ id: '', name: '전체' });

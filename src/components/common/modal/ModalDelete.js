@@ -1,4 +1,4 @@
-import styles from '../styles/ModalDelete.module.css';
+import styles from './ModalDelete.module.css';
 import classNames from 'classnames/bind';
 const cn = classNames.bind(styles);
 

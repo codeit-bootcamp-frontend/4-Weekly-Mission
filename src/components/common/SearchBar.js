@@ -1,8 +1,8 @@
-import styles from '../styles/SearchBar.module.css';
+import styles from './SearchBar.module.css';
 import classNames from 'classnames/bind';
 const cn = classNames.bind(styles);
 
-import iconSearch from '../assets/icons/search.svg';
+import iconSearch from '../../assets/icons/search.svg';
 
 const SearchBar = () => {
 

@@ -1,8 +1,8 @@
-import styles from '../styles/Header.module.css';
+import styles from './Header.module.css';
 import classNames from 'classnames/bind';
 const cn = classNames.bind(styles);
 
-import logo from '../assets/images/logo.svg';
+import logo from '../../assets/images/logo.svg';
 
 const Header = ({ userInfo, isSticky = true }) => {
   const profileImage = userInfo?.profileImageSource;

@@ -1,8 +1,8 @@
-import styles from '../styles/CardList.module.css';
+import styles from './CardList.module.css';
 import classNames from 'classnames/bind';
 const cn = classNames.bind(styles);
 
-import Card from '../components/Card';
+import Card from './Card';
 
 const CardList = ({ folderInfo, isIconVisible = false }) => {
   return (

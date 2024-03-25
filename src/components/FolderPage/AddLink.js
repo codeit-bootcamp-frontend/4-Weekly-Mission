@@ -1,13 +1,13 @@
-import styles from '../styles/AddLink.module.css';
+import styles from './AddLink.module.css';
 import classNames from 'classnames/bind';
 const cn = classNames.bind(styles);
 
 import { useState } from 'react';
 
-import iconLink from '../assets/icons/link.svg';
+import iconLink from '../../assets/icons/link.svg';
 
-import Modal from './Modal';
-import ModalPortal from './Portal';
+import Modal from '../common/modal/Modal';
+import ModalPortal from '../Portal';
 
 const AddLink = ({ folderList }) => {
   const [openModal, setOpenModal] = useState(false);

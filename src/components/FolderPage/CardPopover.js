@@ -1,4 +1,4 @@
-import styles from '../styles/CardPopover.module.css';
+import styles from './CardPopover.module.css';
 import classNames from 'classnames/bind';
 const cn = classNames.bind(styles);
 

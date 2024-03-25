@@ -8,7 +8,7 @@
 
 .delete-area {
   color: var(--gray-02);
-  font-size: 0.8rem;
+  font-size: 0.9rem;
   font-weight: 400;
   line-height: 22px;
   text-align: center;
@@ -21,4 +21,5 @@
   border-radius: 8px;
   background-color: rgb(255 91 86 / 100%);
   color: var(--white);
+  font-size: 1rem;
 }

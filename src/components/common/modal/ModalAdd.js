@@ -1,8 +1,8 @@
-import styles from '../styles/ModalAdd.module.css';
+import styles from './ModalAdd.module.css';
 import classNames from 'classnames/bind';
 const cn = classNames.bind(styles);
 
-import iconCheck from '../assets/icons/check.svg';
+import iconCheck from '../../../assets/icons/check.svg';
 
 const ModalAdd = ({ folderList }) => {
 

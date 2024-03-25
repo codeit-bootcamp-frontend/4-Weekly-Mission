@@ -1,11 +1,11 @@
-import styles from '../styles/Footer.module.css';
+import styles from './Footer.module.css';
 import classNames from 'classnames/bind';
 const cn = classNames.bind(styles);
 
-import iconFacebook from '../assets/icons/facebook.svg';
-import iconTwitter from '../assets/icons/twitter.svg';
-import iconYoutube from '../assets/icons/youtube.svg';
-import iconInstagram from '../assets/icons/instagram.svg';
+import iconFacebook from '../../assets/icons/facebook.svg';
+import iconTwitter from '../../assets/icons/twitter.svg';
+import iconYoutube from '../../assets/icons/youtube.svg';
+import iconInstagram from '../../assets/icons/instagram.svg';
 
 const Footer = () => {
   const facebook = 'https://www.facebook.com/?locale=ko_KR';

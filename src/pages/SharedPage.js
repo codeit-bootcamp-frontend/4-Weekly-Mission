@@ -1,16 +1,16 @@
-import styles from '../styles/SharedPage.module.css';
+import styles from './SharedPage.module.css';
 import classNames from 'classnames/bind';
 const cn = classNames.bind(styles);
 
 import { useState, useEffect } from 'react';
-import { getSharedFolder, getSharedUser } from '../api';
+import { getSharedFolder, getSharedUser } from '../apis/api';
 
-import Header from '../components/Header';
-import FolderInfo from '../components/FolderInfo';
-import FolderContent from '../components/FolderContent';
-import SearchBar from '../components/SearchBar';
-import CardList from '../components/CardList';
-import Footer from '../components/Footer';
+import Header from '../components/common/Header';
+import FolderInfo from '../components/SharedPage/FolderInfo';
+import FolderContent from '../components/common/FolderContent';
+import SearchBar from '../components/common/SearchBar';
+import CardList from '../components/common/CardList';
+import Footer from '../components/common/Footer';
 
 const SharedPage = () => {
   const [user, setUser] = useState(null);

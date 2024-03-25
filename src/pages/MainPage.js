@@ -1,4 +1,4 @@
-import styles from '../styles/Main.module.css';
+import styles from './MainPage.module.css';
 import classNames from 'classnames/bind';
 const cn = classNames.bind(styles);
 

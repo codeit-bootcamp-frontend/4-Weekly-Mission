@@ -1,8 +1,8 @@
-import styles from '../styles/Modal.module.css';
+import styles from './Modal.module.css';
 import classNames from 'classnames/bind';
 const cn = classNames.bind(styles);
 
-import buttonClose from '../assets/icons/button-close.svg';
+import buttonClose from '../../../assets/icons/button-close.svg';
 
 import ModalEdit from './ModalEdit';
 import ModalDelete from './ModalDelete';

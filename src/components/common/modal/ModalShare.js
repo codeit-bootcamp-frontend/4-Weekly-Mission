@@ -1,12 +1,12 @@
-import styles from '../styles/ModalShare.module.css';
+import styles from './ModalShare.module.css';
 import classNames from 'classnames/bind';
 const cn = classNames.bind(styles);
 
 import { useLocation } from 'react-router-dom';
 
-import shareKaKao from '../assets/icons/share-kakao.svg';
-import shareFacebook from '../assets/icons/share-facebook.svg';
-import shareLink from '../assets/icons/share-link.svg';
+import shareKaKao from '../../../assets/icons/share-kakao.svg';
+import shareFacebook from '../../../assets/icons/share-facebook.svg';
+import shareLink from '../../../assets/icons/share-link.svg';
 
 const ModalShare = ({ subTitle }) => {
   const location = useLocation();

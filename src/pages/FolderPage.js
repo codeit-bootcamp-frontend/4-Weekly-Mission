@@ -1,16 +1,16 @@
-import styles from '../styles/FolderPage.module.css';
+import styles from './FolderPage.module.css';
 import classNames from 'classnames/bind';
 const cn = classNames.bind(styles);
 
 import { useState, useEffect } from 'react';
-import { getFolderUser, getFolderList } from '../api';
+import { getFolderUser, getFolderList } from '../apis/api';
 
-import Header from '../components/Header';
-import AddLink from '../components/AddLink';
-import FolderContent from '../components/FolderContent';
-import SearchBar from '../components/SearchBar';
-import FolderList from '../components/FolderList';
-import Footer from '../components/Footer';
+import Header from '../components/common/Header';
+import AddLink from '../components/FolderPage/AddLink';
+import FolderContent from '../components/common/FolderContent';
+import SearchBar from '../components/common/SearchBar';
+import FolderList from '../components/FolderPage/FolderList';
+import Footer from '../components/common/Footer';
 
 const FolderPage = () => {
   const [user, setUser] = useState(null);

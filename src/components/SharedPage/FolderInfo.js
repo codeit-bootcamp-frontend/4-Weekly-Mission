@@ -1,4 +1,4 @@
-import styles from '../styles/FolderInfo.module.css';
+import styles from './FolderInfo.module.css';
 import classNames from 'classnames/bind';
 const cn = classNames.bind(styles);
 
