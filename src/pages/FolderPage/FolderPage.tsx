@@ -1,8 +1,8 @@
+import { CSSProperties } from "react";
+import { Header } from "@components/Header";
 import AddLinkInput from "@components/AddLinkInput/AddLinkInput";
 import CardListBox from "@components/CardListBox/CardListBox";
-import { Header } from "@components/Header";
 import Footer from "@components/Footer/Footer";
-import { CSSProperties } from "react";
 
 export default function FolderPage() {
   const headerPosition: CSSProperties = {
@@ -12,7 +12,7 @@ export default function FolderPage() {
   return (
     <>
       <Header headerPosition={headerPosition} />
-      {/* <AddLinkInput /> */}
+      <AddLinkInput />
       <CardListBox />
       <Footer />
     </>

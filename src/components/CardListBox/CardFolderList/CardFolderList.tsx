@@ -1,33 +1,35 @@
 import Folder from "./Folder/Folder";
 import styles from "./CardFolderList.module.scss";
-import { UserFolderProps } from "@/constants/index.types";
+import { ObjectFolder } from "@/constants/index.types";
 
 interface CardFolderListProps {
-  folders?: UserFolderProps[];
-  handleFolderClick: (folder: UserFolderProps) => void;
-  handleTotalBtnClick: () => void;
+  folders: ObjectFolder[];
+  onFolderClick: (folder: ObjectFolder) => void;
+  onTotalButtonClick: () => void;
 }
 
 export default function CardFolderList({
   folders,
-  handleFolderClick,
-  handleTotalBtnClick,
+  onFolderClick,
+  onTotalButtonClick,
 }: CardFolderListProps) {
   return (
     <section className={styles.CardFolderList}>
-      <button className={styles.totalBtn} onClick={() => handleTotalBtnClick()}>
+      <button
+        className={styles.totalBtn}
+        onClick={onTotalButtonClick}
+        type="button"
+      >
         전체
       </button>
       {folders &&
-        folders.map((folder) => {
-          return (
-            <Folder
-              handleFolderClick={handleFolderClick}
-              key={folder.id}
-              folder={folder}
-            />
-          );
-        })}
+        folders.map((folder) => (
+          <Folder
+            onFolderClick={onFolderClick}
+            key={folder.id}
+            folder={folder}
+          />
+        ))}
     </section>
   );
 }

@@ -7,28 +7,24 @@ import CardList from "../CardList/CardList.tsx";
 import { END_POINT } from "../../constants/index.ts";
 import getFormattedLinks from "@/hooks/getFormattedLinks";
 import LinksEmptyCase from "./LinksEmptyCase/LinksEmptyCase.tsx";
-import {
-  FormetLinkProps,
-  LinkProps,
-  UserFolderProps,
-} from "@/constants/index.types";
+import { FormetLink, ObjectLink, ObjectFolder } from "@/constants/index.types";
 
 export default function CardListBox() {
-  const [folders, setFolders] = useState<UserFolderProps[]>([]);
-  const [links, setLinks] = useState<LinkProps[]>([]);
+  const [folders, setFolders] = useState<ObjectFolder[]>([]);
+  const [links, setLinks] = useState<ObjectLink[]>([]);
   const [changeLinksFolder, setChangeLinksFolder] = useState(END_POINT.links);
   const [linksTitle, setLinksTitle] = useState(`전체`);
 
   // 작업중 =====
-  const [searchLinks, setSearchLinks] = useState<LinkProps[]>([]);
+  const [searchLinks, setSearchLinks] = useState<ObjectLink[]>([]);
   const [searchValue, setSearchValue] = useState("");
 
   const { data: foldersData, isLoading: isFoldersLoading } = useGet<
-    UserFolderProps[]
+    ObjectFolder[]
   >(END_POINT.folders);
 
   const { data: linksData, isLoading: isLinksLoading } =
-    useGet<FormetLinkProps[]>(changeLinksFolder);
+    useGet<FormetLink[]>(changeLinksFolder);
 
   useEffect(() => {
     if (!isFoldersLoading && !isLinksLoading) {
@@ -40,7 +36,7 @@ export default function CardListBox() {
     }
   }, [foldersData, isFoldersLoading, linksData, isLinksLoading]);
 
-  const handleFolderClick = (folder: UserFolderProps) => {
+  const handleFolderClick = (folder: ObjectFolder) => {
     setChangeLinksFolder(`${END_POINT.links}?folderId=${folder.id}`);
     setLinksTitle(folder.name);
   };
@@ -83,8 +79,8 @@ export default function CardListBox() {
       <section className={styles.cardList}>
         <CardFolderList
           folders={folders}
-          handleFolderClick={handleFolderClick}
-          handleTotalBtnClick={handleTotalBtnClick}
+          onFolderClick={handleFolderClick}
+          onTotalButtonClick={handleTotalBtnClick}
         />
         <div className={styles.titleBox}>
           <h1 className={styles.linksTitle}>{linksTitle}</h1>

@@ -4,11 +4,11 @@ export interface FolderData {
     profileImageSource: string;
     name: string;
   };
-  links: LinkProps[];
+  links: ObjectLink[];
   count: number;
 }
 
-export interface FormetLinkProps {
+export interface FormetLink {
   id: string;
   image_source: string;
   created_at: Date;
@@ -17,7 +17,7 @@ export interface FormetLinkProps {
   url: string;
 }
 
-export interface LinkProps {
+export interface ObjectLink {
   id: string;
   imageSource: string;
   createdAt: Date;
@@ -26,7 +26,7 @@ export interface LinkProps {
   url: string;
 }
 
-export interface UserDataProps {
+export interface UserData {
   auth_id: string;
   created_at: Date;
   email: string;
@@ -35,7 +35,7 @@ export interface UserDataProps {
   name: string;
 }
 
-export interface UserFolderProps {
+export interface ObjectFolder {
   id: number;
   created_at: Date;
   name: string;

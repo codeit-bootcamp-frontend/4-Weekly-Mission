@@ -4,15 +4,15 @@ import styles from "./Header.module.scss";
 import useGet from "../../../hooks/useGet";
 import { useEffect, useState } from "react";
 import { END_POINT } from "../../../constants";
-import { UserDataProps } from "@/constants/index.types";
+import { UserData } from "@/constants/index.types";
 
 interface HeaderProps {
   headerPosition: React.CSSProperties;
 }
 
 export default function Header({ headerPosition }: HeaderProps) {
-  const [fetchData, setFetchData] = useState<UserDataProps>();
-  const { data, isLoading } = useGet<UserDataProps[]>(END_POINT.user);
+  const [fetchData, setFetchData] = useState<UserData>();
+  const { data, isLoading } = useGet<UserData[]>(END_POINT.user);
 
   useEffect(() => {
     if (data && !isLoading) {

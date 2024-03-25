@@ -3,15 +3,15 @@ import styles from "./Card.module.scss";
 import EmptyCase from "@/assets/svg/CardImageEmptyCaseIcon";
 import getElapsedTime from "@/hooks/getElapsedTime";
 import getFormatDate from "@/hooks/getFormatDate";
-import { LinkProps } from "@/constants/index.types";
+import { ObjectLink } from "@/constants/index.types";
 
 interface CardProps {
-  link: LinkProps;
+  link: ObjectLink;
 }
 
 export default function Card({ link }: CardProps) {
   const { imageSource, createdAt, description, title, url } = link;
-  const updatedAt = getElapsedTime(createdAt);
+  const createDate = getElapsedTime(createdAt);
   const formatData = getFormatDate(createdAt);
 
   return (
@@ -26,7 +26,7 @@ export default function Card({ link }: CardProps) {
         </figure>
       )}
       <figcaption className={styles.caption}>
-        <time className={styles.updatedAt}>{updatedAt}</time>
+        <time className={styles.updatedAt}>{createDate}</time>
         <p className={styles.description}>{description}</p>
         <time className={styles.createdAt}>{formatData}</time>
       </figcaption>

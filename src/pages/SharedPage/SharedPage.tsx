@@ -6,12 +6,12 @@ import { END_POINT } from "@/constants";
 import CardSearchInput from "@components/CardListBox/CardSearchInput/CardSearchInput";
 import styles from "./SharedPage.module.scss";
 import { CSSProperties, useEffect, useState } from "react";
-import { FolderData, LinkProps } from "@/constants/index.types";
+import { FolderData, ObjectLink } from "@/constants/index.types";
 import useFetchFolder from "@/hooks/useFetchFolder";
 
 export default function SharedPage() {
   const [fetchData, setFetchData] = useState<FolderData>();
-  const [linksData, setLinksData] = useState<LinkProps[] | undefined>([]);
+  const [linksData, setLinksData] = useState<ObjectLink[] | undefined>([]);
   const [searchValue, setSearchValue] = useState("");
   const [value, setValue] = useState("");
 

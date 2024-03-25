@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
-import styles from "./Footer.module.scss";
 import { Facebook, Youtube, Twitter, Instagram } from "@/assets";
+import styles from "./Footer.module.scss";
 
 export default function Footer() {
   return (

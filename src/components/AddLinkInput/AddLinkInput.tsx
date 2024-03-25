@@ -1,10 +1,10 @@
 import { CSSProperties, useEffect, useRef, useState } from "react";
+import AddLinkInputGlassIcon from "@/assets/svg/AddLinkInputGlassIcon";
 import styles from "./AddLinkInput.module.scss";
-import InputIcon from "@/assets/svg/InputIcon";
 
 export default function AddLinkInput() {
-  const [isAddLinkInputVisible, setAddLinkInputVisible] = useState(true);
-  const addLinkInputRef = useRef(null);
+  const [isAddLinkInputVisible, setIsAddLinkInputVisible] = useState(true);
+  const addLinkInputRef = useRef<HTMLElement>(null);
 
   const addLinkInputStyle: CSSProperties = !isAddLinkInputVisible
     ? {
@@ -15,11 +15,12 @@ export default function AddLinkInput() {
       }
     : {};
 
+  // observer 시작
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
-          setAddLinkInputVisible(entry.isIntersecting);
+          setIsAddLinkInputVisible(entry.isIntersecting);
         });
       },
       { threshold: 0.01 }
@@ -45,12 +46,15 @@ export default function AddLinkInput() {
     >
       <form className={styles.form}>
         <div className={styles.inputBox}>
-          <InputIcon />
-          <input className={styles.input} placeholder="링크를 추가해 보세요" />
+          <AddLinkInputGlassIcon />
+          <input
+            className={styles.input}
+            placeholder="링크를 추가해 보세요"
+            type="text"
+          />
         </div>
         <button className={styles.inputBtn}>추가하기</button>
       </form>
-      <div></div>
     </section>
   );
 }
