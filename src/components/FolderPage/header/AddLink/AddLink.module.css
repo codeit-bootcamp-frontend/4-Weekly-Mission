@@ -16,3 +16,40 @@
     padding: 2.4rem 3.2rem 4rem 3.2rem;
   }
 }
+
+.add-link-wrapper-fixed {
+  background-color: yellow;
+  position: fixed;
+  width: 100%;
+  bottom: 0;
+}
+/* .add-link-wrapper-fixed {
+  background-color: var(--bg-color);
+  height: 11.7rem;
+  padding: 2.4rem 3.2rem 4rem 3.2rem;
+  position: fixed;
+  width: 100%;
+  bottom: 0;
+  z-index: 1;
+}
+@media (max-width: 1199.5px) {
+  .add-link-wrapper {
+    height: 11.7rem;
+    padding: 2.4rem 3.2rem 4rem 3.2rem;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+    z-index: 1;
+  }
+}
+
+@media (max-width: 767.5px) {
+  .add-link-wrapper {
+    height: 11.7rem;
+    padding: 2.4rem 3.2rem 4rem 3.2rem;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+    z-index: 1;
+  }
+} */

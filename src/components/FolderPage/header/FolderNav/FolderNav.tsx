@@ -2,6 +2,8 @@ import styles from './FolderNav.module.css';
 import NavLoginButton from 'components/SharedPage/header/NavLoginButton/NavLoginButton';
 import { useFetch } from '../../../../hooks/useFetch';
 import { UserData } from 'types/FolderPage/UserDataType';
+import { useInView } from 'react-intersection-observer';
+import { useEffect } from 'react';
 interface FolderNavProps {
   userDataUrl: string;
 }
@@ -10,8 +12,10 @@ function FolderNav({ userDataUrl }: FolderNavProps) {
   const { data: userDataObject } = useFetch<UserData>(userDataUrl);
   const userData = userDataObject?.data['0'];
 
+
+
   return (
-    <div className={styles['nav-wrapper']}>
+    <div className={styles['nav-wrapper']} >
       <div className={styles['nav-inside-wrapper']}>
         <a href='/'>
           <img

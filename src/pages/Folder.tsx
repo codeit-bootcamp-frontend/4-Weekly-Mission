@@ -3,7 +3,8 @@ import AddLink from '../components/FolderPage/header/AddLink/AddLink';
 import Footer from '../components/footer/Footer';
 import FolderPageMain from '../components/FolderPage/main/FolderPageMain/FolderPageMain';
 import useModal from '../hooks/useModal';
-import { useState } from 'react';
+import React, { RefObject, useState } from 'react';
+import { useInView } from 'react-intersection-observer';
 function Folder() {
   const userDataUrl = 'https://bootcamp-api.codeit.kr/api/users/1';
   const {

@@ -1,7 +1,7 @@
 import styles from './AddLink.module.css';
 import AddLinkInput from '../AddLinkInput/AddLinkInput';
 import { Dispatch, SetStateAction } from 'react';
-
+import { useInView } from 'react-intersection-observer';
 export interface AddLinkProps {
   handleAddLinkInFolderModalClick: (
     e: React.MouseEvent<HTMLButtonElement>

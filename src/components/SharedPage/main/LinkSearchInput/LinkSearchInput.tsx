@@ -68,7 +68,7 @@ function LinkSearchInput({
     setSearchData(e.target.value);
   };
 
-  const onClickCancleIcon = (event: React.MouseEvent<HTMLImageElement>) => {
+  const onClickCancleIcon = (e: React.MouseEvent<HTMLImageElement>) => {
     fetchData();
     setViewSearchData(false);
     setSearchData('');

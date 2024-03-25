@@ -1,5 +1,5 @@
 .main_wrapper {
-  padding: 4rem 24rem 10rem 24rem;
+  padding: 4rem 24rem 30rem 24rem;
   background-color: #fff;
   display: flex;
   flex-direction: column;
@@ -34,12 +34,12 @@
 
 @media (max-width: 1199.5px) {
   .main_wrapper {
-    padding: 4rem 3.2rem 10rem 3.2rem;
+    padding: 4rem 3.2rem 50rem 3.2rem;
   }
 }
 
 @media (max-width: 767.5px) {
   .main_wrapper {
-    padding: 2rem 3.2rem 6rem 3.2rem;
+    padding: 2rem 3.2rem 20rem 3.2rem;
   }
 }

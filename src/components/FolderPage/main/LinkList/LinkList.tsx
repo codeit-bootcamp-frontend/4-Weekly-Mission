@@ -41,13 +41,12 @@ function LinkList({
           {filterData?.data?.map(
             ({ image_source, description, created_at, url }, i) => {
               return (
-                <div>
+                <div key={'LinkList' + i}>
                   <FolderPageLinkItem
                     description={description}
                     image_source={image_source}
                     created_at={created_at}
                     url={url}
-                    key={i}
                     handleAddLinkInFolderModalClick={
                       handleAddLinkInFolderModalClick
                     }
