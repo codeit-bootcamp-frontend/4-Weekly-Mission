@@ -9,6 +9,7 @@ import { CardContianer, FavoriteCard } from "../components/card/folderCard";
 import { TitleBar } from "../components/titlebar/titlebar";
 import { favoriteListDataType } from "../types/folderListTypes";
 import { folderListDataType } from "../types/folderListTypes";
+import { SearchResult } from "../components/folder/SearchResult";
 /**
  * 1. FavoriteList에서 폴더버튼을 누르면 ID값을 받아서 FolderPage의 id값을 변경한다.
  * 2. 값이 변경되면 "api/users/1/links?folderId=id값"으로 API요청을 보낸다.
@@ -20,18 +21,16 @@ export const FolderPage = () => {
   const [selectItem, setSelectItem] = useState<null | favoriteListDataType>(
     null
   );
+  const [filteredResults, setFilteredResults] = useState<folderListDataType[]>(
+    []
+  );
+  const [searchInput, setSearchInput] = useState<string>("");
   const { list } = useFolderList(id);
 
   const handleChangeFolderId = (target: favoriteListDataType | null) => {
     setId(target?.id ?? null);
     setSelectItem(target ? { ...target } : null);
   };
-  // console.log("list > ", list);
-
-  const [filteredResults, setFilteredResults] = useState<folderListDataType[]>(
-    []
-  );
-  const [searchInput, setSearchInput] = useState<string>("");
 
   useEffect(() => {
     const searchItems = (value: string) => {
@@ -53,6 +52,7 @@ export const FolderPage = () => {
       <AddLink />
       <div className="mainPageWrapper">
         <FolderSearchBar handleSearchInput={setSearchInput} />
+        <SearchResult searchInput={searchInput} />
         <FavoriteList handleChange={handleChangeFolderId} id={id} />
         <TitleBar selectItem={selectItem} />
         {filteredResults?.length === 0 ? (
