@@ -1,23 +1,4 @@
-nav {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 244px;
-  background-color: #f0f6ff;
-  margin-top: 90px;
-  margin-bottom: 40px;
-  padding-bottom: 60px;
-}
-
-.nav-item {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  padding-top: 50px;
-}
-
-.add-link-bar {
+.addLinkBar {
   display: flex;
   justify-content: flex-start;
   align-items: center;
@@ -30,7 +11,7 @@ nav {
   background-color: white;
 }
 
-.add-link-bar input {
+.addLinkBar input {
   border: none;
   outline: none;
   padding: 10px;
@@ -39,7 +20,7 @@ nav {
   opacity: 0.7;
 }
 
-.add-btn {
+.addBtn {
   display: flex;
   width: 90px;
   padding: 10px 10px;
@@ -52,18 +33,13 @@ nav {
 }
 
 @media (min-width: 768px) and (max-width: 1199px) {
-  nav {
-    padding: 20px 32px;
-    margin-top: 90px;
-    margin-bottom: 40px;
-    padding-bottom: 40px;
+  .addLinkBar {
+    width: 80vw;
   }
 }
 
 @media (min-width: 375px) and (max-width: 767px) {
-  nav {
-    padding: 10px 16px;
-    margin-top: 90px;
-    margin-bottom: 10px;
+  .addLinkBar {
+    width: 80vw;
   }
 }

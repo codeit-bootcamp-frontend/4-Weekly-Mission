@@ -1,0 +1,55 @@
+.titleWrapper {
+  display: flex;
+  justify-content: space-between;
+  width: 1060px;
+  margin: 10px auto;
+
+  .categoryName {
+    font-size: 24px;
+    font-weight: 600;
+    line-height: 28.8px;
+    letter-spacing: -0.3px;
+    text-align: left;
+  }
+
+  .folderOptionWrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+
+    .optionBtnWrapper {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 4px;
+      cursor: pointer;
+
+      .optionBtnImg {
+        width: 18px;
+        height: 18px;
+        background-size: cover;
+      }
+
+      .optionBtnText {
+        font-size: 14px;
+        font-weight: 600;
+        line-height: 16.71px;
+        color: #9fa6b2;
+      }
+    }
+  }
+}
+
+@media (max-width: 1199px) {
+  .titleWrapper {
+    width: 80vw;
+  }
+}
+
+@media (max-width: 767px) {
+  .titleWrapper {
+    flex-direction: column;
+    gap: 12px;
+  }
+}

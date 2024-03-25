@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import './Shared.css';
+import styles from './TopContent.module.scss';
 
-function SharedHeader() {
+function TopContent() {
   const [folderInfo, setFolderInfo] = useState({
     ownerName: '',
     folderName: '',
@@ -32,16 +32,18 @@ function SharedHeader() {
   }, []);
 
   return (
-    <nav className="nav">
-      <div className="nav-item">
-        <div className="nav-icon">
-          <img src={folderInfo.profileImage} alt={folderInfo.ownerName} />
-        </div>
-        <p className="owner-name">@{folderInfo.ownerName}</p>
-        <p className="folder-name">{folderInfo.folderName}</p>
+    <nav className={styles.nav}>
+      <div className={styles.navItem}>
+        <img
+          className={styles.navIcon}
+          src={folderInfo.profileImage}
+          alt={folderInfo.ownerName}
+        />
+        <p className={styles.ownerName}>@{folderInfo.ownerName}</p>
+        <p className={styles.folderName}>{folderInfo.folderName}</p>
       </div>
     </nav>
   );
 }
 
-export default SharedHeader;
+export default TopContent;

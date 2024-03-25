@@ -1,0 +1,23 @@
+.nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 200px;
+  background-color: #f0f6ff;
+  margin-top: 90px;
+  margin-bottom: 40px;
+  padding-top: 60px;
+  padding-bottom: 60px;
+}
+
+@media (min-width: 768px) and (max-width: 1199px) {
+  .nav {
+    padding: 20px 32px;
+  }
+}
+
+@media (min-width: 375px) and (max-width: 767px) {
+  .nav {
+    padding: 10px 16px;
+  }
+}

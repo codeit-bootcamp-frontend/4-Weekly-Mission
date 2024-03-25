@@ -1,6 +1,7 @@
 import { Helmet, HelmetProvider } from 'react-helmet-async';
-import SharedHeader from '../../components/Shared/SharedHeader';
 import CardList from '../../components/CardList/CardList';
+import SearchBar from '../../components/SearchBar/SearchBar';
+import TopContent from '../../components/Shared/TopContent';
 
 function SharedPage() {
   return (
@@ -8,7 +9,8 @@ function SharedPage() {
       <Helmet>
         <title>Linkbrary - Shared</title>
       </Helmet>
-      <SharedHeader />
+      <TopContent />
+      <SearchBar />
       <CardList />
     </HelmetProvider>
   );

@@ -1,20 +1,19 @@
-import React from 'react';
-import {
-  TitleWrapper,
-  CategoryWrapper,
-  CategoryButton,
-  AddButtonWrapper,
-  AddButtonText,
-  AddButtonImage,
-} from '../../../../style/styledComponents';
+import styles from './FolderCategory.module.scss';
+import styled from 'styled-components';
+
+const CategoryBtn = styled.div`
+  background-color: ${({ checked }) => (checked ? '#6d6afe' : '#ffffff')};
+  color: ${({ checked }) => (checked ? '#ffffff' : '#111322')};
+`;
 
 function FolderCategory({ category, currentCategory, handleCategoryButton }) {
   return (
-    <TitleWrapper>
-      <CategoryWrapper>
+    <div className={styles.titleWrapper}>
+      <div className={styles.categoryWrapper}>
         {category &&
           category.map(({ id, name }) => (
-            <CategoryButton
+            <CategoryBtn
+              className={styles.categoryBtn}
               id={id}
               key={id}
               name="folderId"
@@ -22,15 +21,15 @@ function FolderCategory({ category, currentCategory, handleCategoryButton }) {
               onClick={handleCategoryButton}
             >
               {name}
-            </CategoryButton>
+            </CategoryBtn>
           ))}
-      </CategoryWrapper>
+      </div>
 
-      <AddButtonWrapper>
-        <AddButtonText>폴더 추가</AddButtonText>
-        <AddButtonImage />
-      </AddButtonWrapper>
-    </TitleWrapper>
+      <div className={styles.addBtnWrapper}>
+        <p className={styles.addBtnText}>폴더 추가</p>
+        <div className={styles.addBtnImage}></div>
+      </div>
+    </div>
   );
 }
 

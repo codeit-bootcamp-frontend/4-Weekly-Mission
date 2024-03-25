@@ -34,7 +34,7 @@ function MainContent() {
           {folderCards && <FolderCards folder={folderCards} />}
         </>
       ) : (
-        <div className="content-wrapper">저장된 링크가 없습니다.</div>
+        <div>저장된 링크가 없습니다.</div>
       )}
     </>
   );

@@ -1,0 +1,33 @@
+@import '../../style/reset.css';
+@import '../../style/colors.css';
+
+* {
+  box-sizing: border-box;
+  font-family: Pretendard;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: var(--bg-color);
+  height: 93px;
+  padding: 33px 200px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+}
+
+@media (min-width: 768px) and (max-width: 1199px) {
+  .header {
+    padding: 33px 32.5px;
+  }
+}
+
+@media (min-width: 375px) and (max-width: 767px) {
+  .header {
+    padding: 18px 32px;
+  }
+}

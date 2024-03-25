@@ -1,63 +1,27 @@
-import useFetchCardsData from '../../../hooks/useFetchCardsData';
 import noCardImg from '../../../images/no-image.svg';
-import { Link } from 'react-router-dom';
-// import loadingImg from '../images/loading-spinner.svg';
+import styles from './CardListItem.module.scss';
 
-const Card = ({
+function CardListItem({
   imageSource,
   title,
   timePassed,
   description,
   formattedDate,
   handleImageError,
-}) => {
+}) {
   return (
-    <div className="card">
+    <div className={styles.card}>
       <img
         src={imageSource || noCardImg}
         alt={title}
-        className="card-image"
+        className={styles.cardImg}
         onError={handleImageError}
       />
-      <div className="text-container">
+      <div className={styles.textContainer}>
         <span>{timePassed}</span>
         <p>{description}</p>
-        <p className="date-number">{formattedDate}</p>
+        <p className={styles.dateNumber}>{formattedDate}</p>
       </div>
-    </div>
-  );
-};
-
-function CardListItem() {
-  const data = useFetchCardsData();
-  const handleImageError = (e) => {
-    e.target.src = { noCardImg };
-  };
-
-  return (
-    <div className="cards-container">
-      {data.map(
-        ({
-          url,
-          id,
-          imageSource,
-          title,
-          timePassed,
-          description,
-          formattedDate,
-        }) => (
-          <Link to={url} key={id}>
-            <Card
-              imageSource={imageSource}
-              title={title}
-              timePasse={timePassed}
-              description={description}
-              formattedDate={formattedDate}
-              handleImageError={handleImageError}
-            />
-          </Link>
-        )
-      )}
     </div>
   );
 }

@@ -1,4 +1,4 @@
-footer {
+.footer {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -6,7 +6,7 @@ footer {
   padding: 32px 104px 64px 104px;
   background-color: #111322;
   margin-top: 60px;
-  font-family: "Abel", sans-serif;
+  font-family: 'Abel', sans-serif;
   color: #676767;
   font-weight: 400;
 }
@@ -15,37 +15,37 @@ a {
   text-decoration: none;
 }
 
-.footer-privacy,
-.footer-faq {
+.footerPrivacy,
+.footerFaq {
   color: #676767;
 }
 
-.footer-link {
+.footerLink {
   display: flex;
   gap: 30px;
 }
 
-.footer-icon {
+.footerIcon {
   display: flex;
   gap: 12px;
 }
 
 @media (min-width: 375px) and (max-width: 767px) {
-  footer {
+  .footer {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    grid-template-areas: "a b";
+    grid-template-areas: 'a b';
     padding: 32px 32px 64px 32px;
     align-items: center;
     background: #111322;
     position: relative;
   }
-  .footer-text {
+  .footerText {
     position: absolute;
     left: 30px;
     bottom: 0px;
   }
-  .footer-link {
+  .footerLink {
     display: flex;
     grid-area: a;
     align-items: center;
@@ -57,7 +57,7 @@ a {
     font-weight: 400;
     line-height: normal;
   }
-  .footer-icon {
+  .footerIcon {
     display: flex;
     grid-area: b;
     justify-content: flex-end;

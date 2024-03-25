@@ -1,4 +1,4 @@
-import './Footer.css';
+import styles from './Footer.module.scss';
 import facebookIcon from '../../images/facebook.svg';
 import twitterIcon from '../../images/twitter.svg';
 import youtubeIcon from '../../images/youtube.svg';
@@ -7,17 +7,17 @@ import { Link } from 'react-router-dom';
 
 function Footer() {
   return (
-    <footer className="footer">
-      <p className="footer-text">@codeit - 2023</p>
-      <div className="footer-link">
+    <footer className={styles.footer}>
+      <p className={styles.footerText}>@codeit - 2023</p>
+      <div className={styles.footerLink}>
         <Link to="/privacy">
-          <p className="footer-privacy">Privacy Policy</p>
+          <p className={styles.footerPrivacy}>Privacy Policy</p>
         </Link>
         <Link to="/FAQ">
-          <p className="footer-faq">FAQ</p>
+          <p className={styles.footerFaq}>FAQ</p>
         </Link>
       </div>
-      <div className="footer-icon">
+      <div className={styles.footIcon}>
         <Link to="https://facebook.com/">
           <img src={facebookIcon} alt="페이스북" />
         </Link>

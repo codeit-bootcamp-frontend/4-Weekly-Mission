@@ -1,0 +1,75 @@
+.nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 244px;
+  background-color: #f0f6ff;
+  margin-top: 90px;
+  margin-bottom: 40px;
+  padding-bottom: 60px;
+
+  .navItem {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-top: 50px;
+
+    .navIcon {
+      width: 60px;
+      height: 60px;
+    }
+
+    .ownerName {
+      font-size: 16px;
+      font-weight: 400;
+      line-height: 24px;
+      width: 12rem;
+      text-align: center;
+    }
+
+    .folderName {
+      font-size: 30px;
+      font-weight: 600;
+      width: 12rem;
+      text-align: center;
+    }
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1199px) {
+  .nav {
+    padding: 20px 32px;
+    margin-top: 90px;
+    margin-bottom: 40px;
+    padding-bottom: 40px;
+
+    .ownerName {
+      font-size: 16px;
+    }
+    .folderName {
+      font-size: 40px;
+      width: 16rem;
+    }
+  }
+}
+
+@media (min-width: 375px) and (max-width: 767px) {
+  .nav {
+    padding: 10px 16px;
+    margin-top: 90px;
+    margin-bottom: 10px;
+
+    .navIcon {
+      width: 40px;
+      height: 40px;
+      object-fit: cover;
+    }
+    .ownerName {
+      font-size: 14px;
+    }
+    .folderName {
+      font-size: 32px;
+    }
+  }
+}

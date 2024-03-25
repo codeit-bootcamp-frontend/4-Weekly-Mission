@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import styles from './Profile.module.scss';
 
 function Profile() {
   const [profileData, setProfileData] = useState(null);
@@ -23,17 +24,17 @@ function Profile() {
   }, []);
 
   if (!profileData) {
-    return <button>로그인</button>;
+    return <button className={styles.loginBtn}>로그인</button>;
   }
 
   return (
-    <div className="profile-items">
+    <div className={styles.profileItems}>
       <img
-        className="profile-image"
+        className={styles.profileImage}
         src={profileData.image_source}
         alt="Profile"
       />
-      <p className="profile-email">{profileData.email}</p>
+      <p className={styles.profileEmail}>{profileData.email}</p>
     </div>
   );
 }

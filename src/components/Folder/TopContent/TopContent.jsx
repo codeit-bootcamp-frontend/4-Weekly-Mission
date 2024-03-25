@@ -1,12 +1,10 @@
-import '../Folder.css';
+import styles from './TopContent.module.scss';
 import AddLinkBar from '../../AddLinkBar/AddLinkBar';
 
 function TopContent() {
   return (
-    <nav className="nav">
-      <div className="nav-item">
-        <AddLinkBar />
-      </div>
+    <nav className={styles.nav}>
+      <AddLinkBar />
     </nav>
   );
 }
