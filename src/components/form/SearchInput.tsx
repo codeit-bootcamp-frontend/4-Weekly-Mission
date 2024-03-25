@@ -1,7 +1,11 @@
-import { useRecoilState } from "recoil";
+import { useRecoilState, useRecoilValue, useSetRecoilState } from "recoil";
 import "./SearchInput.css";
 import styled from "styled-components";
-import { folderLinkContents, searchData, searchText } from "../../store/store";
+import {
+  folderLinkContents,
+  searchContents,
+  searchData,
+} from "../../store/store";
 import { useRef } from "react";
 import SearchText from "./SearchText";
 
@@ -38,29 +42,23 @@ const Search = styled.input`
 
 function SearchInput() {
   const inputRef = useRef<HTMLInputElement>();
-  const [contents, setContents] = useRecoilState(folderLinkContents);
+  const contents = useRecoilValue(folderLinkContents);
+  const setSearchCon: any = useSetRecoilState(searchContents);
   const [searchValues, setSearchValues] = useRecoilState<string>(searchData);
-  const [searchTextValue, setSearchTextValue] =
-    useRecoilState<boolean>(searchText);
 
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    if (inputRef.current.value === "") {
-      alert("검색어를 입력해주세요.");
-    } else {
-      const searchValue = inputRef.current.value;
-      setSearchValues(searchValue);
-      setSearchTextValue(true);
-      const filterContents: any = contents?.data?.filter((item) => {
-        return (
-          item.url.includes(searchValue) ||
-          (item.title && item.title.includes(searchValue)) ||
-          (item.description && item.description.includes(searchValue))
-        );
-      });
-      const updatedContents = { ...contents, data: filterContents };
-      setContents(updatedContents);
-    }
+    const searchValue = inputRef.current.value;
+    setSearchValues(searchValue);
+    const filterContents: any = contents?.data?.filter((item) => {
+      return (
+        item.url.includes(searchValue) ||
+        (item.title && item.title.includes(searchValue)) ||
+        (item.description && item.description.includes(searchValue))
+      );
+    });
+    const updatedContents = { ...contents, data: filterContents };
+    setSearchCon(updatedContents);
   };
 
   return (
@@ -84,10 +82,7 @@ function SearchInput() {
           placeholder="링크를 검색해 보세요."
         />
       </form>
-      <SearchText
-        searchValues={searchValues}
-        searchTextValue={searchTextValue}
-      />
+      <SearchText searchValues={searchValues} />
     </>
   );
 }

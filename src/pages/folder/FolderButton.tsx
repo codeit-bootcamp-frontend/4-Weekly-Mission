@@ -3,11 +3,7 @@ import {
   useRecoilValueLoadable,
   useSetRecoilState,
 } from "recoil";
-import {
-  clickFolder,
-  folderContents,
-  folderLinkContents,
-} from "../../store/store";
+import { clickFolder, folderContents, searchContents } from "../../store/store";
 import styled from "styled-components";
 import "./FolderButton.css";
 import { folderLinksData } from "../../apis/apiFolder";
@@ -48,12 +44,12 @@ function FolderButton({
 }: ModalProps) {
   const { contents } = useRecoilValueLoadable(folderContents);
   const [clickedLink, setClickedLink] = useRecoilState(clickFolder);
-  const setLinkContents = useSetRecoilState(folderLinkContents);
+  const setcontents = useSetRecoilState(searchContents);
 
   const handleLinkClick = (name: string, id: number | string) => {
     setClickedLink(name);
     folderLinksData(id)
-      .then((data) => setLinkContents(data))
+      .then((data) => setcontents(data))
       .catch((error) => {
         console.error(error);
       });

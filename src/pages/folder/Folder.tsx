@@ -7,6 +7,8 @@ import FolderContents from "./FolderContents";
 import Modal from "../../components/modal/modal";
 import { useState } from "react";
 import { ModalNames } from "./type";
+import { useRecoilValue } from "recoil";
+import { folderLinkContents } from "../../store/store";
 
 const ModalName: ModalNames = {
   add: {
@@ -46,6 +48,7 @@ function Folder() {
   const [openModal, setOpenModal] = useState<boolean>(false);
   const [buttonColor, setButtonColor] = useState<string>("");
   const [buttonName, setButtonName] = useState<string>("");
+  const contetns = useRecoilValue(folderLinkContents);
 
   return (
     <>

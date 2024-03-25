@@ -1,7 +1,7 @@
 import { useEffect, useState, useRef } from "react";
 import { folderLinksData } from "../../apis/apiFolder";
-import { useRecoilState } from "recoil";
-import { folderLinkContents } from "../../store/store";
+import { useRecoilState, useSetRecoilState } from "recoil";
+import { folderLinkContents, searchContents } from "../../store/store";
 import { timeChange, dateChange } from "../../dateFunction";
 import styled from "styled-components";
 import KebabModal from "./kebabModal";
@@ -40,11 +40,14 @@ function FolderContents({
   setButtonName,
   modalName,
 }: ModalProps) {
-  const [contents, setContents] = useRecoilState<Contents>(folderLinkContents);
-
+  const setBasicData = useSetRecoilState<Contents>(folderLinkContents);
+  const [contents, setContents]: any = useRecoilState(searchContents);
   useEffect(() => {
     folderLinksData("all")
-      .then((data) => setContents(data))
+      .then((data) => {
+        setBasicData(data);
+        setContents(data);
+      })
       .catch((error) => {
         console.error(error);
       });

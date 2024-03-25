@@ -1,13 +1,7 @@
-function SearchText({
-  searchValues,
-  searchTextValue,
-}: {
-  searchValues: string;
-  searchTextValue: boolean;
-}) {
+function SearchText({ searchValues }: { searchValues: string }) {
   return (
     <>
-      {searchTextValue ? (
+      {searchValues ? (
         <div className="searchTextBox">
           <p>
             <strong>{searchValues}</strong>으로 검색한 결과입니다.
