@@ -1,6 +1,7 @@
+import React from "react";
 import "./Header.css";
 
-function Header({ folderData }) {
+function Header({ folderData }: any) {
   return (
     <div className="Header">
       <div className="headerProfileBox">

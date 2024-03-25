@@ -1,3 +1,4 @@
+import React from "react";
 import { useState, useEffect } from "react";
 import { getUsersLink } from "../../apis/Api";
 import Cards from "../Cards/Cards";
@@ -7,16 +8,19 @@ import deleteIcon from "../../assets/delete.svg";
 import addIcon from "../../assets/add.svg";
 import "./FolderItem.css";
 
-function FolderItem({ usersFolderData, searchKeyword }) {
+interface Props {
+  usersFolderData: any;
+  searchKeyword: any;
+}
+
+function FolderItem({ usersFolderData, searchKeyword }: Props) {
+  const [selectedFolder, setSelectedFolder] = useState({ id: 1, name: "전체" });
+  const [cardList, setCardList] = useState([]);
   const folderList = [{ id: 1, name: "전체" }, ...usersFolderData];
 
-  const [selectedFolder, setSelectedFolder] = useState({ id: 1, name: "전체" });
-
-  const handleFolderClick = (data) => {
+  const handleFolderClick = (data: any) => {
     setSelectedFolder(data);
   };
-
-  const [cardList, setCardList] = useState([]);
 
   useEffect(() => {
     const getFolderData = async () => {

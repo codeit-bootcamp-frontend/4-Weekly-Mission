@@ -1,8 +1,8 @@
-import { useState } from "react";
+import React from "react";
 import searchIcon from "../../assets/Search.svg";
 import "./LinkSearch.css";
 
-function LinkSearch({ value, onChange, onReset, inputRef }) {
+function LinkSearch({ value, onChange, onReset, inputRef }: any) {
   return (
     <div className="LinkSearch">
       <div className="inputBox">

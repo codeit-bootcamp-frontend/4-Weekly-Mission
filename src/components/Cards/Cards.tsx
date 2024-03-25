@@ -1,3 +1,4 @@
+import React from "react";
 import { useState } from "react";
 import { Button, Popover, OverlayTrigger } from "react-bootstrap";
 import { getTimeAgo } from "../../utils/Utilities";
@@ -8,13 +9,23 @@ import kebabIcon from "../../assets/kebab.svg";
 import noImage from "../../assets/noimage.jpeg";
 import "./Cards.css";
 
-function Cards({ cardList, showStarKebab, searchKeyword }) {
+interface Props {
+  cardList: any[];
+  showStarKebab?: boolean;
+  searchKeyword?: string;
+}
+
+interface SelectedData {
+  url?: string;
+}
+
+function Cards({ cardList, showStarKebab, searchKeyword }: Props) {
   const isListEmpty = cardList.length === 0;
 
   const [popoverShow, setPopoverShow] = useState(false);
   const [starClick, setStarClick] = useState(false);
   const [deleteModalShow, setDeleteModalShow] = useState(false);
-  const [selectedData, setSelectedData] = useState("");
+  const [selectedData, setSelectedData] = useState<SelectedData>({ url: "" });
 
   if (isListEmpty) {
     return (
@@ -24,7 +35,7 @@ function Cards({ cardList, showStarKebab, searchKeyword }) {
     );
   }
 
-  const cards = cardList.map((card) => ({
+  const cards = cardList.map((card: any) => ({
     imageSource: card.imageSource || card.image_source,
     createdAt: card.createdAt || card.created_at,
     ...card,
@@ -33,7 +44,7 @@ function Cards({ cardList, showStarKebab, searchKeyword }) {
   const filteredCards =
     searchKeyword && searchKeyword.length > 0
       ? cards.filter(
-          (data) =>
+          (data: any) =>
             (data.url || "")
               .toLowerCase()
               .includes(searchKeyword.toLowerCase()) ||
@@ -46,13 +57,13 @@ function Cards({ cardList, showStarKebab, searchKeyword }) {
         )
       : cards;
 
-  const handleKebabClick = (e, data) => {
+  const handleKebabClick = (e: any, data: any) => {
     e.preventDefault();
     setSelectedData(data);
     setPopoverShow(!popoverShow);
   };
 
-  const handleStarClick = (e) => {
+  const handleStarClick = (e: any) => {
     e.preventDefault();
     setStarClick(!starClick);
   };
@@ -67,10 +78,12 @@ function Cards({ cardList, showStarKebab, searchKeyword }) {
     }
   };
 
+  console.log(selectedData);
+
   return (
     <div className="Cards">
       <div className="cardItemBox">
-        {filteredCards.map((data) => (
+        {filteredCards.map((data: any) => (
           <a href={data.url} className="cardItem" key={data.id} target="_blank">
             <div className="imgBox">
               <img

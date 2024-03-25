@@ -24,7 +24,7 @@ export async function getUsersFolder() {
   return body;
 }
 
-export async function getUsersLink(id) {
+export async function getUsersLink(id: any) {
   const response = await fetch(`${BASE_URL}/users/1/links${id}`);
   const body = await response.json();
   return body;

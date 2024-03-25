@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import "./modal.css";
 
-const Modal = ({ onClose, title, data, hasBtn, btnTitle, hasInput }) => {
+const Modal = ({ onClose, title, data, hasBtn, btnTitle, hasInput }: any) => {
   return (
     <Background>
       <Content>

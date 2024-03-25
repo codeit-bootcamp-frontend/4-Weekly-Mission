@@ -1,8 +1,8 @@
-export function getTimeAgo(targetDate) {
+export function getTimeAgo(targetDate: any) {
   const now = new Date();
   const createdDate = new Date(targetDate);
 
-  const timeDiff = now - createdDate;
+  const timeDiff = now.getTime() - createdDate.getTime();
   const minutes = Math.floor(timeDiff / (1000 * 60));
   const hours = Math.floor(timeDiff / (1000 * 60 * 60));
   const days = Math.floor(timeDiff / (1000 * 60 * 60 * 24));
