@@ -1,11 +1,8 @@
 .AddLinkInput {
-  background: var(--Linkbrary-bg, #f0f6ff);
-  padding: 60px 32px 90px;
   display: flex;
   align-items: center;
   gap: 8px;
   justify-content: center;
-  position: relative;
 
   .form {
     display: flex;

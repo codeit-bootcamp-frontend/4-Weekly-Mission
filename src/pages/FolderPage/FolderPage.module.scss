@@ -1,0 +1,13 @@
+.staticAddLinkInput {
+  padding: 60px 32px 90px;
+  background: var(--Linkbrary-bg, #f0f6ff);
+  position: relative;
+}
+
+.fixdAddLinkInput {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  padding: 24px 32px;
+  background: var(--Linkbrary-bg, #f0f6ff);
+}
