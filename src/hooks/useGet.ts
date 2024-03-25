@@ -12,7 +12,7 @@ export default function useGet<T>(url: string) {
       // console.log(result.data);
     } catch (error: unknown) {
       if (error instanceof Error) {
-        console.log(error.message);
+        console.error(error.message);
       }
     } finally {
       setIsLoading(false);

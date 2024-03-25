@@ -63,7 +63,7 @@ export default function CardListBox() {
 
   useEffect(() => {
     if (searchValue !== "") {
-      const filteredLinks = links.filter((link) => {
+      const filteredLinks = [...links].filter((link) => {
         return Object.values(link).join("").includes(searchValue);
       });
       setLinks(filteredLinks);
