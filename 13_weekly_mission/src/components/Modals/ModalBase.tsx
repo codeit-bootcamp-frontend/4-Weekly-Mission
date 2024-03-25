@@ -12,7 +12,15 @@ const Div = styled.div`
   align-items: center;
 `;
 
-function ModalBase({ modalName, children, onClick, centerSpace, onClose }) {
+export interface ModalBaseProps {
+  modalName?: string;
+  children?: React.ReactNode;
+  onClick?: () => void;
+  centerSpace?: React.ReactNode;
+  onClose?: () => void;
+}
+
+function ModalBase({ modalName, children, onClick, centerSpace, onClose }: ModalBaseProps) {
   return (
     <Div onClick={onClose}>
       <div

@@ -1,12 +1,13 @@
 import ModalBase from './ModalBase';
 import ModalInput from './ModalInput';
 import { useState } from 'react';
+import type { ModalBaseProps } from './ModalBase';
 
-function EditNameModal({ onClose }) {
+function EditNameModal({ onClose }: ModalBaseProps) {
   const [name, setName] = useState('');
 
   function handleChange() {
-    setName();
+    setName('');
   }
 
   return (

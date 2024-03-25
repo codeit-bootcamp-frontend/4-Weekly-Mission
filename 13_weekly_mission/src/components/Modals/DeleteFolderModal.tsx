@@ -1,11 +1,12 @@
 import ModalBase from './ModalBase';
 import { useState } from 'react';
+import type { ModalBaseProps } from './ModalBase';
 
-function DeleteFolderModal({ onClose }) {
+function DeleteFolderModal({ onClose }: ModalBaseProps) {
   const [deleteFolder, setDeleteFolder] = useState('');
 
   function handleChange() {
-    setDeleteFolder();
+    setDeleteFolder('');
   }
 
   return (

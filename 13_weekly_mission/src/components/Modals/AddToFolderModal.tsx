@@ -1,11 +1,12 @@
 import ModalBase from './ModalBase';
 import './Modal.css';
 import { useState } from 'react';
+import type { ModalBaseProps } from './ModalBase';
 
-function AddToFolderModal({ onClose }) {
+function AddToFolderModal({ onClose }: ModalBaseProps) {
   const [addToFolder, setAddToFolder] = useState('');
   function handleChange() {
-    setAddToFolder();
+    setAddToFolder('');
   }
 
   function AddToFolderModalText() {

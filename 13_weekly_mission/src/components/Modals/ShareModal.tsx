@@ -3,8 +3,9 @@ import { faXmark } from '@fortawesome/free-solid-svg-icons';
 import './Modal.css';
 import styled from 'styled-components';
 import { FacebookShareButton, FacebookIcon } from 'react-share';
+import type { ModalBaseProps } from './ModalBase';
 
-function ShareModal({ onClose }) {
+function ShareModal({ onClose }: ModalBaseProps) {
   const currentUrl = window.location.href;
   const Div = styled.div`
     position: fixed;
