@@ -12,7 +12,7 @@ export default function FolderPage() {
   return (
     <>
       <Header headerPosition={headerPosition} />
-      <AddLinkInput />
+      {/* <AddLinkInput /> */}
       <CardListBox />
       <Footer />
     </>

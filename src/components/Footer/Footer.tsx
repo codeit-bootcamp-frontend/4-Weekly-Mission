@@ -1,11 +1,6 @@
 import { Link } from "react-router-dom";
 import styles from "./Footer.module.scss";
-import {
-  Facebook,
-  Youtube,
-  Twitter,
-  Instagram,
-} from "../../assets/svg/FooterIcons";
+import { Facebook, Youtube, Twitter, Instagram } from "@/assets";
 
 export default function Footer() {
   return (

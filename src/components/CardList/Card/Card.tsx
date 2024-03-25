@@ -1,8 +1,8 @@
 import { Link } from "react-router-dom";
 import styles from "./Card.module.scss";
-import EmptyCase from "@/assets/svg/CardImageEmptyCase";
-import getElapsedTime from "../../../hooks/getElapsedTime";
-import getFormatDate from "../../../hooks/getFormatDate";
+import EmptyCase from "@/assets/svg/CardImageEmptyCaseIcon";
+import getElapsedTime from "@/hooks/getElapsedTime";
+import getFormatDate from "@/hooks/getFormatDate";
 import { LinkProps } from "@/constants/index.types";
 
 interface CardProps {
