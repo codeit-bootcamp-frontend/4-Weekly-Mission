@@ -43,10 +43,10 @@ function Main({
   handleCloseClick
 } : Props) {
   const [selectedLink, setSeletedLink] = useState("");
-
   const setLink = (link : string) => {
     setSeletedLink(link);
   };
+
 
   return (
     <>

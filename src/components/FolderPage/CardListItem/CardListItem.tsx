@@ -26,7 +26,6 @@ function CardListItem({ link, setModal, setLink } :Props) {
     function handleFocus(e: MouseEvent) {
       
       if (searchRef.current && !searchRef.current.contains(e.target as any)) {
-        console.log(e.target)
         setBtnClicked(false);
       }
     }

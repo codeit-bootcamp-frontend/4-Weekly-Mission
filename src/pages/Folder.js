@@ -11,6 +11,7 @@ function Folder() {
   const [folderListInfo, setFolderListInfo] = useState([]);
   const [selectedName, setSelectedName] = useState("전체");
   const [selectedId, setSelectedId] = useState();
+  const [linkDatas, setLinkDatas] = useState([]);
   const [links, setLinks] = useState([]);
   const [selectedModal, setSelectedModal] = useState("");
   const [searchInputInvisible, setSearchInputInvisible] = useState(false);
@@ -19,8 +20,13 @@ function Folder() {
   const footerRef = useRef();
   const headerRef = useRef();
 
-  console.log(headerInView);
-  console.log(inView);
+  const filtered = links.filter(
+    (link) =>
+      (link?.title && link.title.includes(search)) ||
+      (link?.url && link.url.includes(search)) ||
+      (link?.description && link.description.includes(search))
+  );
+
   const handleSearchChange = (e) => {
     setSerch(e.target.value);
   };
@@ -98,10 +104,8 @@ function Folder() {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
           setInView(true);
-          console.log("됨");
         } else {
           setInView(false);
-          console.log("안됨");
         }
       });
     }, options);
@@ -155,7 +159,7 @@ function Folder() {
         folderListInfo={folderListInfo}
         selectedId={selectedId}
         selectedName={selectedName}
-        links={links}
+        links={filtered}
         selectedModal={selectedModal}
         onSelectedFolder={handleSelectedFolder}
         handleSearchChange={handleSearchChange}

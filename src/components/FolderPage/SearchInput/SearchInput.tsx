@@ -13,7 +13,6 @@ interface Props {
 }
 
 const SearchInput = ({ loadingError, search, handleSearchChange, handleCloseClick }: Props) => {
-  console.log(search)
 
   return (
     <>
