@@ -1,7 +1,17 @@
-import Container from './Container';
+import "sharing/styles/reset.css";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { SharedPage } from "pages/SharedPage";
+import { FolderPage } from "pages/FolderPage";
 
 function App() {
-  return <Container />;
+  return (
+    <BrowserRouter>
+      <Routes>
+        <Route path="/shared" element={<SharedPage />} />
+        <Route path="/folder" element={<FolderPage />} />
+      </Routes>
+    </BrowserRouter>
+  );
 }
 
 export default App;
