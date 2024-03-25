@@ -1,3 +1,4 @@
+import React, { forwardRef } from "react";
 import "./Footer.css";
 
 const FOOTER_TEXT = {
@@ -13,9 +14,9 @@ const ROUTE = {
   FAQ: "/faq",
 };
 
-const Footer = () => {
+const Footer = forwardRef((props, ref) => {
   return (
-    <footer className="Footer">
+    <footer ref={ref} className="Footer">
       <div className="FooterItems">
         <span className="FooterCopyright">{FOOTER_TEXT.codeit}</span>
         <div className="FooterLinks">
@@ -43,6 +44,6 @@ const Footer = () => {
       </div>
     </footer>
   );
-};
+});
 
 export default Footer;

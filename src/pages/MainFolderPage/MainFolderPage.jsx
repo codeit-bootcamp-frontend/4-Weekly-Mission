@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import Layout from "../../layout/Layout";
 import SearchBar from "../../components/SearchBar/SearchBar";
 import CardInventory from "../../components/CardInventory/CardInventory";
@@ -17,30 +17,67 @@ const MainFolderPage = () => {
   const [chosenFolderId, setChosenFolderId] = useState("all");
   const { data: linksData } = useGetFolderLinks(chosenFolderId);
 
-  const [isAddModalOpen, setIsAddModalOpen] = useState(false);
-  const [isEditModalOpen, setIsEditModalOpen] = useState(false);
+  const [searchWord, setSearchWord] = useState("");
+  const [isAddLinkBarFixed, setIsAddLinkBarFixed] = useState(false);
+  const [isFooterVisible, setIsFooterVisible] = useState(false);
+  const addLinkBarRef = useRef(null);
+  const footerRef = useRef(null);
 
-  const openAddModal = () => setIsAddModalOpen(true);
-  const closeAddModal = () => setIsAddModalOpen(false);
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        const [entry] = entries;
+        setIsFooterVisible(entry.isIntersecting);
+      },
+      { threshold: 0.1 },
+    );
 
-  const openEditModal = () => setIsEditModalOpen(true);
-  const closeEditModal = () => setIsEditModalOpen(false);
+    if (footerRef.current) {
+      observer.observe(footerRef.current);
+    }
+
+    return () => observer.disconnect();
+  }, [footerRef]);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 50) {
+        setIsAddLinkBarFixed(true);
+      } else {
+        setIsAddLinkBarFixed(false);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  const searchedLinksData = linksData.filter(
+    (link) =>
+      link.url?.includes(searchWord) ||
+      link.title?.includes(searchWord) ||
+      link.description?.includes(searchWord),
+  );
 
   return (
-    <Layout>
+    <Layout ref={footerRef}>
       <div className="MainFolderPage">
-        <AddLinkBar />
+        <AddLinkBar
+          ref={addLinkBarRef}
+          className={`${isFooterVisible ? "hiddenAddLinkBar" : isAddLinkBarFixed ? "fixedAddLinkBar" : "input-container"}`}
+        />
         <div className="MainFolderPageItems">
-          <SearchBar />
+          <SearchBar searchWord={searchWord} setSearchWord={setSearchWord} />
           <div className="MainFolderPageBox">
             <FolderToolBar
               folderLists={folderLists}
               chosenFolderId={chosenFolderId}
               onClickFolder={setChosenFolderId}
             />
-            {linksData.length ? (
+            {searchedLinksData.length ? (
               <CardInventory>
-                {linksData?.map((linkCard) => (
+                {searchedLinksData?.map((linkCard) => (
                   <ShareLinkCard key={linkCard?.id} {...linkCard} />
                 ))}
               </CardInventory>
@@ -54,7 +91,18 @@ const MainFolderPage = () => {
   );
 };
 {
-  /*<button style={{
+  /*
+  //모달 연결은 훅으로 따로 구현하기
+  //const [isAddModalOpen, setIsAddModalOpen] = useState(false);
+  //const [isEditModalOpen, setIsEditModalOpen] = useState(false);
+
+  //const openAddModal = () => setIsAddModalOpen(true);
+  //const closeAddModal = () => setIsAddModalOpen(false);
+
+  //const openEditModal = () => setIsEditModalOpen(true);
+  //const closeEditModal = () => setIsEditModalOpen(false);
+  
+  <button style={{
         fontSize: "20px",
         borderColor: "black",
       }} onClick={openAddModal}>+폴더 추가</button>
