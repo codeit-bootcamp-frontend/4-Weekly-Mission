@@ -1,0 +1,17 @@
+{
+  "compilerOptions": {
+    "outDir": "./dist/",
+    "sourceMap": true,
+    "strictNullChecks": true,
+    "module": "CommonJS",
+    "jsx": "react",
+    "target": "ES2016",
+    "allowJs": true,
+    "moduleResolution": "node",
+    "allowSyntheticDefaultImports": true,
+    "noImplicitAny": true,
+    "lib": ["es6", "dom"],
+    "types": ["node"]
+  },
+  "include": ["./src/"]
+}
