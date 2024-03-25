@@ -1,4 +1,3 @@
-import { useEffect } from "react";
 import { styled } from "styled-components";
 import Link from "../../assets/icons/link.svg";
 import { BlueButton } from "../common/BlueButton";
@@ -6,18 +5,18 @@ import { forwardRef, SetStateAction, Dispatch } from "react";
 
 interface PropsType {
   setIsVisible: Dispatch<SetStateAction<string>>;
-  isAddLinkVisible: boolean;
+  $isAddLinkVisible: boolean;
 }
 
 const FolderInput = forwardRef<HTMLDivElement, PropsType>(
-  ({ setIsVisible, isAddLinkVisible }, ref) => {
+  ({ setIsVisible, $isAddLinkVisible }, ref) => {
     const onAddLinkButtonClick = () => {
       setIsVisible("폴더 추가");
     };
 
     return (
-      <BackGround ref={ref} $isAddLinkVisible={isAddLinkVisible}>
-        {!isAddLinkVisible ? (
+      <BackGround ref={ref} $isAddLinkVisible={$isAddLinkVisible}>
+        {!$isAddLinkVisible ? (
           <BackGroundFixed>
             <InputBoxFixed>
               <img src={Link} alt="LinkIcon" />
@@ -35,7 +34,7 @@ const FolderInput = forwardRef<HTMLDivElement, PropsType>(
             </InputBoxFixed>
           </BackGroundFixed>
         ) : (
-          <InputBox $isAddLinkVisible={isAddLinkVisible}>
+          <InputBox $isAddLinkVisible={$isAddLinkVisible}>
             <img src={Link} alt="LinkIcon" />
             <Input placeholder="링크를 추가해 보세요."></Input>
             <BlueButton

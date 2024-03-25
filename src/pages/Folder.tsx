@@ -40,10 +40,11 @@ const Folder = () => {
     findCardsByKeyword(searchInputValue);
   };
 
-  const addLinkDiv = useRef(null);
+  const addLinkDivRef = useRef(null);
+  const footerDivRef = useRef(null);
   const [isAddLinkVisible, setIsAddLinkVisible] = useState(false);
 
-  const onIntersectoinHandle = async (entries) => {
+  const onIntersectionHandle = async (entries) => {
     entries.forEach((entry) => {
       if (entry.isIntersecting) {
         setIsAddLinkVisible(true);
@@ -53,19 +54,26 @@ const Folder = () => {
     });
   };
   useEffect(() => {
-    if (addLinkDiv.current) {
-      const observer = new IntersectionObserver(onIntersectoinHandle, {
+    if (addLinkDivRef.current) {
+      const observer1 = new IntersectionObserver(onIntersectionHandle, {
         threshold: 0.1,
       });
 
-      if (addLinkDiv.current) {
-        observer.observe(addLinkDiv.current);
+      if (addLinkDivRef.current) {
+        observer1.observe(addLinkDivRef.current);
+      }
+
+      const observer2 = new IntersectionObserver(onIntersectionHandle, {
+        threshold: 0.1,
+      });
+
+      if (footerDivRef.current) {
+        observer2.observe(footerDivRef.current);
       }
 
       return () => {
-        if (addLinkDiv.current) {
-          observer.unobserve(addLinkDiv.current);
-        }
+        observer1.disconnect();
+        observer2.disconnect();
       };
     }
   }, []);
@@ -107,8 +115,8 @@ const Folder = () => {
       <HeaderElement $positionval="static" />
       <FolderInput
         setIsVisible={setIsModalVisible}
-        isAddLinkVisible={isAddLinkVisible}
-        ref={addLinkDiv}
+        $isAddLinkVisible={isAddLinkVisible}
+        ref={addLinkDivRef}
       />
       <Input
         inputValue={searchInputValue}
@@ -130,10 +138,12 @@ const Folder = () => {
       ) : (
         <NoLinkMsg>저장된 링크가 없습니다.</NoLinkMsg>
       )}
-      <AddFolderBtn isAddLinkVisible={isAddLinkVisible}>
+      <AddFolderBtn $isAddLinkVisible={isAddLinkVisible}>
         폴더 추가 +
       </AddFolderBtn>
-      <FooterElement />
+      <div ref={footerDivRef}>
+        <FooterElement />
+      </div>
     </Container>
   );
 };
@@ -153,7 +163,7 @@ const NoLinkMsg = styled.p`
   margin-top: 40px;
 `;
 
-const AddFolderBtn = styled.button<{ isAddLinkVisible: boolean }>`
+const AddFolderBtn = styled.button<{ $isAddLinkVisible: boolean }>`
   border: none;
   border-radius: 20px;
   border: 1px solid ${COLORS.White};
@@ -161,7 +171,7 @@ const AddFolderBtn = styled.button<{ isAddLinkVisible: boolean }>`
   position: sticky;
   left: 50%;
   transform: translateX(-50%);
-  bottom: ${({ isAddLinkVisible }) => (isAddLinkVisible ? "50px" : "150px")};
+  bottom: ${({ $isAddLinkVisible }) => ($isAddLinkVisible ? "50px" : "150px")};
   padding: 8px 24px;
   display: none;
 
