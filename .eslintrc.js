@@ -46,6 +46,16 @@ module.exports = {
     'linebreak-style': 0,
     'max-len': ['error', 120, 2, { ignoreComments: true, ignoreUrls: true }],
     'no-console': 'off',
+    'import/extensions': [
+      'error',
+      'ignorePackages',
+      {
+        js: 'never',
+        jsx: 'never',
+        ts: 'never',
+        tsx: 'never',
+      },
+    ],
     'import/order': [
       'error',
       {
@@ -116,7 +126,7 @@ module.exports = {
           ['services', './src/services'],
           ['utils', './src/utils'],
         ],
-        extensions: ['.js', '.jsx', '.json'],
+        extensions: ['.js', '.jsx', '.json', '.tsx', '.ts'],
       },
     },
   },
