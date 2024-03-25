@@ -10,6 +10,16 @@ import { ReactComponent as LinkIcon } from "./link.svg";
 
 const cx = classNames.bind(styles);
 
+interface ShareModalProps {
+  isOpen: boolean;
+  folderName: string;
+  onKakaoClick: () => void;
+  onFacebookClick: () => void;
+  onLinkCopyClick: () => void;
+  onCloseClick: () => void;
+  onKeyDown: (event: React.KeyboardEvent<HTMLDivElement>) => void;
+}
+
 export const ShareModal = ({
   isOpen,
   folderName,
@@ -18,7 +28,7 @@ export const ShareModal = ({
   onLinkCopyClick,
   onCloseClick,
   onKeyDown,
-}) => {
+}: ShareModalProps) => {
   return (
     <Modal isOpen={isOpen} onBackdropClick={onCloseClick} onKeyDown={onKeyDown}>
       <ModalContentBox

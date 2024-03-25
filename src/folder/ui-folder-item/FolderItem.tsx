@@ -3,7 +3,14 @@ import classNames from "classnames/bind";
 
 const cx = classNames.bind(styles);
 
-export const FolderItem = ({ folderName, linkCount, isSelected = false, onClick }) => {
+interface FolderItemProps {
+  folderName: string;
+  linkCount: number;
+  isSelected?: boolean;
+  onClick: () => void;
+}
+
+export const FolderItem = ({ folderName, linkCount, isSelected = false, onClick }: FolderItemProps) => {
   return (
     <button className={cx("button", { isSelected })} onClick={onClick}>
       <span className={cx("name", { isSelected })}>{folderName}</span>
