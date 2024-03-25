@@ -1,9 +1,13 @@
 import React from "react";
-import favoriteIcon from "../Assets/image/star.png";
-import kebabIcon from "../Assets/image/kebab.png";
 import "../Styles/FolderCard.css";
+import { LinkData } from "../API/FolderPageApi";
+import star from "../Assets/image/star.svg";
 
-export function FolderCard({ cardInfo, key }) {
+interface FolderCardProps {
+  cardInfo: LinkData;
+}
+
+export function FolderCard({ cardInfo }: FolderCardProps) {
   const { imageSource, createdAt, description, url } = cardInfo;
 
   const inputDate = new Date(createdAt);
@@ -13,9 +17,9 @@ export function FolderCard({ cardInfo, key }) {
   const day = inputDate.getDate().toString().padStart(2, "0");
   const createdAtDate = `${year}. ${month}. ${day}`;
 
-  const getCreatedFrom = () => {
+  const getCreatedFrom = (createdAt: string): string => {
     const now = new Date();
-    const timeDifference = now - inputDate;
+    const timeDifference = now.getTime() - new Date(createdAt).getTime();
 
     const minutes = Math.floor(timeDifference / (1000 * 60));
     const hours = Math.floor(timeDifference / (1000 * 60 * 60));
@@ -54,24 +58,23 @@ export function FolderCard({ cardInfo, key }) {
     return `${Math.floor(years)} years ago`;
   };
 
+  const src = imageSource ? imageSource : "/src/Assets/image/defaultImg.svg";
+  const alt = imageSource ? "카드이미지" : "기본이미지";
+
   return (
     <>
       <main>
         <a href={url} target="_blank">
           <div className="folderCard">
             <div className="cardImgContainer">
-              <img
-                src={imageSource}
-                className="cardImg"
-                alt="카드 이미지"
-              ></img>
+              <img src={src} className="cardImg" alt={alt}></img>
               <div>
+                <img src={star} className="favoriteImg" alt="즐겨찾기"></img>
                 <img
-                  src={favoriteIcon}
-                  className="favoriteImg"
-                  alt="즐겨찾기"
+                  src="/src/Assets/image/kebab.png"
+                  className="kebabImg"
+                  alt="더보기"
                 ></img>
-                <img src={kebabIcon} className="kebabImg" alt="더보기"></img>
               </div>
             </div>
             <div className="cardContents">

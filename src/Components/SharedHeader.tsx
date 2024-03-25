@@ -1,7 +1,17 @@
 import React from "react";
 import "../Styles/SharedHeader.css";
 
-export function SharedHeader({ folder }) {
+export interface Folder {
+  userProfileImage: string;
+  userName: string;
+  folderName: string;
+}
+
+interface SharedHeaderProps {
+  folder: Folder;
+}
+
+export function SharedHeader({ folder }: SharedHeaderProps) {
   return (
     <>
       <header>

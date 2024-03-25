@@ -1,9 +1,20 @@
 import React from "react";
-import searchIcon from "../Assets/image/Search.png";
 import { SharedCard } from "./SharedCard";
+import search from "../Assets/image/Search.svg";
 import "../Styles/Main.css";
 
-export function SharedMain({ cards }) {
+export interface Card {
+  id: string;
+  imageSource: string;
+  createdAt: string;
+  description: string;
+  url: string;
+}
+interface SharedMainProps {
+  cards: Card[];
+}
+
+export function SharedMain({ cards }: SharedMainProps) {
   return (
     <>
       <div className="searchContainer">
@@ -12,9 +23,7 @@ export function SharedMain({ cards }) {
             className="searchInput"
             placeholder="링크를 검색해 보세요."
           ></input>
-          <div className="searchIcon">
-            <img src={searchIcon} className="searchImg" alt="검색 아이콘"></img>
-          </div>
+          <img src={search} className="searchImg" alt="검색 아이콘"></img>
         </div>
       </div>
 

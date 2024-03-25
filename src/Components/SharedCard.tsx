@@ -1,7 +1,16 @@
 import React from "react";
 import "../Styles/Card.css";
 
-export function SharedCard({ cardInfo, key }) {
+interface SharedCardProps {
+  cardInfo: {
+    imageSource: string;
+    createdAt: string;
+    description: string;
+    url: string;
+  };
+}
+
+export function SharedCard({ cardInfo }: SharedCardProps) {
   const { imageSource, createdAt, description, url } = cardInfo;
 
   const inputDate = new Date(createdAt);
@@ -12,7 +21,7 @@ export function SharedCard({ cardInfo, key }) {
 
   const getCreatedFrom = () => {
     const now = new Date();
-    const timeDifference = now - inputDate;
+    const timeDifference = now.getTime() - inputDate.getTime();
 
     const minutes = Math.floor(timeDifference / (1000 * 60));
     const hours = Math.floor(timeDifference / (1000 * 60 * 60));
@@ -64,7 +73,7 @@ export function SharedCard({ cardInfo, key }) {
               ></img>
             </div>
             <div className="cardContents">
-              <p className="createdFrom">{getCreatedFrom(createdAt)}</p>
+              <p className="createdFrom">{getCreatedFrom()}</p>
               <p className="description">{description}</p>
               <p className="createdAt">{createdAtDate}</p>
             </div>
