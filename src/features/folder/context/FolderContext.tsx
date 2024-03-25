@@ -3,6 +3,17 @@ import useHttp from "hooks/useHttp"
 import useChangeTitle from "../hooks/useChangeTitle"
 import { FolderAPI, LinkAPI } from "../api"
 
+export interface Category {
+  created_at: string
+  favorite: string
+  id: number
+  link: {
+    count: number
+  }
+  name: string
+  user_id: number
+}
+
 interface FetchRequesType {
   api: string
   errorMapping?: any
@@ -45,8 +56,7 @@ export default function FolderContextProvider({ children }: { children: ReactNod
   const { state: linkState, fetchRequest: linkFetchRequest } = useHttp()
   const { title, onChangeTitle } = useChangeTitle("전체")
 
-  const selectedHandler = (selectedCategory: any) => {
-    console.log(categoryState)
+  const selectedHandler = (selectedCategory: Category) => {
     const categoryId = getCategoryId(selectedCategory)
     linkFetchRequest({ api: LinkAPI.GET_LINK_BY_FOLDER_ID(categoryId), errorMapping: LinkAPI.LINK_ERROR_MAP })
     onChangeTitle(selectedCategory.name)

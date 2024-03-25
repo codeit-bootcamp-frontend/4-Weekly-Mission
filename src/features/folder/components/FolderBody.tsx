@@ -1,4 +1,4 @@
-import { useContext, useState } from "react"
+import { useContext, useState, ChangeEvent } from "react"
 import { FolderCategories, FolderAddButton, FolderFeatures } from "."
 import * as UI from "components/UI"
 import ArticleList from "components/article/ArticleList"
@@ -10,6 +10,7 @@ import AddFolderModal from "components/modal-compound/AddFolderModal"
 import DeleteLinkModal from "components/modal-compound/DeleteLinkModal"
 import AddMyFolderModal from "components/modal-compound/AddMyFolderModal"
 import useModal from "../hooks/useModal"
+import useDebounce from "hooks/useDebounce"
 
 function FolderBody() {
   const {
@@ -19,10 +20,20 @@ function FolderBody() {
   } = useContext(FolderContext)
 
   const { data: linkData, isLoading: isLinkLoading, hasError: hasLinkError } = linkState
-
   const { modalValue, handleOpenModal, handleCloseModal: handleResetValue } = useModal()
   const [deletedUrl, setDeletedUrl] = useState("")
   const handleSelectedUrl = (url: string) => setDeletedUrl(url)
+
+  const [searchValue, setSearchValue] = useState("")
+  const handleSearchValueChange = (event: ChangeEvent<HTMLInputElement>) => setSearchValue(event.target.value)
+  const debounceSearchValue = useDebounce(searchValue, 0.5)
+
+  const filteredLinkData = linkData?.data.filter(
+    (linkData: any) =>
+      linkData.url?.includes(debounceSearchValue) ||
+      linkData.title?.includes(debounceSearchValue) ||
+      linkData.description?.includes(debounceSearchValue)
+  )
 
   return (
     <S.Section>
@@ -33,7 +44,13 @@ function FolderBody() {
       )}
 
       <S.FolderWrapper>
-        <SearchBar type="text" placeholder="링크를 검색해 보세요." name="search" />
+        <SearchBar
+          type="text"
+          placeholder="링크를 검색해 보세요."
+          name="search"
+          value={searchValue}
+          onChange={handleSearchValueChange}
+        />
         <S.Layout>
           <FolderCategories />
           <FolderAddButton onOpenModal={handleOpenModal} />
@@ -48,7 +65,11 @@ function FolderBody() {
           {!isLinkLoading && linkData?.data?.length === 0 ? (
             <UI.AlertBanner type="info">{`${title} 폴더의 링크가 없습니다.`}</UI.AlertBanner>
           ) : (
-            <ArticleList data={linkData?.data} onModalValueChanage={handleOpenModal} onChangeUrl={handleSelectedUrl} />
+            <ArticleList
+              data={filteredLinkData}
+              onModalValueChanage={handleOpenModal}
+              onChangeUrl={handleSelectedUrl}
+            />
           )}
         </S.Link>
       </S.FolderWrapper>
