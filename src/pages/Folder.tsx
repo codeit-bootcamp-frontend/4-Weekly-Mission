@@ -55,20 +55,28 @@ function Folder() {
 
   return (
     <>
-    <section>
+      <section>
         <div ref={targetRef}></div>
-      <SearchBar
-        searchVal={searchVal}
-        onChange={handleChange}
-        handleClickClose={handleClickClose}
-      />
-      <FolderListBar folderList={folderList} onClick={getLinks} />
-      {linksData?.length ? (
-        <CardBox linksData={filterdData} />
-      ) : (
-        <EmptyFolder />
-      )}
-    </section>
+        <SearchBar
+          searchVal={searchVal}
+          onChange={handleChange}
+          handleClickClose={handleClickClose}
+        />
+        <div className={searchVal}>
+          {searchVal && (
+            <div className="searchDiv">
+              <span className="searchVal">{searchVal}</span>
+              으로 검색한 결과입니다.
+            </div>
+          )}
+        </div>
+        <FolderListBar folderList={folderList} onClick={getLinks} />
+        {linksData?.length ? (
+          <CardBox linksData={filterdData} />
+        ) : (
+          <EmptyFolder />
+        )}
+      </section>
       {!isScrolled && <AddLinkBar isAtBottom={true} />}
     </>
   );
