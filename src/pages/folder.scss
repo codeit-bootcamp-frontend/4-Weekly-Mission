@@ -30,8 +30,20 @@ main .folder {
   h2 {
     font-size: 2.4rem;
     font-weight: 600;
-    color: var(--black);
     margin: 0;
+    display: inline-block;
+
+    p {
+      display: inline;
+      color: var(--gray1);
+    }
+  }
+  .searchText {
+    display: inline-block;
+    color: var(--gray2);
+  }
+  .headingText {
+    color: var(--gray1);
   }
 
   @media (max-width: 790px) {

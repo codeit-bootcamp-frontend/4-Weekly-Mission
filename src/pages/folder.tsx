@@ -27,6 +27,7 @@ const Folder = () => {
   const [showShareLinkModal, setShowShareLinkModal] = useState(false);
   const [showChangeNameModal, setShowChangeNameModal] = useState(false);
   const [showDeleteFolderModal, setShowDeleteFolderModal] = useState(false);
+  const [searchText, setSearchText] = useState(""); // 검색어 상태 추가
 
   useEffect(() => {
     const fetchFolders = async () => {
@@ -41,6 +42,10 @@ const Folder = () => {
   }, []);
 
   useEffect(() => {
+    setCurrentCategory("전체"); // 폴더 리스트 초기값을 "전체"로 설정
+  }, []);
+
+  useEffect(() => {
     const fetchLinks = async () => {
       const folderId = params.folderId
         ? isNaN(Number(params.folderId))
@@ -50,14 +55,29 @@ const Folder = () => {
 
       try {
         const response = await getFolderLinks(folderId);
-        setFolderLinkList(response.data);
+        const links = response.data;
+
+        // 검색어가 비어 있는 경우 전체 링크 목록을 보여줌
+        if (!searchText) {
+          setFolderLinkList(links);
+          return;
+        }
+
+        // 검색어가 있는 경우 검색어에 해당하는 링크만 필터링하여 보여줌
+        const filteredLinks = links.filter(
+          (link) =>
+            link.url.includes(searchText) ||
+            (link.title && link.title.includes(searchText)) ||
+            (link.description && link.description.includes(searchText))
+        );
+        setFolderLinkList(filteredLinks);
       } catch (error) {
         console.error("링크 데이터 불러오기 실패: ", error);
       }
     };
 
     fetchLinks();
-  }, [params.folderId]);
+  }, [params.folderId, searchText]); // 검색어 상태를 useEffect 의존성 배열에 추가
 
   const onClickCategory = async (categoryName: string) => {
     if (currentCategory === categoryName) return;
@@ -81,6 +101,11 @@ const Folder = () => {
     } catch (error) {
       console.error("링크 데이터 불러오기 실패: ", error);
     }
+  };
+
+  // 검색어 변경 핸들러
+  const handleSearch = (text: string) => {
+    setSearchText(text);
   };
 
   const openShareLinkModal = () => {
@@ -114,14 +139,25 @@ const Folder = () => {
         <LinkForm />
       </header>
       <main className="folder">
-        <Search />
+        <Search
+          folderLinkList={folderLinkList}
+          setFilteredLinks={setFolderLinkList}
+          onSearch={handleSearch}
+        />
         <LinkCategory
           categoryList={folders || []}
           currentCategory={currentCategory}
           onClick={onClickCategory}
         />
         <div className="main-button">
-          <h2>{currentCategory}</h2>
+          {searchText ? (
+            <h2 className="searchText">
+              <p>{searchText}</p>
+              (으)로 검색한 결과입니다.
+            </h2>
+          ) : (
+            <h2 className="headingText">{currentCategory}</h2>
+          )}
           {showButtons && (
             <div className="btn">
               <button onClick={openShareLinkModal}>
@@ -155,7 +191,9 @@ const Folder = () => {
           )}
         </div>
         {folderLinkList && folderLinkList.length > 0 ? (
-          <CardGrid formattedCards={folderLinkList} />
+          <>
+            <CardGrid formattedCards={folderLinkList} searchText={searchText} />
+          </>
         ) : (
           <NoLink />
         )}

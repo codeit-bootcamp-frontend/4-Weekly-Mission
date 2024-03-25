@@ -7,12 +7,24 @@ import DeleteLink from "../Modal/DeleteLink";
 import AddToFolder from "../Modal/AddToFolder";
 import { getFolders } from "../../api";
 
-const CardGrid = ({ formattedCards }) => {
+const CardGrid = ({ formattedCards, searchText }) => {
   const [toggleKebab, setToggleKebab] = useState(null);
   const [showDeleteLinkModal, setShowDeleteLinkModal] = useState(false);
   const [showAddFolderModal, setShowAddFolderModal] = useState(false);
   const [folders, setFolders] = useState([]);
   const [selectedUrl, setSelectedUrl] = useState("");
+  const [filteredCards, setFilteredCards] = useState([]);
+
+  useEffect(() => {
+    setFilteredCards(
+      formattedCards.filter(
+        (card) =>
+          card.url.includes(searchText) ||
+          (card.title && card.title.includes(searchText)) ||
+          (card.description && card.description.includes(searchText))
+      )
+    );
+  }, [formattedCards, searchText]);
 
   useEffect(() => {
     const fetchFolders = async () => {
@@ -65,7 +77,7 @@ const CardGrid = ({ formattedCards }) => {
   return (
     <div className="main">
       <div className="card-grid">
-        {formattedCards.map((card, index) => (
+        {filteredCards.map((card, index) => (
           <div className="card" key={card.id}>
             <a href={card.url} target="_blank" rel="noopener noreferrer">
               <div className="star-image">
