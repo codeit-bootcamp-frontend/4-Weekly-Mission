@@ -107,7 +107,7 @@ const AddButton = styled.button`
   height: 3.9rem;
   gap: 0.4rem;
   cursor: pointer;
-  z-index: 2;
+  z-index: 15;
   @media (max-width: 767px) {
     position: fixed;
     width: 13rem;

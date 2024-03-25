@@ -1,3 +1,4 @@
+import { useInView } from 'react-intersection-observer';
 import AddLink from 'components/common/header/folder/AddLink';
 import { HeaderContainer } from 'styles/HeaderContainer';
 import React, { useEffect, useState } from 'react';
@@ -11,6 +12,7 @@ import CardGrid from 'components/common/main/CardGrid';
 import CardError from 'components/common/main/CardError';
 import filterByKeyword from 'utils/filterByKeyword';
 import { useLocation, useSearchParams } from 'react-router-dom';
+import FixedAddLink from 'components/common/header/folder/FixedAddLink';
 
 const FolderPage: React.FC = () => {
   const [searchParams] = useSearchParams();
@@ -51,11 +53,12 @@ const FolderPage: React.FC = () => {
       name: e.currentTarget.innerText,
     });
   };
-
+  const [headerRef, inHeaderView] = useInView();
+  const [footerRef, inFooterView] = useInView();
   return (
     <CategoryContext.Provider value={datas}>
-      <HeaderContainer>
-        <AddLink />
+      <HeaderContainer ref={headerRef}>
+        <AddLink isBottom={false} />
       </HeaderContainer>
       <MainContainer>
         <Search
@@ -80,7 +83,9 @@ const FolderPage: React.FC = () => {
             )}
           </>
         )}
+        {!inHeaderView && !inFooterView && <FixedAddLink />}
       </MainContainer>
+      <div ref={footerRef}></div>
     </CategoryContext.Provider>
   );
 };

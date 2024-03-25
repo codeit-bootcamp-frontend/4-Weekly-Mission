@@ -3,8 +3,10 @@ import Button from 'components/common/Button';
 import React, { ChangeEvent, useState } from 'react';
 import styled from 'styled-components';
 import Modal from 'components/common/modal/Modal';
-
-const AddLink: React.FC = () => {
+interface AddLinkProps {
+  isBottom: boolean;
+}
+const AddLink: React.FC<AddLinkProps> = ({ isBottom }) => {
   const [inputValue, setInputValue] = useState<string>('');
   const [showModal, setShowModal] = useState<boolean>(false);
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
@@ -19,8 +21,12 @@ const AddLink: React.FC = () => {
   };
   return (
     <>
-      <StyledForm>
-        <Icon src="/images/icons/linkIcon.png" alt="link icon" />
+      <StyledForm isBottom={isBottom}>
+        <Icon
+          isBottom={isBottom}
+          src="/images/icons/linkIcon.png"
+          alt="link icon"
+        />
         <StyledInput
           type="text"
           className="link-add-box"
@@ -28,7 +34,11 @@ const AddLink: React.FC = () => {
           value={inputValue}
           onChange={handleChange}
         />
-        <StyledButton className="folderLink" onClick={handleClick}>
+        <StyledButton
+          isBottom={isBottom}
+          className="folderLink"
+          onClick={handleClick}
+        >
           추가하기
         </StyledButton>
       </StyledForm>
@@ -40,19 +50,20 @@ const AddLink: React.FC = () => {
     </>
   );
 };
-const StyledForm = styled.form`
+
+const StyledForm = styled.form<AddLinkProps>`
   position: relative;
-  padding: 6rem 0 9rem;
-  margin-top: 9.4rem;
+  padding: ${props => (props.isBottom ? '3rem 0' : '6rem 0 9rem')};
+  margin-top: ${props => (props.isBottom ? '0' : '9.4rem')};
 
   @media (min-width: 375px) and (max-width: 767px) {
     padding: 2.4rem 0 4rem;
   }
 `;
-const Icon = styled.img`
+const Icon = styled.img<AddLinkProps>`
   position: absolute;
   left: 2rem;
-  top: 8.5rem;
+  top: ${props => (props.isBottom ? '5.5rem' : '8.5rem')};
   width: 2rem;
   height: 2rem;
   @media (min-width: 375px) and (max-width: 767px) {
@@ -80,10 +91,10 @@ const StyledInput = styled.input`
     font-size: 1.4rem;
   }
 `;
-const StyledButton = styled(Button)`
+const StyledButton = styled(Button)<AddLinkProps>`
   position: absolute;
   left: 70.5rem;
-  bottom: 10.5rem;
+  bottom: ${props => (props.isBottom ? '4.5rem' : '10.5rem')};
   @media (max-width: 1199px) {
     left: 61.2rem;
   }
