@@ -88,3 +88,59 @@ a {
   font-weight: 400;
   line-height: 24px; /* 150% */
 }
+
+.uploadTime button {
+  height: 15px;
+  background: 0;
+  border: none;
+  z-index: 1;
+  cursor: pointer;
+}
+
+#popoverMenu {
+  width: 100px;
+  height: 64px;
+  z-index: 1;
+  position: absolute;
+  display: inline-flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 4px;
+  background: var(--gray-light-gray-00, #fff);
+  box-shadow: 0px 2px 8px 0px rgba(51, 50, 54, 0.1);
+}
+
+.popoverDelete {
+  display: flex;
+  padding: 7px 12px;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 10px;
+  align-self: stretch;
+  color: var(--gray-light-gray-100, #333236);
+
+  /* Linkbrary/body2-regular */
+  font-family: Pretendard;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+.popoverAddToFolder {
+  display: flex;
+  padding: 7px 12px;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 10px;
+  align-self: stretch;
+  background: var(--Linkbrary-gray10, #e7effb);
+  color: var(--Linkbrary-primary-color, #6d6afe);
+
+  /* Linkbrary/body2-regular */
+  font-family: Pretendard;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}

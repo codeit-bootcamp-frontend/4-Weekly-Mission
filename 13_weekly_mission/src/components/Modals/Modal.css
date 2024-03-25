@@ -102,3 +102,45 @@
   font-weight: 400;
   line-height: 22px; /* 157.143% */
 }
+
+.snsButton {
+  display: flex;
+  align-items: flex-start;
+  gap: 32px;
+}
+
+.kakaoShareWrapper {
+  display: flex;
+  padding: 12px;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  border-radius: 37.333px;
+  border: #fee500;
+  background: #fee500;
+  cursor: pointer;
+}
+
+.facebookShareWrapper {
+  display: flex;
+  padding: 12px;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  border-radius: 37.333px;
+  background: #1877f2;
+  border: #1877f2;
+  cursor: pointer;
+}
+
+.urlShareWrapper {
+  display: flex;
+  padding: 12px;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  border-radius: 37.333px;
+  background: rgba(157, 157, 157, 0.04);
+  border: none;
+  cursor: pointer;
+}

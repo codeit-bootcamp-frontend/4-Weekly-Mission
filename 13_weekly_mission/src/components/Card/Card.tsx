@@ -8,21 +8,30 @@ interface CardProps {
   data: Link[];
 }
 
+const PopoverMenu = ({ onClose }: { onClose: () => void }) => {
+  return (
+    <div id="popoverMenu">
+      <div className="popoverDelete">삭제하기</div>
+      <div className="popoverAddToFolder">폴더에 추가</div>
+    </div>
+  );
+};
+
 const Card: React.FC<CardProps> = ({ data }) => {
   const [cardData, setCardData] = useState<Link[]>([]);
+  const [popoverMenuOpen, setPopoverMenuOpen] = useState(false);
 
   useEffect(() => {
     setCardData(data);
   }, [data]);
 
-  function PopoverMenu() {
-    return (
-      <div>
-        <div>삭제하기</div>
-        <div>폴더에 추가</div>
-      </div>
-    );
-  }
+  const handleClick = () => {
+    setPopoverMenuOpen(true);
+  };
+
+  const handleClose = () => {
+    setPopoverMenuOpen(false);
+  };
 
   return (
     <>
@@ -39,20 +48,20 @@ const Card: React.FC<CardProps> = ({ data }) => {
                 }
                 alt={link.title}
               />
-              <div className="cardTextArea">
-                <div className="uploadTime">
-                  <div>{getElapsedTime(link.created_at || link.createdAt)} </div>
-                  <div
-                    onClick={() => {
-                      <PopoverMenu />;
-                    }}>
-                    <img src={`${process.env.PUBLIC_URL}/images/kebab.png`} alt="팝오버 아이콘" />
-                  </div>
-                </div>
+            </a>
+            <div className="cardTextArea">
+              <div className="uploadTime">
+                <div>{getElapsedTime(link.created_at || link.createdAt)} </div>
+                <button type="button" key={link.id} onClick={handleClick}>
+                  <img src={`${process.env.PUBLIC_URL}/images/kebab.png`} alt="팝오버 아이콘" />
+                </button>
+                {popoverMenuOpen && <PopoverMenu onClose={handleClose} />}
+              </div>
+              <a href={link.url}>
                 <div className="cardText">{link.description}</div>
                 <div className="uploadDate">{Moment(link.created_at || link.createdAt).format('YYYY.MM.DD')}</div>
-              </div>
-            </a>
+              </a>
+            </div>
           </div>
         ))
       )}
