@@ -1,6 +1,10 @@
 import { ROUTE } from "util/constant";
 import "./Footer.css";
 import { TEXT } from "./constant";
+import Instagram from "../../assets/instagram.svg";
+import Facebook from "../../assets/facebook.svg";
+import Twitter from "../../assets/twitter.svg";
+import Youtube from "../../assets/youtube.svg";
 
 export const Footer = () => {
   return (
@@ -22,7 +26,7 @@ export const Footer = () => {
             rel="noopener noreferrer"
           >
             <img
-              src="images/facebook.svg"
+              src={Facebook}
               alt="facebook 홈페이지로 연결된 facebook 로고"
             />
           </a>
@@ -31,28 +35,22 @@ export const Footer = () => {
             target="_blank"
             rel="noopener noreferrer"
           >
-            <img
-              src="images/twitter.svg"
-              alt="twitter 홈페이지로 연결된 twitter 로고"
-            />
+            <img src={Twitter} alt="twitter 홈페이지로 연결된 twitter 로고" />
           </a>
           <a
-            href="https://www.youtube.com/"
+            href="../../assets/youtube.svg"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <img src={Youtube} alt="youtube 홈페이지로 연결된 youtube 로고" />
+          </a>
+          <a
+            href="../../assets/instagram.svg"
             target="_blank"
             rel="noopener noreferrer"
           >
             <img
-              src="images/youtube.svg"
-              alt="youtube 홈페이지로 연결된 youtube 로고"
-            />
-          </a>
-          <a
-            href="https://www.instagram.com/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <img
-              src="../../assets/instagram.svg"
+              src={Instagram}
               alt="instagram 홈페이지로 연결된 instagram 로고"
             />
           </a>
