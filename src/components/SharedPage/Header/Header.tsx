@@ -12,9 +12,8 @@ interface Props{
       name: string;
       profileImageSource: string;
     }
-  };
-
 }
+  };
 
 const Header = ({ loadingError, folderInfo } : Props) => {
   return (
