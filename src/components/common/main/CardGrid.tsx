@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 import Card from './Card';
 import { calculateTime, formatDate } from 'utils/date';
+import { Link, UserLinksData } from 'utils/filterByKeyword';
 
 /**
  * CardGrid 컴포넌트
@@ -9,19 +10,9 @@ import { calculateTime, formatDate } from 'utils/date';
  * @param {boolean} props.isFolder
  * @returns {JSX.Element}
  */
-interface Data {
-  id: string;
-  createdAt?: string;
-  created_at?: string;
-  url: string;
-  title: string;
-  description: string;
-  imageSource?: string;
-  image_source?: string;
-}
 interface CardGridProps {
   isFolder: boolean;
-  datas: Data[];
+  datas: (UserLinksData | Link)[];
 }
 const CardGrid: React.FC<CardGridProps> = ({ datas, isFolder }) => {
   return (

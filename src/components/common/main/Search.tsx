@@ -1,52 +1,68 @@
-import React, { FormEvent, useEffect, useState } from 'react';
-import { useSearchParams } from 'react-router-dom';
+import React, { FormEvent } from 'react';
+import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
-import filterByKeyword, { Link, UserLinksData } from 'utils/filterByKeyword';
+import closeIcon from 'assets/images/close-icon.png';
 
 interface SearchProps {
-  links: (UserLinksData | Link)[];
+  searchTerm: string;
+  setSearchTerm: Function;
+  url: string;
 }
 
-const Search: React.FC<SearchProps> = ({ links }) => {
-  const [searchParams] = useSearchParams();
-  const [searchTerm, setSearchTerm] = useState<string>(
-    searchParams.get('keyword'),
-  );
-  const filteredLinks = filterByKeyword(links || [], searchTerm);
-  const hasFilteredLinks = filteredLinks.length !== 0;
-  console.log(filteredLinks);
-  useEffect(() => {
-    setSearchTerm(searchParams.get('keyword'));
-  }, [searchParams]);
-
+const Search: React.FC<SearchProps> = ({ searchTerm, setSearchTerm, url }) => {
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    navigateToKeyword(searchTerm);
+  };
+  const navigate = useNavigate();
+
+  const navigateToKeyword = (input: string) => {
+    const keyword = input?.replace(/(\s*)/g, '');
+    if (keyword === '') return;
+
+    navigate({
+      pathname: url,
+      search: `?keyword=${keyword}`,
+    });
+  };
+  const clearInput = () => {
+    if (searchTerm) {
+      setSearchTerm('');
+      navigate({
+        pathname: url,
+        search: '',
+      });
+    }
   };
 
   return (
-    <SearchBar onSubmit={handleSubmit}>
-      <img src="/images/icons/search.svg" alt="Search Icon" />
-      <SearchInput
-        type="text"
-        placeholder="링크를 검색해 보세요."
-        value={searchTerm}
-        onChange={e => setSearchTerm(e.target.value)}
-      />
+    <>
+      <SearchBar onSubmit={handleSubmit}>
+        <FlexContainer>
+          <img src="/images/icons/search.svg" alt="Search Icon" />
+          <SearchInput
+            type="text"
+            placeholder="링크를 검색해 보세요."
+            value={searchTerm}
+            onChange={e => setSearchTerm(e.target.value)}
+          />
+        </FlexContainer>
+        <CloseIcon src={closeIcon} alt="검색 결과 닫기" onClick={clearInput} />
+      </SearchBar>
       {searchTerm && (
         <>
           <SearchResult>
             <span>{searchTerm}</span>으로 검색한 결과입니다.
           </SearchResult>
-          {!hasFilteredLinks && <NoLink>검색 결과가 없습니다 😢</NoLink>}
         </>
       )}
-    </SearchBar>
+    </>
   );
 };
 
 const SearchBar = styled.form`
   display: flex;
-  justify-content: flex-start;
+  justify-content: space-between;
   align-items: center;
   width: 100%;
   height: 5.4rem;
@@ -61,6 +77,17 @@ const SearchBar = styled.form`
     width: calc(100% - 6.4rem);
   }
 `;
+const FlexContainer = styled.div`
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  @media (min-width: 768px) and (max-width: 1199px) {
+    width: calc(100% - 6.4rem);
+  }
+  @media (min-width: 375px) and (max-width: 767px) {
+    width: calc(100% - 6.4rem);
+  }
+`;
 const SearchInput = styled.input`
   border: none;
   outline: none;
@@ -68,25 +95,30 @@ const SearchInput = styled.input`
   width: 100rem;
   background-color: #f5f5f5;
 `;
+const CloseIcon = styled.img`
+  width: 2.4rem;
+  height: 2.4rem;
+`;
 const SearchResult = styled.div`
-  margin-top: 4rem;
+  margin-bottom: 4rem;
   font-size: 3.2rem;
   font-weight: 600;
   line-height: 3.82rem;
+  display: flex;
+  justify-content: flex-start;
+  width: 100%;
   color: ${({ theme }) => theme.gray60};
   span {
     color: ${({ theme }) => theme.black};
   }
+  @media (min-width: 768px) and (max-width: 1199px) {
+    width: calc(100% - 6.4rem);
+  }
   @media (max-width: 767px) {
+    width: calc(100% - 6.4rem);
     margin-top: 3.2rem;
     font-size: 2.4rem;
     line-height: 2.86rem;
   }
-`;
-const NoLink = styled.div`
-  height: 10rem;
-  display: flex;
-  justify-content: center;
-  align-items: center;
 `;
 export default Search;

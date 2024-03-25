@@ -1,14 +1,17 @@
 import React from 'react';
 import styled from 'styled-components';
 
-const CardError: React.FC = () => {
+interface CardErrorProps {
+  description: string;
+}
+const CardError: React.FC<CardErrorProps> = ({ description }) => {
   return (
     <StyledError>
-      <div className="description">😰 저장된 링크가 없습니다.</div>
+      <div className="description">{description}</div>
     </StyledError>
   );
 };
-
+// 😰 저장된 링크가 없습니다.
 const StyledError = styled.div`
   display: flex;
   align-items: center;
