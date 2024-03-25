@@ -11,7 +11,7 @@ const CardError: React.FC<CardErrorProps> = ({ description }) => {
     </StyledError>
   );
 };
-// 😰 저장된 링크가 없습니다.
+
 const StyledError = styled.div`
   display: flex;
   align-items: center;
