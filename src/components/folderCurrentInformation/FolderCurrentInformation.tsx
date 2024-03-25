@@ -1,7 +1,16 @@
+import React from "react";
 import "./FolderCurrentInformation.css";
 import shareIcon from "../../assets/share-icon.png";
 import editIcon from "../../assets/pencil-icon.png";
 import deleteIcon from "../../assets/delete-icon.png";
+
+interface Props {
+  folderName: string | undefined;
+  isAllFolderSelected: boolean;
+  changeFolderDeleteSelect: () => void;
+  changeFolderEditSelect: () => void;
+  changeFolderShareSelect: () => void;
+}
 
 function FolderCurrentInformation({
   folderName,
@@ -9,7 +18,7 @@ function FolderCurrentInformation({
   changeFolderDeleteSelect,
   changeFolderEditSelect,
   changeFolderShareSelect,
-}) {
+}: Props) {
   return (
     <div className="FolderCurrentInformation">
       <div className="container">

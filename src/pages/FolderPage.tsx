@@ -1,9 +1,10 @@
+import React from "react";
 import "../styles/FolderPage.css";
 import floatingButton from "../assets/folder-add-icon-white.png";
-import Footer from "../common/footer/Footer";
-import NavigationBar from "../common/navigationBar/NavigationBar";
+import Footer from "../common/Footer/Footer";
+import NavigationBar from "../common/NavigationBar/NavigationBar";
 import LinkAddBar from "../components/LinkAddBar/LinkAddBar";
-import SearchBar from "../common/searchBar/SearchBar";
+import SearchBar from "../common/SearchBar/SearchBar";
 import FolderMenu from "../components/FolderMenu/FolderMenu";
 import FolderCurrentInformation from "../components/FolderCurrentInformation/FolderCurrentInformation";
 import Cards from "../components/Cards/Cards";
@@ -17,13 +18,44 @@ import { useCallback, useEffect, useState } from "react";
 import DeleteModal from "../components/Modals/DeleteModal";
 import EditModal from "../components/Modals/EditModal";
 import ShareModal from "../components/Modals/ShareModal";
+import { SampleUser } from "./FolderSharedPage";
+
+export interface UserCard {
+  id: number;
+  created_at?: string;
+  createdAt?: string;
+  updated_at?: string;
+  url: string;
+  description: string;
+  image_source?: string;
+  imageSource?: string;
+  folder_id: number;
+}
+
+interface Link {
+  count: number;
+}
+
+export interface Folder {
+  id: number;
+  created_at: string;
+  name: string;
+  user_id: number;
+  favorite: boolean;
+  link: Link;
+}
+
+export interface User extends SampleUser {
+  created_at: string;
+  auth_id: string;
+}
 
 function FolderPage() {
-  const [userCards, setUserCards] = useState([]);
-  const [userFolders, setUserFolders] = useState([]);
-  const [folderId, setFolderId] = useState();
-  const [folderName, setFolderName] = useState();
-  const [userInfo, setUserInfo] = useState([]);
+  const [userCards, setUserCards] = useState<UserCard[]>([]);
+  const [userFolders, setUserFolders] = useState<Folder[]>([]);
+  const [folderId, setFolderId] = useState<number>();
+  const [folderName, setFolderName] = useState<string>();
+  const [userInfo, setUserInfo] = useState<User>();
   const [isAllFolderSelected, setIsAllFolderSelected] = useState(false);
   const [isLinkDeleteSelect, setIsLinkDeleteSelect] = useState(false);
   const [isFolderDeleteSelect, setIsFolderDeleteSelect] = useState(false);

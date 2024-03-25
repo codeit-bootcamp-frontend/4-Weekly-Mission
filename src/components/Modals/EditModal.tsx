@@ -1,5 +1,15 @@
+import React from "react";
 import "./EditModal.css";
 import { ReactComponent as CloseIcon } from "../../assets/close-icon.svg";
+
+interface Props {
+  title: string;
+  description: string;
+  changeFolderAddSelect?: () => void;
+  isFolderAddSelect?: boolean;
+  changeFolderEditSelect?: () => void;
+  isFolderEditSelect?: boolean;
+}
 
 function EditModal({
   title,
@@ -8,7 +18,7 @@ function EditModal({
   isFolderAddSelect,
   changeFolderEditSelect,
   isFolderEditSelect,
-}) {
+}: Props) {
   return (
     <div className="EditModal">
       <div className="container">

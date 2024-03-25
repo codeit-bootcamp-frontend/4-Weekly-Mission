@@ -1,19 +1,40 @@
+import React from "react";
 import { useEffect, useState } from "react";
 import "../styles/FolderSharedPage.css";
-import Footer from "../common/footer/Footer";
-import NavigationBar from "../common/navigationBar/NavigationBar";
+import Footer from "../common/Footer/Footer";
+import NavigationBar from "../common/NavigationBar/NavigationBar";
 import Cards from "../components/Cards/Cards";
-import SearchBar from "../common/searchBar/SearchBar";
+import SearchBar from "../common/SearchBar/SearchBar";
 import FolderInformation from "../components/FolderInformation/FolderInformation";
 import { getSampleCards, getSampleUser } from "../services/api";
+import { UserCard } from "./FolderPage";
+
+export interface Owner {
+  id: number;
+  name: string;
+  profileImageSource: string;
+}
+
+export interface SampleCard extends UserCard {
+  createdAt: string;
+  title: string;
+  imageSource?: string;
+}
+
+export interface SampleUser {
+  id: number;
+  name: string;
+  email: string;
+  profileImageSource?: string;
+  image_source?: string;
+}
 
 function FolderSharedPage() {
-  const [folderOwners, setFolderOwners] = useState([]);
-  const [folderName, setFolderName] = useState();
-  const [sampleCards, setSampleCards] = useState([]);
-  const [sampleUserInfo, setSampleUserInfo] = useState([]);
+  const [folderOwners, setFolderOwners] = useState<Owner>();
+  const [folderName, setFolderName] = useState<string>();
+  const [sampleCards, setSampleCards] = useState<SampleCard[]>([]);
+  const [sampleUserInfo, setSampleUserInfo] = useState<SampleUser>();
 
-  // 카드 정보 받아오기
   const getSampleCardsInfo = async () => {
     const sampleCardsInfo = await getSampleCards();
     const { owner, name, link } = sampleCardsInfo.folder;
@@ -22,7 +43,6 @@ function FolderSharedPage() {
     setSampleCards(link);
   };
 
-  // 유저 정보 받아오기
   const getSampleUserInfo = async () => {
     const sampleUserInfo = await getSampleUser();
     setSampleUserInfo(sampleUserInfo);
