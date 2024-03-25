@@ -14,7 +14,7 @@
     background-color: $color-light-blue;
   }
 
-  &.isSelected {
+  &.selected {
     background-color: $color-light-blue;
   }
 }
@@ -23,7 +23,7 @@
   font-size: 1.6rem;
   color: $color-gray100;
 
-  &.isSelected {
+  &.selected {
     color: $color-primary;
   }
 }
