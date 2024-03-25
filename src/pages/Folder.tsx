@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import styled from "styled-components";
 import { getAllLinkData } from "../api/api";
 import HeaderElement from "../components/common/HeaderElement";
@@ -40,6 +40,36 @@ const Folder = () => {
     findCardsByKeyword(searchInputValue);
   };
 
+  const addLinkDiv = useRef(null);
+  const [isAddLinkVisible, setIsAddLinkVisible] = useState(false);
+
+  const onIntersectoinHandle = async (entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        setIsAddLinkVisible(true);
+      } else {
+        setIsAddLinkVisible(false);
+      }
+    });
+  };
+  useEffect(() => {
+    if (addLinkDiv.current) {
+      const observer = new IntersectionObserver(onIntersectoinHandle, {
+        threshold: 0.1,
+      });
+
+      if (addLinkDiv.current) {
+        observer.observe(addLinkDiv.current);
+      }
+
+      return () => {
+        if (addLinkDiv.current) {
+          observer.unobserve(addLinkDiv.current);
+        }
+      };
+    }
+  }, []);
+
   const findCardsByKeyword = (keyword: string) => {
     const results = [];
     if (data) {
@@ -75,7 +105,11 @@ const Folder = () => {
       />
       <GlobalStyle />
       <HeaderElement $positionval="static" />
-      <FolderInput setIsVisible={setIsModalVisible} />
+      <FolderInput
+        setIsVisible={setIsModalVisible}
+        isAddLinkVisible={isAddLinkVisible}
+        ref={addLinkDiv}
+      />
       <Input
         inputValue={searchInputValue}
         setInputValue={setSearchInputValue}
@@ -96,7 +130,9 @@ const Folder = () => {
       ) : (
         <NoLinkMsg>저장된 링크가 없습니다.</NoLinkMsg>
       )}
-      <AddFolderBtn>폴더 추가 +</AddFolderBtn>
+      <AddFolderBtn isAddLinkVisible={isAddLinkVisible}>
+        폴더 추가 +
+      </AddFolderBtn>
       <FooterElement />
     </Container>
   );
@@ -117,14 +153,15 @@ const NoLinkMsg = styled.p`
   margin-top: 40px;
 `;
 
-const AddFolderBtn = styled.button`
+const AddFolderBtn = styled.button<{ isAddLinkVisible: boolean }>`
   border: none;
   border-radius: 20px;
   border: 1px solid ${COLORS.White};
   background: ${COLORS.Primary};
   position: sticky;
-  left: 40%;
-  bottom: 101px;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: ${({ isAddLinkVisible }) => (isAddLinkVisible ? "50px" : "150px")};
   padding: 8px 24px;
   display: none;
 
@@ -137,7 +174,7 @@ const AddFolderBtn = styled.button`
   line-height: normal;
   letter-spacing: -0.3px;
 
-  @media (max-width: 774px) {
+  @media (max-width: 375px) {
     display: block;
   }
 `;
