@@ -10,13 +10,17 @@ import LinksEmptyCase from "./LinksEmptyCase/LinksEmptyCase.tsx";
 import { FormetLink, ObjectLink, ObjectFolder } from "@/constants/index.types";
 
 export default function CardListBox() {
+  // 북마크 Folders 상태
   const [folders, setFolders] = useState<ObjectFolder[]>([]);
+  // 렌더링되는 Card - Links 상태
   const [links, setLinks] = useState<ObjectLink[]>([]);
+  // 북마크 Folder의 id로 END_POINT.links + query 변경
   const [changeLinksFolder, setChangeLinksFolder] = useState(END_POINT.links);
+  // select한 북마크 Folder의 이름으로 title 변경
   const [linksTitle, setLinksTitle] = useState(`전체`);
-
-  // 작업중 =====
+  // 전체 데이터 배열 저장 = 검색용
   const [searchLinks, setSearchLinks] = useState<ObjectLink[]>([]);
+  // inputValue 상태
   const [searchValue, setSearchValue] = useState("");
 
   const { data: foldersData, isLoading: isFoldersLoading } = useGet<
@@ -51,23 +55,23 @@ export default function CardListBox() {
     setLinks(searchLinks);
   };
 
-  // 제대로 동작하지 않는것 같습니다
   const handleInputChange = (e: ChangeEvent<HTMLInputElement>) => {
-    const inputValue = e.target.value;
-    setSearchValue(inputValue);
+    setSearchValue(e.target.value);
   };
 
   useEffect(() => {
     if (searchValue !== "") {
-      const filteredLinks = [...links].filter((link) => {
-        return Object.values(link).join("").includes(searchValue);
+      const filteredLinks = searchLinks.filter((link) => {
+        return Object.values(link)
+          .join("")
+          .toLowerCase()
+          .includes(searchValue.toLowerCase());
       });
       setLinks(filteredLinks);
     } else {
       setLinks(searchLinks);
     }
   }, [searchValue]);
-  // 여기까지
 
   return (
     <main className={styles.CardListBox}>

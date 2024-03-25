@@ -1,6 +1,6 @@
-import CardSearchCancelIcon from "@/assets/svg/CardSearchCancelIcon";
 import CardSearchInputIcon from "@/assets/svg/CardSearchInputIcon";
 import styles from "./CardSearchInput.module.scss";
+import CardSearchCancelIcon from "@/assets/svg/CardSearchCancelIcon";
 
 interface CardSearchInput {
   handleInputChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
@@ -10,7 +10,6 @@ interface CardSearchInput {
 
 export default function CardSearchInput({
   handleInputChange,
-  handleSearchInputCancel,
   value,
 }: CardSearchInput) {
   return (
@@ -21,13 +20,18 @@ export default function CardSearchInput({
         onChange={(e) => handleInputChange(e)}
         placeholder="링크를 검색해 보세요."
         value={value}
+        type="search"
       />
-      <div
+      <div className={styles.cancelIcon}>
+        <CardSearchCancelIcon />
+      </div>
+      {/* 조금만 더 생각해볼게요  */}
+      {/* <div
         className={styles.cancelIcon}
         onClick={() => handleSearchInputCancel()}
       >
         <CardSearchCancelIcon />
-      </div>
+      </div> */}
     </div>
   );
 }

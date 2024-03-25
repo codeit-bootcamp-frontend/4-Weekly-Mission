@@ -2,41 +2,6 @@ import AddLinkInputGlassIcon from "@/assets/svg/AddLinkInputGlassIcon";
 import styles from "./AddLinkInput.module.scss";
 
 export default function AddLinkInput() {
-  // const [isAddLinkInputVisible, setIsAddLinkInputVisible] = useState(true);
-  // const addLinkInputRef = useRef<HTMLElement>(null);
-
-  // const addLinkInputStyle: CSSProperties = !isAddLinkInputVisible
-  //   ? {
-  //       position: "fixed",
-  //       bottom: "0px",
-  //       padding: "24px 32px",
-  //       width: "100%",
-  //     }
-  //   : {};
-
-  // // observer 시작
-  // useEffect(() => {
-  //   const observer = new IntersectionObserver(
-  //     (entries) => {
-  //       entries.forEach((entry) => {
-  //         setIsAddLinkInputVisible(entry.isIntersecting);
-  //       });
-  //     },
-  //     { threshold: 0.01 }
-  //   );
-
-  //   const addLinkInput = addLinkInputRef.current;
-  //   if (addLinkInput) {
-  //     observer.observe(addLinkInput);
-  //   }
-
-  //   return () => {
-  //     if (addLinkInput) {
-  //       observer.unobserve(addLinkInput);
-  //     }
-  //   };
-  // }, []);
-
   return (
     <section className={styles.AddLinkInput}>
       <form className={styles.form}>
@@ -48,6 +13,7 @@ export default function AddLinkInput() {
             type="text"
           />
         </div>
+        {/* 모달로 변경 예정 */}
         <button className={styles.inputBtn}>추가하기</button>
       </form>
     </section>

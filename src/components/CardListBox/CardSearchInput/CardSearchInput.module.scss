@@ -15,14 +15,21 @@
     font-weight: 400;
     border: none;
     background-color: transparent;
+    width: 100%;
 
     &:focus {
       outline: none;
     }
   }
 
+  .input[type="search"]::-webkit-search-cancel-button {
+    opacity: 0;
+    width: 24px;
+  }
+
   .cancelIcon {
     position: absolute;
     right: 20px;
+    pointer-events: none;
   }
 }
