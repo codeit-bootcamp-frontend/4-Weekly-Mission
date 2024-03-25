@@ -4,17 +4,14 @@ import Main from "components/FolderPage/Main/Main";
 import Nav from "components/FolderPage/Nav/Nav";
 import { GetUserFolder, GetLinks } from "api/GetUserFolder";
 import { useState, useEffect, useRef } from "react";
-import styled from "styled-components";
 
 function Folder() {
   const [search, setSerch] = useState("");
   const [folderListInfo, setFolderListInfo] = useState([]);
   const [selectedName, setSelectedName] = useState("전체");
   const [selectedId, setSelectedId] = useState();
-  const [linkDatas, setLinkDatas] = useState([]);
   const [links, setLinks] = useState([]);
   const [selectedModal, setSelectedModal] = useState("");
-  const [searchInputInvisible, setSearchInputInvisible] = useState(false);
   const [inView, setInView] = useState(false);
   const [headerInView, setHeaderInView] = useState(true);
   const footerRef = useRef();
@@ -61,32 +58,6 @@ function Folder() {
   const setModal = (value) => {
     setSelectedModal(value);
   };
-
-  const observeHeader = () => {
-    setSearchInputInvisible(true);
-  };
-
-  // const ModalOverlay = styled.div`
-  //   position: fixed;
-  //   top: 0;
-  //   left: 0;
-  //   width: 100%;
-  //   height: 100%;
-  //   background-color: rgba(
-  //     0,
-  //     0,
-  //     0,
-  //     0.7
-  //   ); /* Semi-transparent black background */
-  //   display: ${selectedModal
-  //     ? "flex"
-  //     : "none"}; /* Show if selectedModal is truthy */
-  //   justify-content: center;
-  //   align-items: center;
-  //   justify-content: center;
-  //   align-items: center;
-  //   z-index: 10;
-  // `;
 
   useEffect(() => {
     loadFolderListInfo({ userId: 4 });
