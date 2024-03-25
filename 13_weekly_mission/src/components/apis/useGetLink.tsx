@@ -15,6 +15,7 @@ export interface Link {
   imageSource: string;
   title: string;
   description: string;
+  owner?: any;
 }
 
 const mapLinksData = (link: Link) => {

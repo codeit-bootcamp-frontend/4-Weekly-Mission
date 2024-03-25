@@ -1,16 +1,21 @@
 import React, { useState, useEffect } from 'react';
 import './Section.css';
 import { axiosInstance } from '../../utils/axiosInstance';
+import type { Link } from '../apis/useGetLink';
 
-function FolderInfo() {
-  const [folderData, setFolderData] = useState();
+interface FolderInfoProps {
+  data?: Link;
+}
+
+const FolderInfo: React.FC<FolderInfoProps> = () => {
+  const [folderData, setFolderData] = useState<Link | undefined>(undefined);
   const fetchData = async () => {
     try {
       const response = await axiosInstance.get('sample/folder');
       setFolderData(response.data.folder);
     } catch (error) {
       console.error('Error fetching data:', error);
-      setFolderData(null);
+      setFolderData(undefined);
     }
   };
   useEffect(() => {
@@ -27,6 +32,6 @@ function FolderInfo() {
       {folderData && <p className="bookmark">{folderData.name}</p>}
     </>
   );
-}
+};
 
 export default FolderInfo;

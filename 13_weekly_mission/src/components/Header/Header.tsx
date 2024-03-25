@@ -3,7 +3,7 @@ import logo from './images/logo.png';
 import './Header.css';
 import type { ProfileData } from './Profile';
 
-interface HeaderProps {
+export interface HeaderProps {
   style: string;
 }
 
