@@ -1,8 +1,13 @@
 import { SharedProfile, FolderProfile } from './Profile';
 import logo from './images/logo.png';
 import './Header.css';
+import type { ProfileData } from './Profile';
 
-export default function Header({ style }) {
+interface HeaderProps {
+  style: string;
+}
+
+export default function Header({ style }: HeaderProps, user: ProfileData) {
   return (
     <header className={style}>
       <div className="headerLogo">
@@ -10,7 +15,7 @@ export default function Header({ style }) {
           <img className="logo" src={logo} alt="Linkbrary로고" />
         </a>
       </div>
-      {style === 'headerShared' ? <SharedProfile /> : <FolderProfile />}
+      {style === 'headerShared' ? <SharedProfile userData={user} /> : <FolderProfile userData={user} />}
     </header>
   );
 }
