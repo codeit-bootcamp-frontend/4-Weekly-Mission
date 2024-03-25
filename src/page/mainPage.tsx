@@ -4,6 +4,7 @@ import { FolderList } from "../components/folder/folderList";
 import { FolderSearchBar } from "../components/folder/folderSearchBar";
 import { useFolder } from "../hooks/useFolder";
 import { folderDataType } from "../types/folderTypes";
+import { SearchResult } from "../components/folder/SearchResult";
 import "./mainPage.css";
 
 export const MainPage = () => {
@@ -32,6 +33,7 @@ export const MainPage = () => {
       <FolderInfo folder={folder} />
       <div className="mainPageWrapper">
         <FolderSearchBar handleSearchInput={setSearchInput} />
+        <SearchResult searchInput={searchInput} />
         <div className="folderBox">
           <FolderList list={filteredResults} />
         </div>
