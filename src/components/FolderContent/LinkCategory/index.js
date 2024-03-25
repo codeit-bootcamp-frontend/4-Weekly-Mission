@@ -1,6 +1,18 @@
+import React, { useState } from "react";
 import "./index.scss";
+import AddFolder from "../../Modal/AddFolder";
 
 const LinkCategory = ({ categoryList, currentCategory, onClick }) => {
+  const [showAddFolderModal, setShowAddFolderModal] = useState(false);
+
+  const openAddFolderModal = () => {
+    setShowAddFolderModal(true);
+  };
+
+  const closeAddFolderModal = () => {
+    setShowAddFolderModal(false);
+  };
+
   return (
     <div className="category-bar">
       <ul className="category-list">
@@ -29,7 +41,10 @@ const LinkCategory = ({ categoryList, currentCategory, onClick }) => {
             </li>
           ))}
       </ul>
-      <button className="add-folder-btn">폴더 추가 +</button>
+      <button className="add-folder-btn" onClick={openAddFolderModal}>
+        폴더 추가 +
+      </button>
+      <AddFolder isOpen={showAddFolderModal} onClose={closeAddFolderModal} />
     </div>
   );
 };

@@ -12,13 +12,20 @@ import deleteIcon from "../image/delete.svg";
 import "./folder.scss";
 import CardGrid from "../components/CardGrid/Cardgrid";
 import NoLink from "../components/FolderContent/NoLink";
+import ShareLink from "../components/Modal/ShareLink";
+import ChangeName from "../components/Modal/ChangeName";
+import DeleteFolder from "../components/Modal/DeleteFolder";
 
 const Folder = () => {
   const [folders, setFolders] = useState([]);
   const [currentCategory, setCurrentCategory] = useState("");
+  const [currentCategoryId, setCurrentCategoryId] = useState("");
   const [folderLinkList, setFolderLinkList] = useState([]);
   const [showButtons, setShowButtons] = useState(true);
   const params = useParams();
+  const [showShareLinkModal, setShowShareLinkModal] = useState(false);
+  const [showChangeNameModal, setShowChangeNameModal] = useState(false);
+  const [showDeleteFolderModal, setShowDeleteFolderModal] = useState(false);
 
   useEffect(() => {
     const fetchFolders = async () => {
@@ -51,21 +58,49 @@ const Folder = () => {
   }, [params.folderId]);
 
   const onClickCategory = async (categoryName) => {
-    console.log("Clicked category:", categoryName);
     if (currentCategory === categoryName) return;
 
     try {
-      const folderId =
-        categoryName === "전체"
-          ? ""
-          : folders.find((folder) => folder.name === categoryName)?.id;
-      const response = await getFolderLinks(folderId.toString());
+      let currentCategoryId = "";
+      if (categoryName !== "전체") {
+        const selectedFolder = folders.find(
+          (folder) => folder.name === categoryName
+        );
+        currentCategoryId = selectedFolder ? selectedFolder.id : "";
+      }
+
+      const response = await getFolderLinks(currentCategoryId.toString());
       setCurrentCategory(categoryName);
+      setCurrentCategoryId(currentCategoryId);
       setFolderLinkList(response.data);
       setShowButtons(categoryName !== "전체");
     } catch (error) {
       console.error("링크 데이터 불러오기 실패: ", error);
     }
+  };
+
+  const openShareLinkModal = () => {
+    setShowShareLinkModal(true);
+  };
+
+  const openChangeNameModal = () => {
+    setShowChangeNameModal(true);
+  };
+
+  const openDeleteFolderModal = () => {
+    setShowDeleteFolderModal(true);
+  };
+
+  const closeShareLinkModal = () => {
+    setShowShareLinkModal(false);
+  };
+
+  const closeChangeNameModal = () => {
+    setShowChangeNameModal(false);
+  };
+
+  const closeDeleteFolderModal = () => {
+    setShowDeleteFolderModal(false);
   };
 
   return (
@@ -85,18 +120,33 @@ const Folder = () => {
           <h2>{currentCategory}</h2>
           {showButtons && (
             <div className="btn">
-              <button>
+              <button onClick={openShareLinkModal}>
                 <img src={shareIcon} alt="공유 아이콘" />
                 공유
               </button>
-              <button>
+              <ShareLink
+                isOpen={showShareLinkModal}
+                onClose={closeShareLinkModal}
+                selectedName={currentCategory}
+                folderId={currentCategoryId}
+              />
+              <button onClick={openChangeNameModal}>
                 <img src={penIcon} alt="이름 변경 아이콘" />
                 이름변경
               </button>
-              <button>
+              <ChangeName
+                isOpen={showChangeNameModal}
+                onClose={closeChangeNameModal}
+              />
+              <button onClick={openDeleteFolderModal}>
                 <img src={deleteIcon} alt="삭제 아이콘" />
                 삭제
               </button>
+              <DeleteFolder
+                isOpen={showDeleteFolderModal}
+                onClose={closeDeleteFolderModal}
+                selectedName={currentCategory}
+              />
             </div>
           )}
         </div>
