@@ -70,7 +70,7 @@ function Folder() {
       />
       <main>
         <div className="container">
-          <SearchInput />
+          <SearchInput contents={contetns} />
           <FolderButton
             setName={setName}
             setOpenModal={setOpenModal}

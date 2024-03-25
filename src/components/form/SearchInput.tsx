@@ -1,12 +1,8 @@
-import { useRecoilState, useRecoilValue, useSetRecoilState } from "recoil";
+import { useRecoilState, useSetRecoilState } from "recoil";
 import "./SearchInput.css";
 import styled from "styled-components";
-import {
-  folderLinkContents,
-  searchContents,
-  searchData,
-} from "../../store/store";
-import { useRef } from "react";
+import { searchContents, searchData } from "../../store/store";
+import { ChangeEvent, useRef, useState } from "react";
 import SearchText from "./SearchText";
 
 const Search = styled.input`
@@ -40,25 +36,40 @@ const Search = styled.input`
   }
 `;
 
-function SearchInput() {
+function SearchInput({ contents }: any) {
   const inputRef = useRef<HTMLInputElement>();
-  const contents = useRecoilValue(folderLinkContents);
   const setSearchCon: any = useSetRecoilState(searchContents);
   const [searchValues, setSearchValues] = useRecoilState<string>(searchData);
+  const [searchText, setSearchText] = useState<string>();
 
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    const searchValue = inputRef.current.value;
+    const searchValue = inputRef.current.value.toLowerCase();
     setSearchValues(searchValue);
-    const filterContents: any = contents?.data?.filter((item) => {
+
+    const filterContents: any = contents?.filter((item: any) => {
+      const url = item.url.toLowerCase();
+      const title = item.title ? item.title.toLowerCase() : "";
+      const description = item.description
+        ? item.description.toLowerCase()
+        : "";
       return (
-        item.url.includes(searchValue) ||
-        (item.title && item.title.includes(searchValue)) ||
-        (item.description && item.description.includes(searchValue))
+        url.includes(searchValue) ||
+        (title && title.includes(searchValue)) ||
+        (description && description.includes(searchValue))
       );
     });
-    const updatedContents = { ...contents, data: filterContents };
-    setSearchCon(updatedContents);
+    const updatedContents = { filterContents };
+    setSearchCon(updatedContents.filterContents);
+  };
+
+  const handleDelete = () => {
+    inputRef.current.value = "";
+    setSearchText("");
+  };
+
+  const handleText = (event: ChangeEvent<HTMLInputElement>) => {
+    setSearchText(event.target.value);
   };
 
   return (
@@ -80,7 +91,20 @@ function SearchInput() {
           type="search"
           id="search"
           placeholder="링크를 검색해 보세요."
+          onChange={(event) => handleText(event)}
         />
+        {searchText ? (
+          <button
+            className="searchDeleteBtn"
+            type="button"
+            onClick={handleDelete}
+          >
+            <img
+              src={`${process.env.PUBLIC_URL}/images/close.png`}
+              alt="검색어 삭제"
+            />
+          </button>
+        ) : null}
       </form>
       <SearchText searchValues={searchValues} />
     </>

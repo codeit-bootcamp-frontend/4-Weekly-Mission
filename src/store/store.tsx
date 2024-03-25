@@ -44,7 +44,7 @@ export const searchData = atom({
 });
 export const searchContents = atom({
   key: "searchContents",
-  default: "",
+  default: [],
 });
 export const searchText = atom({
   key: "searchText",

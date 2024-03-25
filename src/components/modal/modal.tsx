@@ -46,7 +46,6 @@ function FolderName() {
   const handleFolderCheck = (name: string): void => {
     setTest(name);
   };
-
   useEffect(() => {
     folderName.contents.data.forEach(({ id }: { id: number }) => {
       folderLinksData(id)
@@ -64,6 +63,8 @@ function FolderName() {
     <ul className="folderAddModal">
       {folderName?.contents?.data?.map(
         ({ name, id }: { name: string; id: number }, index: number) => {
+          const linklength = modalFolderContents.data[index]?.data.length;
+
           return (
             <li
               key={id}
@@ -71,8 +72,7 @@ function FolderName() {
               onClick={() => handleFolderCheck(name)}
             >
               <p>
-                {name}{" "}
-                <span>{modalFolderContents.data[index]?.length}개 링크</span>{" "}
+                {name} <span>{linklength}개 링크</span>{" "}
               </p>
               <img
                 src={`${process.env.PUBLIC_URL}/images/check.svg`}

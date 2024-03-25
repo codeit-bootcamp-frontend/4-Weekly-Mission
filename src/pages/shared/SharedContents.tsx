@@ -1,15 +1,12 @@
 import "./SharedContents.css";
 import { dateChange, timeChange } from "../../dateFunction";
-import { useRecoilValueLoadable } from "recoil";
-import { profileData } from "../../store/store";
-import { User, UserLinks } from "../../types/type";
+import { UserLinks } from "../../types/type";
 
-function SharedContents() {
-  const { contents } = useRecoilValueLoadable<User>(profileData);
+function SharedContents({ contents }: any) {
   return (
     <article>
       <ul className="contentsBox">
-        {contents?.links?.map(
+        {contents?.map(
           ({
             id,
             title,

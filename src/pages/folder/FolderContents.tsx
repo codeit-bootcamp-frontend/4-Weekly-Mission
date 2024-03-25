@@ -45,8 +45,8 @@ function FolderContents({
   useEffect(() => {
     folderLinksData("all")
       .then((data) => {
-        setBasicData(data);
-        setContents(data);
+        setBasicData(data.data);
+        setContents(data.data);
       })
       .catch((error) => {
         console.error(error);
@@ -87,11 +87,11 @@ function FolderContents({
   // link 전역변수 설정
   return (
     <article>
-      {contents?.data?.length === 0 ? (
+      {contents?.length === 0 ? (
         <FolderNoData>저장된 링크가 없습니다.</FolderNoData>
       ) : (
         <ul className="contentsBox">
-          {contents?.data?.map(
+          {contents?.map(
             ({
               id,
               title,
