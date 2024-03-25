@@ -27,6 +27,7 @@ interface LinkSearchProps {
   setFilterData: Dispatch<SetStateAction<FolderIdData | null>>;
   filterData: FolderIdData | null;
   folderId: string;
+  setViewData: Dispatch<SetStateAction<string | null>>;
 }
 
 function LinkSearchInput({
@@ -34,8 +35,8 @@ function LinkSearchInput({
   searchData,
   setSearchData,
   setFilterData,
-
   folderId,
+  setViewData,
 }: LinkSearchProps) {
   async function fetchData() {
     await fetch(`https://bootcamp-api.codeit.kr/api/users/3/links${folderId}`)
@@ -62,6 +63,7 @@ function LinkSearchInput({
     e.preventDefault();
     setViewSearchData(true);
     handleFilterClick();
+    setViewData(searchData);
   };
 
   const handleInputChange = (e: ChangeEvent<HTMLInputElement>) => {
@@ -73,6 +75,7 @@ function LinkSearchInput({
     setViewSearchData(false);
     setSearchData('');
   };
+
   return (
     <div className={styles.link_search_input_wrapper}>
       <form onSubmit={handleSubmit}>

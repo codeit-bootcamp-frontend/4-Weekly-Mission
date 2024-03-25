@@ -60,7 +60,7 @@ function FolderPageMain({
   const [ShareUrlFolderId, setShareUrlFolderId] = useState('');
   const [viewSearchData, setViewSearchData] = useState<boolean | null>(false);
   const [searchData, setSearchData] = useState<string | null>('');
-
+  const [viewData, setViewData] = useState<string | null>('');
   //add
   interface FolderDesc {
     id: number;
@@ -96,8 +96,9 @@ function FolderPageMain({
         setFilterData={setFilterData}
         filterData={filterData}
         folderId={folderId}
+        setViewData={setViewData}
       />
-      {viewSearchData && <ShowSearchData searchData={searchData} />}
+      {viewSearchData && <ShowSearchData viewData={viewData} />}
       <div className={styles.folder_page_content_wrapper}>
         <div className={styles.folder_filter_wrapper}>
           <FolderFilterBox

@@ -25,6 +25,7 @@ function Shared() {
 
   const [filterData, setFilterData] = useState<FolderIdData | null>(null);
   const [folderId, setFolderId] = useState('');
+  const [viewData, setViewData] = useState<string | null>('');
 
   return (
     <>
@@ -38,6 +39,7 @@ function Shared() {
           setFilterData={setFilterData}
           filterData={filterData}
           folderId={folderId}
+          setViewData={setViewData}
         />
         <SharePageFolderList />
       </div>
