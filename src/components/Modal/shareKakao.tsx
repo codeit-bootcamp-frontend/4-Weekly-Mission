@@ -2,9 +2,13 @@ import { useEffect } from "react";
 import kakaoImg from "../../image/Kakao.svg";
 import styled from "styled-components";
 
-const { Kakao } = window;
+interface ShareKakaoProps {
+  folderId: number;
+}
 
-export default function ShareKakao({ folderId }) {
+const { Kakao } = window as any;
+
+export default function ShareKakao({ folderId }: ShareKakaoProps) {
   // 배포한 자신의 사이트
   const realUrl = "";
   // 로컬 주소 (localhost 3000 같은거)
@@ -20,7 +24,7 @@ export default function ShareKakao({ folderId }) {
     // console.log(Kakao.isInitialized());
   }, []);
 
-  const handleShareKakao = (shareLink) => {
+  const handleShareKakao = (shareLink: string) => {
     Kakao.Share.sendDefault({
       objectType: "feed",
       content: {

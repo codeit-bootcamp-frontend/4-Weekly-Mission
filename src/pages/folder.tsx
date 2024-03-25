@@ -15,14 +15,15 @@ import NoLink from "../components/FolderContent/NoLink";
 import ShareLink from "../components/Modal/ShareLink";
 import ChangeName from "../components/Modal/ChangeName";
 import DeleteFolder from "../components/Modal/DeleteFolder";
+import { FolderLinksResponse, FoldersData, LinkData } from "../types/interface";
 
 const Folder = () => {
-  const [folders, setFolders] = useState([]);
+  const [folders, setFolders] = useState<FoldersData[] | null>([]);
   const [currentCategory, setCurrentCategory] = useState("");
-  const [currentCategoryId, setCurrentCategoryId] = useState("");
-  const [folderLinkList, setFolderLinkList] = useState([]);
+  const [currentCategoryId, setCurrentCategoryId] = useState(0);
+  const [folderLinkList, setFolderLinkList] = useState<LinkData[]>([]);
   const [showButtons, setShowButtons] = useState(true);
-  const params = useParams();
+  const params = useParams<{ folderId: string }>();
   const [showShareLinkModal, setShowShareLinkModal] = useState(false);
   const [showChangeNameModal, setShowChangeNameModal] = useState(false);
   const [showDeleteFolderModal, setShowDeleteFolderModal] = useState(false);
@@ -41,10 +42,11 @@ const Folder = () => {
 
   useEffect(() => {
     const fetchLinks = async () => {
-      const folderId =
-        params.folderId === "all" || isNaN(params.folderId)
+      const folderId = params.folderId
+        ? isNaN(Number(params.folderId))
           ? null
-          : +params.folderId;
+          : +params.folderId
+        : null;
 
       try {
         const response = await getFolderLinks(folderId);
@@ -57,19 +59,21 @@ const Folder = () => {
     fetchLinks();
   }, [params.folderId]);
 
-  const onClickCategory = async (categoryName) => {
+  const onClickCategory = async (categoryName: string) => {
     if (currentCategory === categoryName) return;
 
     try {
-      let currentCategoryId = "";
+      let currentCategoryId = 0;
       if (categoryName !== "전체") {
-        const selectedFolder = folders.find(
+        const selectedFolder = folders?.find(
           (folder) => folder.name === categoryName
         );
-        currentCategoryId = selectedFolder ? selectedFolder.id : "";
+        currentCategoryId = selectedFolder ? selectedFolder.id : 0;
       }
 
-      const response = await getFolderLinks(currentCategoryId.toString());
+      const response: FolderLinksResponse = await getFolderLinks(
+        currentCategoryId
+      );
       setCurrentCategory(categoryName);
       setCurrentCategoryId(currentCategoryId);
       setFolderLinkList(response.data);
@@ -112,7 +116,7 @@ const Folder = () => {
       <main className="folder">
         <Search />
         <LinkCategory
-          categoryList={folders}
+          categoryList={folders || []}
           currentCategory={currentCategory}
           onClick={onClickCategory}
         />

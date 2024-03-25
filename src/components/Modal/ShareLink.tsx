@@ -6,7 +6,19 @@ import shareFacebook from "../../image/share_facebook.svg";
 import shareLinkIcon from "../../image/share_link.svg";
 import styles from "./shareLink.module.scss";
 
-const ShareLink = ({ isOpen, onClose, selectedName, folderId }) => {
+interface ShareLinkProps {
+  isOpen: boolean;
+  onClose: () => void;
+  selectedName: string;
+  folderId: number;
+}
+
+const ShareLink = ({
+  isOpen,
+  onClose,
+  selectedName,
+  folderId,
+}: ShareLinkProps) => {
   const host = window.location.host;
 
   let shareLink = `${host}/shared?user=1&folder=${folderId}`;

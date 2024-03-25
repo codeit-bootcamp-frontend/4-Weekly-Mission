@@ -4,10 +4,15 @@ import "./index.scss";
 import addLink from "../../image/link.svg";
 import AddToFolder from "../Modal/AddToFolder";
 
+interface Folder {
+  id: number;
+  name: string;
+}
+
 const LinkForm = () => {
-  const [showModal, setShowModal] = useState(false);
-  const [link, setLink] = useState("");
-  const [folders, setFolders] = useState([]);
+  const [showModal, setShowModal] = useState<boolean>(false);
+  const [link, setLink] = useState<string>("");
+  const [folders, setFolders] = useState<Folder[]>([]);
 
   useEffect(() => {
     const fetchFolders = async () => {
@@ -29,7 +34,7 @@ const LinkForm = () => {
     setShowModal(false);
   };
 
-  const handleLinkChange = (event) => {
+  const handleLinkChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setLink(event.target.value);
   };
 

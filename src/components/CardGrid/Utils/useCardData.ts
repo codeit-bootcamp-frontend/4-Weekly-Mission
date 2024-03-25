@@ -1,10 +1,11 @@
 import { useEffect, useState } from "react";
 import { getFolder } from "../../../api";
 import { formatDate, getTimeAgo } from "./utils";
+import { Link } from "../../../types/interface";
 
 export function useCardData() {
-  const [cards, setCards] = useState([]);
-  const [formattedCards, setFormattedCards] = useState([]);
+  const [cards, setCards] = useState<Link[]>([]);
+  const [formattedCards, setFormattedCards] = useState<Link[]>([]);
 
   useEffect(() => {
     const fetchData = async () => {

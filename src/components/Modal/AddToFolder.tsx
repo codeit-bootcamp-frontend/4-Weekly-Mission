@@ -3,12 +3,30 @@ import Modal from "./Modal";
 import styles from "./addToFolder.module.scss";
 import checkIcon from "../../image/check.svg";
 
-const AddToFolder = ({ isOpen, onClose, categoryList, link }) => {
+interface Category {
+  id: number;
+  name: string;
+  link?: { count: number };
+}
+
+interface AddToFolderProps {
+  isOpen: boolean;
+  onClose: () => void;
+  categoryList: Category[];
+  link: string;
+}
+
+const AddToFolder = ({
+  isOpen,
+  onClose,
+  categoryList,
+  link,
+}: AddToFolderProps) => {
   const [selectedCategory, setSelectedCategory] = useState(
     categoryList[0]?.id || null
   );
 
-  const handleCategoryClick = (categoryId) => {
+  const handleCategoryClick = (categoryId: number) => {
     setSelectedCategory(categoryId === selectedCategory ? null : categoryId);
   };
 

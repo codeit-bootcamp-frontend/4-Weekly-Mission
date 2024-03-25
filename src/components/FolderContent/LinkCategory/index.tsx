@@ -1,8 +1,19 @@
 import React, { useState } from "react";
 import "./index.scss";
 import AddFolder from "../../Modal/AddFolder";
+import { FoldersData } from "../../../types/interface";
 
-const LinkCategory = ({ categoryList, currentCategory, onClick }) => {
+interface LinkCategoryProps {
+  categoryList: FoldersData[] | undefined;
+  currentCategory: string;
+  onClick: (category: string) => void;
+}
+
+const LinkCategory = ({
+  categoryList,
+  currentCategory,
+  onClick,
+}: LinkCategoryProps) => {
   const [showAddFolderModal, setShowAddFolderModal] = useState(false);
 
   const openAddFolderModal = () => {
