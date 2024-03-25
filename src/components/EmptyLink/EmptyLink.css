@@ -2,6 +2,7 @@
   display: flex;
   justify-content: center;
   padding-top: 3.4rem;
+  height: 50vh;
 
   @media (min-width: 768px) {
     padding-top: 4.1rem;

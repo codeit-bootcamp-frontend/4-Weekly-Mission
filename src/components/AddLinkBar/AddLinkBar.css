@@ -6,7 +6,11 @@
   background-color: var(--Linkbrary-bg);
 
   @media (min-width: 768px) {
-    padding: 6rem 3.2rem 9rem;
+    padding: 3rem 3.2rem 6rem;
+  }
+
+  @media (min-width: 1141px) {
+    padding: 4.5rem 3.2rem 4.5rem;
   }
 }
 
@@ -77,4 +81,27 @@
   height: 3.7rem;
   font-size: 1.4rem;
   color: inherit;
+}
+
+.fixedAddLinkBar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  z-index: 500;
+  display: flex;
+  justify-content: center;
+  padding: 2.4rem 3.2rem 2.4rem;
+  background-color: var(--Linkbrary-bg);
+
+  @media (min-width: 768px) {
+    padding: 2.4rem 3.2rem 2.4rem;
+  }
+  @media (min-width: 1141px) {
+    padding: 2.4rem 3.2rem 2.4rem;
+  }
+}
+
+.hiddenAddLinkBar {
+  display: none;
 }

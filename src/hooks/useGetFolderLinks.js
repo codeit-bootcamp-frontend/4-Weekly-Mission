@@ -6,7 +6,7 @@ const BASE_URL = "https://bootcamp-api.codeit.kr/api";
 
 export const useGetFolderLinks = (folderId = "all") => {
   const getLinkData = () =>
-    axios.get(`${BASE_URL}/users/1/links${folderId === "all" ? "" : `?folderId=${folderId}`}`);
+    axios.get(`${BASE_URL}/users/4/links${folderId === "all" ? "" : `?folderId=${folderId}`}`);
 
   const { run, pending, error, data } = useAsync(getLinkData);
 
