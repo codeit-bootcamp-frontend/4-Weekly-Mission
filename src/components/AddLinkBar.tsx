@@ -5,7 +5,7 @@ import link from "../images/link.svg";
 import AddToFolderModal from "../modal/AddToFolderModal/AddToFolderModal";
 import { MODALS } from "../modal/modals";
 
-function AddLinkBar() {
+function AddLinkBar({ isAtBottom }: { isAtBottom: boolean }) {
   const [linkValue, setLinkValue] = useState<string>("");
   const [isModalClicked, setIsModalClicked] = useState<{
     addToFolder: boolean;
@@ -29,7 +29,7 @@ function AddLinkBar() {
 
   return (
     <>
-      <div className={styles.area}>
+      <div className={isAtBottom ? styles.bottomArea : styles.area}>
         <div className={styles.container}>
           <div className={styles.inputContainer}>
             <img src={link} alt="링크" />

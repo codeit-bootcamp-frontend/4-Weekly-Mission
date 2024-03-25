@@ -1,23 +1,36 @@
-import { useRef } from "react";
+import { useRef, useState } from "react";
 
-export default function useIntersectionObserver(callback: any, options: any) {
-  const observer = useRef(
-    new IntersectionObserver((entries, observer) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          callback();
-        }
-      });
-    }, options)
+export default function useIntersectionObserver(): [
+  (element: HTMLElement) => void,
+  (element: HTMLElement) => void,
+  boolean
+] {
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  const observer = useRef<IntersectionObserver>(
+    new IntersectionObserver(
+      (entries, observer) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setIsScrolled(true);
+          } else {
+            setIsScrolled(false);
+          }
+        });
+      },
+      {
+        threshold: 1,
+      }
+    )
   );
 
-  const observe = (element: any) => {
+  const observe = (element: HTMLElement) => {
     observer.current.observe(element);
   };
 
-  const unobserve = (element: any) => {
+  const unobserve = (element: HTMLElement) => {
     observer.current.unobserve(element);
   };
 
-  return [observe, unobserve];
+  return [observe, unobserve, isScrolled];
 }

@@ -44,7 +44,7 @@ function HeaderFrame() {
         profileData={profileData}
         isSticky={pathname === "/shared" ? true : false}
       />
-      {pathname === "/folder" && <AddLinkBar />}
+      {pathname === "/folder" && <AddLinkBar isAtBottom={false} />}
       {pathname === "/shared" && <UserProfile folderData={folderData} />}
     </>
   );

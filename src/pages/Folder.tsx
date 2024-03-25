@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 
 import { getFolderListData, getFolderLinksData } from "../api/api";
 import CardBox from "../components/CardBox";
@@ -6,6 +6,8 @@ import SearchBar from "../components/SearchBar";
 import FolderListBar from "../components/FolderListBar";
 import EmptyFolder from "../components/EmptyFolder";
 import { useSearchBar } from "../hooks/useSearchBar";
+import useIntersectionObserver from "../hooks/useIntersectionObserver";
+import AddLinkBar from "../components/AddLinkBar";
 //types
 import { FolderList, LinksData } from "../types/commonTypes";
 
@@ -16,6 +18,9 @@ function Folder() {
     "",
     linksData
   );
+
+  const targetRef = useRef<HTMLDivElement>(null);
+  const [observe, unobserve, isScrolled] = useIntersectionObserver();
 
   const getFolderList = async () => {
     try {
@@ -44,8 +49,14 @@ function Folder() {
     getLinks({ folderId: "1" });
   }, []);
 
+  useEffect(() => {
+    observe(targetRef.current as HTMLDivElement);
+  }, [observe]);
+
   return (
+    <>
     <section>
+        <div ref={targetRef}></div>
       <SearchBar
         searchVal={searchVal}
         onChange={handleChange}
@@ -58,6 +69,8 @@ function Folder() {
         <EmptyFolder />
       )}
     </section>
+      {!isScrolled && <AddLinkBar isAtBottom={true} />}
+    </>
   );
 }
 
