@@ -1,4 +1,5 @@
 @import '../../styles/_index.scss';
+@import '../../styles/media';
 
 .layout {
   display: flex;
@@ -32,10 +33,12 @@
 
 .actionButton {
   position: sticky;
-  bottom: 7.4rem;
+  width: 10rem;
+  bottom: 12rem;
   left: 50%;
   display: flex;
   align-items: center;
+  justify-content: center;
   padding: 1rem;
   color: $color-white;
   background: $color-primary;

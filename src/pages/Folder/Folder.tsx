@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react';
+import { useContext, useEffect, useRef, useState } from 'react';
 import { FiPlus } from 'react-icons/fi';
 import AddBar from '../../components/AddBar/AddBar';
 import Cards from '../../components/Cards/Cards';
@@ -6,6 +6,7 @@ import Empty from '../../components/Empty/Empty';
 import FolderNavbar from '../../components/Navbar/Folder/FolderNavbar';
 import FoldersNavbar from '../../components/Navbar/Folders/FoldersNavbar';
 import SearchBar from '../../components/SearchBar/SearchBar';
+import { FooterContext } from '../../context/FooterContext';
 import useFetchData from '../../hooks/useFetchData';
 import useInterSectionObserver from '../../hooks/useInterSectionObserver';
 import { LinkType, UserFolderType, UserLinkType } from '../../types/types';
@@ -50,6 +51,7 @@ const Folder = () => {
     setSearchedLinks(tmp);
   }, [linksData]);
 
+  const { isFooterVisible } = useContext(FooterContext);
   const folders = foldersData ? [{ id: 0, name: '전체' }, ...foldersData.data] : [];
   const hasLinks = searchedLinks.length !== 0;
   const hasFolders = folders.length !== 0;
@@ -76,7 +78,7 @@ const Folder = () => {
           <FiPlus />
         </button>
       </main>
-      {!isAddBarVisible && (
+      {!isFooterVisible && !isAddBarVisible && (
         <div className={cn(styles.addBarBox, styles.fixedBottom)}>
           <AddBar />
         </div>

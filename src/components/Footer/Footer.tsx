@@ -1,9 +1,10 @@
+import { forwardRef } from 'react';
 import { SNS_LIST, SITE_LIST } from '../../constant/constant';
 import styles from './Footer.module.scss';
 
-const Footer = () => {
+const Footer = forwardRef<HTMLDivElement>((_, ref) => {
   return (
-    <footer className={styles.layout}>
+    <footer className={styles.layout} ref={ref}>
       <p className={styles.copyright}>©codeit - 2023</p>
       <section className={styles.linkBox}>
         <nav className={styles.linkNav}>
@@ -23,6 +24,6 @@ const Footer = () => {
       </section>
     </footer>
   );
-};
+});
 
 export default Footer;
