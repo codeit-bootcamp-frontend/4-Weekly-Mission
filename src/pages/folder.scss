@@ -69,3 +69,17 @@ main .folder {
     }
   }
 }
+.bottom {
+  position: relative;
+}
+.fixed-link-section {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  z-index: 10;
+}
+
+.on-footer {
+  position: absolute;
+  bottom: 16rem;
+}

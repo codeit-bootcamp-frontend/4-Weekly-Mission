@@ -3,6 +3,7 @@ import Nav from "../components/Common/Nav";
 import LinkForm from "../components/LinkForm";
 import Search from "../components/Search/Search";
 import LinkCategory from "../components/FolderContent/LinkCategory";
+import { useInView } from "react-intersection-observer";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { getFolders, getFolderLinks } from "../api";
@@ -27,7 +28,9 @@ const Folder = () => {
   const [showShareLinkModal, setShowShareLinkModal] = useState(false);
   const [showChangeNameModal, setShowChangeNameModal] = useState(false);
   const [showDeleteFolderModal, setShowDeleteFolderModal] = useState(false);
-  const [searchText, setSearchText] = useState(""); // 검색어 상태 추가
+  const [searchText, setSearchText] = useState("");
+  const [headerRef, headerInView] = useInView();
+  const [footerRef, footerInView] = useInView();
 
   useEffect(() => {
     const fetchFolders = async () => {
@@ -42,7 +45,7 @@ const Folder = () => {
   }, []);
 
   useEffect(() => {
-    setCurrentCategory("전체"); // 폴더 리스트 초기값을 "전체"로 설정
+    setCurrentCategory("전체");
   }, []);
 
   useEffect(() => {
@@ -77,7 +80,7 @@ const Folder = () => {
     };
 
     fetchLinks();
-  }, [params.folderId, searchText]); // 검색어 상태를 useEffect 의존성 배열에 추가
+  }, [params.folderId, searchText]);
 
   const onClickCategory = async (categoryName: string) => {
     if (currentCategory === categoryName) return;
@@ -135,7 +138,7 @@ const Folder = () => {
   return (
     <>
       <Nav sticky={false} />
-      <header>
+      <header ref={headerRef}>
         <LinkForm />
       </header>
       <main className="folder">
@@ -198,7 +201,18 @@ const Folder = () => {
           <NoLink />
         )}
       </main>
-      <Footer />
+      <div className="bottom">
+        <div ref={footerRef} className="footer">
+          <Footer />
+        </div>
+        {(!headerInView || footerInView) && (
+          <div
+            className={`fixed-link-section ${footerInView ? "on-footer" : ""}`}
+          >
+            <LinkForm />
+          </div>
+        )}
+      </div>
     </>
   );
 };
