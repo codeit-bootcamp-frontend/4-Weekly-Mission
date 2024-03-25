@@ -1,9 +1,16 @@
 import classNames from 'classnames';
-import PropTypes from 'prop-types';
+import { ReactNode } from 'react';
 
 import styles from 'components/Common/Button.module.css';
 
-function Button({ className, text, onClick, children }) {
+interface ButtonProps {
+  className?: string;
+  text?: string;
+  onClick?: () => void;
+  children?: ReactNode;
+}
+
+function Button({ className = '', text = '', onClick, children }: ButtonProps) {
   const buttonClasses = classNames(styles.button, 'cursor-pointer', className);
 
   const button = (
@@ -15,15 +22,5 @@ function Button({ className, text, onClick, children }) {
 
   return button;
 }
-
-Button.propTypes = {
-  className: PropTypes.string,
-  text: PropTypes.string,
-};
-
-Button.defaultProps = {
-  className: '',
-  text: '',
-};
 
 export default Button;

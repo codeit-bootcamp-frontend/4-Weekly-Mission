@@ -1,9 +1,9 @@
 import classNames from 'classnames';
+import Button from 'components/Common/Button';
 
 import AddIcon from 'assets/images/add-primary.svg';
 
 import styles from 'components/Common/AddFolderButton.module.css';
-import Button from 'components/Common/Button';
 
 function AddFolderButton({ className, onClick }) {
   const buttonClasses = classNames(

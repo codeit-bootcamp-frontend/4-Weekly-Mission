@@ -1,7 +1,7 @@
 import classNames from 'classnames';
 import { useState } from 'react';
 
-import FloatingAddFolderButton from 'components/Common/FlaotingAddFolderButton';
+import FloatingAddFolderButton from 'components/Common/FloatingAddFolderButton';
 import Footer from 'components/Footer/Footer';
 import FolderHeaderContent from 'components/Header/FolderHeaderContent';
 import Header from 'components/Header/Header';
