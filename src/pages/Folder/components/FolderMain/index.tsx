@@ -55,34 +55,16 @@ export default function FolderMain() {
     const observer = new IntersectionObserver(
       (entries, observer) => {
         entries.forEach((entry) => {
-          if (entry.target.id === "mainEntry") {
-            if (!entry.isIntersecting) {
-              setStyle({
-                position: "fixed",
-                bottom: 0,
-                left: 0,
-                right: 0,
-                zIndex: 9999,
-              });
-            } else {
-              setStyle({});
-            }
-          } else if ((entry.target.id = "mainExit")) {
-            if (entry.isIntersecting) {
-              setStyle({});
-              flag.current = true;
-            } else {
-              if (flag.current) {
-                setStyle({
-                  position: "fixed",
-                  bottom: 0,
-                  left: 0,
-                  right: 0,
-                  zIndex: 9999,
-                });
-                flag.current = false;
-              }
-            }
+          if (!entry.isIntersecting) {
+            setStyle({
+              position: "fixed",
+              bottom: 0,
+              left: 0,
+              right: 0,
+              zIndex: 9999,
+            });
+          } else {
+            setStyle({});
           }
         });
       },
