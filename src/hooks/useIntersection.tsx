@@ -1,28 +1,23 @@
-import { useCallback, useEffect, useRef } from "react"
+import { useCallback, useEffect, useRef, useState } from "react"
 
-type IntersectHandler = (entry: IntersectionObserverEntry, observer: IntersectionObserver) => void
-
-export default function useIntersection<T extends HTMLElement>(
-  onIntersect: IntersectHandler,
-  options: IntersectionObserverInit
-) {
+export default function useIntersection<T extends HTMLElement>(options: IntersectionObserverInit) {
+  const [visible, setVisible] = useState(true)
   const ref = useRef<T>(null)
 
-  const callback = useCallback(
-    (entries: IntersectionObserverEntry[], observer: IntersectionObserver) => {
-      entries.forEach((entry) => {
-        if (!entry.isIntersecting) onIntersect(entry, observer)
-      })
-    },
-    [onIntersect]
-  )
+  const callback = useCallback((entries: IntersectionObserverEntry[], observer: IntersectionObserver) => {
+    entries.forEach((entry) => setVisible(entry.isIntersecting))
+  }, [])
 
   useEffect(() => {
     if (!ref.current) return
     const observer = new IntersectionObserver(callback, options)
-    observer.observe(ref.current)
-    return () => observer.disconnect()
+    const currentElement = ref.current
+    observer.observe(currentElement)
+    return () => {
+      if (currentElement) observer.unobserve(currentElement)
+      observer.disconnect()
+    }
   }, [callback, options])
 
-  return ref
+  return { ref, visible }
 }

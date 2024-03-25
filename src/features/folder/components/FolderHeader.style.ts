@@ -1,13 +1,13 @@
 import styled from "styled-components"
 import { Wrapper } from "components/Layout/Wrapper.style"
 
-export const Folder = styled.section<{ $isView: boolean }>`
+export const Folder = styled.section<{ $fixed?: boolean }>`
   background-color: var(--gray5);
   padding: 24px 0;
   width: 100%;
 
-  ${({ $isView }) =>
-    $isView &&
+  ${({ $fixed }) =>
+    $fixed &&
     `
       position: fixed;
       bottom: 0;

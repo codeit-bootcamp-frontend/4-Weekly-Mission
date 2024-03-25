@@ -1,11 +1,11 @@
 import React from "react"
-import * as S from "./FolderHeader.style"
+import * as S from "features/folder/components/FolderHeader.style"
 import AddLinkIcon from "assets/images/icon/folder-add-link.svg"
 import Button from "components/UI/Button"
 
-function FolderHeader() {
+function FixedSearchBar() {
   return (
-    <S.Folder>
+    <S.Folder $fixed={true}>
       <S.FolderWrapper>
         <S.Form>
           <div className="input-layout">
@@ -21,4 +21,4 @@ function FolderHeader() {
   )
 }
 
-export default FolderHeader
+export default FixedSearchBar

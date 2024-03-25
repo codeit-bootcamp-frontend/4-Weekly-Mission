@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react"
+import { useContext, useState } from "react"
 import { FolderCategories, FolderAddButton, FolderFeatures } from "."
 import * as UI from "components/UI"
 import ArticleList from "components/article/ArticleList"
