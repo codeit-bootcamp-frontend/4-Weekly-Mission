@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { useGetSampleFolder } from "../../hooks/useGetSampleFolder";
 import Layout from "../../layout/Layout";
 import FolderInfo from "../../components/FolderInfo/FolderInfo";
@@ -9,15 +10,23 @@ import "./MainSharePage.css";
 const MainSharePage = () => {
   const { data } = useGetSampleFolder();
   const { profileImage, ownerName, folderName, links } = data || {};
+  const [searchWord, setSearchWord] = useState("");
+
+  const searchedLinksData = links?.filter(
+    (link) =>
+      link.url?.includes(searchWord) ||
+      link.title?.includes(searchWord) ||
+      link.description?.includes(searchWord),
+  );
 
   return (
     <Layout>
       <div className="MainSharePage">
         <FolderInfo profileImage={profileImage} ownerName={ownerName} folderName={folderName} />
         <div className="MainSharePageItems">
-          <SearchBar />
+          <SearchBar searchWord={searchWord} setSearchWord={setSearchWord} />
           <CardInventory>
-            {links?.map((linkCard) => (
+            {searchedLinksData?.map((linkCard) => (
               <ShareLinkCard key={linkCard.id} {...linkCard} />
             ))}
           </CardInventory>
