@@ -42,11 +42,14 @@ export default function SharedPage() {
   useEffect(() => {
     if (searchValue !== "") {
       const filteredLinks = linksData?.filter((link) => {
-        return Object.values(link).join("").includes(searchValue);
+        return Object.values(link)
+          .join("")
+          .toLowerCase()
+          .includes(searchValue.toLowerCase());
       });
       setLinksData(filteredLinks);
     } else {
-      setLinksData(data?.links);
+      setLinksData(linksData);
     }
   }, [searchValue]);
   // 여기까지

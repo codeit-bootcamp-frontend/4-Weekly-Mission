@@ -7,7 +7,7 @@ interface useIntersectionObserverProps {
 
 export default function useIntersectionObserver({
   targetRef,
-  threshold = 0.1,
+  threshold = 0,
 }: useIntersectionObserverProps): boolean {
   const [isIntersecting, setIsIntersecting] = useState(false);
 

@@ -22,24 +22,28 @@ export default function CardListBox() {
   const [searchLinks, setSearchLinks] = useState<ObjectLink[]>([]);
   // inputValue 상태
   const [searchValue, setSearchValue] = useState("");
-
+  // useGet Hook으로 dataFetching
   const { data: foldersData, isLoading: isFoldersLoading } = useGet<
     ObjectFolder[]
   >(END_POINT.folders);
-
+  // 북마크 Folder의 id값으로 해당 id의 dataFetching
   const { data: linksData, isLoading: isLinksLoading } =
     useGet<FormetLink[]>(changeLinksFolder);
 
   useEffect(() => {
     if (!isFoldersLoading && !isLinksLoading) {
+      // 북마크 Folders 상태 변경
       setFolders(foldersData);
+      // ObjectValues의 이름값 formating
       const strangeData = linksData;
       const rightData = getFormattedLinks(strangeData);
+      // links 상태 변경
       setLinks(rightData);
+      // 검색용 links 상태 변경
       setSearchLinks(rightData);
     }
   }, [foldersData, isFoldersLoading, linksData, isLinksLoading]);
-
+  //
   const handleFolderClick = (folder: ObjectFolder) => {
     setChangeLinksFolder(`${END_POINT.links}?folderId=${folder.id}`);
     setLinksTitle(folder.name);
