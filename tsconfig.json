@@ -1,0 +1,33 @@
+{
+  "compilerOptions": {
+    "target": "es6",
+    "lib": ["dom", "dom.iterable", "esnext"],
+    "allowJs": true,
+    "skipLibCheck": true,
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "strict": true,
+    "forceConsistentCasingInFileNames": true,
+    "noFallthroughCasesInSwitch": true,
+    "module": "esnext",
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "noEmit": true,
+    //"jsx": "react-jsx",
+    "jsx": "preserve",
+    //"types": ["@emotion/react/types/css-prop"],
+    "rootDir": "src",
+    "outDir": "./dist",
+    "typeRoots": ["src/index.types"],
+    "jsxImportSource": "@emotion/react",
+    "baseUrl": "./src"
+    // "baseUrl": ".",
+    // "paths": {
+    //   "@components/": ["src/components/"],
+    //   "@/": ["src/"]
+    // }
+  },
+  "include": ["src/**/*"]
+  //exclude로 빌드 하지 않을 파일 고를 수 있음
+}
