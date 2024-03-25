@@ -1,11 +1,15 @@
 // getProfileData
-type Profile = {
+export type ProfileDatum = {
 	auth_id: string;
 	created_at: string;
 	email: string;
 	id: number;
 	image_source: string;
 	name: string;
+};
+
+export type Profile = {
+	data: ProfileDatum[];
 };
 
 // getFolderData
@@ -66,7 +70,7 @@ export type LinkData = {
 	data: LinkDatum[];
 };
 
-export const getProfileData = async (): Promise<Profile[]> => {
+export const getProfileData = async (): Promise<Profile> => {
 	const response = await fetch("https://bootcamp-api.codeit.kr/api/users/1");
 
 	if (!response.ok) {
