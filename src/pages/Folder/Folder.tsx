@@ -69,7 +69,7 @@ const Folder = () => {
             <h2>{selectedItem.name}</h2>
             {selectedItem.id !== 0 && <FolderNavbar folderName={selectedItem.name} />}
           </div>
-          {hasLinks ? <Cards links={searchedLinks} bookmark popover /> : <Empty />}
+          {hasLinks ? <Cards links={searchedLinks} folders={folders} bookmark popover /> : <Empty />}
         </div>
         <button className={styles.actionButton}>
           <span>폴더 추가</span>

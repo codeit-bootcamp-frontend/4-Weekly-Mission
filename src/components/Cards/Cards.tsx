@@ -2,7 +2,7 @@ import Card from '../Card/Card';
 import { CardsProps } from './Cards.types';
 import styles from './Cards.module.scss';
 
-const Cards = ({ links, bookmark = false, popover = false }: CardsProps) => {
+const Cards = ({ links, folders, bookmark = false, popover = false }: CardsProps) => {
   return (
     <section className={styles.layout}>
       {links.map(link => {
@@ -16,6 +16,7 @@ const Cards = ({ links, bookmark = false, popover = false }: CardsProps) => {
             imageURL={imageSource}
             bookmark={bookmark}
             popover={popover}
+            folders={folders}
           />
         );
       })}

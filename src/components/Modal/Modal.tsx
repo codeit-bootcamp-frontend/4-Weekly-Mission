@@ -40,7 +40,7 @@ const Modal = ({ title, children, onClose }: ModalProps) => {
           <button className={styles.closeButton} onClick={handleCloseButtonClick}>
             <VscChromeClose />
           </button>
-          <h2>{title}</h2>
+          <h2 className={styles.title}>{title}</h2>
           {children}
         </div>
       </section>
