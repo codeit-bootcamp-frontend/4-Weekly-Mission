@@ -1,45 +1,29 @@
-import { CSSProperties, useEffect, useRef, useState } from "react";
+import { CSSProperties, useRef } from "react";
 import { Header } from "@components/Header";
 import AddLinkInput from "@components/AddLinkInput/AddLinkInput";
 import CardListBox from "@components/CardListBox/CardListBox";
 import Footer from "@components/Footer/Footer";
 import styles from "./FolderPage.module.scss";
+import useIntersectionObserver from "@/hooks/useIntersectionObserver";
 
 export default function FolderPage() {
   const headerPosition: CSSProperties = {
     position: "relative",
   };
 
-  // 작업중
-  const [isAddLinkInputVisible, setIsAddLinkInputVisible] = useState(false);
   const addLinkInputRef = useRef<HTMLDivElement>(null);
   const footerRef = useRef<HTMLDivElement>(null);
+  const isAddLinkInputVisible = useIntersectionObserver({
+    targetRef: addLinkInputRef,
+  });
+  const isFooterVisible = useIntersectionObserver({ targetRef: footerRef });
 
-  const addLinkInputStyle: CSSProperties = isAddLinkInputVisible
-    ? {
-        visibility: "hidden",
-      }
-    : {};
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          setIsAddLinkInputVisible(entry.isIntersecting);
-        });
-      },
-      { threshold: 0.1 }
-    );
-
-    if (addLinkInputRef.current && footerRef.current) {
-      observer.observe(addLinkInputRef.current);
-      observer.observe(footerRef.current);
-    }
-
-    return () => {
-      observer.disconnect();
-    };
-  }, []);
+  const addLinkInputStyle: CSSProperties =
+    isAddLinkInputVisible || isFooterVisible
+      ? {
+          visibility: "hidden",
+        }
+      : {};
 
   return (
     <>
