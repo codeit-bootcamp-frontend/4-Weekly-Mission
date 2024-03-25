@@ -1,18 +1,23 @@
-import { InputHTMLAttributes } from "react"
+import { ChangeEvent, InputHTMLAttributes } from "react"
 import * as S from "./SearchBar.style"
-import searchImage from "assets/images/icon/search.svg"
+import SearchIcon from "assets/images/icon/search.svg"
+import ExitIcon from "assets/images/icon/modal_close.svg"
 
 interface SearchBarProps extends InputHTMLAttributes<HTMLInputElement> {
-  onChange?: any
+  onChange?: (event: ChangeEvent<HTMLInputElement>) => void
+  onReset?: () => void
 }
 
-function SearchBar({ type, placeholder, name, value, onChange }: SearchBarProps) {
+function SearchBar({ type, placeholder, name, value, onChange, onReset }: SearchBarProps) {
   return (
     <S.Search>
       <input type={type} placeholder={placeholder} name={name} className="input" value={value} onChange={onChange} />
-      <S.SearchIcon>
-        <img src={searchImage} alt="" />
-      </S.SearchIcon>
+      <S.SearchIcon src={SearchIcon} alt="" />
+      {value && (
+        <S.Cancel type="button" onClick={onReset}>
+          <img src={ExitIcon} alt="입력한 값 지우기" />
+        </S.Cancel>
+      )}
     </S.Search>
   )
 }

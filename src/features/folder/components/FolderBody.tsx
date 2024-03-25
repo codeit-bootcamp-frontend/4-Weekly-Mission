@@ -25,6 +25,7 @@ function FolderBody() {
   const handleSelectedUrl = (url: string) => setDeletedUrl(url)
 
   const [searchValue, setSearchValue] = useState("")
+  const handleSearchValueReset = () => setSearchValue("")
   const handleSearchValueChange = (event: ChangeEvent<HTMLInputElement>) => setSearchValue(event.target.value)
   const debounceSearchValue = useDebounce(searchValue, 0.5)
 
@@ -50,6 +51,7 @@ function FolderBody() {
           name="search"
           value={searchValue}
           onChange={handleSearchValueChange}
+          onReset={handleSearchValueReset}
         />
         <S.Layout>
           <FolderCategories />

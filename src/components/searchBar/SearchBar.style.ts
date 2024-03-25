@@ -25,11 +25,18 @@ export const Search = styled.div`
   }
 `
 
-export const SearchIcon = styled.div`
+export const SearchIcon = styled.img`
   width: 16px;
   height: 16px;
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
   left: 16px;
+`
+
+export const Cancel = styled.button`
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translate(-50%, -50%);
 `
