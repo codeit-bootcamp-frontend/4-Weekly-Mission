@@ -1,16 +1,20 @@
 import classNames from 'classnames';
-import PropTypes from 'prop-types';
-import { useState } from 'react';
+import React, { useState } from 'react';
 
 import ModalButton from 'components/Common/ModalButton';
 import TextInput from 'components/Common/TextInput';
 import styles from 'components/Modal/AddFolderModal.module.css';
 import ModalContainer from 'components/Modal/ModalContainer';
 
-function AddFolderModal({ onSubmit, onClose }) {
+interface AddFolderModalProps {
+  onSubmit: () => void;
+  onClose: () => void;
+}
+
+function AddFolderModal({ onSubmit, onClose }: AddFolderModalProps) {
   const [inputValue, setInputValue] = useState('');
 
-  const handleInputChange = (e) => {
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setInputValue(e.target.value);
   };
 
@@ -34,10 +38,5 @@ function AddFolderModal({ onSubmit, onClose }) {
     </ModalContainer>
   );
 }
-
-AddFolderModal.propTypes = {
-  onSubmit: PropTypes.func.isRequired,
-  onClose: PropTypes.func.isRequired,
-};
 
 export default AddFolderModal;

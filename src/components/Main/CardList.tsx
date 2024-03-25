@@ -1,5 +1,4 @@
 import classNames from 'classnames';
-import PropTypes from 'prop-types';
 
 import useFetch from 'hooks/useFetch';
 
@@ -7,14 +6,18 @@ import ErrorMessage from 'components/Common/ErrorMessage';
 import Card from 'components/Main/Card';
 import styles from 'components/Main/CardList.module.css';
 
-import { LINKS_API_URL, LINKS_FOLDER_ID_API_URL } from 'services/api';
+import { LINKS_API_URL, LINKS_FOLDER_ID_API_URL, LinksApiResponse } from 'services/api';
 
-function CardList({ folderId }) {
+interface CardListProps {
+  folderId?: number;
+}
+
+function CardList({ folderId = 0 }: CardListProps) {
   const LOADING_MESSAGE = 'Loading...';
   const ALL = { id: 0, name: '전체' };
 
   const url = folderId === ALL.id ? LINKS_API_URL : LINKS_FOLDER_ID_API_URL(folderId);
-  const { data, loading, error } = useFetch(url);
+  const { data, loading, error } = useFetch<LinksApiResponse>(url);
 
   // {created_at, description, folder_id, id, image_source, title, updated_at, url}
   const linkList = data?.data ?? [];
@@ -44,13 +47,5 @@ function CardList({ folderId }) {
     </div>
   );
 }
-
-CardList.propTypes = {
-  folderId: PropTypes.number,
-};
-
-CardList.defaultProps = {
-  folderId: 0,
-};
 
 export default CardList;

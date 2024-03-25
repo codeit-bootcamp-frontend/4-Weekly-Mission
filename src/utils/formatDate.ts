@@ -1,4 +1,4 @@
-function formatDate(dateString) {
+function formatDate(dateString: string) {
   const date = new Date(dateString);
   const year = date.getFullYear();
   const month = `0${date.getMonth() + 1}`.slice(-2); // months는 0부터 시작하므로 +1 적용

@@ -14,7 +14,7 @@ function AddLinkBar() {
   const [addLinkValue, setAddLinkValue] = useState('');
   const { openModal } = useModal();
 
-  const handleInputChange = (e) => {
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setAddLinkValue(e.target.value);
   };
 

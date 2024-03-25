@@ -1,9 +1,13 @@
 import classNames from 'classnames';
-import propTypes from 'prop-types';
+import React from 'react';
 
 import styles from 'components/Main/Main.module.css';
 
-function Main({ children }) {
+interface MainProps {
+  children: React.ReactNode;
+}
+
+function Main({ children }: MainProps) {
   const mainClasses = classNames(styles.main, 'width-full');
   const mainContainerClasses = classNames(styles['main-container'], 'margin-auto');
 
@@ -13,13 +17,5 @@ function Main({ children }) {
     </main>
   );
 }
-
-Main.propTypes = {
-  children: propTypes.node,
-};
-
-Main.defaultProps = {
-  children: null,
-};
 
 export default Main;

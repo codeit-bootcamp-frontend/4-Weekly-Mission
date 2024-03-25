@@ -27,13 +27,13 @@ function Modal() {
   const { onSubmit, ...restPropList } = propList;
 
   const onClose = () => {
-    close(ModalComponent);
+    close();
   };
 
   // onSubmit -> 동기/비동기 여부를 모르기 때문에 비동기로 처리
   const handleSubmit = async () => {
     // propList와 onSubmit이 없는 경우 예외 처리
-    if (propList && propList.onSubmit) {
+    if (propList) {
       await onSubmit();
     }
 

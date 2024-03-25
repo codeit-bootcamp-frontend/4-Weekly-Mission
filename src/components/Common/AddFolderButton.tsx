@@ -1,11 +1,17 @@
 import classNames from 'classnames';
+import React from 'react';
 
 import AddIcon from 'assets/images/add-primary.svg';
 
 import styles from 'components/Common/AddFolderButton.module.css';
 import Button from 'components/Common/Button';
 
-function AddFolderButton({ className, onClick }) {
+interface AddFolderButtonProps {
+  className?: string;
+  onClick: () => void;
+}
+
+function AddFolderButton({ className = '', onClick }: AddFolderButtonProps) {
   const buttonClasses = classNames(
     styles['add-folder-button'],
     'align-center',

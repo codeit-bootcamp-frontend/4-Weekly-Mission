@@ -1,11 +1,16 @@
 import classNames from 'classnames';
-import PropTypes from 'prop-types';
 
 import ModalButton from 'components/Common/ModalButton';
 import styles from 'components/Modal/DeleteLinkModal.module.css';
 import ModalContainer from 'components/Modal/ModalContainer';
 
-function DeleteLinkModal({ link, onSubmit, onClose }) {
+interface DeleteLinkModalProps {
+  link: { url: string };
+  onSubmit: () => void;
+  onClose: () => void;
+}
+
+function DeleteLinkModal({ link, onSubmit, onClose }: DeleteLinkModalProps) {
   // {created_at, description, folder_id, id, image_source, title, updated_at, url}
   const { url } = link;
 
@@ -26,15 +31,5 @@ function DeleteLinkModal({ link, onSubmit, onClose }) {
     </ModalContainer>
   );
 }
-
-DeleteLinkModal.propTypes = {
-  link: PropTypes.shape({ url: PropTypes.string }),
-  onSubmit: PropTypes.func.isRequired,
-  onClose: PropTypes.func.isRequired,
-};
-
-DeleteLinkModal.defaultProps = {
-  link: { url: null },
-};
 
 export default DeleteLinkModal;

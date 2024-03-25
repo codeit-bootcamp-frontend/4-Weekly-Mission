@@ -1,6 +1,5 @@
 import classNames from 'classnames';
-import PropTypes from 'prop-types';
-import { useState } from 'react';
+import React, { useState } from 'react';
 
 import NoImage from 'assets/images/card-no-image.svg';
 
@@ -9,10 +8,16 @@ import SelectMenu from 'components/Common/SelectMenu';
 import StarButton from 'components/Common/StarButton';
 import styles from 'components/Main/Card.module.css';
 
+import { LinkData } from 'services/api';
+
 import formatDate from 'utils/formatDate';
 import timeAgo from 'utils/timeAgo';
 
-function Card({ linkData }) {
+interface CardProps {
+  linkData: LinkData;
+}
+
+function Card({ linkData }: CardProps) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isFavorite, setIsFavorite] = useState(false);
 
@@ -29,7 +34,7 @@ function Card({ linkData }) {
     window.open(url, '_blank', 'noopener,noreferrer');
   };
 
-  const handleCardClickByEnter = (e) => {
+  const handleCardClickByEnter = (e: React.KeyboardEvent) => {
     if (e.key === 'Enter') {
       e.preventDefault();
       handleCardClick();
@@ -40,12 +45,12 @@ function Card({ linkData }) {
     setIsMenuOpen(false);
   };
 
-  const handleStarButtonClick = (e) => {
+  const handleStarButtonClick = (e: React.MouseEvent) => {
     e.stopPropagation();
     setIsFavorite(!isFavorite);
   };
 
-  const handleKebabButtonClick = (e) => {
+  const handleKebabButtonClick = (e: React.MouseEvent) => {
     e.stopPropagation();
     setIsMenuOpen(!isMenuOpen);
   };
@@ -90,23 +95,5 @@ function Card({ linkData }) {
     </div>
   );
 }
-
-Card.propTypes = {
-  linkData: PropTypes.shape({
-    created_at: PropTypes.string,
-    url: PropTypes.string,
-    description: PropTypes.string,
-    image_source: PropTypes.string,
-  }),
-};
-
-Card.defaultProps = {
-  linkData: {
-    created_at: '',
-    url: '',
-    description: '',
-    image_source: '',
-  },
-};
 
 export default Card;

@@ -1,6 +1,6 @@
-function timeAgo(createdAt) {
-  const now = new Date();
-  const createdTime = new Date(createdAt);
+function timeAgo(createdAt: string) {
+  const now = Number(new Date());
+  const createdTime = Number(new Date(createdAt));
   const diffInSeconds = Math.floor((now - createdTime) / 1000);
   const minutes = Math.floor(diffInSeconds / 60);
   const hours = Math.floor(minutes / 60);

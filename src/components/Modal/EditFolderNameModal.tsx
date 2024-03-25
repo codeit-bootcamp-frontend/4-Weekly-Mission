@@ -1,16 +1,23 @@
 import classNames from 'classnames';
-import PropTypes from 'prop-types';
-import { useState } from 'react';
+import React, { useState } from 'react';
 
 import ModalButton from 'components/Common/ModalButton';
 import TextInput from 'components/Common/TextInput';
 import styles from 'components/Modal/EditFolderNameModal.module.css';
 import ModalContainer from 'components/Modal/ModalContainer';
 
-function EditFolderNameModal({ folder, onSubmit, onClose }) {
+import { FolderData } from 'services/api';
+
+interface EditFolderNameModalProps {
+  folder: FolderData;
+  onSubmit: () => void;
+  onClose: () => void;
+}
+
+function EditFolderNameModal({ folder, onSubmit, onClose }: EditFolderNameModalProps) {
   const [inputValue, setInputValue] = useState('');
 
-  const handleInputChange = (e) => {
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setInputValue(e.target.value);
   };
 
@@ -34,15 +41,5 @@ function EditFolderNameModal({ folder, onSubmit, onClose }) {
     </ModalContainer>
   );
 }
-
-EditFolderNameModal.propTypes = {
-  folder: PropTypes.shape(),
-  onSubmit: PropTypes.func.isRequired,
-  onClose: PropTypes.func.isRequired,
-};
-
-EditFolderNameModal.defaultProps = {
-  folder: null,
-};
 
 export default EditFolderNameModal;

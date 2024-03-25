@@ -1,10 +1,14 @@
 import classNames from 'classnames';
-import propTypes from 'prop-types';
+import React from 'react';
 
 import Gnb from 'components/Header/Gnb';
 // import styles from 'components/Header/Header.module.css';
 
-function Header({ children }) {
+interface HeaderProps {
+  children: React.ReactNode;
+}
+
+function Header({ children }: HeaderProps) {
   const headerClasses = classNames('background-bg', 'width-full');
 
   return (
@@ -14,13 +18,5 @@ function Header({ children }) {
     </header>
   );
 }
-
-Header.propTypes = {
-  children: propTypes.node,
-};
-
-Header.defaultProps = {
-  children: null,
-};
 
 export default Header;

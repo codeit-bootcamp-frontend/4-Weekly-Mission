@@ -1,5 +1,5 @@
 import classNames from 'classnames';
-import PropTypes from 'prop-types';
+import React from 'react';
 
 import useModal from 'hooks/useModal';
 
@@ -8,7 +8,14 @@ import styles from 'components/Common/SelectMenu.module.css';
 
 import { modalList } from 'context/Modal';
 
-function SelectMenu({ className, link }) {
+import { LinkData } from 'services/api';
+
+interface SelectMenuProps {
+  className?: string;
+  link: LinkData;
+}
+
+function SelectMenu({ className = '', link }: SelectMenuProps) {
   const { openModal } = useModal();
 
   const menuList = [
@@ -22,7 +29,7 @@ function SelectMenu({ className, link }) {
     },
   ];
 
-  const handleMenuClick = (e, key) => {
+  const handleMenuClick = (e: React.MouseEvent, key: string) => {
     e.stopPropagation();
 
     console.log('MenuList');
@@ -37,11 +44,9 @@ function SelectMenu({ className, link }) {
 
     switch (key) {
       case 'deleteLink':
-        // modal = <DeleteLinkModal link={link} isModalOpen={isModalOpen} setIsModalOpen={setIsModalOpen} />;
         openModal(modalList.DeleteLinkModal, { onSubmit: handleDeleteLink, link });
         break;
       case 'addToFolder':
-        // modal = <AddToFolderModal link={link} isModalOpen={isModalOpen} setIsModalOpen={setIsModalOpen} />;
         openModal(modalList.AddToForderModal, { onSubmit: handleAddToFolder, link });
         break;
       default:
@@ -60,22 +65,11 @@ function SelectMenu({ className, link }) {
             key={menu.id}
             className={`${menuElementClasses} `}
             text={menu.label}
-            onClick={(e) => handleMenuClick(e, menu.id)}
+            onClick={(e: React.MouseEvent) => handleMenuClick(e, menu.id)}
           />
         ))}
       </div>
     </div>
   );
 }
-
-SelectMenu.propTypes = {
-  className: PropTypes.string,
-  link: PropTypes.shape(),
-};
-
-SelectMenu.defaultProps = {
-  className: '',
-  link: null,
-};
-
 export default SelectMenu;

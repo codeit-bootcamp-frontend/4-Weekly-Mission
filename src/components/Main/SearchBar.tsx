@@ -8,7 +8,7 @@ import styles from 'components/Main/SearchBar.module.css';
 function SearchBar() {
   const [inputValue, setInputValue] = useState('');
 
-  const handleInputChange = (e) => {
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setInputValue(e.target.value);
   };
 

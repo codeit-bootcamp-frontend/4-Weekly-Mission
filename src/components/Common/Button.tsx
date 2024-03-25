@@ -1,16 +1,16 @@
 import classNames from 'classnames';
-import { ReactNode } from 'react';
+import React from 'react';
 
 import styles from 'components/Common/Button.module.css';
 
 interface ButtonProps {
   className?: string;
   text?: string;
-  onClick?: () => void;
-  children?: ReactNode;
+  onClick?: React.MouseEventHandler<HTMLButtonElement>;
+  children?: React.ReactNode;
 }
 
-function Button({ className = '', text = '', onClick, children }: ButtonProps) {
+function Button({ className = '', text = '', onClick, children = null }: ButtonProps) {
   const buttonClasses = classNames(styles.button, 'cursor-pointer', className);
 
   const button = (

@@ -1,5 +1,4 @@
 import classNames from 'classnames';
-import PropTypes from 'prop-types';
 
 import Facebook from 'assets/images/share-facebook.svg';
 import Kakao from 'assets/images/share-kakao.svg';
@@ -9,7 +8,14 @@ import Button from 'components/Common/Button';
 import ModalContainer from 'components/Modal/ModalContainer';
 import styles from 'components/Modal/ShareModal.module.css';
 
-function ShareModal({ folder, onClose }) {
+import { FolderData } from 'services/api';
+
+interface ShareModalProps {
+  folder: FolderData;
+  onClose: () => void;
+}
+
+function ShareModal({ folder, onClose }: ShareModalProps) {
   const { id, name } = folder;
 
   const host = window.location.origin;
@@ -38,7 +44,7 @@ function ShareModal({ folder, onClose }) {
   ];
 
   // 공유 실행
-  const handleShareButtonClick = (type) => {
+  const handleShareButtonClick = (type: string) => {
     switch (type) {
       case 'kakao':
         // 카카오톡 공유는 과정 상 어려움이 있어서 클립보드 복사로 대체
@@ -78,14 +84,5 @@ function ShareModal({ folder, onClose }) {
     </ModalContainer>
   );
 }
-
-ShareModal.propTypes = {
-  folder: PropTypes.shape({ id: PropTypes.number, name: PropTypes.string }),
-  onClose: PropTypes.func.isRequired,
-};
-
-ShareModal.defaultProps = {
-  folder: { id: -1, name: '폴더명' },
-};
 
 export default ShareModal;

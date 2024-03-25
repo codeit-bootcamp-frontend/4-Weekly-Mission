@@ -1,5 +1,5 @@
 import classNames from 'classnames';
-import PropTypes from 'prop-types';
+import React from 'react';
 import ReactModal from 'react-modal';
 
 import CloseIcon from 'assets/images/close.svg';
@@ -38,7 +38,13 @@ import styles from 'components/Modal/ModalContainer.module.css';
 // overlayRef와 contentRef: 오버레이와 콘텐츠에 대한 참조를 직접 제어할 수 있습니다.
 
 // onClose: 모달을 닫을 때 실행하는 콜백 함수
-function ModalContainer({ children, onClose }) {
+
+interface ModalContainerProps {
+  children: React.ReactNode;
+  onClose: () => void;
+}
+
+function ModalContainer({ children, onClose }: ModalContainerProps) {
   const handleCloseButtonClick = () => {
     onClose();
   };
@@ -76,7 +82,7 @@ function ModalContainer({ children, onClose }) {
       onRequestClose={onClose}
       shouldCloseOnOverlayClick
       shouldCloseOnEsc
-      parentSelector={() => document.querySelector('#modal-root')}
+      parentSelector={() => document.querySelector('#modal-root') || document.body}
     >
       <Button className={closeIconClasses} onClick={handleCloseButtonClick}>
         <img src={CloseIcon} alt="close-icon" />
@@ -85,10 +91,4 @@ function ModalContainer({ children, onClose }) {
     </ReactModal>
   );
 }
-
-ModalContainer.propTypes = {
-  children: PropTypes.node.isRequired,
-  onClose: PropTypes.func.isRequired,
-};
-
 export default ModalContainer;

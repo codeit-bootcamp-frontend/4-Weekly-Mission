@@ -1,5 +1,4 @@
 import classNames from 'classnames';
-import PropTypes from 'prop-types';
 import { useState } from 'react';
 
 import CheckIcon from 'assets/images/check.svg';
@@ -11,12 +10,18 @@ import ModalButton from 'components/Common/ModalButton';
 import styles from 'components/Modal/AddToFolderModal.module.css';
 import ModalContainer from 'components/Modal/ModalContainer';
 
-import { FOLDERS_API_URL } from 'services/api';
+import { FOLDERS_API_URL, FolderApiResponse, FolderData } from 'services/api';
 
-function AddToFolderModal({ link, onSubmit, onClose }) {
+interface AddfolderModalProps {
+  link: { url: string };
+  onSubmit: () => void;
+  onClose: () => void;
+}
+
+function AddToFolderModal({ link, onSubmit, onClose }: AddfolderModalProps) {
   const LOADING_MESSAGE = 'Loading...';
   const foldersUrl = FOLDERS_API_URL;
-  const { data, loading, error } = useFetch(foldersUrl);
+  const { data, loading, error } = useFetch<FolderApiResponse>(foldersUrl);
 
   // {created_at, description, folder_id, id, image_source, title, updated_at, url}
   const { url } = link;
@@ -24,7 +29,7 @@ function AddToFolderModal({ link, onSubmit, onClose }) {
   // {id, created_at, name, user_id, favorite, link: {count}}
   const folderList = data?.data ?? [];
 
-  const [selectedFolder, setSelectedFolder] = useState(null);
+  const [selectedFolder, setSelectedFolder] = useState<FolderData | null>(null);
 
   const handleButtonClick = () => {
     if (!selectedFolder) {
@@ -38,9 +43,13 @@ function AddToFolderModal({ link, onSubmit, onClose }) {
     return null;
   };
 
-  const handleListClick = (key) => {
+  const handleListClick = (key: number) => {
     const targetFolder = folderList.find((folder) => folder.id === key);
-    setSelectedFolder(targetFolder);
+    if (targetFolder !== undefined) {
+      setSelectedFolder(targetFolder);
+    } else {
+      setSelectedFolder(null);
+    }
   };
 
   // classNames
@@ -67,7 +76,6 @@ function AddToFolderModal({ link, onSubmit, onClose }) {
           <AddFolderList
             key={folder.id}
             className={selectedFolder?.id === folder.id ? selectedAddFolderListClasses : addFolderListClasses}
-            folder={folder}
             onClick={() => handleListClick(folder.id)}
           >
             <div className={textContainerClasses}>
@@ -88,15 +96,5 @@ function AddToFolderModal({ link, onSubmit, onClose }) {
     </ModalContainer>
   );
 }
-
-AddToFolderModal.propTypes = {
-  link: PropTypes.shape({ url: PropTypes.string }),
-  onSubmit: PropTypes.func.isRequired,
-  onClose: PropTypes.func.isRequired,
-};
-
-AddToFolderModal.defaultProps = {
-  link: { url: '링크 주소' },
-};
 
 export default AddToFolderModal;

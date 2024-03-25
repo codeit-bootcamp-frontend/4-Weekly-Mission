@@ -17,7 +17,13 @@ import './index.css';
 // 모달이 활성화될 때 애플리케이션의 appElement을 제외한 나머지 부분에 대한 접근을 차단
 ReactModal.setAppElement('#modal-root');
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
+const rootElement = document.getElementById('root');
+
+if (!rootElement) {
+  throw new Error('Failed to find the root element');
+}
+
+const root = ReactDOM.createRoot(rootElement);
 
 // React.StrictMode: 개발 단계에서 안전하지 않은 생명주기, 레거시 API 사용, 예상치 못한 부작용 등을 개발 단계에서 미리 발견하고 수정
 // React.StrictMode -> render(), shouldComponentUpdate(), setState, ... 등 여러 메서드가 두 번 호출됨

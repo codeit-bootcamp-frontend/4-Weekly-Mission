@@ -1,12 +1,17 @@
 import classNames from 'classnames';
-import PropTypes from 'prop-types';
+import React from 'react';
 
 import KebabImg from 'assets/images/kebab.svg';
 
 import Button from 'components/Common/Button';
 import styles from 'components/Common/KebabButton.module.css';
 
-function KebabButton({ className, onClick }) {
+interface KebabButtonProps {
+  className?: string;
+  onClick: React.MouseEventHandler<HTMLButtonElement>;
+}
+
+function KebabButton({ className = '', onClick }: KebabButtonProps) {
   const buttonClasses = classNames(styles['kebab-button'], 'background-none', 'border-none', className);
   const buttonImageClasses = classNames('width-full');
 
@@ -16,15 +21,5 @@ function KebabButton({ className, onClick }) {
     </Button>
   );
 }
-
-KebabButton.propTypes = {
-  className: PropTypes.string,
-  onClick: PropTypes.func,
-};
-
-KebabButton.defaultProps = {
-  className: '',
-  onClick: null,
-};
 
 export default KebabButton;

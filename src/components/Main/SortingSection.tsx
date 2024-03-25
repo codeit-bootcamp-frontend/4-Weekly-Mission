@@ -1,5 +1,5 @@
 import classNames from 'classnames';
-import PropTypes from 'prop-types';
+import React from 'react';
 
 import DeleteIcon from 'assets/images/delete.svg';
 import PenIcon from 'assets/images/pen.svg';
@@ -16,23 +16,28 @@ import styles from 'components/Main/SortingSection.module.css';
 
 import { modalList } from 'context/Modal';
 
-import { FOLDERS_API_URL, LINKS_API_URL } from 'services/api';
+import { FOLDERS_API_URL, LINKS_API_URL, FolderApiResponse, LinksApiResponse } from 'services/api';
 
-function SortingSection({ selectedFolder, setSelectedFolder }) {
+interface SortingSectionProps {
+  selectedFolder: { id: number; name: string };
+  setSelectedFolder: React.Dispatch<React.SetStateAction<{ id: number; name: string }>>;
+}
+
+function SortingSection({ selectedFolder, setSelectedFolder }: SortingSectionProps) {
   const LOADING_MESSAGE = 'Loading...';
   const ALL = { id: 0, name: '전체' };
 
   const { openModal } = useModal();
 
   const url = FOLDERS_API_URL;
-  const { data, loading, error } = useFetch(url);
+  const { data, loading, error } = useFetch<FolderApiResponse>(url);
 
   // {id, created_at, name, user_id, favorite, link: {count}}
   const folderList = [ALL, ...(data?.data ?? [])];
 
   // 총 링크 수 계산
   const allLinkUrl = LINKS_API_URL;
-  const { data: allLink } = useFetch(allLinkUrl);
+  const { data: allLink } = useFetch<LinksApiResponse>(allLinkUrl);
   const linkCount = allLink?.data?.length ?? 0;
 
   // 옵션 리스트
@@ -42,9 +47,11 @@ function SortingSection({ selectedFolder, setSelectedFolder }) {
     { name: '삭제', image: DeleteIcon, key: 'deleteFolder' },
   ];
 
-  const handleSortingButtonClick = (key) => {
+  const handleSortingButtonClick = (key: number) => {
     const targetButton = folderList.find((folder) => folder.id === key);
-    setSelectedFolder(targetButton);
+    if (targetButton) {
+      setSelectedFolder(targetButton);
+    }
   };
 
   const handleAddFolderButtonClick = () => {
@@ -57,7 +64,7 @@ function SortingSection({ selectedFolder, setSelectedFolder }) {
     openModal(modalList.AddForderModal, { onSubmit: handleAddFolder });
   };
 
-  const handleOptionListClick = (key) => {
+  const handleOptionListClick = (key: string) => {
     console.log('OptionList');
 
     const handleEditFolderName = () => {
@@ -138,18 +145,5 @@ function SortingSection({ selectedFolder, setSelectedFolder }) {
     </div>
   );
 }
-
-SortingSection.propTypes = {
-  selectedFolder: PropTypes.shape({
-    id: PropTypes.number.isRequired,
-    name: PropTypes.string.isRequired,
-  }),
-  setSelectedFolder: PropTypes.func,
-};
-
-SortingSection.defaultProps = {
-  selectedFolder: { id: 0, name: '전체' },
-  setSelectedFolder: null,
-};
 
 export default SortingSection;

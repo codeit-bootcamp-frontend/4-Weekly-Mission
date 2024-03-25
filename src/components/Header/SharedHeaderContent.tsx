@@ -5,7 +5,7 @@ import useFetch from 'hooks/useFetch';
 import ErrorMessage from 'components/Common/ErrorMessage';
 import styles from 'components/Header/SharedHeaderContent.module.css';
 
-import { SAMPLE_FOLDER_API_URL } from 'services/api';
+import { SampleFolderApiResponse, SAMPLE_FOLDER_API_URL } from 'services/api';
 
 // 폴더 정보 출력
 function SharedHeaderContent() {
@@ -13,7 +13,7 @@ function SharedHeaderContent() {
 
   // 폴더 정보 가져오기
   const url = SAMPLE_FOLDER_API_URL;
-  const { data, loading, error } = useFetch(url);
+  const { data, loading, error } = useFetch<SampleFolderApiResponse>(url);
 
   const ownerProfileImg = data?.folder.owner.profileImageSource || '';
   const ownerName = data?.folder.owner.name ? `@${data.folder.owner.name}` : '';

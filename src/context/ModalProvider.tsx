@@ -1,18 +1,21 @@
-import PropTypes from 'prop-types';
-import { useMemo, useState } from 'react';
+import React, { useMemo, useState } from 'react';
 
 import { Modal } from 'context/Modal';
-import { ModalDispatchContext, ModalStateContext } from 'context/ModalContext';
+import { ModalDispatchContext, ModalState, ModalStateContext } from 'context/ModalContext';
+
+interface ModalProviderProps {
+  children: React.ReactNode;
+}
 
 // 현재 열려있는 모달 상태 관리
-function ModalProvider({ children }) {
+function ModalProvider({ children }: ModalProviderProps) {
   // 열려있는 모달 저장
-  const [openedModal, setOpenedModal] = useState();
+  const [openedModal, setOpenedModal] = useState<ModalState | null>(null);
 
   // 모달 열기
   // ModalComponent: 열고자 하는 모달 컴포넌트
   // props: 모달 컴포넌트로 넘겨주는 props
-  const open = (ModalComponent, propList) => {
+  const open = (ModalComponent: React.ElementType, propList: { onSubmit: () => Promise<void> | void }) => {
     if (!ModalComponent) return null;
     if (openedModal) return null;
 
@@ -42,13 +45,5 @@ function ModalProvider({ children }) {
     </ModalStateContext.Provider>
   );
 }
-
-ModalProvider.propTypes = {
-  children: PropTypes.node,
-};
-
-ModalProvider.defaultProps = {
-  children: null,
-};
 
 export default ModalProvider;

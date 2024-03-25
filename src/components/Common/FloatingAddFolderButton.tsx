@@ -5,7 +5,12 @@ import AddIcon from 'assets/images/add-gray10.svg';
 import Button from 'components/Common/Button';
 import styles from 'components/Common/FloatingAddFolderButton.module.css';
 
-function FloatingAddFolderButton({ className, onClick }) {
+interface FloatingAddFolderButtonProps {
+  className?: string;
+  onClick?: () => void;
+}
+
+function FloatingAddFolderButton({ className = '', onClick }: FloatingAddFolderButtonProps) {
   const buttonClasses = classNames(
     styles['floating-add-folder-button'],
     'text-color-gray10',

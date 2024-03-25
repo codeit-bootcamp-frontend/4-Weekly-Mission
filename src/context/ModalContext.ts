@@ -1,13 +1,25 @@
-/* eslint-disable @typescript-eslint/no-empty-function */
-import { createContext } from 'react';
+/* eslint-disable no-unused-vars */
+import React, { createContext } from 'react';
+
+type PropList = {
+  onSubmit: () => Promise<void> | void;
+};
+
+export interface ModalState {
+  ModalComponent: React.ElementType;
+  propList: PropList;
+}
+
+export interface ModalDispatch {
+  open: (ModalComponent: React.ElementType, propList: PropList) => void;
+  close: () => void;
+}
 
 // 모달의 상태 저장 - 활성화된 모달 추적
-const ModalStateContext = createContext([]);
+export const ModalStateContext = createContext<ModalState | null>(null);
 
 // 모달 관련 액션 실행하는 함수 저장(열기, 닫기, ...)
-const ModalDispatchContext = createContext({
+export const ModalDispatchContext = createContext<ModalDispatch>({
   open: () => {},
   close: () => {},
 });
-
-export { ModalStateContext, ModalDispatchContext };

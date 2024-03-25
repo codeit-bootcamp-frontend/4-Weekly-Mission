@@ -1,10 +1,18 @@
 import classNames from 'classnames';
-import PropTypes from 'prop-types';
+import React from 'react';
 
 import styles from 'components/Common/AddFolderList.module.css';
 
-function AddFolderList({ className, children, onClick, onMouseEnter, onMouseLeave }) {
-  const handleClickByEnter = (e) => {
+interface AddFolderListProps {
+  className?: string;
+  children?: React.ReactNode;
+  onClick: () => void;
+  onMouseEnter?: () => void;
+  onMouseLeave?: () => void;
+}
+
+function AddFolderList({ className = '', children = null, onClick, onMouseEnter, onMouseLeave }: AddFolderListProps) {
+  const handleClickByEnter = (e: React.KeyboardEvent) => {
     if (e.key === 'Enter') {
       onClick();
     }
@@ -19,27 +27,11 @@ function AddFolderList({ className, children, onClick, onMouseEnter, onMouseLeav
       onMouseLeave={onMouseLeave}
       onKeyDown={handleClickByEnter}
       role="button"
-      tabIndex="0"
+      tabIndex={0}
     >
       {children}
     </div>
   );
 }
-
-AddFolderList.propTypes = {
-  className: PropTypes.string,
-  children: PropTypes.node,
-  onClick: PropTypes.func,
-  onMouseEnter: PropTypes.func,
-  onMouseLeave: PropTypes.func,
-};
-
-AddFolderList.defaultProps = {
-  className: '',
-  children: null,
-  onClick: null,
-  onMouseEnter: null,
-  onMouseLeave: null,
-};
 
 export default AddFolderList;

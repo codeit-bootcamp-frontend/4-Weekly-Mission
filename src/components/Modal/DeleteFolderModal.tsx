@@ -1,11 +1,16 @@
 import classNames from 'classnames';
-import PropTypes from 'prop-types';
 
 import ModalButton from 'components/Common/ModalButton';
 import styles from 'components/Modal/DeleteFolderModal.module.css';
 import ModalContainer from 'components/Modal/ModalContainer';
 
-function DeleteFolderModal({ folder, onSubmit, onClose }) {
+interface DeleteFolderModalProps {
+  folder: { name: string };
+  onSubmit: () => void;
+  onClose: () => void;
+}
+
+function DeleteFolderModal({ folder, onSubmit, onClose }: DeleteFolderModalProps) {
   // {id, created_at, name, user_id, favorite, link: {count}}
   const { name } = folder;
 
@@ -26,15 +31,5 @@ function DeleteFolderModal({ folder, onSubmit, onClose }) {
     </ModalContainer>
   );
 }
-
-DeleteFolderModal.propTypes = {
-  folder: PropTypes.shape({ name: PropTypes.string }),
-  onSubmit: PropTypes.func.isRequired,
-  onClose: PropTypes.func.isRequired,
-};
-
-DeleteFolderModal.defaultProps = {
-  folder: { name: '폴더명' },
-};
 
 export default DeleteFolderModal;
