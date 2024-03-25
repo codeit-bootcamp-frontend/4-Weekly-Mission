@@ -1,7 +1,23 @@
 import styled from "styled-components";
 
-const KebabMenu = ({ isShowModal, dataUrl }) => {
-  const isDeleteModal = (e) => {
+interface ModalState {
+  linkModal: false;
+  folderAddModal: false;
+  shareAddModal: false;
+  editAddModal: false;
+  deleteAddModal: false;
+  linkDeleteModal: true;
+  dataUrl?: string;
+}
+
+// 컴포넌트의 props 타입 정의
+interface KebabMenuProps {
+  isShowModal: (modalState: (prevState: ModalState) => ModalState) => void;
+  dataUrl: string;
+}
+
+const KebabMenu: React.FC<KebabMenuProps> = ({ isShowModal, dataUrl }) => {
+  const isDeleteModal = (e: React.MouseEvent<HTMLDivElement>) => {
     e.preventDefault();
     isShowModal((prev) => ({
       linkModal: false,
@@ -15,15 +31,15 @@ const KebabMenu = ({ isShowModal, dataUrl }) => {
     console.log();
   };
 
-  const isFolderAddModal = (e) => {
+  const isFolderAddModal = (e: React.MouseEvent<HTMLDivElement>) => {
     e.preventDefault();
     isShowModal((prev) => ({
-      linkModal: true,
+      linkModal: false,
       folderAddModal: false,
       shareAddModal: false,
       editAddModal: false,
       deleteAddModal: false,
-      linkDeleteModal: false,
+      linkDeleteModal: true,
     }));
   };
 
