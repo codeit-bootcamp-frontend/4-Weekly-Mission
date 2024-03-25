@@ -44,8 +44,8 @@
 }
 
 .shareModalIconBox {
-  margin-top: 1rem;
   gap: 1rem;
+  margin-top: 1rem;
   @include flex-center(column);
 
   p {

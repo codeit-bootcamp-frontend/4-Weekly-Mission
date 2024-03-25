@@ -18,8 +18,8 @@
   transition: transform 0.2s ease;
 
   &:hover {
-    transform: scale(0.95);
     background: $color-gray-400;
+    transform: scale(0.95);
   }
 }
 
@@ -33,8 +33,8 @@
 }
 
 .fill {
-  background: $color-primary;
   color: $color-white;
+  background: $color-primary;
 }
 
 @media screen and (width <768px) {

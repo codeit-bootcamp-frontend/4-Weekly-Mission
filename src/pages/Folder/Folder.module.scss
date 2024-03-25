@@ -3,9 +3,9 @@
 
 .layout {
   display: flex;
+  flex: 1;
   flex-direction: column;
   align-items: center;
-  flex: 1;
 }
 
 .addBarBox {
@@ -33,12 +33,12 @@
 
 .actionButton {
   position: sticky;
-  width: 10rem;
   bottom: 12rem;
   left: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
+  width: 10rem;
   padding: 1rem;
   color: $color-white;
   background: $color-primary;
@@ -51,7 +51,7 @@
 }
 
 .fixedBottom {
-  background: $color-gray-100;
   position: fixed;
   bottom: 0;
+  background: $color-gray-100;
 }
