@@ -31,3 +31,25 @@
   transform: translateY(-50%);
   left: 1.6rem;
 }
+
+.SearchBarClearButton {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  right: 1.6rem;
+}
+
+.SearchResultText {
+  color: var(--Linkbrary-gray60, #9fa6b2);
+  /* Linkbrary/h2-semibold */
+  font-family: Pretendard;
+  font-size: 32px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  letter-spacing: -0.2px;
+}
+
+.SearchWord {
+  color: var(--Linkbrary-gray100, #373740);
+}

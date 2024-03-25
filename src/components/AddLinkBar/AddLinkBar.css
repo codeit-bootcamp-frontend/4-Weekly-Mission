@@ -10,7 +10,7 @@
   }
 
   @media (min-width: 1141px) {
-    padding: 5rem 3.2rem 6rem;
+    padding: 4.5rem 3.2rem 4.5rem;
   }
 }
 
@@ -95,10 +95,10 @@
   background-color: var(--Linkbrary-bg);
 
   @media (min-width: 768px) {
-    padding: 3rem 3.2rem 3rem;
+    padding: 2.4rem 3.2rem 2.4rem;
   }
   @media (min-width: 1141px) {
-    padding: 5rem 3.2rem 5rem;
+    padding: 2.4rem 3.2rem 2.4rem;
   }
 }
 
