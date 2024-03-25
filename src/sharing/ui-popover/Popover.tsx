@@ -1,10 +1,31 @@
 import styles from "./Popover.module.scss";
 import classNames from "classnames/bind";
-import { useCallback, useMemo, useRef } from "react";
+import {
+  MouseEvent,
+  ReactNode,
+  RefObject,
+  useCallback,
+  useMemo,
+  useRef,
+} from "react";
 import { Portal } from "sharing/ui-portal";
 import { useBackgroundClick } from "sharing/util/useBackgroundClick";
 
 const cx = classNames.bind(styles);
+
+interface Props {
+  children?: ReactNode;
+  isOpen: boolean;
+  anchorRef: RefObject<HTMLElement>;
+  anchorPosition?: {
+    top?: string;
+    right?: string;
+    bottom?: string;
+    left?: string;
+  };
+  disableCloseWithBackgroundClick?: boolean;
+  onBackgroundClick: () => void;
+}
 
 export const Popover = ({
   children,
@@ -13,8 +34,9 @@ export const Popover = ({
   anchorPosition,
   disableCloseWithBackgroundClick = false,
   onBackgroundClick,
-}) => {
-  const popoverRef = useRef(null);
+}: Props) => {
+  // 잘 모르겠어용
+  const popoverRef = useRef<HTMLDivElement | null>(null);
   const positionStyle = useMemo(() => {
     return {
       top: anchorPosition?.top ?? "unset",
@@ -24,14 +46,26 @@ export const Popover = ({
     };
   }, [anchorPosition]);
   const handleBackgroundClick = useCallback(
-    (event) => {
-      const isPopover = popoverRef.current?.contains(event.target);
-      const isAnchor = anchorRef.current?.contains(event.target);
-      if (!isPopover && !isAnchor && !disableCloseWithBackgroundClick && isOpen) {
+    (event: MouseEvent) => {
+      const target = event.target as HTMLElement;
+      const isPopover = popoverRef.current?.contains(target);
+      const isAnchor = anchorRef.current?.contains(target);
+      if (
+        !isPopover &&
+        !isAnchor &&
+        !disableCloseWithBackgroundClick &&
+        isOpen
+      ) {
         onBackgroundClick();
       }
     },
-    [popoverRef, anchorRef, disableCloseWithBackgroundClick, isOpen, onBackgroundClick]
+    [
+      popoverRef,
+      anchorRef,
+      disableCloseWithBackgroundClick,
+      isOpen,
+      onBackgroundClick,
+    ]
   );
   useBackgroundClick(handleBackgroundClick);
 

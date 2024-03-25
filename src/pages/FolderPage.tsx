@@ -11,7 +11,8 @@ import { CardList } from "link/feature-card-list";
 
 export const FolderPage = () => {
   const { data: folders } = useGetFolders();
-  const [selectedFolderId, setSelectedFolderId] = useState(ALL_LINKS_ID);
+  const [selectedFolderId, setSelectedFolderId] =
+    useState<string>(ALL_LINKS_ID);
   const { data: links, loading } = useGetLinks(selectedFolderId);
 
   return (
