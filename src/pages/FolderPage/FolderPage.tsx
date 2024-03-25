@@ -11,8 +11,9 @@ export default function FolderPage() {
   };
 
   // 작업중
-  const [isAddLinkInputVisible, setIsAddLinkInputVisible] = useState(true);
+  const [isAddLinkInputVisible, setIsAddLinkInputVisible] = useState(false);
   const addLinkInputRef = useRef<HTMLDivElement>(null);
+  const footerRef = useRef<HTMLDivElement>(null);
 
   const addLinkInputStyle: CSSProperties = isAddLinkInputVisible
     ? {
@@ -20,7 +21,6 @@ export default function FolderPage() {
       }
     : {};
 
-  // observer 시작
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
@@ -31,15 +31,13 @@ export default function FolderPage() {
       { threshold: 0.1 }
     );
 
-    const addLinkInput = addLinkInputRef.current;
-    if (addLinkInput) {
-      observer.observe(addLinkInput);
+    if (addLinkInputRef.current && footerRef.current) {
+      observer.observe(addLinkInputRef.current);
+      observer.observe(footerRef.current);
     }
 
     return () => {
-      if (addLinkInput) {
-        observer.unobserve(addLinkInput);
-      }
+      observer.disconnect();
     };
   }, []);
 
@@ -53,7 +51,9 @@ export default function FolderPage() {
       <div className={styles.fixdAddLinkInput} style={addLinkInputStyle}>
         <AddLinkInput />
       </div>
-      <Footer />
+      <div ref={footerRef}>
+        <Footer />
+      </div>
     </>
   );
 }
