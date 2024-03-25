@@ -106,19 +106,6 @@ function FolderContent({
     setSearchInputValue(e.target.value);
   };
 
-  const contentProps = {
-    categoryList,
-    selectCategory,
-    allLinkLoad,
-    handleSelectCategory,
-    handleKebabClick,
-    selectCardId,
-    linkList,
-    option: true,
-    handleModalAction,
-    setLinkList
-  };
-
   const checkScrollY = () => {
     if (linkAddElement.current) {
       if (scrollY > 144) {
@@ -137,6 +124,19 @@ function FolderContent({
 
     return () => window.removeEventListener('scroll', checkScrollY);
   }, []);
+
+  const contentProps = {
+    categoryList,
+    selectCategory,
+    allLinkLoad,
+    handleSelectCategory,
+    handleKebabClick,
+    selectCardId,
+    linkList,
+    option: true,
+    handleModalAction,
+    setLinkList
+  };
 
   return (
     <Styled.Folder onClick={(e) => getClickArea(e)}>

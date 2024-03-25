@@ -11,9 +11,9 @@ interface ContentPropsType {
   handleSelectCategory?: (id: number, name: string) => Promise<void>;
   handleKebabClick?: (id: number) => void;
   selectCardId?: number;
+  handleModalAction?: (action: string, subTitle?: string, url?: string) => void;
   linkList: LinkType[];
   option: boolean;
-  handleModalAction?: (action: string, subTitle?: string, url?: string) => void;
   setLinkList: Dispatch<SetStateAction<LinkType[]>>;
 }
 

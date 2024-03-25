@@ -30,11 +30,11 @@ const categoryControlList: CategoryControlListType[] = [
 ];
 
 interface CategoryPropsType {
-  categoryList: CategoryType[];
-  selectCategory: SelectCategoryType;
-  allLinkLoad: () => Promise<void>;
-  handleSelectCategory: (id: number, name: string) => Promise<void>;
-  handleModalAction: (action: string, subTitle?: string, url?: string) => void;
+  categoryList?: CategoryType[];
+  selectCategory?: SelectCategoryType;
+  allLinkLoad?: () => Promise<void>;
+  handleSelectCategory?: (id: number, name: string) => Promise<void>;
+  handleModalAction?: (action: string, subTitle?: string, url?: string) => void;
 }
 
 function Category({
@@ -44,6 +44,10 @@ function Category({
   handleSelectCategory,
   handleModalAction
 }: CategoryPropsType) {
+  if (!categoryList || !selectCategory || !allLinkLoad || !handleSelectCategory || !handleModalAction) {
+    return null;
+  }
+
   const isControlVisible: boolean = selectCategory.name !== '전체';
   return (
     <>
