@@ -1,16 +1,13 @@
-import React, { useState } from "react"
 import * as S from "features/folder/components/FolderFeatures.style"
 
 import ShareIcon from "assets/images/icon/feature-share.svg"
 import DeleteIcon from "assets/images/icon/feature-delete.svg"
 import NameEditIcon from "assets/images/icon/feature-edit.svg"
-import useToggle from "hooks/useToggle"
 
-import Backdrop from "components/modal/Backdrop"
-import EditModal from "components/modal/EditModal"
-import DeleteFolderModal from "components/modal/DeleteFolderModal"
-import ModalPortal from "components/modal/ModalPortal"
-import ShareModal from "components/modal/ShareModal"
+import FolderChangeNameModal from "components/modal-compound/FolderChangeNameModal"
+import DeleteFolderModal from "components/modal-compound/DeleteFolrderModal"
+import ShareModal from "components/modal-compound/ShareModal"
+import useModal from "../hooks/useModal"
 
 interface FolderFeaturesProps {
   categoryName: string
@@ -18,34 +15,13 @@ interface FolderFeaturesProps {
 }
 
 function FolderFeatures({ categoryName, categoryData }: FolderFeaturesProps) {
-  const { toggle, openToggleHandler, closeToggleHandler } = useToggle()
-  const [modalType, setModalType] = useState("")
-  const getModalType = (clickedModalName: string) => setModalType(clickedModalName)
-
-  const backdrop = ModalPortal(<Backdrop onCloseModal={closeToggleHandler} />)
-  const editFolderModal = ModalPortal(<EditModal onCloseModal={closeToggleHandler} categoryName={categoryName} />)
-  const deleteFolderModal = ModalPortal(
-    <DeleteFolderModal onCloseModal={closeToggleHandler} categoryName={categoryName} />
-  )
-  const shareModal = ModalPortal(
-    <ShareModal
-      folderName={categoryName}
-      onCloseModal={closeToggleHandler}
-      categoryData={categoryData.filter((categories: any) => categories.name === categoryName)[0]}
-    />
-  )
-
-  const handleOpenModal = (modalName: string) => {
-    getModalType(modalName)
-    openToggleHandler()
-  }
+  const { modalValue, handleOpenModal, handleCloseModal } = useModal()
 
   return (
     <S.Features>
-      {toggle && backdrop}
-      {toggle && modalType === "이름변경" && editFolderModal}
-      {toggle && modalType === "삭제" && deleteFolderModal}
-      {toggle && modalType === "공유" && shareModal}
+      {modalValue === "이름변경" && <FolderChangeNameModal categoryName={categoryName} onCloseModal={handleCloseModal} />}
+      {modalValue === "삭제" && <DeleteFolderModal categoryName={categoryName} onCloseModal={handleCloseModal} />}
+      {modalValue === "공유" && <ShareModal categoryData={categoryData} categoryName={categoryName} onCloseModal={handleCloseModal} />}
 
       <S.FeatureItem>
         <button onClick={handleOpenModal.bind(null, "공유")}>

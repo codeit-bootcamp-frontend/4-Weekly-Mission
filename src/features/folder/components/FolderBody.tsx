@@ -5,12 +5,11 @@ import ArticleList from "components/article/ArticleList"
 import SearchBar from "components/searchBar/SerachBar"
 import * as S from "./FolderBody.style"
 import { FolderContext } from "../context/FolderContext"
-import ModalPortal from "components/modal/ModalPortal"
-import AddFolderModal from "components/modal/AddFolderModal"
-import Backdrop from "components/modal/Backdrop"
-import useToggle from "hooks/useToggle"
-import DeleteLinkModal from "components/modal/DeleteLinkModal"
-import AddMyFolderModal from "components/modal/AddMyFolderModal"
+
+import AddFolderModal from "components/modal-compound/AddFolderModal"
+import DeleteLinkModal from "components/modal-compound/DeleteLinkModal"
+import AddMyFolderModal from "components/modal-compound/AddMyFolderModal"
+import useModal from "../hooks/useModal"
 
 function FolderBody() {
   const {
@@ -21,32 +20,23 @@ function FolderBody() {
 
   const { data: linkData, isLoading: isLinkLoading, hasError: hasLinkError } = linkState
 
-  const { toggle, openToggleHandler, closeToggleHandler } = useToggle()
-  const [modalTitle, setModalTitle] = useState("")
+  const { modalValue, handleOpenModal, handleCloseModal: handleResetValue } = useModal()
   const [deletedUrl, setDeletedUrl] = useState("")
-
-  const handleChangeModalTitle = (title: string) => setModalTitle(title)
   const handleSelectedUrl = (url: string) => setDeletedUrl(url)
-
-  const backdrop = ModalPortal(<Backdrop onCloseModal={closeToggleHandler} />)
-  const addFolderModal = ModalPortal(<AddFolderModal onCloseModal={closeToggleHandler} />)
-  const deleteLinkModal = ModalPortal(<DeleteLinkModal onCloseModal={closeToggleHandler} url={deletedUrl} />)
-  const addMyFolderModal = ModalPortal(
-    <AddMyFolderModal data={categoryState.data?.data} onCloseModal={closeToggleHandler} />
-  )
 
   return (
     <S.Section>
-      {toggle && backdrop}
-      {toggle && modalTitle === "폴더 추가" && addFolderModal}
-      {toggle && modalTitle === "삭제하기" && deleteLinkModal}
-      {toggle && modalTitle === "폴더에 추가" && addMyFolderModal}
+      {modalValue === "폴더 추가" && <AddFolderModal onCloseModal={handleResetValue} />}
+      {modalValue === "삭제하기" && <DeleteLinkModal onCloseModal={handleResetValue} url={deletedUrl} />}
+      {modalValue === "폴더에 추가" && (
+        <AddMyFolderModal data={categoryState.data?.data} onCloseModal={handleResetValue} />
+      )}
 
       <S.FolderWrapper>
         <SearchBar type="text" placeholder="링크를 검색해 보세요." name="search" />
         <S.Layout>
           <FolderCategories />
-          <FolderAddButton onOpenModal={openToggleHandler} onChangeModalTitle={handleChangeModalTitle} />
+          <FolderAddButton onOpenModal={handleOpenModal} />
         </S.Layout>
         <S.Layout>
           <S.Title>{title}</S.Title>
@@ -58,12 +48,7 @@ function FolderBody() {
           {!isLinkLoading && linkData?.data?.length === 0 ? (
             <UI.AlertBanner type="info">{`${title} 폴더의 링크가 없습니다.`}</UI.AlertBanner>
           ) : (
-            <ArticleList
-              data={linkData?.data}
-              onOpenModal={openToggleHandler}
-              onChangeModalTitle={handleChangeModalTitle}
-              onChangeUrl={handleSelectedUrl}
-            />
+            <ArticleList data={linkData?.data} onModalValueChanage={handleOpenModal} onChangeUrl={handleSelectedUrl} />
           )}
         </S.Link>
       </S.FolderWrapper>

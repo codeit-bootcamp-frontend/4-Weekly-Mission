@@ -8,19 +8,17 @@ const SELECT_TYPE = [
 
 type SelectProps = {
   url: string
-  onOpenModal: () => void
-  onChangeModalTitle: (title: string) => void
+  onModalValueChanage: (modalValue: string) => void
   onChangeUrl: (url: string) => void
 }
 
 function Select(props: SelectProps, ref: ForwardedRef<HTMLUListElement>) {
-  const { onOpenModal, onChangeModalTitle, url, onChangeUrl } = props
+  const { onModalValueChanage, url, onChangeUrl } = props
   const deleteLinkHandler = (event: MouseEvent, title: string) => {
     event.preventDefault()
 
-    onChangeModalTitle(title)
+    onModalValueChanage(title)
     onChangeUrl(url)
-    onOpenModal()
   }
 
   return (

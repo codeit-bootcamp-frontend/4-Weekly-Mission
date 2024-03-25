@@ -1,4 +1,3 @@
-import React from "react"
 import ShareContextProvider from "features/share/context/ShareContext"
 import { ShareBody, ShareHeader } from "features/share/components"
 

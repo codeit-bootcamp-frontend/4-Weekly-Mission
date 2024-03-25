@@ -1,9 +1,19 @@
 import styled from "styled-components"
 import { Wrapper } from "components/Layout/Wrapper.style"
 
-export const Folder = styled.section`
+export const Folder = styled.section<{ $isView: boolean }>`
   background-color: var(--gray5);
-  padding: 60px 0 90px 0;
+  padding: 24px 0;
+  width: 100%;
+
+  ${({ $isView }) =>
+    $isView &&
+    `
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      z-index: 100;
+    `}
 `
 
 export const FolderWrapper = styled(Wrapper)``

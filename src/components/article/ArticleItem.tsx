@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from "react"
+import React from "react"
 import Card from "components/UI/Card"
 import { elapsedTimeCalc, momentFormat } from "utils/moment"
 
@@ -9,35 +9,21 @@ import KebabIcon from "assets/images/icon/kebab.svg"
 import defaultImage from "assets/images/no-image.jpg"
 import useToggle from "hooks/useToggle"
 import Select from "components/select/Select"
+import useOutside from "hooks/useOutside"
 
 interface ArticleItemProps {
   data: any
-  onOpenModal: () => void
-  onChangeModalTitle: (title: string) => void
+  onModalValueChanage: (modalValue: string) => void
   onChangeUrl: (url: string) => void
 }
 
-function ArticleItem({ data, onOpenModal, onChangeModalTitle, onChangeUrl }: ArticleItemProps) {
+function ArticleItem({ data, onModalValueChanage, onChangeUrl }: ArticleItemProps) {
   const image = data.image_source || defaultImage
   const elapsedTime = elapsedTimeCalc(data.created_at)
   const date = momentFormat(data.created_at)
 
-  const { toggle: isKebab, toggleHandler: kebabToggleHandler } = useToggle()
-  const kebabRef = useRef<HTMLUListElement>(null)
-
-  useEffect(() => {
-    const handleCloseKekbab = (event: MouseEvent) => {
-      if (isKebab && kebabRef.current && !(kebabRef.current as any).contains(event.target)) {
-        kebabToggleHandler(event)
-      }
-    }
-
-    document.addEventListener("mousedown", handleCloseKekbab)
-    return () => {
-      document.removeEventListener("mousedown", handleCloseKekbab)
-    }
-  }, [isKebab, kebabToggleHandler])
-
+  const { toggle: isKebab, openToggleHandler, closeToggleHandler } = useToggle()
+  const kebabRef = useOutside<HTMLUListElement>(isKebab, closeToggleHandler)
   const transformedUrl = data.url.includes("https") ? data.url : `https://www.${data.url}`
 
   return (
@@ -54,13 +40,12 @@ function ArticleItem({ data, onOpenModal, onChangeModalTitle, onChangeUrl }: Art
             {isKebab && (
               <Select
                 ref={kebabRef}
-                onOpenModal={onOpenModal}
-                onChangeModalTitle={onChangeModalTitle}
+                onModalValueChanage={onModalValueChanage}
                 url={transformedUrl}
                 onChangeUrl={onChangeUrl}
               />
             )}
-            <S.Kebab onClick={kebabToggleHandler}>
+            <S.Kebab onClick={openToggleHandler}>
               <img src={KebabIcon} alt="모달창 열기" />
             </S.Kebab>
             <S.ElapsedTime>{elapsedTime}</S.ElapsedTime>

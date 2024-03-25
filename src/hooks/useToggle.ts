@@ -8,7 +8,10 @@ function useToggle() {
     setToggle((prevToggle) => !prevToggle)
   }
 
-  const openToggleHandler = () => setToggle(true)
+  const openToggleHandler = (event: MouseEvent) => {
+    event.preventDefault()
+    setToggle(true)
+  }
 
   const closeToggleHandler = () => setToggle(false)
 

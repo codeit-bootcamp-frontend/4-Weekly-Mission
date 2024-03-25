@@ -1,5 +1,5 @@
 import styled from "styled-components"
-import { Card } from "../UI/Card.style"
+import { Card } from "components/UI/Card.style"
 
 export const Modal = styled(Card)`
   width: 360px;

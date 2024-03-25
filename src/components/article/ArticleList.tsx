@@ -4,23 +4,16 @@ import * as S from "./ArticleList.style"
 
 interface ArticleListProps {
   data: any
-  onOpenModal: () => void
-  onChangeModalTitle: (title: string) => void
+  onModalValueChanage: (modaValue: string) => void
   onChangeUrl: (url: string) => void
 }
 
-function ArticleList({ data, onOpenModal, onChangeModalTitle, onChangeUrl }: ArticleListProps) {
+function ArticleList({ data, onModalValueChanage, onChangeUrl }: ArticleListProps) {
   if (!data) return null
   return (
     <S.ArticleList>
       {data.map((link: any) => (
-        <ArticleItem
-          key={link.id}
-          data={link}
-          onOpenModal={onOpenModal}
-          onChangeModalTitle={onChangeModalTitle}
-          onChangeUrl={onChangeUrl}
-        />
+        <ArticleItem key={link.id} data={link} onModalValueChanage={onModalValueChanage} onChangeUrl={onChangeUrl} />
       ))}
     </S.ArticleList>
   )
