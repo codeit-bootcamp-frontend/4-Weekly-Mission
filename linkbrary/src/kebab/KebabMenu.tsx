@@ -52,6 +52,10 @@ const KebabMenu: React.FC<KebabMenuProps> = ({ isShowModal, dataUrl }) => {
 };
 
 const KebabMenuContainer = styled.div`
+  position: absolute;
+  z-index: 100;
+  right: 0;
+  top: 20px;
   display: flex;
   flex-direction: column;
   width: 100px;

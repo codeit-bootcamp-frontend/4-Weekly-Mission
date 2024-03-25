@@ -57,6 +57,7 @@
 }
 
 .more {
+  position: relative;
   display: flex;
 }
 
