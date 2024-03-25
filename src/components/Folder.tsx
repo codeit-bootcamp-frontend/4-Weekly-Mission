@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { ChangeEvent, useEffect, useState } from 'react';
 import Header from './layout/Header';
 import Footer from './layout/Footer';
 import '../style/Folder.css';
@@ -6,10 +6,20 @@ import close from '../assets/folder/close.svg';
 import Card from './Card';
 import { getFolderInfo, getLinksInfo, getSelectLinksInfo } from '../apis/api';
 import { ModalData } from './modal/ModalData';
+import { useLocation } from 'react-router-dom';
 
 interface FolderInfo {
   id: number;
   name: string;
+}
+
+interface LinksInfo {
+  createdAt: Date | undefined;
+  created_at: Date | undefined;
+  description: string | null;
+  imageSource: string | undefined;
+  image_source: string | null;
+  url: string | null;
 }
 
 type ModalOpenHandler = (name: string) => void;
@@ -17,11 +27,14 @@ type ModalCloseHandler = () => void;
 
 const Folder = () => {
   const [folderInfo, setFolderInfo] = useState<FolderInfo[]>([]);
-  const [linksInfo, setLinksInfo] = useState<any>([]);
+  const [linksInfo, setLinksInfo] = useState<LinksInfo[]>([]);
   const [selectFolder, setSelectFolder] = useState<number | null>(null);
   const [selectFolderName, setSelectFolderName] = useState<string>('전체');
   const [isOpenModal, setIsOpenModal] = useState<boolean>(false);
   const [selectModal, setSelectModal] = useState<string | null>(null);
+  const [search, setSearch] = useState<string>('');
+  const [filterLinks, setFilterLinks] = useState<LinksInfo[]>([]);
+  const location = useLocation();
 
   const handleLoadFolderInfo = async () => {
     try {
@@ -85,12 +98,33 @@ const Folder = () => {
     setIsOpenModal(false);
   };
 
+  const handleReset = () => {
+    setSearch('');
+    setFilterLinks([]);
+  };
+
+  const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
+    const searchValue = e.target.value;
+    setSearch(searchValue);
+
+    const filteredLinks = linksInfo.filter((link: any) => {
+      const { title, url, description } = link;
+      return (
+        (title && title.toLowerCase().includes(searchValue)) ||
+        (url && url.toLowerCase().includes(searchValue)) ||
+        (description && description.toLowerCase().includes(searchValue))
+      );
+    });
+    setFilterLinks(filteredLinks);
+  };
+
   useEffect(() => {
     handleLoadFolderInfo();
     handleLoadLinksInfo();
     handleSelectLinksInfo();
   }, []);
 
+  console.log(filterLinks);
   return (
     <>
       {isOpenModal === true ? (
@@ -119,9 +153,14 @@ const Folder = () => {
             <div className='FolderMain'>
               <form className='FolderLinkSerachContent'>
                 <div>
-                  <input placeholder='링크를 검색해 보세요' />
+                  <input
+                    placeholder='링크를 검색해 보세요'
+                    type='text'
+                    value={search}
+                    onChange={handleChange}
+                  />
                 </div>
-                <img src={close} alt='close img' />
+                <img src={close} alt='close img' onClick={handleReset} />
               </form>
               {!linksInfo && (
                 <div className='FolderLinkNoneList'>
@@ -173,7 +212,9 @@ const Folder = () => {
                   <div className='LinkSaveListContent'>
                     <Card
                       folderLinkInfo={filteredLinks}
+                      filterLinks={filterLinks}
                       handleOpenModal={handleOpenModal}
+                      location={location.pathname}
                     />
                   </div>
                 </div>

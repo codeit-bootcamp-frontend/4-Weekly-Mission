@@ -5,6 +5,7 @@ import search from '../assets/share/search.svg';
 import close from '../assets/share/close.svg';
 import Card from './Card';
 import { getSamepleUserInfo } from '../apis/api';
+import { useLocation } from 'react-router-dom';
 
 interface folderLinkInfoProps {
   createdAt: Date | undefined;
@@ -24,6 +25,7 @@ interface FolderInfo {
 
 const Shared = () => {
   const [folderInfo, setFolderInfo] = useState<FolderInfo | null>(null);
+  const location = useLocation();
 
   const handleLoadFolderInfo = async () => {
     try {
@@ -65,7 +67,10 @@ const Shared = () => {
               </div>
               <img src={close} alt='close img' />
             </div>
-            <Card folderLinkInfo={folderInfo.folderLinks} />
+            <Card
+              folderLinkInfo={folderInfo.folderLinks}
+              location={location.pathname}
+            />
           </div>
         </div>
       ) : (

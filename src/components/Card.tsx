@@ -6,6 +6,8 @@ import undefinedImg from '../assets/share/undefinedImg.svg';
 interface Props {
   folderLinkInfo: folderLinkInfoProps[];
   handleOpenModal?: (name: string) => void;
+  filterLinks?: folderLinkInfoProps[];
+  location: string;
 }
 
 interface folderLinkInfoProps {
@@ -17,8 +19,15 @@ interface folderLinkInfoProps {
   url: string | null;
 }
 
-const Card = ({ folderLinkInfo, handleOpenModal }: Props) => {
+const Card = ({
+  folderLinkInfo,
+  handleOpenModal,
+  filterLinks,
+  location,
+}: Props) => {
   const [isSelete, setIsSelete] = useState(null);
+  console.log(location);
+
   const getCreateDate = (created_at: Date) => {
     const createDate = new Date(created_at);
     const formattedDate = `${createDate.getFullYear()}. ${
@@ -69,10 +78,18 @@ const Card = ({ folderLinkInfo, handleOpenModal }: Props) => {
     setIsSelete(isSelete === id ? null : id);
   };
 
+  const filteredLinks = filterLinks
+    ? filterLinks.length === 0
+      ? folderLinkInfo
+      : filterLinks
+    : undefined;
+
+  const locationLink = location === '/shared' ? folderLinkInfo : filteredLinks;
+
   return (
     <div className='SharedCardContent'>
       {folderLinkInfo.length !== 0 ? (
-        folderLinkInfo.map((link: any) => {
+        locationLink?.map((link: any) => {
           const {
             createdAt,
             created_at,
