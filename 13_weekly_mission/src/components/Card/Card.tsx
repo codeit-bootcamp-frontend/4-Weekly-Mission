@@ -2,9 +2,14 @@ import React, { useState, useEffect } from 'react';
 import Moment from 'moment';
 import { getElapsedTime } from '../../utils/getElapsedTime';
 import './Card.css';
+import type { Link } from '../apis/useGetLink';
 
-export default function Card({ data }) {
-  const [cardData, setCardData] = useState([]);
+interface CardProps {
+  data: Link[];
+}
+
+const Card: React.FC<CardProps> = ({ data }) => {
+  const [cardData, setCardData] = useState<Link[]>([]);
 
   useEffect(() => {
     setCardData(data);
@@ -53,4 +58,6 @@ export default function Card({ data }) {
       )}
     </>
   );
-}
+};
+
+export default Card;

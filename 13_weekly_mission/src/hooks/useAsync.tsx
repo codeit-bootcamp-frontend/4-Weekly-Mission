@@ -1,13 +1,5 @@
 import { useState, useEffect } from 'react';
-
-interface Link {
-  id: number;
-  createdAt: string;
-  url: string;
-  imageSource: string;
-  title: string;
-  description: string;
-}
+import type { Link } from '../components/apis/useGetLink';
 
 export const useAsync = (asyncFunction: () => Promise<any>) => {
   const [loading, setLoading] = useState<boolean>(false);

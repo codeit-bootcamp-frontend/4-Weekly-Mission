@@ -5,11 +5,14 @@ import { useAsync } from '../../hooks/useAsync';
 import { format } from 'date-fns/format';
 import { getElapsedTime } from '../../utils/getElapsedTime';
 
-interface Link {
-  id: number;
+export interface Link {
+  id: string | number;
+  name: string | number;
   created_at: string;
+  createdAt: string;
   url: string;
   image_source: string;
+  imageSource: string;
   title: string;
   description: string;
 }

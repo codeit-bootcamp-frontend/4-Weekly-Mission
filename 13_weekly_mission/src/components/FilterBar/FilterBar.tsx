@@ -1,4 +1,4 @@
-import { React, useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import './FilterBar.css';
 import useGetLink from '../apis/useGetLink';
 import Card from '../Card/Card';
@@ -8,15 +8,21 @@ import DeleteFolderModal from '../Modals/DeleteFolderModal';
 import EditNameModal from '../Modals/EditNameModal';
 import ShareModal from '../Modals/ShareModal';
 import AddFolderModal from '../Modals/AddFolderModal';
+import type { Link } from '../apis/useGetLink';
 
-const mapFormatDate = data => {
+const mapFormatDate: (data: Link[]) => { name: string | number; id: string | number }[] = data => {
   const formattedFolder = data.map(({ name, id }) => ({ name, id }));
   return [DEFAULT_FOLDER, ...formattedFolder];
 };
 
 export default function FilterBar() {
   const [folderId, setFolderId] = useState(DEFAULT_FOLDER.id);
-  const [folderData, setFolderData] = useState([]);
+  const [folderData, setFolderData] = useState<
+    {
+      id: string | number;
+      name: string | number;
+    }[]
+  >([]);
   const [folderName, setFolderName] = useState(DEFAULT_FOLDER.name);
   const { loading, error, data: linksData } = useGetLink(folderId);
 
@@ -32,7 +38,7 @@ export default function FilterBar() {
     setAddFolderModalOpen(false);
   };
 
-  const handleChange = (id, name) => {
+  const handleChange = (id: string, name: string) => {
     setFolderId(id);
     setFolderName(name);
   };
@@ -51,7 +57,7 @@ export default function FilterBar() {
   }, []);
 
   if (error) {
-    return <div>Error: {error.message}</div>;
+    return <div>Error: {error}</div>;
   }
   return (
     <>
@@ -69,7 +75,7 @@ export default function FilterBar() {
                 type="button"
                 value={id}
                 onClick={() => {
-                  handleChange(id, name);
+                  handleChange(String(id), String(name));
                 }}>
                 {name}
               </button>
