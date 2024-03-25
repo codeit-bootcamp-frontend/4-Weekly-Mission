@@ -1,15 +1,34 @@
-import React from "react";
+import React, { ChangeEvent, useState } from "react";
 import searchIcon from "../../image/Search.svg";
 import "./Search.css";
+import closeBtn from "../../image/close.svg";
 
 const Search = () => {
+  const [searchText, setSearchText] = useState("");
+
+  const handleInputChange = (event: ChangeEvent<HTMLInputElement>) => {
+    setSearchText(event.target.value);
+  };
+
+  const handleClearSearch = () => {
+    setSearchText("");
+  };
+
   return (
-    <form className="search-bar">
-      <img src={searchIcon} alt="Search" className="search-icon" />
+    <form className="searchBar">
+      <img src={searchIcon} alt="Search" className="searchIcon" />
       <input
         type="text"
         placeholder="링크를 검색해 보세요"
-        className="search-input"
+        className="searchInput"
+        value={searchText}
+        onChange={handleInputChange}
+      />
+      <img
+        src={closeBtn}
+        alt="close button"
+        className="closeIcon"
+        onClick={handleClearSearch}
       />
     </form>
   );
