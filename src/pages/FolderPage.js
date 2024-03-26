@@ -9,7 +9,7 @@ import Header from '../components/common/Header';
 import AddLink from '../components/FolderPage/AddLink';
 import FolderContent from '../components/common/FolderContent';
 import SearchBar from '../components/common/SearchBar';
-import FolderList from '../components/FolderPage/FolderList';
+import FolderNav from '../components/FolderPage/FolderNav';
 import Footer from '../components/common/Footer';
 
 const FolderPage = () => {
@@ -37,7 +37,7 @@ const FolderPage = () => {
       <AddLink folderList={folderList} />
       <FolderContent>
         <SearchBar />
-        <FolderList folderList={folderList} />
+        <FolderNav folderList={folderList} />
       </FolderContent>
 
       <Footer />
