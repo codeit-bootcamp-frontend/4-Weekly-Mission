@@ -15,7 +15,7 @@ import iconDelete from '../../assets/icons/delete.svg';
 import iconPlus from '../../assets/icons/plus.svg';
 
 import Modal from '../common/modal/Modal';
-import ModalPortal from '../Portal';
+import ModalPortal from '../../utils/Portal';
 import ModalEdit from '../common/modal/ModalEdit';
 import ModalDelete from '../common/modal/ModalDelete';
 import ModalShare from '../common/modal/ModalShare';

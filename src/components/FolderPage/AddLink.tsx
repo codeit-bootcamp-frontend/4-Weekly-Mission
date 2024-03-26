@@ -8,7 +8,7 @@ import { FolderList } from '../../types/type';
 import iconLink from '../../assets/icons/link.svg';
 
 import Modal from '../common/modal/Modal';
-import ModalPortal from '../Portal';
+import ModalPortal from '../../utils/Portal';
 import ModalAdd from '../common/modal/ModalAdd';
 
 interface Props {
