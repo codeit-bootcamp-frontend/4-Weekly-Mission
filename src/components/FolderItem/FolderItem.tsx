@@ -83,7 +83,7 @@ function FolderItem({ usersFolderData, searchKeyword }: Props) {
         </div>
         <Cards
           cardList={cardList}
-          showStarKebab={true}
+          showStarKebab
           searchKeyword={searchKeyword}
         />
       </div>

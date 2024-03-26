@@ -14,17 +14,13 @@ interface Props {
   searchKeyword?: string;
 }
 
-interface SelectedData {
-  url?: string;
-}
-
 function Cards({ cardList, showStarKebab, searchKeyword }: Props) {
   const isListEmpty = cardList.length === 0;
 
   const [popoverShow, setPopoverShow] = useState(false);
   const [starClick, setStarClick] = useState(false);
   const [deleteModalShow, setDeleteModalShow] = useState(false);
-  const [selectedData, setSelectedData] = useState<SelectedData>({ url: "" });
+  const [selectedData, setSelectedData] = useState({ url: "" });
 
   if (isListEmpty) {
     return (
