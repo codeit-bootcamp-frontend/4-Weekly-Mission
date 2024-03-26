@@ -1,10 +1,10 @@
 import { styled } from "styled-components";
 import { useState } from "react";
 import useGetJson from "../functions/useGetJson";
-import unionImgSrc from "../assets/Union.svg";
 import { getAPI } from "../APIUtil";
+import Modal from "../modals/Modal";
 
-function Category({ changeTitle, changeID }) {
+function Category({ changeTitle, changeID, isShowModal }) {
   const getFolderList = async () => {
     try {
       const result = getAPI(`/users/1/folders`);
@@ -38,6 +38,11 @@ function Category({ changeTitle, changeID }) {
     });
   };
 
+  const showFolderAddModal = (e) => {
+    e.preventDefault();
+    isShowModal((prev) => ({ linkModal: false, folderAddModal: true }));
+  };
+
   return (
     <Container>
       <ButtonDiv>
@@ -53,8 +58,7 @@ function Category({ changeTitle, changeID }) {
         ))}
       </ButtonDiv>
       <AddFolderDiv>
-        <AddFolder>폴더 추가</AddFolder>
-        <img src={unionImgSrc} alt="unionIcon" />
+        <AddFolder onClick={showFolderAddModal}>폴더 추가 +</AddFolder>
       </AddFolderDiv>
     </Container>
   );
@@ -106,7 +110,7 @@ const AddFolderDiv = styled.div`
   }
 `;
 
-const AddFolder = styled.span`
+const AddFolder = styled.button`
   color: #6d6afe;
   text-align: center;
   font-family: Pretendard;

@@ -1,11 +1,14 @@
 import { styled } from "styled-components";
 import "../styles/Search.css";
-import searchImgSrc from "../assets/search.svg";
 
 function Search() {
   return (
     <SearchBar>
-      <img src={searchImgSrc} alt="돋보기 아이콘" className="icon-search" />
+      <img
+        src="/assets/search.svg"
+        alt="돋보기 아이콘"
+        className="icon-search"
+      />
       <input
         type="text"
         className="input-search"

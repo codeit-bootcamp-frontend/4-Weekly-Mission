@@ -1,6 +1,8 @@
-const CalculateTime = (createdAtTime) => {
+const CalculateTime = (createdAtTime: Date): string => {
   const currentDays = new Date();
-  let ElapsedTime = Math.floor((currentDays - createdAtTime) / 1000 / 60);
+  let ElapsedTime = Math.floor(
+    (currentDays.getTime() - createdAtTime.getTime()) / 1000 / 60
+  );
 
   if (ElapsedTime < 2) {
     return "1 minute ago";
@@ -22,9 +24,9 @@ const CalculateTime = (createdAtTime) => {
     return `${ElapsedTime} ${ElapsedTime === 1 ? "day" : "days"} ago`;
   }
 
-  ElapsedTime = Math.floor(ElapsedTime / 365);
+  ElapsedTime = Math.floor(ElapsedTime / 30.44); // 평균적으로 한 달을 30.44일로 계산
 
-  if (ElapsedTime < 1) {
+  if (ElapsedTime < 12) {
     const currentYear = currentDays.getFullYear();
     const currentMonth = currentDays.getMonth() + 1;
     const currentDate = currentDays.getDate();
@@ -42,13 +44,17 @@ const CalculateTime = (createdAtTime) => {
       if (currentDate >= createdDate) {
         return `${12 - createdMonth + currentMonth} months ago`;
       }
-      return `${12 - createdMonth + currentMonth - 1} months ago`;
+      return `${11 - createdMonth + currentMonth} months ago`; // 12 대신 11을 사용하는 것이 더 정확할 수 있습니다.
     }
   }
+
+  ElapsedTime = Math.floor(ElapsedTime / 12);
 
   if (ElapsedTime >= 1) {
     return `${ElapsedTime} ${ElapsedTime === 1 ? "year" : "years"} ago`;
   }
+
+  return "Just now"; // ElapsedTime이 음수일 경우를 대비한 기본 반환 값
 };
 
 export default CalculateTime;
