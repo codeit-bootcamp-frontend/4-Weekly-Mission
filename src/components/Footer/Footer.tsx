@@ -39,7 +39,14 @@ export const Footer = () => {
             />
           </a>
           <a
-            href="https://www.youtube.com/"
+            href="../../assets/youtube.svg"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <img src={Youtube} alt="youtube 홈페이지로 연결된 youtube 로고" />
+          </a>
+          <a
+            href="../../assets/instagram.svg"
             target="_blank"
             rel="noopener noreferrer"
           >
