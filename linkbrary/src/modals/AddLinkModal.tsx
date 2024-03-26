@@ -37,7 +37,7 @@ const AddLink = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-item: center;
+  align-items: center;
   padding-top: 0.5rem;
   gap: 1.5rem;
 `;
