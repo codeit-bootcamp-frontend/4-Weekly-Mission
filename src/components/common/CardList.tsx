@@ -7,8 +7,8 @@ import { FolderLink } from '../../types/type';
 import Card from './Card';
 
 interface Props {
-  folderInfo: FolderLink[] | null;
-  isIconVisible: boolean;
+  folderInfo: FolderLink[];
+  isIconVisible?: boolean;
 }
 
 const CardList = ({ folderInfo, isIconVisible = false }: Props) => {

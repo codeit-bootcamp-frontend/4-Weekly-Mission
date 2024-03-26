@@ -2,13 +2,13 @@ import styles from './Header.module.css';
 import classNames from 'classnames/bind';
 const cn = classNames.bind(styles);
 
-import { FolderUser } from '../../types/type';
+import { SharedUser } from '../../types/type';
 
 import logo from '../../assets/images/logo.svg';
 
 interface Props {
-  userInfo: FolderUser;
-  isSticky: boolean;
+  userInfo: SharedUser;
+  isSticky?: boolean;
 }
 
 const Header = ({ userInfo, isSticky = true }: Props) => {

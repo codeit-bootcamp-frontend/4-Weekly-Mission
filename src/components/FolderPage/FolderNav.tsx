@@ -121,7 +121,7 @@ const FolderNav = ({ folderList }: Props) => {
           </>
         )}
       </div>
-      <CardList folderInfo={folderLink} isIconVisible={true} />
+      {folderLink && <CardList folderInfo={folderLink} isIconVisible={true} />}
     </>
   );
 };
