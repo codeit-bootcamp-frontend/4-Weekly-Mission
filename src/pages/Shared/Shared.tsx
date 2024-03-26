@@ -22,7 +22,7 @@ export const Shared = () => {
   const searchKeyWord = useRecoilValue(searchState);
 
   const handleLoadData = async () => {
-    const { folder } = await useGetFolder();
+    const { folder } = await useGetFolder<{ folder: FolderPageDataForm }>();
     setFolderInfo(folder);
     setFolderLinks(folder.links);
 
