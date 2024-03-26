@@ -1,7 +1,4 @@
 import styled from "styled-components";
-import shareImgSrc from "../assets/share.svg";
-import penImgSrc from "../assets/pen.svg";
-import trashImgSrc from "../assets/trash.svg";
 import { useState } from "react";
 
 function FolderFunction({ titleName, isShowModal }) {
@@ -41,15 +38,15 @@ function FolderFunction({ titleName, isShowModal }) {
       {titleName !== "전체" ? (
         <OptionBox>
           <Option onClick={isShareModal}>
-            <OptionIcon src={shareImgSrc}></OptionIcon>
+            <OptionIcon src="/assets/share.svg"></OptionIcon>
             <OptionText>공유</OptionText>
           </Option>
           <Option onClick={isEditModal}>
-            <OptionIcon src={penImgSrc}></OptionIcon>
+            <OptionIcon src="/assets/pen.svg"></OptionIcon>
             <OptionText>이름 변경</OptionText>
           </Option>
           <Option onClick={isDeleteModal}>
-            <OptionIcon src={trashImgSrc}></OptionIcon>
+            <OptionIcon src="/assets/trash.svg"></OptionIcon>
             <OptionText>삭제</OptionText>
           </Option>
         </OptionBox>

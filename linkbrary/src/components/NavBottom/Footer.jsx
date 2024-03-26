@@ -1,9 +1,5 @@
 import "../../styles/Footer.css";
 import styled from "styled-components";
-import facebookImgSrc from "../../assets/facebook.svg";
-import instagramImgSrc from "../../assets/instagram.svg";
-import twitterImgSrc from "../../assets/twitter.svg";
-import youtubeImgSrc from "../../assets/youtube.svg";
 
 function Footer() {
   return (
@@ -30,7 +26,7 @@ function Footer() {
               className="sns-item"
               rel="noreferrer"
             >
-              <img src={facebookImgSrc} alt="페이스북으로 이동" />
+              <img src="/assets/facebook.svg" alt="페이스북으로 이동" />
             </a>
           </li>
           <li>
@@ -40,7 +36,7 @@ function Footer() {
               className="sns-item"
               rel="noreferrer"
             >
-              <img src={twitterImgSrc} alt="트위터로 이동" />
+              <img src="/assets/twitter.svg" alt="트위터로 이동" />
             </a>
           </li>
           <li>
@@ -50,7 +46,7 @@ function Footer() {
               className="sns-item"
               rel="noreferrer"
             >
-              <img src={youtubeImgSrc} alt="유튜브로 이동" />
+              <img src="/assets/youtube.svg" alt="유튜브로 이동" />
             </a>
           </li>
           <li>
@@ -60,7 +56,7 @@ function Footer() {
               className="sns-item"
               rel="noreferrer"
             >
-              <img src={instagramImgSrc} alt="인스타그램으로 이동" />
+              <img src="/assets/instagram.svg" alt="인스타그램으로 이동" />
             </a>
           </li>
         </ul>

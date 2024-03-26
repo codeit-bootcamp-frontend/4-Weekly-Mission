@@ -1,12 +1,11 @@
 import "../../styles/Header.css";
-import logoImgSrc from "../../assets/linkbrary.svg";
 
 function Header({ user }) {
   return (
     <header className="header-area">
       <div className="header-group">
         <a href="/" className="logo-area">
-          <img src={logoImgSrc} alt="로고" className="logo-img" />
+          <img src="/assets/linkbrary.svg" alt="로고" className="logo-img" />
         </a>
         <button className="btn-group">
           {user ? (

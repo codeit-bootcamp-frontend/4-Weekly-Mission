@@ -1,6 +1,4 @@
 import "../styles/CardSection.css";
-import starImgSrc from "../assets/star.svg";
-import kebabImgSrc from "../assets/kebab.svg";
 import CalculateTime from "../functions/CalculateTime";
 import KebabMenu from "../kebab/KebabMenu";
 import { useState } from "react";
@@ -33,14 +31,14 @@ function CardSection({ item, isShowModal, linkModal, linkDeleteModal }) {
           <div className="img-card no-img"></div>
         )}
         <button className="btn-star">
-          <img src={starImgSrc} alt="별모양" />
+          <img src={"/assets/star.svg"} alt="별모양" />
         </button>
       </div>
       <div className="card-info-group">
         <div className="time-info-group">
           <p className="elapsed-time">{CalculateTime(createdDays)}</p>
           <button className="more" onClick={handleKebabClick}>
-            <img src={kebabImgSrc} alt="더보기" />
+            <img src="/assets/kebab.svg" alt="더보기" />
             {kebab[item.id] ? (
               <KebabMenu
                 isShowModal={isShowModal}

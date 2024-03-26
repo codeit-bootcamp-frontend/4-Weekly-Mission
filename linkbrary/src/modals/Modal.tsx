@@ -1,7 +1,7 @@
 import React from "react"; // React import 추가
 import styled from "styled-components";
 import "./Modal.css";
-import closeImgSrc from "../assets/closeIcon.svg";
+// import closeImgSrc from "../assets/closeIcon.svg";
 import AddFolderModal from "./AddFolderModal";
 import AddLinkModal from "./AddLinkModal";
 import DeleteModal from "./DeleteModal";
@@ -56,7 +56,7 @@ const Modal: React.FC<ModalProps> = ({
       >
         <ModalTitle>{title}</ModalTitle>
         <CloseButton className="modal-button-close" onClick={handleClickExit}>
-          <img src={closeImgSrc} alt="닫기" />
+          <img src="/assets/closeIcon.svg" alt="닫기" />
         </CloseButton>
         {linkDeleteModal ? <DeleteModal link={dataUrl} /> : null}
         {deleteModal ? <DeleteModal title="폴더 삭제" /> : null}

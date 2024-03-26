@@ -1,8 +1,4 @@
 import styled from "styled-components";
-import kakaoIcon from "../assets/kakao.svg";
-import facebookIcon from "../assets/facebook.svg";
-import shareLink from "../assets/link.svg";
-import linkbrary from "../assets/linkbrary.svg";
 
 const ShareModal = ({ menusId }) => {
   const shareKakao = () => {
@@ -17,7 +13,7 @@ const ShareModal = ({ menusId }) => {
         content: {
           title: "Linkbrary",
           description: "",
-          imageUrl: linkbrary,
+          imageUrl: "/assets/linkbrary.svg",
           link: {
             mobileWebUrl: `http://localhost:3000/shared/${menusId}`,
             webUrl: `http://localhost:3000/shared/${menusId}`,
@@ -60,20 +56,20 @@ const ShareModal = ({ menusId }) => {
       <ShareSns>
         <div>
           <KakaoIcon onClick={shareKakao}>
-            <img src={kakaoIcon} />
+            <img src="/assets/kakao.svg" />
           </KakaoIcon>
           <ShareApp>카카오톡</ShareApp>
         </div>
 
         <div>
           <FacebookIcon onClick={shareFacebook}>
-            <img src={facebookIcon} />
+            <img src="/assets/facebook.svg" />
           </FacebookIcon>
           <ShareApp>페이스북</ShareApp>
         </div>
         <div>
           <ShareIcon onClick={handleCopyClipBoard}>
-            <img src={shareLink} />
+            <img src="/assets/link.svg" />
           </ShareIcon>
           <ShareApp>링크 복사</ShareApp>
         </div>
