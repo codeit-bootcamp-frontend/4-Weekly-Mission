@@ -15,6 +15,9 @@ import iconPlus from '../../assets/icons/plus.svg';
 
 import Modal from '../common/modal/Modal';
 import ModalPortal from '../Portal';
+import ModalEdit from '../common/modal/ModalEdit';
+import ModalDelete from '../common/modal/ModalDelete';
+import ModalShare from '../common/modal/ModalShare';
 
 const FolderList = ({ folderList }) => {
   const [selected, setSelected] = useState({ id: '', name: '전체' });
@@ -44,6 +47,13 @@ const FolderList = ({ folderList }) => {
     handleLoad(selected.id);
   }, [selected.id]);
 
+  const ModalRole = {
+    EditName: '폴더 이름 변경',
+    EditAdd: '폴더 추가',
+    Share: '폴더 공유',
+    DeleteFolder: '폴더 삭제'
+  };
+
   return (
     <>
       <div className={cn('folder-list')}>
@@ -63,7 +73,7 @@ const FolderList = ({ folderList }) => {
           )}
         </div>
         <div className={cn('add-folder-container')}>
-          <a className={cn('add-folder')} onClick={() => handleOpenModal('edit-add')}>폴더 추가</a>
+          <a className={cn('add-folder')} onClick={() => handleOpenModal(ModalRole.EditAdd)}>폴더 추가</a>
           <img className={cn('add-folder-icon')} src={iconPlus} alt="폴더 추가하기." />
         </div>
       </div >
@@ -71,7 +81,14 @@ const FolderList = ({ folderList }) => {
       <div className={cn('folder-title')}>
         {openModal && (
           <ModalPortal>
-            <Modal onClose={handleCloseModal} role={role} folderInfo={selected} />
+            <Modal onClose={handleCloseModal} role={role} folderInfo={selected} >
+              {role === ModalRole.EditName && <ModalEdit />}
+              {role === ModalRole.EditAdd && <ModalEdit />}
+              {role === ModalRole.Share && <ModalShare subTitle={selected?.name} />}
+              {role === ModalRole.DeleteFolder && <ModalDelete subTitle={selected?.name} />}
+              {/* {role === 'delete-link' && <ModalDelete subTitle={selected?.name} />} */}
+
+            </Modal>
           </ModalPortal>
         )}
         <h2 className={cn('folder-title', 'folder-name')}>{selected.name}</h2>
@@ -79,11 +96,11 @@ const FolderList = ({ folderList }) => {
           <>
             <div className={cn('folder-menu')}>
               <img className={cn('folder-menu-icon')} src={iconShare} alt="폴더 공유하기." />
-              <a className={cn('folder-menu-text')} onClick={() => handleOpenModal('share')}>공유</a>
+              <a className={cn('folder-menu-text')} onClick={() => handleOpenModal(ModalRole.Share)}>공유</a>
               <img className={cn('folder-menu-icon')} src={iconPen} alt="폴더 이름 변경하기." />
-              <a className={cn('folder-menu-text')} onClick={() => handleOpenModal('edit-name')}>이름 변경</a>
+              <a className={cn('folder-menu-text')} onClick={() => handleOpenModal(ModalRole.EditName)}>이름 변경</a>
               <img className={cn('folder-menu-icon')} src={iconDelete} alt="폴더 삭제하기." />
-              <a className={cn('folder-menu-text')} onClick={() => handleOpenModal('delete-folder')}>삭제</a>
+              <a className={cn('folder-menu-text')} onClick={() => handleOpenModal(ModalRole.DeleteFolder)}>삭제</a>
             </div>
           </>
         )}

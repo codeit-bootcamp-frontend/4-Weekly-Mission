@@ -1,27 +1,6 @@
+import { FolderUser, FolderLink } from '../types/type';
+
 const baseUrl = 'https://bootcamp-api.codeit.kr/api';
-
-interface folder {
-  id: number;
-  created_at: string;
-  image_source: string;
-}
-
-interface folderUser extends folder {
-  name: string;
-  email: string;
-  auth_id: string;
-  profileImageSource: string;
-}
-
-interface folderLink extends folder {
-  updated_at: any;
-  url: string;
-  title?: string;
-  description?: string;
-  folder_id: any;
-  createdAt?: string;
-  imageSource?: string;
-}
 
 const getRequest = async (endPoint: string) => {
   try {
@@ -46,7 +25,7 @@ export const getSharedFolder = async () => {
 
 export const getFolderUser = async () => {
   const response = await getRequest('/users/1');
-  const folderData = response.data.map((item: folderUser) => ({
+  const folderData = response.data.map((item: FolderUser) => ({
     ...item,
     profileImageSource: item?.profileImageSource ? item?.profileImageSource : item?.image_source,
   }));
@@ -55,18 +34,18 @@ export const getFolderUser = async () => {
 };
 
 export const getFolderList = async () => {
-  return getRequest('/users/1/folders');
+  const response = await getRequest('/users/1/folders');
+  return response.data;
 };
 
 export const getFolderLink = async (folderId: string) => {
   const folderUrl = folderId && '?folderId=' + folderId;
   const response = await getRequest(`/users/1/links${folderUrl}`);
-  const folderData = response.data.map((item: folderLink) => ({
+  const folderData = response.data.map((item: FolderLink) => ({
     ...item,
     createdAt: item?.created_at ? item?.created_at : item?.createdAt,
     imageSource: item?.imageSource ? item?.imageSource : item?.image_source,
   }));
-  console.log(folderData);
 
   return folderData;
 };

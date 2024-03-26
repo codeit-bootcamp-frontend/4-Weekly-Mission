@@ -8,6 +8,7 @@ import iconLink from '../../assets/icons/link.svg';
 
 import Modal from '../common/modal/Modal';
 import ModalPortal from '../Portal';
+import ModalAdd from '../common/modal/ModalAdd';
 
 const AddLink = ({ folderList }) => {
   const [openModal, setOpenModal] = useState(false);
@@ -22,11 +23,17 @@ const AddLink = ({ folderList }) => {
     setOpenModal(false);
   };
 
+  const ModalRole = {
+    Add: '폴더 추가',
+  };
+
   return (
     <div className={cn('add-link')}>
       {openModal && (
         <ModalPortal>
-          <Modal onClose={handleCloseModal} role={role} folderList={folderList} />
+          <Modal onClose={handleCloseModal} role={role} folderList={folderList} >
+            {role === ModalRole.Add && <ModalAdd folderList={folderList} />}
+          </Modal>
         </ModalPortal>
       )}
       <div className={cn('add-link-content')}>
@@ -34,7 +41,7 @@ const AddLink = ({ folderList }) => {
           <img className={cn('add-link-icon')} src={iconLink} alt="링크를 추가하기." />
           <input className={cn('add-link-input')} type="text" placeholder="링크를 추가해 보세요"></input>
         </div>
-        <a className={cn('add-link-button', 'button-gradient')} onClick={() => handleOpenModal('add')}>추가하기</a>
+        <a className={cn('add-link-button', 'button-gradient')} onClick={() => handleOpenModal(ModalRole.Add)}>추가하기</a>
       </div>
     </div>
   );

@@ -34,10 +34,10 @@ const FolderPage = () => {
     <div className={cn('folder-layout')}>
       <Header userInfo={user?.[0]} isSticky={false} />
 
-      <AddLink folderList={folderList?.data} />
+      <AddLink folderList={folderList} />
       <FolderContent>
         <SearchBar />
-        <FolderList folderList={folderList?.data} />
+        <FolderList folderList={folderList} />
       </FolderContent>
 
       <Footer />

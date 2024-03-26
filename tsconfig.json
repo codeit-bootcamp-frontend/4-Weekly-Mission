@@ -4,7 +4,7 @@
     "sourceMap": true,
     "strictNullChecks": true,
     "module": "CommonJS",
-    "jsx": "react",
+    "jsx": "react-jsx",
     "target": "ES2016",
     "allowJs": true,
     "moduleResolution": "node",
