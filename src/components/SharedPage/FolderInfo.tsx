@@ -2,7 +2,13 @@ import styles from './FolderInfo.module.css';
 import classNames from 'classnames/bind';
 const cn = classNames.bind(styles);
 
-const FolderInfo = ({ folderInfo }) => {
+import { SharedFolder } from '../../types/type';
+
+interface Props {
+  folderInfo?: SharedFolder;
+}
+
+const FolderInfo = ({ folderInfo }: Props) => {
   const folderImage = folderInfo?.folder.owner.profileImageSource;
   const folderUsername = folderInfo?.folder.owner.name;
   const folderName = folderInfo?.folder.name;

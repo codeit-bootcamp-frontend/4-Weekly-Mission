@@ -27,3 +27,33 @@ export interface FolderList extends Folder {
   favorite: boolean;
   link: { count: number };
 }
+
+export interface SharedUser extends Folder {
+  id: number;
+  name: string;
+  email: string;
+  profileImageSource: string;
+}
+
+export interface SharedFolder extends Folder {
+  folder: {
+    id: number;
+    name: string;
+    owner: {
+      id: number;
+      name: string;
+      profileImageSource: string;
+    };
+    links: Link[];
+    count: number;
+  };
+}
+
+export interface Link {
+  id: number;
+  createdAt: string;
+  url: string;
+  title: string;
+  description: string;
+  imageSource?: string;
+}
