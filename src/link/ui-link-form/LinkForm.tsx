@@ -4,7 +4,7 @@ import classNames from "classnames/bind";
 
 const cx = classNames.bind(styles);
 
-export const LinkForm = (onSubmit: any) => {
+export const LinkForm = ({ onSubmit }: { onSubmit: any }) => {
   const handleSubmit = (event: any) => {
     event.preventDefault();
     onSubmit(event);
