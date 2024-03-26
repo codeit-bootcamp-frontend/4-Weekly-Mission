@@ -17,7 +17,7 @@ export interface FolderLink extends Folder {
   title: string;
   description?: string;
   folder_id?: string;
-  createdAt?: string;
+  createdAt: string;
   imageSource?: string;
 }
 
@@ -54,6 +54,6 @@ export interface Link {
   createdAt: string;
   url: string;
   title: string;
-  description: string;
+  description?: string;
   imageSource?: string;
 }

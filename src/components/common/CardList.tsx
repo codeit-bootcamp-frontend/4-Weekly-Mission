@@ -2,14 +2,21 @@ import styles from './CardList.module.css';
 import classNames from 'classnames/bind';
 const cn = classNames.bind(styles);
 
+import { FolderLink } from '../../types/type';
+
 import Card from './Card';
 
-const CardList = ({ folderInfo, isIconVisible = false }) => {
+interface Props {
+  folderInfo: FolderLink[] | null;
+  isIconVisible: boolean;
+}
+
+const CardList = ({ folderInfo, isIconVisible = false }: Props) => {
   return (
     <div className={cn('cardlist')}>
       {folderInfo && folderInfo.length !== 0 ? (
         <>
-          {folderInfo.map((card) => (
+          {folderInfo.map(card => (
             <Card card={card} key={card.id} isIconVisible={isIconVisible} />
           ))}
         </>

@@ -3,6 +3,7 @@ import classNames from 'classnames/bind';
 const cn = classNames.bind(styles);
 
 import { createDate, intervalDate } from '../../utils/Date';
+import { FolderLink } from '../../types/type';
 
 import noneData from '../../assets/images/none-data.png';
 import iconStar from '../../assets/icons/star-off.svg';
@@ -10,7 +11,12 @@ import iconKebab from '../../assets/icons/kebab.svg';
 
 import CardPopover from '../FolderPage/CardPopover';
 
-const Card = ({ card, isIconVisible = true }) => {
+interface Props {
+  card: FolderLink;
+  isIconVisible: boolean;
+}
+
+const Card = ({ card, isIconVisible = true }: Props) => {
   const { url, title, description, createdAt, imageSource } = card;
   const cardImage = imageSource ? imageSource : noneData;
 

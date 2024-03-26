@@ -5,7 +5,6 @@ const cn = classNames.bind(styles);
 import iconSearch from '../../assets/icons/search.svg';
 
 const SearchBar = () => {
-
   return (
     <div className={cn('searchbar')}>
       <img className={cn('searchbar-icon')} src={iconSearch} alt="링크를 검색하기." />

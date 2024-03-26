@@ -2,9 +2,16 @@ import styles from './Header.module.css';
 import classNames from 'classnames/bind';
 const cn = classNames.bind(styles);
 
+import { FolderUser } from '../../types/type';
+
 import logo from '../../assets/images/logo.svg';
 
-const Header = ({ userInfo, isSticky = true }) => {
+interface Props {
+  userInfo: FolderUser;
+  isSticky: boolean;
+}
+
+const Header = ({ userInfo, isSticky = true }: Props) => {
   const profileImage = userInfo?.profileImageSource;
   const profileEmail = userInfo?.email;
   const sticky = isSticky ? 'sticky' : '';
@@ -19,7 +26,9 @@ const Header = ({ userInfo, isSticky = true }) => {
             <p className={cn('profile-email')}>{profileEmail}</p>
           </div>
         ) : (
-          <a className={cn('button-login', 'button-gradient')} href="/">로그인</a>
+          <a className={cn('button-login', 'button-gradient')} href="/">
+            로그인
+          </a>
         )}
       </nav>
     </header>
