@@ -1,17 +1,21 @@
 import React from "react"; // React import 추가
 import styled from "styled-components";
 import "./Modal.css";
-// import closeImgSrc from "../assets/closeIcon.svg";
 import AddFolderModal from "./AddFolderModal";
 import AddLinkModal from "./AddLinkModal";
 import DeleteModal from "./DeleteModal";
 import EditModal from "./EditModal";
 import ShareModal from "./ShareModal";
 
+interface Menu {
+  id: string;
+  name: string;
+}
+
 // ModalProps 타입 정의
 interface ModalProps {
-  folderData?: Date; // 구체적인 타입으로 대체 필요
-  folderMenus?: boolean;
+  folderData?: Menu[];
+  folderMenus?: Menu[];
   title: string;
   isShowModal: (callback: (prev: any) => any) => void; // 구체적인 타입으로 대체 필요
   linkAddModal?: boolean;

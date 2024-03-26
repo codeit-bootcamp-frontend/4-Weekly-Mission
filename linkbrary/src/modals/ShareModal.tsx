@@ -1,9 +1,15 @@
+import React from "react";
 import styled from "styled-components";
 
-const ShareModal = ({ menusId }) => {
+interface ShareModalProps {
+  menusId?: string;
+}
+
+const ShareModal: React.FC<ShareModalProps> = ({ menusId }) => {
   const shareKakao = () => {
-    if (window.Kakao) {
-      const kakao = window.Kakao;
+    // window 객체에 Kakao 타입 정의 필요
+    if ((window as any).Kakao) {
+      const kakao = (window as any).Kakao;
       if (!kakao.isInitialized()) {
         kakao.init("ac53ae0f1cac43ca6e9eb556442de62d");
       }
@@ -39,11 +45,9 @@ const ShareModal = ({ menusId }) => {
     window.open(`http://www.facebook.com/sharer/sharer.php?u=${sharedLink}`);
   };
 
-  const handleCopyClipBoard = async (text) => {
+  const handleCopyClipBoard = async () => {
     try {
-      await navigator.clipboard.writeText(
-        `http://localhost:3000/shared/${menusId}`
-      );
+      await navigator.clipboard.writeText(`http://localhost:3000/shared`);
       alert("클립보드에 링크가 복사되었어요.");
     } catch (err) {
       console.log(err);
@@ -56,20 +60,20 @@ const ShareModal = ({ menusId }) => {
       <ShareSns>
         <div>
           <KakaoIcon onClick={shareKakao}>
-            <img src="/assets/kakao.svg" />
+            <img src="/assets/kakao.svg" alt="카카오톡 공유" />
           </KakaoIcon>
           <ShareApp>카카오톡</ShareApp>
         </div>
 
         <div>
           <FacebookIcon onClick={shareFacebook}>
-            <img src="/assets/facebook.svg" />
+            <img src="/assets/facebook.svg" alt="페이스북 공유" />
           </FacebookIcon>
           <ShareApp>페이스북</ShareApp>
         </div>
         <div>
           <ShareIcon onClick={handleCopyClipBoard}>
-            <img src="/assets/link.svg" />
+            <img src="/assets/link.svg" alt="링크 복사" />
           </ShareIcon>
           <ShareApp>링크 복사</ShareApp>
         </div>

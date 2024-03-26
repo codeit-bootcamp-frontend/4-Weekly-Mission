@@ -1,6 +1,20 @@
+import React from "react";
 import styled from "styled-components";
 
-function AddLinkModal({ folderData, folderMenus }) {
+interface Menu {
+  id: string;
+  name: string;
+}
+
+interface AddLinkModalProps {
+  folderData?: Menu[];
+  folderMenus?: Menu[];
+}
+
+const AddLinkModal: React.FC<AddLinkModalProps> = ({
+  folderData,
+  folderMenus,
+}) => {
   const menusDataArray = folderMenus || [];
   const dataArray = folderData || [];
   return (
@@ -17,7 +31,7 @@ function AddLinkModal({ folderData, folderMenus }) {
       <AddButton>추가하기</AddButton>
     </AddLink>
   );
-}
+};
 
 const AddLink = styled.div`
   display: flex;
