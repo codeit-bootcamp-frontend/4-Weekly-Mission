@@ -9,7 +9,7 @@ import { FolderCards } from './FolderCards/FolderCards';
 function MainContent() {
   const [currentCategory, setCurrentCategory] = useState('전체');
 
-  const [folderId, setFolderId] = useState(0);
+  const [folderId, setFolderId] = useState('0');
 
   const folderCategory = useFetchFolderCategoryData();
 
@@ -26,7 +26,7 @@ function MainContent() {
       {folderCategory ? (
         <>
           <FolderCategory
-            category={[{ name: '전체', id: 0 }, ...folderCategory]}
+            category={[{ name: '전체', id: '0' }, ...folderCategory]}
             currentCategory={currentCategory}
             handleCategoryButton={handleCategoryButton}
           />

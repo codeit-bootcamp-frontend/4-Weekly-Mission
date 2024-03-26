@@ -7,7 +7,7 @@ function useFetchFolderCardsData(folderId) {
 
   useEffect(() => {
     const fetchData = async () => {
-      if (folderId === 0) {
+      if (folderId === '0') {
         try {
           const response = await fetch(`${BASE_URL}/users/11/links`);
           if (!response.ok) {
