@@ -1,4 +1,4 @@
-export const profileDataFetch = async (userId) => {
+export const profileDataFetch = async (userId: number) => {
   try {
     const response = await fetch(
       `${process.env.REACT_APP_BASE_URL}users/${userId}`
@@ -11,7 +11,7 @@ export const profileDataFetch = async (userId) => {
   }
 };
 
-export const folderListDataFetch = async (userId) => {
+export const folderListDataFetch = async (userId: number) => {
   try {
     const response = await fetch(
       `${process.env.REACT_APP_BASE_URL}users/${userId}/folders`
@@ -23,7 +23,10 @@ export const folderListDataFetch = async (userId) => {
   }
 };
 
-export const selectedFolderDataFetch = async (userId, folderData) => {
+export const selectedFolderDataFetch = async (
+  userId: number,
+  folderData: { id: number }
+) => {
   try {
     let response;
     if (folderData.id) {

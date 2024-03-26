@@ -6,9 +6,7 @@ import Nav from "../componenets/Nav";
 import useFetchData from "../hooks/useFetchData";
 import Modal from "../componenets/modal/Modal";
 
-interface User {
-  handleData: (data: string) => void;
-}
+type User = (data: string) => void;
 
 export const UserData = React.createContext<User | null>(null);
 

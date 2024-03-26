@@ -11,18 +11,27 @@ const DATA_MAP = {
   selectedFolderDataFetch,
 };
 
-const useFetchData = (dataType: string, userId = 0, folderData = 0) => {
+const useFetchData = (
+  dataType: keyof typeof DATA_MAP,
+  userId = 0,
+  folderData?: { id: number }
+) => {
   const [data, setData] = useState(null);
 
   useEffect(() => {
     const fetchData = async () => {
       try {
         let targetData;
-
-        if (folderData === 0) {
+        if (
+          dataType === "profileDataFetch" ||
+          dataType === "folderListDataFetch"
+        ) {
           targetData = await DATA_MAP[dataType]?.(userId);
         } else {
-          targetData = await DATA_MAP[dataType]?.(userId, folderData);
+          targetData = await DATA_MAP[dataType]?.(
+            userId,
+            folderData as { id: number }
+          );
         }
 
         setData(targetData);

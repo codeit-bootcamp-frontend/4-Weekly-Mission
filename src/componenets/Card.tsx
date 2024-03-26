@@ -6,7 +6,7 @@ import "./Card.css";
 import { Link } from "react-router-dom";
 import React, { useState } from "react";
 import { UserContext } from "./FolderDetail.jsx";
-import { UserData } from "../pages/Folder.jsx";
+import { UserData } from "../pages/Folder.js";
 
 export default function Card({ data }) {
   const [showPopover, setShowPopover] = useState(false);
