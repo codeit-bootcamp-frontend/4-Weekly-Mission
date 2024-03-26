@@ -9,31 +9,25 @@ import { CSSProperties, useEffect, useState } from "react";
 import { FolderData, ObjectLink } from "@/constants/index.types";
 import useFetchFolder from "@/hooks/useFetchFolder";
 
+// sharedPage는 folderPage에서 작업 후 아직 반영이 안된것이 많은 상태입니다 고려해서 봐주셨으면 좋겠습니다.
 export default function SharedPage() {
-  const [fetchData, setFetchData] = useState<FolderData>();
+  const [profileData, setProfileData] = useState<FolderData>();
   const [linksData, setLinksData] = useState<ObjectLink[] | undefined>([]);
   const [searchValue, setSearchValue] = useState("");
-  const [value, setValue] = useState("");
 
-  const { data } = useFetchFolder<FolderData>(END_POINT.sharedLinks);
-  const headerPosition: CSSProperties = {
+  const { data: user } = useFetchFolder<FolderData>(END_POINT.SHARED_LINKS);
+  const headerStyle: CSSProperties = {
     position: "fixed",
   };
 
   useEffect(() => {
-    if (data) {
-      setFetchData(data);
-      setLinksData(data.links);
+    if (user) {
+      setProfileData(user);
+      setLinksData(user.links);
     }
-  }, [data]);
+  }, [user]);
 
-  const handleSearchInputCancel = () => {
-    setSearchValue("");
-    setLinksData(data?.links);
-    setValue("");
-  };
-
-  //제대로 동작하지 않는것 같습니다
+  // 아직 shared page에서는 수정을 진행하지 않았습니다
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const inputValue = e.target.value;
     setSearchValue(inputValue);
@@ -52,17 +46,15 @@ export default function SharedPage() {
       setLinksData(linksData);
     }
   }, [searchValue]);
-  // 여기까지
 
   return (
     <>
-      <Header headerPosition={headerPosition} />
-      <Profile fetchData={fetchData} />
+      <Header headerPosition={headerStyle} />
+      <Profile fetchData={profileData} />
       <section className={styles.CardListBox}>
         <CardSearchInput
-          value={value}
+          value={searchValue}
           handleInputChange={handleInputChange}
-          handleSearchInputCancel={handleSearchInputCancel}
         />
         <CardList links={linksData} />
       </section>

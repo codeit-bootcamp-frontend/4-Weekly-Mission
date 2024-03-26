@@ -1,4 +1,4 @@
-export default function InputIcon() {
+export default function GlassIcon() {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"

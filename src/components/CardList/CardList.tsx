@@ -9,7 +9,9 @@ interface CardListProps {
 export default function CardList({ links }: CardListProps) {
   return (
     <section className={styles.CardList}>
-      {links && links.map((link) => <Card link={link} key={link.id} />)}
+      {links?.map((link) => (
+        <Card link={link} key={link.id} />
+      ))}
     </section>
   );
 }

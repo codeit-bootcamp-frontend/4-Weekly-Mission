@@ -22,14 +22,9 @@ export default function CardFolderList({
       >
         전체
       </button>
-      {folders &&
-        folders.map((folder) => (
-          <Folder
-            onFolderClick={onFolderClick}
-            key={folder.id}
-            folder={folder}
-          />
-        ))}
+      {folders.map((folder) => (
+        <Folder onFolderClick={onFolderClick} key={folder.id} folder={folder} />
+      ))}
     </section>
   );
 }

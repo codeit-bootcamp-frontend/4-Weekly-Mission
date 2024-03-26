@@ -1,14 +1,14 @@
-const BASE_URL = "https://bootcamp-api.codeit.kr/api/";
-const ID = 11;
+const API_BASE_URL = "https://bootcamp-api.codeit.kr/api/";
+const Team_ID = 11;
 
-const sharedLinks = `${BASE_URL}sample/folder`;
-const folders = `${BASE_URL}users/${ID}/folders`;
-const links = `${BASE_URL}users/${ID}/links`;
-const user = `${BASE_URL}users/1`;
+const SHARED_LINKS = `${API_BASE_URL}sample/folder`;
+const FOLDERS = `${API_BASE_URL}users/${Team_ID}/folders`;
+const LINKS = `${API_BASE_URL}users/${Team_ID}/links`;
+const USER = `${API_BASE_URL}users/1`;
 
 export const END_POINT = {
-  folders,
-  links,
-  user,
-  sharedLinks,
+  FOLDERS,
+  LINKS,
+  USER,
+  SHARED_LINKS,
 };

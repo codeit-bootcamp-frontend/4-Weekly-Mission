@@ -8,7 +8,7 @@ export interface FolderData {
   count: number;
 }
 
-export interface FormetLink {
+export interface FormatLink {
   id: string;
   image_source: string;
   created_at: Date;
@@ -26,7 +26,7 @@ export interface ObjectLink {
   url: string;
 }
 
-export interface UserData {
+export interface User {
   auth_id: string;
   created_at: Date;
   email: string;

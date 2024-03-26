@@ -1,8 +1,8 @@
 import { Link } from "react-router-dom";
 import styles from "./Card.module.scss";
 import EmptyCase from "@/assets/svg/CardImageEmptyCaseIcon";
-import getElapsedTime from "@/hooks/getElapsedTime";
-import getFormatDate from "@/hooks/getFormatDate";
+import getElapsedTime from "@/utils/getElapsedTime";
+import getFormattedDate from "@/utils/getFormattedDate";
 import { ObjectLink } from "@/constants/index.types";
 
 interface CardProps {
@@ -12,7 +12,7 @@ interface CardProps {
 export default function Card({ link }: CardProps) {
   const { imageSource, createdAt, description, title, url } = link;
   const createDate = getElapsedTime(createdAt);
-  const formatDate = getFormatDate(createdAt);
+  const formatDate = getFormattedDate(createdAt);
 
   return (
     <Link to={url} className={styles.Card}>

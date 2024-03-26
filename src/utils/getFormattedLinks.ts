@@ -1,6 +1,6 @@
-import { FormetLink } from "@/constants/index.types";
+import { FormatLink } from "@/constants/index.types";
 
-function formatLinkData(link: FormetLink) {
+function formatLinkData(link: FormatLink) {
   return {
     id: link.id,
     imageSource: link.image_source,
@@ -11,10 +11,10 @@ function formatLinkData(link: FormetLink) {
   };
 }
 
-export default function getFormattedLinks(links: FormetLink[]) {
+export default function getFormattedLinks(links: FormatLink[]) {
   return (
     links &&
-    links.map((link: FormetLink) => {
+    links.map((link: FormatLink) => {
       return formatLinkData(link);
     })
   );

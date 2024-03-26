@@ -5,9 +5,9 @@ import CardFolderList from "./CardFolderList/CardFolderList.tsx";
 import styles from "./CardListBox.module.scss";
 import CardList from "../CardList/CardList.tsx";
 import { END_POINT } from "../../constants/index.ts";
-import getFormattedLinks from "@/hooks/getFormattedLinks";
+import getFormattedLinks from "@/utils/getFormattedLinks.ts";
 import LinksEmptyCase from "./LinksEmptyCase/LinksEmptyCase.tsx";
-import { FormetLink, ObjectLink, ObjectFolder } from "@/constants/index.types";
+import { FormatLink, ObjectLink, ObjectFolder } from "@/constants/index.types";
 
 export default function CardListBox() {
   // 북마크 Folders 상태
@@ -15,9 +15,9 @@ export default function CardListBox() {
   // 렌더링되는 Card - Links 상태
   const [links, setLinks] = useState<ObjectLink[]>([]);
   // 북마크 Folder의 id로 END_POINT.links + query 변경
-  const [changeLinksFolder, setChangeLinksFolder] = useState(END_POINT.links);
+  const [changeLinksFolder, setChangeLinksFolder] = useState(END_POINT.LINKS);
   // select한 북마크 Folder의 이름으로 title 변경
-  const [linksTitle, setLinksTitle] = useState(`전체`);
+  const [linksTitle, setLinksTitle] = useState("전체");
   // 전체 데이터 배열 저장 = 검색용
   const [searchLinks, setSearchLinks] = useState<ObjectLink[]>([]);
   // inputValue 상태
@@ -25,10 +25,10 @@ export default function CardListBox() {
   // useGet Hook으로 dataFetching
   const { data: foldersData, isLoading: isFoldersLoading } = useGet<
     ObjectFolder[]
-  >(END_POINT.folders);
+  >(END_POINT.FOLDERS);
   // 북마크 Folder의 id값으로 해당 id의 dataFetching
   const { data: linksData, isLoading: isLinksLoading } =
-    useGet<FormetLink[]>(changeLinksFolder);
+    useGet<FormatLink[]>(changeLinksFolder);
 
   useEffect(() => {
     if (!isFoldersLoading && !isLinksLoading) {
@@ -45,44 +45,45 @@ export default function CardListBox() {
   }, [foldersData, isFoldersLoading, linksData, isLinksLoading]);
   //
   const handleFolderClick = (folder: ObjectFolder) => {
-    setChangeLinksFolder(`${END_POINT.links}?folderId=${folder.id}`);
+    setChangeLinksFolder(`${END_POINT.LINKS}?folderId=${folder.id}`);
     setLinksTitle(folder.name);
   };
 
   const handleTotalBtnClick = () => {
-    setChangeLinksFolder(END_POINT.links);
-    setLinksTitle(`전체`);
+    setChangeLinksFolder(END_POINT.LINKS);
+    setLinksTitle("전체");
   };
 
-  const handleSearchInputCancel = () => {
-    setSearchValue("");
-    setLinks(searchLinks);
-  };
+  // input type="search" 로 변경 후 내부 버튼 상호작용으로 수정
+  // const handleSearchInputCancel = () => {
+  //   setSearchValue("");
+  //   setLinks(searchLinks);
+  // };
 
   const handleInputChange = (e: ChangeEvent<HTMLInputElement>) => {
     setSearchValue(e.target.value);
   };
 
   useEffect(() => {
-    if (searchValue !== "") {
-      const filteredLinks = searchLinks.filter((link) => {
-        return Object.values(link)
-          .join("")
-          .toLowerCase()
-          .includes(searchValue.toLowerCase());
-      });
-      setLinks(filteredLinks);
-    } else {
+    if (searchValue === "") {
       setLinks(searchLinks);
+      return;
     }
-  }, [searchValue]);
+
+    const filteredLinks = searchLinks.filter((link) => {
+      return Object.values(link)
+        .join("")
+        .toLowerCase()
+        .includes(searchValue.toLowerCase());
+    });
+    setLinks(filteredLinks);
+  }, [searchValue, searchLinks]);
 
   return (
     <main className={styles.CardListBox}>
       <CardSearchInput
         value={searchValue}
         handleInputChange={handleInputChange}
-        handleSearchInputCancel={handleSearchInputCancel}
       />
       <section className={styles.cardList}>
         <CardFolderList

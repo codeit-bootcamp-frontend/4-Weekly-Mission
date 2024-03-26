@@ -1,4 +1,4 @@
-export { default as Facebook } from "./svg/Facebook";
-export { default as Instagram } from "./svg/Instagram";
-export { default as Twitter } from "./svg/Twitter";
-export { default as Youtube } from "./svg/Youtube";
+export { default as FacebookIcon } from "./svg/FacebookIcon";
+export { default as InstagramIcon } from "./svg/InstagramIcon";
+export { default as TwitterIcon } from "./svg/TwitterIcon";
+export { default as YoutubeIcon } from "./svg/YoutubeIcon";

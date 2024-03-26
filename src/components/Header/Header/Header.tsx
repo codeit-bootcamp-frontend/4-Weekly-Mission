@@ -2,17 +2,17 @@ import { Link } from "react-router-dom";
 import Logo from "@/assets/svg/Logo";
 import styles from "./Header.module.scss";
 import useGet from "../../../hooks/useGet";
-import { useEffect, useState } from "react";
+import { CSSProperties, useEffect, useState } from "react";
 import { END_POINT } from "../../../constants";
-import { UserData } from "@/constants/index.types";
+import { User } from "@/constants/index.types";
 
 interface HeaderProps {
-  headerPosition: React.CSSProperties;
+  headerPosition: CSSProperties;
 }
 
 export default function Header({ headerPosition }: HeaderProps) {
-  const [fetchData, setFetchData] = useState<UserData>();
-  const { data, isLoading } = useGet<UserData[]>(END_POINT.user);
+  const [userData, setUserData] = useState<User>();
+  const { data, isLoading } = useGet<User[]>(END_POINT.USER);
 
   useEffect(() => {
     if (data && !isLoading) {
@@ -20,7 +20,7 @@ export default function Header({ headerPosition }: HeaderProps) {
       // fetch data가 배열로 들어와요
       // 로그인 기능 구현되면 수정 가능할 듯 싶습니다.
 
-      setFetchData(data[0]);
+      setUserData(data[0]);
     }
   }, [data, isLoading]);
 
@@ -36,10 +36,10 @@ export default function Header({ headerPosition }: HeaderProps) {
           <section className={styles.profileBox}>
             <img
               className={styles.profileBox__img}
-              src={fetchData?.image_source}
+              src={userData?.image_source}
               alt="user profile"
             />
-            <p className={styles.profileBox__email}>{fetchData?.email}</p>
+            <p className={styles.profileBox__email}>{userData?.email}</p>
           </section>
         )}
       </div>

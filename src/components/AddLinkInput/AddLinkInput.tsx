@@ -1,4 +1,4 @@
-import AddLinkInputGlassIcon from "@/assets/svg/AddLinkInputGlassIcon";
+import GlassIcon from "@/assets/svg/GlassIcon";
 import styles from "./AddLinkInput.module.scss";
 
 export default function AddLinkInput() {
@@ -6,7 +6,7 @@ export default function AddLinkInput() {
     <section className={styles.AddLinkInput}>
       <form className={styles.form}>
         <div className={styles.inputBox}>
-          <AddLinkInputGlassIcon />
+          <GlassIcon />
           <input
             className={styles.input}
             placeholder="링크를 추가해 보세요"
