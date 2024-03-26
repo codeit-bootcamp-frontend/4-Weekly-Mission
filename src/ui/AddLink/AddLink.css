@@ -13,6 +13,12 @@
   }
 }
 
+.AddLink.AddLinkFixed {
+  position: fixed;
+  bottom: 0;
+  padding: 1rem 3.2rem;
+}
+
 .AddLink-items {
   width: 100%;
   max-width: 80rem;

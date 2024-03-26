@@ -12,6 +12,14 @@
   }
 }
 
+.Card:hover .CardContent {
+  background-color: var(--light-blue);
+}
+
+.Card:hover .CardImage {
+  background-size: 130%;
+}
+
 .CardContent {
   height: 100%;
   padding: 1.5rem 2rem;
@@ -74,9 +82,9 @@
   color: var(--text-content-black);
 }
 
-.CardContent.CardContent-hovered {
+/* .CardContent.CardContent-hovered {
   background-color: var(--light-blue);
-}
+} */
 .CardImage {
   position: relative;
   width: 100%;
@@ -93,9 +101,9 @@
   }
 }
 
-.CardImage.CardImage-zoom-in {
+/* .CardImage.CardImage-zoom-in {
   background-size: 130%;
-}
+} */
 
 .star-button {
   position: absolute;

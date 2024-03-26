@@ -1,0 +1,12 @@
+{
+  "compilerOptions": {
+    "target": "es2016",
+    "jsx": "preserve",
+    "module": "commonjs",
+    "noImplicitAny": true,
+    "baseUrl": "src",
+    "esModuleInterop": true,
+  },
+  "include": ["src/**/*.ts", "src/**/*.tsx", "src/App.js"],
+  "exclude": [],
+}
