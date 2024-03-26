@@ -1,10 +1,10 @@
-import CardListItem from './CardListItem/CardListItem';
-import useFetchCardsData from '../../hooks/useFetchCardsData';
-import noCardImg from '../../images/no-image.svg';
+import Card from './Card/Card';
+import useFetchCardsData from '../../../hooks/useFetchCardsData';
+import noCardImg from '../../../images/no-image.svg';
 import { Link } from 'react-router-dom';
-import styles from './CardList.module.scss';
+import styles from './SharedCards.module.scss';
 
-function CardList() {
+function SharedCards() {
   const cardsData = useFetchCardsData();
 
   const handleImageError = (e) => {
@@ -25,7 +25,7 @@ function CardList() {
             formattedDate,
           }) => (
             <Link to={url} key={id}>
-              <CardListItem
+              <Card
                 imageSource={imageSource}
                 title={title}
                 timePasse={timePassed}
@@ -43,4 +43,4 @@ function CardList() {
   );
 }
 
-export default CardList;
+export default SharedCards;

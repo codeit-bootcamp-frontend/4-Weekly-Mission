@@ -1,7 +1,7 @@
-import noCardImg from '../../../images/no-image.svg';
-import styles from './CardListItem.module.scss';
+import noCardImg from '../../../../images/no-image.svg';
+import styles from './Card.module.scss';
 
-function CardListItem({
+function Card({
   imageSource,
   title,
   timePassed,
@@ -26,4 +26,4 @@ function CardListItem({
   );
 }
 
-export default CardListItem;
+export default Card;

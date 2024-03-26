@@ -1,7 +1,7 @@
 import { Helmet, HelmetProvider } from 'react-helmet-async';
-import CardList from '../../components/CardList/CardList';
 import SearchBar from '../../components/SearchBar/SearchBar';
-import TopContent from '../../components/Shared/TopContent';
+import TopContent from '../../components/Shared/TopContent/TopContent';
+import SharedCards from '../../components/Shared/SharedCards/SharedCards';
 
 function SharedPage() {
   return (
@@ -11,7 +11,7 @@ function SharedPage() {
       </Helmet>
       <TopContent />
       <SearchBar />
-      <CardList />
+      <SharedCards />
     </HelmetProvider>
   );
 }
