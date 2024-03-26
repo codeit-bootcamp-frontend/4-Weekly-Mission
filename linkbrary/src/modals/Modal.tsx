@@ -1,3 +1,4 @@
+import React from "react"; // React import 추가
 import styled from "styled-components";
 import "./Modal.css";
 import closeImgSrc from "../assets/closeIcon.svg";
@@ -7,7 +8,23 @@ import DeleteModal from "./DeleteModal";
 import EditModal from "./EditModal";
 import ShareModal from "./ShareModal";
 
-const Modal = ({
+// ModalProps 타입 정의
+interface ModalProps {
+  folderData?: Date; // 구체적인 타입으로 대체 필요
+  folderMenus?: boolean;
+  title: string;
+  isShowModal: (callback: (prev: any) => any) => void; // 구체적인 타입으로 대체 필요
+  linkAddModal?: boolean;
+  folderAddModal?: boolean;
+  shareModal?: boolean;
+  editModal?: boolean;
+  deleteModal?: boolean;
+  linkDeleteModal?: boolean;
+  dataUrl?: string;
+  menusId?: string;
+}
+
+const Modal: React.FC<ModalProps> = ({
   folderData,
   folderMenus,
   title,
@@ -21,7 +38,7 @@ const Modal = ({
   dataUrl,
   menusId,
 }) => {
-  const handleClickExit = (e) => {
+  const handleClickExit = (e: React.MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
     isShowModal((prev) => ({
       linkModal: false,

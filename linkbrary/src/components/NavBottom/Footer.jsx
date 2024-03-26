@@ -1,4 +1,5 @@
 import "../../styles/Footer.css";
+import styled from "styled-components";
 import facebookImgSrc from "../../assets/facebook.svg";
 import instagramImgSrc from "../../assets/instagram.svg";
 import twitterImgSrc from "../../assets/twitter.svg";
@@ -6,7 +7,7 @@ import youtubeImgSrc from "../../assets/youtube.svg";
 
 function Footer() {
   return (
-    <footer className="footer-area">
+    <FooterContents>
       <div className="footer-group">
         <span className="copyright">©codeit - 2023</span>
         <ul className="link-list">
@@ -64,8 +65,17 @@ function Footer() {
           </li>
         </ul>
       </div>
-    </footer>
+    </FooterContents>
   );
 }
+
+const FooterContents = styled.div`
+  position: static;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin-top: 6rem;
+  background-color: var(--black);
+`;
 
 export default Footer;

@@ -1,13 +1,18 @@
 import styled from "styled-components";
 
-function DeleteModal({ link }) {
+interface DeleteModalProps {
+  title?: string;
+  link?: string;
+}
+
+const DeleteModal: React.FC<DeleteModalProps> = ({ title, link }) => {
   return (
     <DeleteContent>
       <DeleteArea>{link}</DeleteArea>
       <DeleteButton>삭제하기</DeleteButton>
     </DeleteContent>
   );
-}
+};
 
 const DeleteContent = styled.div`
   display: flex;
