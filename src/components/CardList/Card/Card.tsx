@@ -12,7 +12,7 @@ interface CardProps {
 export default function Card({ link }: CardProps) {
   const { imageSource, createdAt, description, title, url } = link;
   const createDate = getElapsedTime(createdAt);
-  const formatData = getFormatDate(createdAt);
+  const formatDate = getFormatDate(createdAt);
 
   return (
     <Link to={url} className={styles.Card}>
@@ -28,7 +28,7 @@ export default function Card({ link }: CardProps) {
       <figcaption className={styles.caption}>
         <time className={styles.updatedAt}>{createDate}</time>
         <p className={styles.description}>{description}</p>
-        <time className={styles.createdAt}>{formatData}</time>
+        <time className={styles.createdAt}>{formatDate}</time>
       </figcaption>
     </Link>
   );
