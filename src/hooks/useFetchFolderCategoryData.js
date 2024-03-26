@@ -7,7 +7,7 @@ function useFetchFolderCategoryData() {
     const fetchData = async () => {
       try {
         const response = await fetch(
-          'https://bootcamp-api.codeit.kr/api/users/4/folders'
+          'https://bootcamp-api.codeit.kr/api/users/11/folders'
         );
         if (!response.ok) {
           throw new Error('response 전달 실패');

@@ -1,0 +1,45 @@
+.addLinkBar {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  width: 900px;
+  height: 54px;
+  border-radius: 15px;
+  margin-bottom: 40px;
+  padding: 30px 20px;
+  border: 1px solid var(--Linkbrary-primary-color);
+  background-color: white;
+}
+
+.addLinkBar input {
+  border: none;
+  outline: none;
+  padding: 10px;
+  width: 1000px;
+  font-size: 14px;
+  opacity: 0.7;
+}
+
+.addBtn {
+  display: flex;
+  width: 90px;
+  padding: 10px 10px;
+  justify-content: center;
+  align-items: center;
+  border-radius: 8px;
+  background: var(--gra-purpleblue-to-skyblue);
+  color: var(--Grey-Light);
+  font-size: 14px;
+}
+
+@media (min-width: 768px) and (max-width: 1199px) {
+  .addLinkBar {
+    width: 80vw;
+  }
+}
+
+@media (min-width: 375px) and (max-width: 767px) {
+  .addLinkBar {
+    width: 80vw;
+  }
+}

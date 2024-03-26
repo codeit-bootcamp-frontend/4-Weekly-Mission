@@ -1,6 +1,6 @@
-import Layout from './pages/Layout';
-import Shared from './pages/Shared';
-import Folder from './pages/Folder';
+import Layout from './pages/Layout/Layout';
+import SharedPage from './pages/SharedPage/SharedPage';
+import FolderPage from './pages/FolderPage/FolderPage';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
 function Main() {
@@ -8,8 +8,8 @@ function Main() {
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Layout />}>
-          <Route path="/shared" element={<Shared />} />
-          <Route path="/folder" element={<Folder />} />
+          <Route path="/shared" element={<SharedPage />} />
+          <Route path="/folder" element={<FolderPage />} />
         </Route>
       </Routes>
     </BrowserRouter>
