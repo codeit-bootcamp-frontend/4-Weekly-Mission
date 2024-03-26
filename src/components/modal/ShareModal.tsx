@@ -5,7 +5,14 @@ import facebook from '../../assets/modal/facebook.svg';
 import link from '../../assets/modal/link.svg';
 import close from '../../assets/modal/close.svg';
 
-const ShareModal = ({ onClose, selectFolder }) => {
+interface Props {
+  onClose: ModalCloseHandler;
+  selectFolder: any;
+}
+
+type ModalCloseHandler = () => void;
+
+const ShareModal = ({ onClose, selectFolder }: Props) => {
   const currentFolderId = selectFolder;
   const sharedLink = `${window.location.origin}/shared/${currentFolderId}`;
 
@@ -40,10 +47,10 @@ const ShareModal = ({ onClose, selectFolder }) => {
   };
 
   const handleClose = () => {
-    onClose(false);
+    onClose();
   };
 
-  const handleStopEvent = (e) => {
+  const handleStopEvent = (e: React.MouseEvent<HTMLDivElement>) => {
     e.stopPropagation();
   };
 

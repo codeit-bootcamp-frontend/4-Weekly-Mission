@@ -2,12 +2,18 @@ import React from 'react';
 import styled from 'styled-components';
 import close from '../../assets/modal/close.svg';
 
-const AddFolderModal = ({ onClose }) => {
+interface Props {
+  onClose: ModalCloseHandler;
+}
+
+type ModalCloseHandler = () => void;
+
+const AddFolderModal = ({ onClose }: Props) => {
   const handleClose = () => {
-    onClose(false);
+    onClose();
   };
 
-  const handleStopEvent = (e) => {
+  const handleStopEvent = (e: React.MouseEvent<HTMLDivElement>) => {
     e.stopPropagation();
   };
 

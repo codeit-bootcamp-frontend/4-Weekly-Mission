@@ -3,18 +3,41 @@ import styled from 'styled-components';
 import close from '../../assets/modal/close.svg';
 import check from '../../assets/modal/check.svg';
 
-const AddLinkModal = ({ onClose, folderInfo }) => {
-  const [selectedItemId, setSelectedItemId] = useState(null);
+interface FolderInfo {
+  id: number;
+  name: string;
+  created_at?: Date;
+  link: LinkCount;
+}
+
+interface LinkCount {
+  count: number;
+}
+
+interface Props {
+  onClose: ModalCloseHandler;
+  folderInfo: FolderInfo[];
+}
+
+interface LinkFolderContentProps {
+  selected: boolean;
+  onClick: () => void;
+}
+
+type ModalCloseHandler = () => void;
+
+const AddLinkModal = ({ onClose, folderInfo }: Props) => {
+  const [selectedItemId, setSelectedItemId] = useState<null | number>(null);
 
   const handleClose = () => {
-    onClose(false);
+    onClose();
   };
 
-  const handleStopEvent = (e) => {
+  const handleStopEvent = (e: React.MouseEvent<HTMLDivElement>) => {
     e.stopPropagation();
   };
 
-  const handleLinkFolderClick = (id) => {
+  const handleLinkFolderClick = (id: null | number) => {
     setSelectedItemId(id === selectedItemId ? null : id);
   };
 
@@ -125,7 +148,7 @@ const LinksFolderContent = styled.div`
   gap: 0.4rem;
 `;
 
-const LinkFolderContent = styled.div`
+const LinkFolderContent = styled.div<LinkFolderContentProps>`
   width: 26.4rem;
   display: flex;
   justify-content: space-between;
