@@ -16,6 +16,7 @@
 }
 
 .SearchBar-input {
+  width: 95%;
   font-size: 1.4rem;
   background-color: var(--gray-light);
 
@@ -30,8 +31,16 @@
 }
 
 .SearchBar-icon {
-  background-image: url("../../../../public/images/search.svg");
+  background-image: url("../../../assets/search.svg");
   background-repeat: no-repeat;
   width: 1.6rem;
   height: 1.6rem;
+}
+
+.delete-button {
+  color: var(--white);
+  background-color: var(--gray20);
+  border-radius: 50%;
+  width: 2.4rem;
+  height: 2.4rem;
 }
