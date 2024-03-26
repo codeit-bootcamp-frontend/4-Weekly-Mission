@@ -1,4 +1,3 @@
-import React from "react";
 import "./AddLinkInput.css";
 
 function AddLinkInput() {

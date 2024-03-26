@@ -1,4 +1,3 @@
-import React from "react";
 import { useEffect, useState } from "react";
 import { getFolder } from "../../apis/Api";
 import Header from "../../components/Header/Header";

@@ -1,4 +1,3 @@
-import React from "react";
 import { useState } from "react";
 import { Button, Popover, OverlayTrigger } from "react-bootstrap";
 import { getTimeAgo } from "../../utils/Utilities";

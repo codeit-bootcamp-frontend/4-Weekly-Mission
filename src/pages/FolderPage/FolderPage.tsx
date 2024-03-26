@@ -1,4 +1,3 @@
-import React from "react";
 import { useEffect, useRef, useState } from "react";
 import { getUsersFolder } from "../../apis/Api";
 import AddLinkInput from "../../components/AddLinkInput/AddLinkInput";

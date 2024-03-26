@@ -1,4 +1,3 @@
-import React from "react";
 import { useState, useEffect } from "react";
 import { getUsersLink } from "../../apis/Api";
 import Cards from "../Cards/Cards";
