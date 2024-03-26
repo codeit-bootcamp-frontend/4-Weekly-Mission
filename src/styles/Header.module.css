@@ -1,0 +1,67 @@
+/* header */
+#header {
+  width: 100%;
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  padding: 20px 200px;
+  background-color: #f0f6ff;
+}
+#header .headerBox {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+#header .headerLogoBox {
+  cursor: pointer;
+}
+
+#header .loginBtn {
+  display: flex;
+  width: 128px;
+  padding: 16px 20px;
+  justify-content: center;
+  align-items: center;
+  gap: 0.8em;
+  border-radius: 8px;
+  background: var(--gra-purpleblue-to-skyblue, linear-gradient(91deg, var(--Primary, #6d6afe) 0.12%, #6ae3fe 101.84%));
+  color: var(--White);
+}
+#header .userInfoBox {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+#header .userImg {
+  width: 28px;
+}
+#header .userEmail {
+  font-size: 14px;
+  font-weight: 400;
+}
+/* 테블릿 */
+@media (max-width: 1199px) {
+  #header {
+    padding: 20px 32px;
+  }
+  #header .headerBox {
+    max-width: 799px;
+    margin: 0 auto;
+  }
+}
+/* 모바일 */
+@media (max-width: 767px) {
+  #header .headerBox {
+    width: 100%;
+  }
+  #header .loginBtn {
+    padding: 10px 16px;
+    font-size: 14px;
+    width: 80px;
+  }
+}
+@media (max-width: 482px) {
+  #header .userEmail {
+    display: none;
+  }
+}

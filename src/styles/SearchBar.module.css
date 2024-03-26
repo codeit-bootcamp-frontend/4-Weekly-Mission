@@ -1,0 +1,20 @@
+#searchBar {
+  margin-block: 40px;
+  position: relative;
+}
+#searchBar #searchLink {
+  width: 100%;
+  background-color: #f5f5f5;
+  padding: 15px 32px;
+  border-radius: 10px;
+  border: 0;
+  color: #666666;
+}
+#searchBar #searchLink::placeholder {
+  color: #666666;
+}
+#searchBar .searchIcon {
+  position: absolute;
+  top: 30%;
+  left: 1%;
+}

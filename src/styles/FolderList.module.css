@@ -1,0 +1,59 @@
+.folderList {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 24px;
+  margin-bottom: 25px;
+}
+.flexBox {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+.addFolderBtn {
+  border: 0;
+  font-size: 16px;
+  font-weight: 500;
+  color: #6d6afe;
+  background-color: transparent;
+}
+.folderName {
+  font-size: 24px;
+  font-weight: 600;
+  line-height: 28px;
+}
+.folderBtn {
+  border: 1px solid #6d6afe;
+  border-radius: 5px;
+  padding: 8px 12px;
+  color: #000000;
+  font-size: 16px;
+  font-weight: 400;
+  background-color: #ffffff;
+}
+.active {
+  color: #ffffff;
+  background: #6d6afe;
+  border: 1px solid #6d6afe;
+}
+/* 모바일 */
+@media (max-width: 767px) {
+  .addFolderBtn {
+    width: 127px;
+    position: fixed;
+    bottom: 101px;
+    left: 40%;
+    z-index: 2;
+    border: 1px solid #ffffff;
+    padding: 8px 24px;
+    border-radius: 20px;
+    background-color: #6d6afe;
+    color: #ffffff;
+    border: 0;
+  }
+  .buttonWrap {
+    justify-content: initial;
+    flex-wrap: wrap;
+  }
+}

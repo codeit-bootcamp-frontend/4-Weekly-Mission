@@ -1,0 +1,87 @@
+.linkGridItem {
+  width: 100%;
+  border-radius: 15px;
+  box-shadow: 0px 5px 25px 0px #00000014;
+  position: relative;
+}
+.itemImg {
+  overflow: hidden;
+  border-radius: 15px 15px 0 0;
+}
+.itemImg img {
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+}
+.itemImg img:hover {
+  transform: scale(1.1);
+  transition: 0.3s;
+}
+.starBtn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}
+
+.flexBox {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+}
+
+.linkGridItem .itemContext {
+  width: 95%;
+  display: -webkit-box;
+  word-wrap: break-word;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+}
+.linkGridItem .itemDate {
+  color: #333333;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 16px;
+}
+.linkGridItem .dateDiff {
+  color: #666666;
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 15px;
+}
+.linkGridItem .itemInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 20px;
+  background-color: #ffffff;
+  border-radius: 0 0 15px 15px;
+}
+.kebabBox {
+  cursor: pointer;
+}
+.popOver {
+  box-shadow: 0px 2px 8px 0px #3332361a;
+  color: #333236;
+  font-size: 14px;
+  line-height: 16px;
+  font-weight: 400;
+  text-align: center;
+  position: absolute;
+  bottom: -70px;
+  right: -70px;
+  background-color: #ffffff;
+  z-index: 50;
+}
+.popOver ul li {
+  padding: 10px 15px;
+}
+.popOver ul li:hover {
+  background: #e7effb;
+  color: #6d6afe;
+}

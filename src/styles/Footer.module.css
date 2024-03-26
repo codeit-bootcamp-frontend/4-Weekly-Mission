@@ -1,0 +1,56 @@
+/* footer */
+#footer {
+  background-color: var(--Black);
+}
+
+#footer .footerBox {
+  display: flex;
+  height: 160px;
+  padding: 32px 104px 64px 104px;
+  align-items: center;
+  justify-content: space-between;
+}
+
+#footer .copyright {
+  color: #676767;
+  text-align: center;
+  font-family: Acme;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+#footer .privacy {
+  display: flex;
+  align-items: center;
+  gap: 2em;
+}
+#footer .privacy > a {
+  color: #cfcfcf;
+  font-family: Acme;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+#footer .sns {
+  display: flex;
+  align-items: center;
+  gap: 0.9em;
+}
+/* 테블릿 */
+@media (max-width: 1199px) {
+}
+/* 모바일 */
+@media (max-width: 767px) {
+  #footer .footerBox {
+    gap: 60px 30px;
+    flex-wrap: wrap;
+    padding: 30px;
+  }
+}
+@media (max-width: 482px) {
+  #footer .copyright {
+    order: 1;
+  }
+}
