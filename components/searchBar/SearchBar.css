@@ -1,0 +1,41 @@
+.search-bar_ly {
+  display: flex;
+  padding: 13px 16px;
+  justify-content: space-between;
+  align-items: flex-start;
+  border-radius: 10px;
+  width: 100%;
+  background: #F5F5F5;
+  box-sizing: border-box;
+}
+
+.search-bar {
+  display: flex;
+  width: 80%;
+  align-items: center;
+  gap: 6px;
+}
+
+.inputSearchBar {
+  outline: none;
+  border: none;
+  width: 100%;
+  color: #9FA6B2;
+  background: #F5F5F5;
+
+  /* Linkbrary/body2-regular */
+  font-family: Pretendard;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+.closeBtn {
+  position: relative;
+  top: 0px;
+  left: 0px;
+  width: 16px;
+  height: 16px;
+  cursor: pointer;
+}

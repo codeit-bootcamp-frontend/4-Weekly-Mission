@@ -1,0 +1,70 @@
+.container-footer {
+  display: flex;
+  padding-top: 60px;
+  flex-direction: column;
+  align-items: center;
+  align-self: stretch;
+}
+
+.footer_ly {
+  display: flex;
+  height: 160px;
+  padding: 32px;
+  flex-direction: column;
+  align-items: center;
+  align-self: stretch;
+  background: #111322;
+}
+
+.footer {
+  display: grid;
+  justify-content: space-between;
+  grid-template:
+    "policy social-logo"
+    ". ." 1fr
+    "codeit .";
+  width: 100%;
+  height: 100%;
+
+  @media (min-width: 788px) {
+    display: flex;
+    justify-content: space-between;
+    grid-template: "copyright footer-links sns";
+    height: fit-content;
+    max-width: 192rem;
+    padding: 3.2rem 10.4rem 0;
+  }
+}
+
+.codeit {
+  grid-area: codeit;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 24px;
+}
+
+.policy_ly {
+  grid-area: policy;
+  display: flex;
+  width: 181px;
+  align-items: flex-start;
+  gap: 30px;
+}
+
+.social-logo_ly {
+  grid-area: social-logo;
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.social-logo_text {
+  color: #676767;
+  text-align: center;
+  font-family: Arial;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}

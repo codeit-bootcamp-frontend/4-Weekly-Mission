@@ -1,40 +1,38 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# 13주차 
+## 기본 구현 사항
+- [x] TypeScript를 활용해 프로젝트의 필요한 곳에 타입을 명시해 주세요.
+- [x] 검색어를 입력하면 현재 폴더에 있는 링크들 중 “url”, “title”, “description”에 검색어가 포함된 링크들만 필터해서 보이게 해주세요.
+- [x] x 버튼을 클릭하면 입력값이 없던 ui 상태로 돌아갑니다.
 
-## Getting Started
+## 심화 구현 사항
+- [ ] 상단에 있던 링크 추가하기 영역이 가려져 보이지 않을 때 최하단에 링크 추가하기 영역을 고정하도록 만들어 주세요.
+- [ ] 푸터가 시작되는 지점에서는 최하단에 고정된 링크 추가하기 영역이 보이지 않게 해주세요.(IntersectionObserver를 활용해 보세요.)
 
-First, run the development server:
+# 14주차
+## 기본 구현 사항
+- [x] 기존 React 프로젝트에서 진행했던 작업물을 Next.js 프로젝트에 맞게 변경 및 이전해 주세요.
+- [x] next/link의 Link를 활용해 Linkbrary 아이콘을 클릭하면 ‘/’ 페이지로 이동하게 해주세요.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+# css 적용
+- [x] css 적용 방식을 선택한다. (css in js vs tailwind)
+  -[x] 테일윈드의 경우, 컴포넌트 단위부터 조금씩 바꾼다.
+- [x] css in js를 사용한 경우, 그 이유를 분명히 한다.
+- next는 css in js를 선호하지 않는다. 이를 고찰한다.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+# app Router 적용
+- [x] 앱 라우터를 적용한다.
+  - [x] pages를 제거한다.
+  - [x] pages의 _app.tsx, _documents.tsx 내용은 app/layout.tsx로 이전한다.
+  - [x] pages의 index.tsx는 app/page.tsx에 이전한다.
+  - [x] styles를 제거한다.
+- [x] 만약, pr 머지 충돌이 일어날 경우, 원격 저장소의 내용을 위와 같은 절차로 제거한다.
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+# 서버 컴포넌트 사용
+- [x] 데이터를 호출해야 하는 경우, 서버 컴포넌트로 분류한다.
+  - [x] 서버 컴포넌트는 클라이언트 컴포넌트에서 호출(import)이 불가능하다. -> {children}으로 호출한다. 이는, 비동기 렌더링을 적용하기 위함이다.
+  - [x] useState, useEffect와 같은 생명 주기, 상태를 가질 수 없다. 즉, 1번 렌더링 된다.
+- [x] 클라이언트 컴포넌트와 서버 컴포넌트를 엄격히 분리한다.
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
-
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
-
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+# 클라이언트 컴포넌트 사용
+- [x] 클라이언트 컴포넌트 내부에서는 데이터를 호출하지 않는다.
+- [x] 컴포넌트 포함 관계를 통해, 서버에서 렌더링이 되고 있는지, 브라우저에서 렌더링이 되고 있는지를 분명히 구별한다. 이를 통해, 웹 사이트를 최적화한다.
