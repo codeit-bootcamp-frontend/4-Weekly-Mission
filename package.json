@@ -2,7 +2,7 @@
   "name": "4-weekly-mission",
   "version": "1.0.0",
   "description": "This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).",
-  "main": "index.js",
+  "main": "index.tsx",
   "scripts": {
     "start": "react-scripts start"
   },
@@ -11,7 +11,9 @@
   "devDependencies": {
     "@types/react": "^18.2.69",
     "@types/react-dom": "^18.2.22",
-    "react-scripts": "^5.0.1"
+    "react-scripts": "^5.0.1",
+    "sass": "^1.72.0",
+    "typescript": "^5.4.3"
   },
   "browserslist": {
     "production": [

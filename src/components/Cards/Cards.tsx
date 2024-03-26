@@ -6,7 +6,7 @@ import starIcon from "../../assets/star.svg";
 import checkedStarIcon from "../../assets/checkedstar.svg";
 import kebabIcon from "../../assets/kebab.svg";
 import noImage from "../../assets/noimage.jpeg";
-import "./Cards.css";
+import css from "./Cards.module.scss";
 
 interface Props {
   cardList: any[];
@@ -24,7 +24,7 @@ function Cards({ cardList, showStarKebab, searchKeyword }: Props) {
 
   if (isListEmpty) {
     return (
-      <div className="noLink">
+      <div className={css.noLink}>
         <p>저장된 링크가 없습니다</p>
       </div>
     );
@@ -76,18 +76,23 @@ function Cards({ cardList, showStarKebab, searchKeyword }: Props) {
   console.log(selectedData);
 
   return (
-    <div className="Cards">
-      <div className="cardItemBox">
+    <div className={css.Cards}>
+      <div className={css.cardItemBox}>
         {filteredCards.map((data: any) => (
-          <a href={data.url} className="cardItem" key={data.id} target="_blank">
-            <div className="imgBox">
+          <a
+            href={data.url}
+            className={css.cardItem}
+            key={data.id}
+            target="_blank"
+          >
+            <div className={css.imgBox}>
               <img
-                className="cardImg"
+                className={css.cardImg}
                 src={data.imageSource || noImage}
                 alt="링크 대표 이미지"
               />
               {showStarKebab && (
-                <button className="starBtn" onClick={handleStarClick}>
+                <button className={css.starBtn} onClick={handleStarClick}>
                   <img
                     src={starClick ? checkedStarIcon : starIcon}
                     alt="star"
@@ -95,24 +100,29 @@ function Cards({ cardList, showStarKebab, searchKeyword }: Props) {
                 </button>
               )}
             </div>
-            <div className="descriptionBox">
-              <div className="timeAndKebab">
-                <p className="cardTime">{getTimeAgo(data.createdAt)}</p>
+            <div className={css.descriptionBox}>
+              <div className={css.timeAndKebab}>
+                <p className={css.cardTime}>{getTimeAgo(data.createdAt)}</p>
                 {showStarKebab && (
                   <OverlayTrigger
                     trigger="click"
                     placement="bottom-start"
                     overlay={
                       <Popover>
-                        <Button className="kebabPopover" onClick={handleModal}>
+                        <Button
+                          className={css.kebabPopover}
+                          onClick={handleModal}
+                        >
                           삭제하기
                         </Button>
-                        <Button className="kebabPopover">폴더에 추가</Button>
+                        <Button className={css.kebabPopover}>
+                          폴더에 추가
+                        </Button>
                       </Popover>
                     }
                   >
                     <button
-                      className="kebabBtn"
+                      className={css.kebabBtn}
                       onClick={(e) => handleKebabClick(e, data)}
                     >
                       <img src={kebabIcon} alt="kebab" />
@@ -120,12 +130,12 @@ function Cards({ cardList, showStarKebab, searchKeyword }: Props) {
                   </OverlayTrigger>
                 )}
               </div>
-              <p className="description">
+              <p className={css.description}>
                 {data.title}
                 <br />
                 {data.description}
               </p>
-              <p className="cardDate">
+              <p className={css.cardDate}>
                 {new Date(data.createdAt).toLocaleDateString()}
               </p>
             </div>

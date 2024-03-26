@@ -5,7 +5,7 @@ import shareIcon from "../../assets/share.svg";
 import penIcon from "../../assets/pen.svg";
 import deleteIcon from "../../assets/delete.svg";
 import addIcon from "../../assets/add.svg";
-import "./FolderItem.css";
+import css from "./FolderItem.module.scss";
 
 interface Props {
   usersFolderData: any;
@@ -37,44 +37,44 @@ function FolderItem({ usersFolderData, searchKeyword }: Props) {
   }, [selectedFolder]);
 
   return (
-    <div className="FolderItem">
-      <div className="folderItemContainer">
-        <div className="folderListBar">
-          <div className="folderList">
+    <div className={css.FolderItem}>
+      <div className={css.folderItemContainer}>
+        <div className={css.folderListBar}>
+          <div className={css.folderList}>
             {folderList.map((data) => (
               <button
                 key={data.id}
                 onClick={() => handleFolderClick(data)}
                 className={
                   selectedFolder.name === data.name
-                    ? "selectedFolder"
-                    : "folderButton"
+                    ? css.selectedFolder
+                    : css.folderButton
                 }
               >
                 {data.name}
               </button>
             ))}
           </div>
-          <button className="addFolder">
+          <button className={css.addFolder}>
             <p>폴더 추가</p>
             <img src={addIcon} alt="폴더 추가"></img>
           </button>
         </div>
-        <div className="optionBar">
-          <h1 className="folderTitle">{selectedFolder.name}</h1>
+        <div className={css.optionBar}>
+          <h1 className={css.folderTitle}>{selectedFolder.name}</h1>
           {selectedFolder.name === "전체" ? (
             ""
           ) : (
-            <div className="optionList">
-              <button className="option">
+            <div className={css.optionList}>
+              <button className={css.option}>
                 <img src={shareIcon} alt="공유" />
                 <span>공유</span>
               </button>
-              <button className="option">
+              <button className={css.option}>
                 <img src={penIcon} alt="이름 변경" />
                 <span>이름 변경</span>
               </button>
-              <button className="option">
+              <button className={css.option}>
                 <img src={deleteIcon} alt="삭제" />
                 <span>삭제</span>
               </button>

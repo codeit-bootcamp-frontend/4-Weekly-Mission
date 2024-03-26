@@ -2,8 +2,7 @@ import { useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { getSharedUser, getFolderUser } from "../../apis/Api";
 import logo from "../../assets/logo.svg";
-import styled from "styled-components";
-import "./Gnb.css";
+import css from "./Gnb.module.scss";
 
 function Gnb() {
   const location = useLocation();
@@ -33,38 +32,28 @@ function Gnb() {
   }, [location.pathname]);
 
   return (
-    <GnbContainer isSharedPage={isSharedPage}>
-      <div className="Gnb">
+    <div className={isSharedPage && css.isSharedPage}>
+      <div className={css.Gnb}>
         <Link to="/">
           <img src={logo} alt="logo" />
         </Link>
-        <div className="profileBox">
+        <div className={css.profileBox}>
           {isUserDataLoaded ? (
             <>
               <img
-                className="profileImg"
+                className={css.profileImg}
                 src={userData.img}
                 alt="프로필 이미지"
               />
-              <p className="profileEmail">{userData.email}</p>
+              <p className={css.profileEmail}>{userData.email}</p>
             </>
           ) : (
-            <button className="gnbBtn">로그인</button>
+            <button className={css.gnbBtn}>로그인</button>
           )}
         </div>
       </div>
-    </GnbContainer>
+    </div>
   );
 }
 
 export default Gnb;
-
-const GnbContainer = styled.div<{ isSharedPage: boolean }>`
-  ${({ isSharedPage }) =>
-    isSharedPage &&
-    `
-    position: sticky;
-    top: 0;
-    z-index: 2;
-  `}
-`;

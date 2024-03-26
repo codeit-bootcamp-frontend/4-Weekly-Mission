@@ -1,17 +1,17 @@
-import "./Header.css";
+import css from "./Header.module.scss";
 
 function Header({ folderData }: any) {
   return (
-    <div className="Header">
-      <div className="headerProfileBox">
+    <div className={css.Header}>
+      <div className={css.headerProfileBox}>
         <img
-          className="headerProfileImg"
+          className={css.headerProfileImg}
           src={folderData.profileImg}
           alt="프로필 이미지"
         />
-        <p className="profileName">@{folderData.profileName}</p>
+        <p className={css.profileName}>@{folderData.profileName}</p>
       </div>
-      <h1 className="folderName">{folderData.folderName}</h1>
+      <h1 className={css.folderName}>{folderData.folderName}</h1>
     </div>
   );
 }
