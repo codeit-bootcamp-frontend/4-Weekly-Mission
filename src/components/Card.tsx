@@ -26,7 +26,6 @@ const Card = ({
   location,
 }: Props) => {
   const [isSelete, setIsSelete] = useState(null);
-  console.log(location);
 
   const getCreateDate = (created_at: Date) => {
     const createDate = new Date(created_at);
