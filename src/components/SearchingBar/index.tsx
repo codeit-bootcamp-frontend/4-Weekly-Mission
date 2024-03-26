@@ -1,6 +1,6 @@
 /** @jsxImportSource @emotion/react */
 import styles from './styles'
-import searchImg from '../../assets/Search.png'
+import searchImg from 'assets/Search.png'
 import '../../styles/common.css'
 import { ChangeEvent, useEffect, useState } from 'react'
 //{ onSearch } 프롭으로 넣기

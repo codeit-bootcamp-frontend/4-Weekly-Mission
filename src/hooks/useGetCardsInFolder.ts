@@ -56,9 +56,9 @@
 
 // export default useGetCardsInFolder
 import { useState, useEffect } from 'react'
-import { Item } from 'index.types'
+import { Item } from '../index.types'
 import api from '../utils/api'
-import { LinkListProps } from 'index.types'
+import { LinkListProps } from '../index.types'
 
 const useGetCardsInFolder = ({
   clickedButtonId,

@@ -12,3 +12,5 @@ export const END_POINT = {
   user,
   sharedLinks,
 }
+
+//아직 사용 안 함
