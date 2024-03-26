@@ -1,6 +1,6 @@
 import { mapLinksData } from "link/util-map";
 
-export const mapFolderData = (folder) => {
+export const mapFolderData = (folder: any) => {
   if (!folder) return [];
 
   const { name, owner, links } = folder;

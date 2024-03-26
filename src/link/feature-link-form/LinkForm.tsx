@@ -11,7 +11,7 @@ export const LinkForm = () => {
     setSelectedFolderId(null);
     setIsModalOpen(false);
   };
-  const handleKeyDown = (event) => {
+  const handleKeyDown = (event: any) => {
     if (event.key === "Escape") {
       closeModal();
     }

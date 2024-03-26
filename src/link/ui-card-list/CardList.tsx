@@ -1,9 +1,9 @@
-import { Children, ForwardedRef, forwardRef } from "react";
+import { ReactNode, ForwardedRef, forwardRef } from "react";
 import styles from "./CardList.module.scss";
 import classNames from "classnames/bind";
 
 interface CardListProps {
-  children: React.ReactNode;
+  children: ReactNode;
 }
 const cx = classNames.bind(styles);
 

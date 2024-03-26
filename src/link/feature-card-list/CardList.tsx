@@ -7,22 +7,25 @@ import { CardList as UiCardList } from "link/ui-card-list";
 import { AlertModal } from "sharing/ui-alert-modal";
 import { MODALS_ID } from "./constant";
 
-export const CardList = ({ links }) => {
+interface CardListProps {
+  links: any[];
+}
+export const CardList = ({ links }: CardListProps) => {
   const { data: folders } = useGetFolders();
   const cardListRef = useRef(null);
   const [selectedFolderId, setSelectedFolderId] = useState(null);
-  const [currentModal, setCurrentModal] = useState(null);
+  const [currentModal, setCurrentModal] = useState<string | null>(null);
   const [selectedLinkUrl, setSelectedLinkUrl] = useState(null);
 
   const closeModal = () => setCurrentModal(null);
-  const handleKeyDown = (event) => {
+  const handleKeyDown = (event: any) => {
     if (event.key === "Escape") {
-      closeModal(null);
+      closeModal();
     }
   };
 
   const getPopoverPosition = useCallback(
-    (cardIndex) => {
+    (cardIndex: number) => {
       const count =
         cardListRef?.current !== null
           ? window

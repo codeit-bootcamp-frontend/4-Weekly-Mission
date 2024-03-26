@@ -6,9 +6,19 @@ import { ModalContentBox } from "sharing/ui-modal-content-box";
 import { ModalContentButton } from "sharing/ui-modal-content-button";
 import { ModalContentDescription } from "sharing/ui-modal-content-description";
 import { ModalContentTitle } from "sharing/ui-modal-content-title";
+import { MouseEventHandler, KeyboardEventHandler } from "react";
 
 const cx = classNames.bind(styles);
-
+interface AddLinkModalProps {
+  isOpen: boolean;
+  folders: any[];
+  selectedLinkUrl?: string | null;
+  selectedFolderId: any;
+  setSelectedFolderId: any;
+  onAddClick: MouseEventHandler<HTMLButtonElement>;
+  onCloseClick: MouseEventHandler<HTMLButtonElement>;
+  onKeyDown: KeyboardEventHandler<HTMLDivElement>;
+}
 export const AddLinkModal = ({
   isOpen,
   folders,
@@ -18,7 +28,7 @@ export const AddLinkModal = ({
   onAddClick,
   onCloseClick,
   onKeyDown,
-}) => {
+}: AddLinkModalProps) => {
   return (
     <Modal isOpen={isOpen} onBackdropClick={onCloseClick} onKeyDown={onKeyDown}>
       <ModalContentBox
@@ -41,7 +51,9 @@ export const AddLinkModal = ({
                 />
               ))}
             </div>
-            <ModalContentButton onClick={onAddClick}>추가하기</ModalContentButton>
+            <ModalContentButton onClick={onAddClick}>
+              추가하기
+            </ModalContentButton>
           </div>
         }
         onCloseClick={onCloseClick}

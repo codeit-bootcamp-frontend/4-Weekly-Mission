@@ -3,7 +3,17 @@ import classNames from "classnames/bind";
 
 const cx = classNames.bind(styles);
 
-export const SharedLayout = ({ folderInfo, searchBar, cardList }) => {
+interface SharedLayoutProps {
+  folderInfo: any;
+  searchBar: any;
+  cardList: any;
+}
+
+export const SharedLayout = ({
+  folderInfo,
+  searchBar,
+  cardList,
+}: SharedLayoutProps) => {
   return (
     <div className={cx("container")}>
       {folderInfo}

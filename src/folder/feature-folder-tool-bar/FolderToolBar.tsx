@@ -3,9 +3,14 @@ import classNames from "classnames/bind";
 import { AddFolderButton } from "folder/ui-add-folder-button";
 import { FolderButton } from "folder/ui-folder-button";
 import { IconAndTextButton } from "sharing/ui-icon-and-text-button";
-import { ALL_LINKS_TEXT, BUTTONS, KAKAO_SHARE_DATA, MODALS_ID } from "./constant";
+import {
+  ALL_LINKS_TEXT,
+  BUTTONS,
+  KAKAO_SHARE_DATA,
+  MODALS_ID,
+} from "./constant";
 import { ALL_LINKS_ID } from "link/data-access-link/constant";
-import { useState } from "react";
+import { useState, KeyboardEventHandler } from "react";
 import { ShareModal } from "folder/ui-share-modal";
 import { InputModal } from "sharing/ui-input-modal";
 import { AlertModal } from "sharing/ui-alert-modal";
@@ -13,10 +18,18 @@ import { copyToClipboard } from "sharing/util/copyToClipboard";
 import { useKakaoSdk } from "sharing/util/useKakaoSdk";
 
 const cx = classNames.bind(styles);
-
-export const FolderToolBar = ({ folders, selectedFolderId, onFolderClick }) => {
+interface FolderToolBarProps {
+  folders: any[];
+  selectedFolderId: any;
+  onFolderClick: (id: any) => void;
+}
+export const FolderToolBar = ({
+  folders,
+  selectedFolderId,
+  onFolderClick,
+}: FolderToolBarProps) => {
   const { shareKakao } = useKakaoSdk();
-  const [currentModal, setCurrentModal] = useState(null);
+  const [currentModal, setCurrentModal] = useState<null | string>(null);
 
   const folderName =
     ALL_LINKS_ID === selectedFolderId
@@ -25,7 +38,7 @@ export const FolderToolBar = ({ folders, selectedFolderId, onFolderClick }) => {
   const shareLink = `${window.location.origin}/shared?user=1&folder=${selectedFolderId}`;
 
   const closeModal = () => setCurrentModal(null);
-  const handleKeyDown = (event) => {
+  const handleKeyDown = (event: any) => {
     if (event.key === "Escape") {
       closeModal();
     }
@@ -35,7 +48,7 @@ export const FolderToolBar = ({ folders, selectedFolderId, onFolderClick }) => {
   };
   const handleFacebookClick = () =>
     window.open(`http://www.facebook.com/sharer.php?u=${shareLink}`);
-  const handleLinkCopyClick = () => copyToClipboard(shareLink);
+  const handleLinkCopyClick = () => copyToClipboard({ text: shareLink });
 
   return (
     <div className={cx("container")}>

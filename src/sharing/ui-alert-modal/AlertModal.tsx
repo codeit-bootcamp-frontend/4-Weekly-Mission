@@ -5,9 +5,18 @@ import { ModalContentBox } from "sharing/ui-modal-content-box";
 import { ModalContentButton } from "sharing/ui-modal-content-button";
 import { ModalContentDescription } from "sharing/ui-modal-content-description";
 import { ModalContentTitle } from "sharing/ui-modal-content-title";
+import { MouseEventHandler, KeyboardEventHandler } from "react";
 
 const cx = classNames.bind(styles);
-
+interface AlertModalProps {
+  isOpen: boolean;
+  title: string;
+  description: string | null;
+  buttonText: string;
+  onClick?: MouseEventHandler<HTMLButtonElement>;
+  onCloseClick: MouseEventHandler<HTMLButtonElement>;
+  onKeyDown: KeyboardEventHandler<HTMLDivElement>;
+}
 export const AlertModal = ({
   isOpen,
   title,
@@ -16,7 +25,7 @@ export const AlertModal = ({
   onClick,
   onCloseClick,
   onKeyDown,
-}) => {
+}: AlertModalProps) => {
   return (
     <Modal isOpen={isOpen} onBackdropClick={onCloseClick} onKeyDown={onKeyDown}>
       <ModalContentBox
