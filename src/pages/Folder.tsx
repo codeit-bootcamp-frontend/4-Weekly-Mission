@@ -5,7 +5,12 @@ import LinkAdd from "../componenets/LinkAdd";
 import Nav from "../componenets/Nav";
 import useFetchData from "../hooks/useFetchData";
 import Modal from "../componenets/modal/Modal";
-export const UserData = React.createContext();
+
+interface User {
+  handleData: (data: string) => void;
+}
+
+export const UserData = React.createContext<User | null>(null);
 
 function Folder() {
   const [isModalOpen, setIsModalOpen] = useState(true);
@@ -16,16 +21,16 @@ function Folder() {
   const profileData = useFetchData("profileDataFetch", 1);
   const folderListData = useFetchData("folderListDataFetch", 1);
 
-  function toggleModal(Id) {
+  function toggleModal(Id: number) {
     setKey(Id);
     setIsModalOpen(!isModalOpen);
   }
 
-  function handleFolderName(folderName) {
+  function handleFolderName(folderName: string) {
     setFolderName(folderName);
   }
 
-  function handleData(data) {
+  function handleData(data: string) {
     setData(data);
   }
 

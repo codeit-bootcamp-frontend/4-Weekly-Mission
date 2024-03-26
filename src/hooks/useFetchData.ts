@@ -11,7 +11,7 @@ const DATA_MAP = {
   selectedFolderDataFetch,
 };
 
-const useFetchData = (dataType, userId = 0, folderData = 0) => {
+const useFetchData = (dataType: string, userId = 0, folderData = 0) => {
   const [data, setData] = useState(null);
 
   useEffect(() => {
