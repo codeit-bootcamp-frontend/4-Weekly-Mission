@@ -1,21 +1,31 @@
 import "./SortedMenus.css";
-import { ALL_MENU_URL } from "../../FolderPage.js";
+import { ALL_MENU_URL, LinkAddModal } from "../../FolderPage";
 import { useMediaQuery } from "react-responsive";
+import { AllMenuData, SortedMenusData } from "../../hooks/useFetch";
 
+interface ButtonProps {
+  menuId?: number | undefined;
+  onClickSubMenu: (id: number | undefined) => void;
+  menu?: SortedMenusData;
+  onChangeUrl: (url: string) => void;
+  onChangeTitle: (title: string) => void;
+}
 const Button = ({
   menuId,
   onClickSubMenu: handleChangeId,
   menu,
   onChangeUrl,
   onChangeTitle: handleChangeTitle,
-}) => {
-  const clickNotAllMenus = (id) => {
+}: ButtonProps) => {
+  const clickNotAllMenus = (id: number | undefined) => {
     console.log(id);
-    handleChangeId(() => id);
+    handleChangeId(id);
     onChangeUrl(
       `https://bootcamp-api.codeit.kr/api/users/1/links?folderId=${id}`
     );
-    handleChangeTitle(menu.name);
+    if (menu) {
+      handleChangeTitle(menu.name);
+    }
   };
 
   const clickAllMenu = () => {
@@ -33,6 +43,14 @@ const Button = ({
   );
 };
 
+interface SortedMenusProps {
+  menusData: SortedMenusData[] | undefined;
+  onClickSubMenu: (id: number | undefined) => void;
+  allMenuData: AllMenuData[] | undefined;
+  onChangeUrl: (url: string) => void;
+  onChangeTitle: (name: string) => void;
+  isShowModal: (linkAddModal: LinkAddModal) => void;
+}
 function SortedMenus({
   menusData,
   onClickSubMenu,
@@ -40,14 +58,14 @@ function SortedMenus({
   onChangeUrl,
   onChangeTitle,
   isShowModal,
-}) {
+}: SortedMenusProps) {
   const isMobile = useMediaQuery({ maxWidth: 767 });
   const isTablet = useMediaQuery({ maxWidth: 1124 });
   const menusDataArray = menusData || [];
 
-  const showFolderAddModal = (e) => {
+  const showFolderAddModal = (e: React.MouseEvent<HTMLAnchorElement>) => {
     e.preventDefault();
-    isShowModal((prev) => ({ linkModal: false, folderAddModal: true }));
+    isShowModal({ linkModal: false, folderAddModal: true });
   };
 
   return (
@@ -55,7 +73,6 @@ function SortedMenus({
       <div className={isTablet ? "sortedMenu-bar-tablet" : "sortedMenu-bar"}>
         <div className="sortedMenus">
           <Button
-            data={allMenuData}
             onClickSubMenu={onClickSubMenu}
             onChangeUrl={onChangeUrl}
             onChangeTitle={onChangeTitle}

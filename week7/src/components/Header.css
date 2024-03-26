@@ -46,6 +46,9 @@
   box-sizing: border-box;
   /* z-index: -1; */
 }
+label {
+  position: relative;
+}
 .search-box {
   position: relative;
   display: inline-block;
@@ -77,10 +80,19 @@
   width: 100%;
 }
 .search-img {
-  position: absolute;
+  /* position: absolute;
   width: 12px;
   height: 12px;
   margin-top: 50px;
   margin-left: 10px;
-  top: 2px;
+  top: 2px; */
+  position: absolute;
+  top: 3px;
+  left: 12px;
+}
+.close-img {
+  position: absolute;
+  right: 15px;
+  top: 0px;
+  cursor: pointer;
 }

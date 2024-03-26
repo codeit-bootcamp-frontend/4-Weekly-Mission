@@ -5,7 +5,28 @@ import ModalDelete from "./ModalDelete";
 import ModalShare from "./ModalShare";
 import ModalLinkAdd from "./ModalLinkAdd";
 import ModalFolderAdd from "./ModalFolderAdd";
-
+import { FolderCardData, SortedMenusData } from "../../hooks/useFetch";
+interface ModalProps {
+  folderData: FolderCardData[] | undefined;
+  folderMenus: SortedMenusData[] | undefined;
+  title: string;
+  isShowModal: (modalState: {
+    linkModal: boolean;
+    folderAddModal: boolean;
+    shareAddModal: boolean;
+    editAddModal: boolean;
+    deleteAddModal: boolean;
+    linkDeleteModal: boolean;
+  }) => void;
+  linkAddModal?: boolean;
+  folderAddModal?: boolean;
+  shareModal?: boolean;
+  editModal?: boolean;
+  deleteModal?: boolean;
+  linkDeleteModal?: boolean;
+  dataUrl?: string;
+  menusId?: number | null;
+}
 const Modal = ({
   folderData,
   folderMenus,
@@ -19,17 +40,17 @@ const Modal = ({
   linkDeleteModal,
   dataUrl,
   menusId,
-}) => {
-  const handleClickExit = (e) => {
+}: ModalProps) => {
+  const handleClickExit = (e: React.MouseEvent<HTMLAnchorElement>) => {
     e.preventDefault();
-    isShowModal((prev) => ({
+    isShowModal({
       linkModal: false,
       folderAddModal: false,
       shareAddModal: false,
       editAddModal: false,
       deleteAddModal: false,
       linkDeleteModal: false,
-    }));
+    });
   };
   return (
     <div className="modal">
@@ -41,9 +62,9 @@ const Modal = ({
           <img src={buttonClose} alt="닫기" />
         </a>
         {linkDeleteModal ? <ModalDelete link={dataUrl} /> : null}
-        {deleteModal ? <ModalDelete title="폴더 삭제" /> : null}
+        {deleteModal ? <ModalDelete /> : null}
         {editModal ? <ModalEdit /> : null}
-        {shareModal ? <ModalShare menusId={menusId} /> : null}
+        {shareModal ? <ModalShare menusId={menusId as number} /> : null}
         {folderAddModal ? <ModalFolderAdd /> : null}
         {linkAddModal ? (
           <ModalLinkAdd folderData={folderData} folderMenus={folderMenus} />

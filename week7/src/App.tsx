@@ -1,8 +1,7 @@
-
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import EmptyPage from "./EmptyPage.js";
-import SharedPage from "./SharedPage.js";
-import FolderPage from "./FolderPage.js";
+import EmptyPage from "./EmptyPage";
+import SharedPage from "./SharedPage";
+import FolderPage from "./FolderPage";
 function App() {
   return (
     <Router>

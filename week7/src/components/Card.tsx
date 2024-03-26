@@ -2,10 +2,19 @@ import "./Card.css";
 import { useMediaQuery } from "react-responsive";
 import noImg from "../assets/noImage.png";
 import kebab from "../assets/kebab.png";
-function Card({ links }) {
+import { Link } from "../SharedPage";
+
+type CardProps = {
+  links: Link[];
+};
+type CardItemsProps = {
+  link: Link;
+  url: string;
+};
+function Card({ links }: CardProps) {
   const isTablet = useMediaQuery({ maxWidth: 1124 });
 
-  const formatDate = (value) => {
+  const formatDate = (value: string) => {
     const date = new Date(value);
     const now = new Date();
 
@@ -14,7 +23,7 @@ function Card({ links }) {
     const dayInMillis = 24 * hourInMillis;
     const monthInMillis = 30 * dayInMillis;
 
-    const elapsedMillis = now - date;
+    const elapsedMillis: number = Number(now) - Number(date);
 
     if (elapsedMillis < minuteInMillis) {
       const minutes = Math.floor(elapsedMillis / 1000 / 60);
@@ -38,7 +47,7 @@ function Card({ links }) {
       return `${years} year${years > 1 ? "s" : ""} ago`;
     }
   };
-  const getFormatDate = (createdAt) => {
+  const getFormatDate = (createdAt: string) => {
     const date = new Date(createdAt);
 
     const year = date.getFullYear();
@@ -47,10 +56,10 @@ function Card({ links }) {
 
     return `${year}-${month}-${day}`;
   };
-  const CardItem = ({ link, url }) => {
+  const CardItem = ({ link, url }: CardItemsProps) => {
     const timeStamp = new Date(link.createdAt).getTime();
     return (
-      <a className="card-url" href={url} target="_blank">
+      <a className="card-url" href={url} target="_blank" rel="noreferrer">
         {link.imageSource ? (
           <img
             className="card-image"
@@ -61,12 +70,12 @@ function Card({ links }) {
           <img src={noImg} />
         )}
         <div className="date-and-kebab">
-          <p>{formatDate(timeStamp)}</p>
+          <p>{formatDate(timeStamp.toString())}</p>
           <img className="kebab" src={kebab} />
         </div>
         <p className="title">{link.title}</p>
         <p className="description">{link.description}</p>
-        <p>{getFormatDate(link.createdAt)}</p>
+        <p>{getFormatDate(link.createdAt.toString())}</p>
       </a>
     );
   };

@@ -3,7 +3,16 @@ import facebookIcon from "../../assets/share-facebook.svg";
 import shareLink from "../../assets/share-link.svg";
 import "./ModalShare.css";
 import linkbrary from "../../assets/Linkbrary.svg";
-const ModalShare = ({ menusId }) => {
+declare global {
+  interface Window {
+    Kakao: any;
+  }
+}
+
+interface ModalShareProps {
+  menusId: number;
+}
+const ModalShare = ({ menusId }: ModalShareProps) => {
   const shareKakao = () => {
     if (window.Kakao) {
       const kakao = window.Kakao;
@@ -42,7 +51,7 @@ const ModalShare = ({ menusId }) => {
     window.open(`http://www.facebook.com/sharer/sharer.php?u=${sharedLink}`);
   };
 
-  const handleCopyClipBoard = async (text) => {
+  const handleCopyClipBoard = async () => {
     try {
       await navigator.clipboard.writeText(
         `http://localhost:3000/shared/${menusId}`
@@ -59,19 +68,19 @@ const ModalShare = ({ menusId }) => {
       <div className="share-sns">
         <div className="sns-icon">
           <a onClick={shareKakao}>
-            <img src={kakaoIcon} />
+            <img src={kakaoIcon} alt="카카오톡" />
           </a>
           <p>카카오톡</p>
         </div>
         <div className="sns-icon">
           <a onClick={shareFacebook}>
-            <img src={facebookIcon} />
+            <img src={facebookIcon} alt="페이스북" />
           </a>
           <p>페이스북</p>
         </div>
         <div className="sns-icon">
           <a onClick={handleCopyClipBoard}>
-            <img src={shareLink} />
+            <img src={shareLink} alt="복사 버튼" />
           </a>
           <p>링크 복사</p>
         </div>

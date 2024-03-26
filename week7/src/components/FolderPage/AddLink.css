@@ -15,6 +15,8 @@
   background-color: #edf7ff;
   padding-bottom: 40px;
   z-index: 1;
+  display: flex;
+  justify-content: center;
 }
 label {
   position: relative;
@@ -57,4 +59,9 @@ label {
   border: none;
   color: white;
   cursor: pointer;
+}
+
+.hidden {
+  position: fixed;
+  bottom: 20px;
 }
