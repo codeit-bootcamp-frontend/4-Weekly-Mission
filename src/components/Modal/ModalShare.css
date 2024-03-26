@@ -2,6 +2,7 @@
   width: 100%;
   display: flex;
   justify-content: space-around;
+  cursor: pointer;
 }
 
 .socialButtonContainer div {
@@ -13,5 +14,4 @@
 
 .socialButtonContainer img {
   width: 42px;
-  cursor: pointer;
 }

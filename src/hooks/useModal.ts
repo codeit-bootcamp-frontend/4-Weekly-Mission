@@ -1,9 +1,15 @@
-import { useState } from "react";
+import { useState } from 'react';
 
-const useModal = () => {
+interface ModalProps {
+  showModal: boolean;
+  handleOpenModal: (e: React.MouseEvent) => void;
+  handleCloseModal: () => void;
+}
+
+const useModal = (): ModalProps => {
   const [showModal, setShowModal] = useState(false);
 
-  const handleOpenModal = (e) => {
+  const handleOpenModal = (e: React.MouseEvent) => {
     e.preventDefault();
     setShowModal(true);
   };

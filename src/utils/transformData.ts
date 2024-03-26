@@ -1,8 +1,18 @@
-import formatTimeDifference from "./formatTimeDifference";
-import formatDate from "./formatDate";
-import noImage from "../assets/noImage.svg";
+import formatTimeDifference from './formatTimeDifference';
+import formatDate from './formatDate';
+import noImage from '../assets/noImage.svg';
 
-const transformData = (item) => {
+interface Item {
+  title: string;
+  createdAt: Date;
+  created_at: Date;
+  url: string;
+  description: string;
+  imageSource: string;
+  image_source: string;
+}
+
+const transformData = (item: Item) => {
   const {
     title,
     createdAt,

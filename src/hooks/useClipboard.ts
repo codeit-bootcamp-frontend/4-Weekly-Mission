@@ -1,14 +1,14 @@
-import { useState } from "react";
+import { useState } from 'react';
 
 const useClipboard = () => {
   const [copied, setCopied] = useState(false);
 
-  const copyToClipboard = async (text) => {
+  const copyToClipboard = async (text: string) => {
     try {
       await navigator.clipboard.writeText(text);
       setCopied(true);
     } catch (error) {
-      console.error("Failed to copy to clipboard:", error);
+      console.error('Failed to copy to clipboard:', error);
     }
   };
 
