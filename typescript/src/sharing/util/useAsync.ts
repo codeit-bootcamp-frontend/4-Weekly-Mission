@@ -1,10 +1,10 @@
 import { useState } from "react";
 import { useEffectOnce } from "./useEffectOnce";
 
-export const useAsync = (asyncFunction) => {
+export const useAsync = <T>(asyncFunction: () => Promise<{ data: T }>) => {
   const [loading, setLoading] = useState(false);
-  const [error, setError] = useState(null);
-  const [data, setData] = useState(null);
+  const [error, setError] = useState<Error | null>(null);
+  const [data, setData] = useState<T | null>(null);
 
   const execute = async () => {
     setLoading(true);
@@ -15,7 +15,7 @@ export const useAsync = (asyncFunction) => {
       setData(response?.data);
       return response;
     } catch (error) {
-      setError(error);
+      setError(error as Error);
     } finally {
       setLoading(false);
     }
