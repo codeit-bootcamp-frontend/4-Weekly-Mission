@@ -1,4 +1,4 @@
-const getFormattedDate = (date) => {
+const getFormattedDate = (date: string) => {
   const dateObject = new Date(date);
 
   const year = dateObject.getFullYear();
@@ -8,11 +8,11 @@ const getFormattedDate = (date) => {
   return `${year}. ${month}. ${day}`;
 };
 
-const getTimeAgo = (date) => {
-  const now = new Date();
-  const createdDate = new Date(date);
+const getTimeAgo = (date: Date) => {
+  const now: Date = new Date();
+  const createdDate: Date = new Date(date);
 
-  const timeDifferenceInMilliseconds = now - createdDate;
+  const timeDifferenceInMilliseconds = now.getTime() - createdDate.getTime();
   const secondsDifference = Math.floor(timeDifferenceInMilliseconds / 1000);
   const minutesDifference = Math.floor(secondsDifference / 60);
   const hoursDifference = Math.floor(minutesDifference / 60);
