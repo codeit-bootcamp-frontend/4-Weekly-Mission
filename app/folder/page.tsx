@@ -3,12 +3,13 @@ import { getLink } from '@/apis/api'
 import { filterByKeyword } from '@/lib/searchData';
 
 //server component: fetch data
-import CardList from "@/components/card/CardList";
 import FolderList from '@/components/folder/FolderList';
+import ModalList from '@/components/modals/list/ModalList';
 
 // client component: has State
 import SearchBar from '@/components/searchBar/SearchBar';
 
+import CardList from "@/components/card/CardList";
 import FolderName from "@/components/folder/FolderName";
 import AddLink from '@/components/addLink/AddLink';
 
@@ -25,6 +26,7 @@ const getLinksData = async (folderId: string | null) => {
 const FolderPage = async ({ searchParams }: any) => {
   const { name, id, keyword } = searchParams;
   const links = await getLinksData(id);
+  console.log(typeof links)
 
   if (keyword) {
     const filteredLinks = filterByKeyword(links, keyword);
@@ -36,7 +38,7 @@ const FolderPage = async ({ searchParams }: any) => {
           <SearchBar />
           <FolderList/>
           <FolderName currentFolderName={name}/>
-          <CardList links={filteredLinks}/>
+          <CardList links={filteredLinks}><ModalList/></CardList>
         </div>
       </>
     );
@@ -49,7 +51,7 @@ const FolderPage = async ({ searchParams }: any) => {
         <SearchBar />
         <FolderList/>
         <FolderName currentFolderName={name}/>
-        <CardList links={links}/>
+        <CardList links={links}><ModalList/></CardList>
       </div>
     </>
   );

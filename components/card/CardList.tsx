@@ -1,6 +1,3 @@
-//server component: fetch data
-import ModalList from '../modals/list/ModalList';
-
 import Card from './Card';
 
 interface LinksData {
@@ -12,7 +9,7 @@ interface LinksData {
   id: string;
 }
 
-const CardList = ({ links }: any) => {
+const CardList = ({ links, children }: any) => {
   if (!links.length) {
     return (
       <div className='card-empty'>저장된 링크가 없습니다</div>
@@ -29,7 +26,7 @@ const CardList = ({ links }: any) => {
           description={description}
           createdAt={created_at}
           url={url}
-        ><ModalList/></Card>
+        >{children}</Card>
       ))}
     </ul>
   );
