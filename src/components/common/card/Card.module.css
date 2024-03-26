@@ -1,0 +1,98 @@
+.form {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: 340px;
+  height: 334px;
+  box-shadow: 0px 5px 25px 0px rgba(0, 0, 0, 0.08);
+  border-radius: 15px;
+  transition: transform 0.1s ease;
+  @media (max-width: 767px) {
+    width: 300px;
+    height: 327px;
+  }
+  @media (max-width: 390px) {
+    width: 240px;
+  }
+}
+.form:hover {
+  transform: scale(1.05);
+  border: 0.5px solid #6d6afe;
+  z-index: 2;
+}
+
+.info {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  padding: 15px 20px;
+  gap: 10px;
+}
+.image {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 15px 15px 0 0;
+}
+.star {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+}
+.kebab {
+  position: absolute;
+  right: 20px;
+}
+.popover {
+  position: absolute;
+  right: -58px;
+  top: 30px;
+  display: flex;
+  flex-direction: column;
+  background: var(--white);
+  box-shadow: 0px 2px 8px 0px rgba(51, 50, 54, 0.1);
+  z-index: 3;
+}
+.delete,
+.add {
+  display: flex;
+  padding: 7px 12px;
+  justify-content: center;
+  color: var(--gray100);
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  z-index: 3;
+}
+.delete:hover,
+.add:hover {
+  color: var(--primary);
+  background-color: var(--gray10);
+}
+.ago {
+  color: #666;
+  font-size: 13px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+.text {
+  height: 49px;
+  overflow: hidden;
+  color: #000;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 24px;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+}
+.date {
+  color: #333;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}

@@ -1,0 +1,55 @@
+.folderInfo {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 20px 0 60px 0;
+  gap: 12px;
+  background-color: var(--background);
+  @media (max-width: 767px) {
+    padding: 10px 0 40px 0;
+    gap: 6px;
+  }
+}
+.folderInfo .img {
+  width: 60px;
+  height: 60px;
+  @media (max-width: 767px) {
+    width: 40px;
+    height: 40px;
+  }
+}
+.folderInfo .ownerName {
+  color: #000;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 24px;
+  @media (max-width: 767px) {
+    font-size: 14px;
+  }
+}
+.folderInfo .folderName {
+  color: #000;
+  text-align: center;
+  font-size: 40px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  margin-top: 8px;
+  @media (max-width: 767px) {
+    font-size: 32px;
+    letter-spacing: -0.2px;
+    margin-top: 4px;
+  }
+}
+.contents {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  max-width: 1124px;
+  padding-top: 40px;
+  margin: 0 auto;
+  gap: 40px;
+}

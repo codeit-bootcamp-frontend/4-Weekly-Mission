@@ -1,0 +1,56 @@
+.background {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 60px 0 90px 0;
+  background-color: var(--background);
+  @media (max-width: 767px) {
+    padding: 24px 0 40px 0;
+  }
+}
+.form {
+  position: relative;
+  width: 100%;
+  max-width: 800px;
+  padding: 0 32px;
+}
+.input {
+  width: 100%;
+  padding: 16px 52px;
+  border-radius: 15px;
+  border: 1px solid var(--Linkbrary-primary-color, #6d6afe);
+  background: var(--Linkbrary-white, #fff);
+
+  color: var(--gray60);
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 24px;
+  @media (max-width: 767px) {
+    padding: 8px 38px;
+    font-size: 14px;
+  }
+  @media (max-width: 350px) {
+    font-size: 10px;
+  }
+}
+.icon {
+  position: absolute;
+  left: 52px;
+  top: 19px;
+  width: 20px;
+  height: 20px;
+  @media (max-width: 767px) {
+    left: 42px;
+    top: 11px;
+  }
+}
+.button {
+  position: absolute;
+  right: 52px;
+  top: 11px;
+  @media (max-width: 767px) {
+    right: 42px;
+    top: 3px;
+  }
+}

@@ -1,0 +1,115 @@
+.contents {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  max-width: 1124px;
+  padding-top: 40px;
+  margin: 0 auto;
+}
+
+.background {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  padding: 40px 32px 0;
+  gap: 24px;
+}
+.topContents {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  gap: 10px;
+}
+.bottomContents {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  @media (max-width: 390px) {
+    flex-direction: column;
+    gap: 10px;
+  }
+}
+.sort {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  gap: 12px;
+  @media (max-width: 1024px) {
+    max-width: 600px;
+  }
+}
+.sortButton {
+  padding: 8px 12px;
+  border-radius: 5px;
+  border: 1px solid var(--primary);
+  background: var(--white);
+}
+.active {
+  background: var(--primary);
+  color: var(--white);
+}
+.add {
+  width: 80px;
+  height: 19px;
+  background-color: transparent;
+  background-image: url('../../../assets/addFolder.svg');
+  border: 0;
+  padding: 0;
+
+  @media (max-width: 767px) {
+    width: 127px;
+    height: 35px;
+    position: fixed;
+    bottom: 101px;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 3;
+    background-image: url('../../../assets/addFolderMobile.svg');
+  }
+}
+.sortTitle {
+  color: #000;
+  font-size: 24px;
+  font-weight: 600;
+  line-height: normal;
+  letter-spacing: -0.2px;
+}
+.options {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+}
+.all {
+  display: none;
+}
+.share {
+  width: 48px;
+  height: 19px;
+  background-repeat: no-repeat;
+  background-image: url('../../../assets/share.svg');
+  background-color: transparent;
+  border: 0;
+}
+.edit {
+  width: 79px;
+  height: 19px;
+  background-repeat: no-repeat;
+  background-image: url('../../../assets/edit.svg');
+  background-color: transparent;
+  border: 0;
+}
+.delete {
+  width: 48px;
+  height: 19px;
+  background-repeat: no-repeat;
+  background-image: url('../../../assets/delete.svg');
+  background-color: transparent;
+  border: 0;
+}
+.nothing {
+  display: flex;
+  justify-content: center;
+  padding: 40px 0px 35px;
+}
