@@ -1,9 +1,9 @@
+import { useState, createContext, useEffect, useRef } from 'react';
+import { useInView } from 'react-intersection-observer';
 import FolderList from '../../components/FolderList';
 import Footer from '../../components/Footer';
 import Header from '../../components/Header';
 import LinkAddBar from './components/LinkAddBar';
-import { USER_URL } from '../../constants/urls';
-import { useState, createContext, useEffect } from 'react';
 import EditModal from '../../components/modals/EditModal';
 import DeleteModal from '../../components/modals/DeleteModal';
 import ShareModal from '../../components/modals/ShareModal';
@@ -14,9 +14,8 @@ import {
   EDIT_TYPE,
   SHARE_TYPE,
 } from '../../constants/modalConstants';
+import { USER_URL } from '../../constants/urls';
 import { ModalClose, ModalOpen } from '../../types/functionsType';
-import { useInView } from 'react-intersection-observer';
-import $ from 'jquery';
 
 export const ModalContext = createContext<{
   modalType: string;
@@ -31,6 +30,7 @@ function FolderPage() {
   const [modalPurpose, setModalPurpose] = useState();
   const [linkAddBarRef, isLinkAddBarInView] = useInView();
   const [footerRef, isFooterInView] = useInView();
+  const fixedLinkSearchBarRef = useRef<any>();
 
   //modal open
   const handleModalOpen: ModalOpen = (type, purpose) => {
@@ -45,14 +45,14 @@ function FolderPage() {
 
   useEffect(() => {
     if (!isLinkAddBarInView && !isFooterInView) {
-      $('.fixed-linkAddBar').css('display', 'block');
-      $('.fixed-linkAddBar').css('position', 'fixed');
-      $('.fixed-linkAddBar').css('bottom', '0');
-      $('.fixed-linkAddBar').css('left', '0');
-      $('.fixed-linkAddBar').css('width', '100%');
-      $('.fixed-linkAddBar').css('z-index', '200');
+      fixedLinkSearchBarRef.current.style.setProperty('display', 'block');
+      fixedLinkSearchBarRef.current.style.setProperty('position', 'fixed');
+      fixedLinkSearchBarRef.current.style.setProperty('bottom', '0');
+      fixedLinkSearchBarRef.current.style.setProperty('left', '0');
+      fixedLinkSearchBarRef.current.style.setProperty('width', '100%');
+      fixedLinkSearchBarRef.current.style.setProperty('z-index', '200');
     } else {
-      $('.fixed-linkAddBar').css('display', 'none');
+      fixedLinkSearchBarRef.current.style.setProperty('display', 'none');
     }
   }, [isLinkAddBarInView, isFooterInView]);
 
@@ -75,7 +75,7 @@ function FolderPage() {
       <div ref={linkAddBarRef}>
         <LinkAddBar />
       </div>
-      <div className="fixed-linkAddBar">
+      <div ref={fixedLinkSearchBarRef}>
         <LinkAddBar />
       </div>
 
