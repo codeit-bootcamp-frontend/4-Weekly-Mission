@@ -1,4 +1,3 @@
-import React from "react";
 import searchIcon from "../../assets/Search.svg";
 import "./LinkSearch.css";
 
