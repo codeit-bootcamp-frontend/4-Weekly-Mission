@@ -166,7 +166,9 @@ const Folder = () => {
                     onChange={handleChange}
                   />
                 </div>
-                <img src={close} alt='close img' onClick={handleReset} />
+                {search.length > 0 && (
+                  <img src={close} alt='close img' onClick={handleReset} />
+                )}
               </FolderLinkSerachContent>
               {!linksInfo && (
                 <FolderLinkNoneList>
@@ -411,6 +413,7 @@ const FolderLinkSerachContent = styled.form`
   & > img {
     width: 2.4rem;
     height: 2.4rem;
+    cursor: pointer;
 
     @media (max-width: 767px) {
       width: 1.6rem;
