@@ -1,0 +1,8 @@
+{
+  "prettier.useEditorConfig": true,
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.formatOnSave": true,
+  "editor.fontSize": 15,
+  "editor.codeActionsOnSave": {},
+  "synthwave84.brightness": 0.8
+}
