@@ -1,5 +1,4 @@
-import React from "react";
-import { styled } from "styled-components";
+import styled from "styled-components";
 import { BlueButton } from "../common/BlueButton";
 
 export const Headline = () => {
@@ -15,10 +14,12 @@ export const Headline = () => {
       <BlueButton
         text="링크 추가하기"
         width="350px"
+        height="auto"
         margin="40px auto"
         padding="10px 20px"
         fontSize="18px"
         radius="8px"
+        onBtnHandle={() => {}}
       />
     </Container>
   );

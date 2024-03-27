@@ -1,7 +1,6 @@
-import { useState, useEffect } from "react";
-import { styled } from "styled-components";
+import { useState, useEffect, useRef } from "react";
+import styled from "styled-components";
 import { getAllLinkData } from "../api/api";
-
 import HeaderElement from "../components/common/HeaderElement";
 import FooterElement from "../components/common/FooterElement";
 import GlobalStyle from "../components/common/GlobalStyle";
@@ -21,6 +20,7 @@ const Folder = () => {
   const [listId, setListId] = useState("");
   const [data, setData] = useState([]);
   const [isModalVisible, setIsModalVisible] = useState(null);
+  const [searchInputValue, setSearchInputValue] = useState("");
 
   useEffect(() => {
     const fetchData = async () => {
@@ -35,6 +35,63 @@ const Folder = () => {
 
     fetchData();
   }, [listId]);
+
+  const onSearchEnterClickHandle = () => {
+    findCardsByKeyword(searchInputValue);
+  };
+
+  const addLinkDivRef = useRef(null);
+  const footerDivRef = useRef(null);
+  const [isAddLinkVisible, setIsAddLinkVisible] = useState(false);
+
+  const onIntersectionHandle = async (entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        setIsAddLinkVisible(true);
+      } else {
+        setIsAddLinkVisible(false);
+      }
+    });
+  };
+  useEffect(() => {
+    if (addLinkDivRef.current) {
+      const observer1 = new IntersectionObserver(onIntersectionHandle, {
+        threshold: 0.1,
+      });
+
+      if (addLinkDivRef.current) {
+        observer1.observe(addLinkDivRef.current);
+      }
+
+      const observer2 = new IntersectionObserver(onIntersectionHandle, {
+        threshold: 0.1,
+      });
+
+      if (footerDivRef.current) {
+        observer2.observe(footerDivRef.current);
+      }
+
+      return () => {
+        observer1.disconnect();
+        observer2.disconnect();
+      };
+    }
+  }, []);
+
+  const findCardsByKeyword = (keyword: string) => {
+    const results = [];
+    if (data) {
+      data.forEach((card) => {
+        const cardInfo = card.title + card.description + card.url;
+        if (cardInfo && cardInfo.includes(keyword)) {
+          results.push(card);
+        } else {
+          console.log("없음");
+        }
+      });
+    }
+    setData(results);
+  };
 
   return (
     <Container>
@@ -56,12 +113,19 @@ const Folder = () => {
       />
       <GlobalStyle />
       <HeaderElement $positionval="static" />
-      <FolderInput setIsVisible={setIsModalVisible} />
-      <Input />
+      <FolderInput
+        setIsVisible={setIsModalVisible}
+        $isAddLinkVisible={isAddLinkVisible}
+        ref={addLinkDivRef}
+      />
+      <Input
+        inputValue={searchInputValue}
+        setInputValue={setSearchInputValue}
+        onEnterButtonHandle={onSearchEnterClickHandle}
+      />
       <Menus
         changeTitle={setTitleName}
         changeID={setListId}
-        $isVisible={isModalVisible}
         setIsVisible={setIsModalVisible}
       />
       <FolderTitle titleName={titleName} setIsModal={setIsModalVisible} />
@@ -74,8 +138,12 @@ const Folder = () => {
       ) : (
         <NoLinkMsg>저장된 링크가 없습니다.</NoLinkMsg>
       )}
-      <AddFolderBtn>폴더 추가 +</AddFolderBtn>
-      <FooterElement />
+      <AddFolderBtn $isAddLinkVisible={isAddLinkVisible}>
+        폴더 추가 +
+      </AddFolderBtn>
+      <div ref={footerDivRef}>
+        <FooterElement />
+      </div>
     </Container>
   );
 };
@@ -95,14 +163,15 @@ const NoLinkMsg = styled.p`
   margin-top: 40px;
 `;
 
-const AddFolderBtn = styled.button`
+const AddFolderBtn = styled.button<{ $isAddLinkVisible: boolean }>`
   border: none;
   border-radius: 20px;
   border: 1px solid ${COLORS.White};
   background: ${COLORS.Primary};
   position: sticky;
-  left: 40%;
-  bottom: 101px;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: ${({ $isAddLinkVisible }) => ($isAddLinkVisible ? "50px" : "150px")};
   padding: 8px 24px;
   display: none;
 
@@ -115,7 +184,7 @@ const AddFolderBtn = styled.button`
   line-height: normal;
   letter-spacing: -0.3px;
 
-  @media (max-width: 774px) {
+  @media (max-width: 375px) {
     display: block;
   }
 `;

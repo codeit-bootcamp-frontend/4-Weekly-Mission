@@ -11,9 +11,9 @@ import { useGetPromise } from "../hooks/uesGetPromise";
 import "../styles/shared.css";
 
 function Shared() {
-  const foldersData = useGetPromise(getFolderInfo);
+  const foldersData: any = useGetPromise(getFolderInfo);
   const folders = foldersData?.folder?.links || [];
-
+  const [searchInputValue, setSearchInputValue] = useState("");
   const [isModalVisible, setIsModalVisible] = useState(null);
 
   return (
@@ -26,9 +26,13 @@ function Shared() {
         $isModalVisible={isModalVisible}
         setIsModalVisible={setIsModalVisible}
       />
-      <HeaderElement></HeaderElement>
+      <HeaderElement $positionval="" />
       <SharedSection></SharedSection>
-      <Input />
+      <Input
+        inputValue={searchInputValue}
+        setInputValue={setSearchInputValue}
+        onEnterButtonHandle={() => {}}
+      />
       <FolderList
         items={folders}
         $isModalVisible={isModalVisible}

@@ -7,7 +7,7 @@ import { COLORS } from "../../constants/colors";
 import { useGetPromise } from "../../hooks/uesGetPromise";
 
 const Menus = ({ changeTitle, changeID, setIsVisible }) => {
-  const listsData = useGetPromise(getFolderList);
+  const listsData: any = useGetPromise(getFolderList);
   const lists = listsData?.data ?? [];
   if (lists[0]) {
     lists[0].name === "전체" || lists.unshift({ id: 0, name: "전체" });

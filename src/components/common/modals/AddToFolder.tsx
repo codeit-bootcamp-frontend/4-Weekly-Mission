@@ -1,8 +1,11 @@
-import React from "react";
 import { styled } from "styled-components";
 import { COLORS } from "../../../constants/colors";
 import closeIcon from "../../../assets/icons/closeModal.png";
 import { BlueButton } from "../BlueButton";
+
+interface PropsType {
+  $isVisible: string;
+}
 
 export const AddToFolder = ({ $isModalVisible, setIsModalVisible }) => {
   const handleCloseBtn = () => {
@@ -45,6 +48,9 @@ export const AddToFolder = ({ $isModalVisible, setIsModalVisible }) => {
         <BlueButton
           text="추가하기"
           width="280px"
+          height="auto"
+          margin="0px"
+          onBtnHandle={() => {}}
           padding="16px 20px"
           fontSize="16px"
           radius="8px"
@@ -54,7 +60,7 @@ export const AddToFolder = ({ $isModalVisible, setIsModalVisible }) => {
   );
 };
 
-const Background = styled.div`
+const Background = styled.div<PropsType>`
   display: ${({ $isVisible }) =>
     $isVisible === "폴더에 추가" ? "block" : "none"};
   z-index: 2;
@@ -63,8 +69,7 @@ const Background = styled.div`
   left: 0;
   width: 100vw;
   height: 100vh;
-  background-color: #000000;
-  opacity: 0.4
+  background-color: rgba(0, 0, 0, 0.8);
   transition: visibility 0.3s ease;
 
   &:hover {

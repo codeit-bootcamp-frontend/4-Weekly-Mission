@@ -1,8 +1,11 @@
-import React from "react";
-import { styled } from "styled-components";
+import styled from "styled-components";
 import { COLORS } from "../../../constants/colors";
 import closeIcon from "../../../assets/icons/closeModal.png";
-import { RedButton } from "../RedButton";
+import { RedButton } from "../../../components/common/RedButton";
+
+interface propsType {
+  $isVisible: string;
+}
 
 export const DeleteModal = ({ $isModalVisible, setIsModalVisible }) => {
   const handleCloseBtn = () => {
@@ -27,6 +30,8 @@ export const DeleteModal = ({ $isModalVisible, setIsModalVisible }) => {
         <RedButton
           text="삭제하기"
           width="280px"
+          height="auto"
+          margin="0px"
           padding="16px 20px"
           fontSize="16px"
           radius="8px"
@@ -36,7 +41,7 @@ export const DeleteModal = ({ $isModalVisible, setIsModalVisible }) => {
   );
 };
 
-const Background = styled.div`
+const Background = styled.div<propsType>`
   display: ${({ $isVisible }) => ($isVisible === "삭제" ? "block" : "none")};
   z-index: 2;
   position: fixed;
@@ -44,8 +49,7 @@ const Background = styled.div`
   left: 0;
   width: 100vw;
   height: 100vh;
-  background-color: #000000;
-  opacity: 0.4
+  background-color: rgba(0, 0, 0, 0.8);
   transition: visibility 0.3s ease;
 `;
 

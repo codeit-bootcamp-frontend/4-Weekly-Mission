@@ -1,4 +1,3 @@
-import React from "react";
 import { styled } from "styled-components";
 import { COLORS } from "../../constants/colors";
 
@@ -30,13 +29,12 @@ export const BlueButton = ({
       color={COLORS.White}
       fontSize={fontSize}
       radius={radius}
-      onClick={(e) => (onBtnHandle ? onBtnHandle() : null)}
+      onClick={() => (onBtnHandle ? onBtnHandle() : null)}
     >
       {text}
     </Button>
   );
 };
-
 const Button = styled.button<ButtonProps>`
   display: block;
   width: ${({ width }) => width || "auto"};

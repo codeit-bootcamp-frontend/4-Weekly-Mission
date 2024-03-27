@@ -5,7 +5,7 @@ import styled from "styled-components";
 
 const SharedSection = () => {
   const [folderName, setFolderName] = useState([]);
-  const [owner, setOwner] = useState([]);
+  const [owner, setOwner] = useState<any>([]);
   const { profileImageSource, name } = owner;
 
   async function handleLoad() {
