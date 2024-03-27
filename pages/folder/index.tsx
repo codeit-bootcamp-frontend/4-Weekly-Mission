@@ -49,17 +49,16 @@ export default function FolderPage() {
   useEffect(() => {
     const targetHeight = target.current ? target.current.scrollHeight : 0;
     const minThreshold = Math.min(window.innerHeight / targetHeight, 1);
-    const viewHeight = Math.max(minThreshold - window.innerHeight, 0);
     const options = {
       root: null,
-      rootMargin: `0px 0px ${viewHeight}px 0px`,
+      rootMargin: `0px 0px ${targetHeight}px 0px`,
       threshold: [minThreshold, 1],
     };
     const handleIntersectionObserver = (
       entries: IntersectionObserverEntry[],
     ) => {
       if (
-        entries[0].intersectionRatio <= 1 &&
+        entries[0].intersectionRatio < 1 &&
         entries[0].intersectionRatio >= minThreshold
       ) {
         setVisible(true);
