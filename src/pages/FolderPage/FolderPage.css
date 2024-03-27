@@ -1,10 +1,27 @@
+.folderPage {
+  position: relative;
+}
+
 .folderPage-content {
   display: flex;
   flex-direction: column;
   max-width: 106rem;
   width: 100%;
-  margin: 4rem auto 4rem auto;
+  margin: 4rem auto 10rem auto;
   gap: 4rem;
+}
+
+.folderPage-searchResult {
+  color: var(--linkbrary-gray60);
+  font-size: 3.2rem;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  letter-spacing: -0.02rem;
+}
+
+.folderPage-searchResult span {
+  color: var(--linkbrary-gray100);
 }
 
 .folderPage-noLink {

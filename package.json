@@ -1,23 +1,26 @@
 {
-  "name": "1-weekly-mission",
+  "name": "4-weekly-mission-part3",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
     "@testing-library/jest-dom": "^5.17.0",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
-    "eslint-config-airbnb": "^19.0.4",
+    "@types/jest": "^27.5.2",
+    "@types/node": "^16.18.91",
+    "@types/react": "^18.2.67",
+    "@types/react-dom": "^18.2.22",
     "moment": "^2.30.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "react-helmet": "^6.1.0",
     "react-icons": "^5.0.1",
-    "react-router-dom": "^6.22.0",
+    "react-moment": "^1.1.3",
+    "react-router-dom": "^6.22.3",
     "react-scripts": "5.0.1",
+    "typescript": "^4.9.5",
     "web-vitals": "^2.1.4"
   },
   "scripts": {
-    "lint": "eslint src/**/*.js",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
@@ -40,10 +43,5 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  },
-  "devDependencies": {
-    "eslint": "^8.56.0",
-    "eslint-config-prettier": "^9.1.0",
-    "eslint-plugin-react": "^7.33.2"
   }
 }
