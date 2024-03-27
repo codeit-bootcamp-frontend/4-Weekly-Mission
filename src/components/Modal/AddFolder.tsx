@@ -1,7 +1,14 @@
 import '../../styles/css/global.css';
+import React from 'react';
+
 import closeButton from '../assets/logo/modalClose.jpg';
 
-const AddFolder = ({ isOpen, closeModal }) => {
+interface Props {
+  isOpen: boolean;
+  closeModal: () => void;
+}
+
+const AddFolder: React.FC<Props> = ({ isOpen, closeModal }: Props) => {
   return (
     <>
       <div

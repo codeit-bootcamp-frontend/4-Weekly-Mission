@@ -1,7 +1,14 @@
 import '../../styles/css/global.css';
+import React from 'react';
+
 import closeButton from '../assets/logo/modalClose.jpg';
 
-const DeleteLinkModal = ({ isOpen, closeModal }) => {
+interface Props {
+  isOpen: Boolean;
+  closeModal: () => void;
+}
+
+const DeleteLink: React.FC<Props> = ({ isOpen, closeModal }: Props) => {
   return (
     <>
       <div
@@ -94,4 +101,4 @@ const DeleteLinkModal = ({ isOpen, closeModal }) => {
   );
 };
 
-export default DeleteLinkModal.js;
+export default DeleteLink;

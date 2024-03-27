@@ -23,6 +23,7 @@
 .add-link-container {
   display: flex;
   gap: 0.7rem;
+  width: 90%;
 }
 
 .add-link-icon {

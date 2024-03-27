@@ -2,15 +2,19 @@ import '../styles/Card.css';
 import iconKebab from '../assets/logo/kebab.svg';
 import noneProfile from '../assets/logo/noneProfile.svg';
 import iconStar from '../assets/logo/star-off.svg';
+import React from 'react';
 
-const createDate = value => {
+import Add from './Modal/Add';
+import Popover from './Popover';
+
+const createDate = (value: number) => {
   const date = new Date(value);
   return `${date.getFullYear()}. ${date.getMonth() + 1}. ${date.getDate()}`;
 };
 
-const intervalDate = value => {
-  const createdDate = new Date(value);
-  const currentDate = new Date();
+const intervalDate = (value: number): string => {
+  const createdDate: number = new Date(value).getDate();
+  const currentDate: number = new Date().getTime();
 
   const diffMinute = Math.floor((currentDate - createdDate) / 1000 / 60);
   const diffHour = Math.floor(diffMinute / 60);
@@ -37,7 +41,7 @@ const intervalDate = value => {
   }
 };
 
-const Card = ({ card, isIconVisible = true }) => {
+const Card = ({ card, isIconVisible = true }: { card: any; isIconVisible: boolean }) => {
   const { url, title, imageSource, description, createdAt } = card;
   const cardImage = imageSource ? imageSource : noneProfile;
   const altCardImage = title + '로 이동';
@@ -47,7 +51,9 @@ const Card = ({ card, isIconVisible = true }) => {
       {isIconVisible && (
         <>
           <img className='star-icon' src={iconStar} />
-          <img className='kebab-icon' src={iconKebab} />
+          <Popover content={<Add isOpen={false} closeModal={() => {}} />}>
+            <img className='kebab-icon' src={iconKebab} />
+          </Popover>
         </>
       )}
       <a href={url} target='_blank' rel='noreferrer'>

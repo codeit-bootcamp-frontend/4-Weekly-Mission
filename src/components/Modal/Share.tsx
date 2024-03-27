@@ -1,8 +1,14 @@
 import { useState } from 'react';
+import React from 'react';
 
 import '../../styles/css/global.css';
 
-const ShareModal = ({ isOpen, closeModal }) => {
+interface Props {
+  isOpen: Boolean;
+  closeModal: () => void;
+}
+
+const ShareModal: React.FC<Props> = ({ isOpen, closeModal }) => {
   const [currentFolderId, setCurrentFolderId] = useState(null); //아직 파일 공유용 없어서 setCurrentFolderId사용못함
 
   const handleKakaoClick = () => {

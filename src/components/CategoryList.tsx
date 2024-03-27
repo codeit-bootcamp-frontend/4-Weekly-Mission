@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import React from 'react';
 
 // eslint-disable-next-line import/order
 import { getFolderLink } from '../api/BaseUrl';
@@ -13,13 +14,19 @@ import iconPlus from '../assets/logo/plus.svg';
 import CardList from './CardList';
 import Category from './Category';
 
-const CategoryList = ({ folderInfo, categoryList, isIconVisible }) => {
+interface Props {
+  folderInfo: any;
+  categoryList: any;
+  isIconVisible: boolean;
+}
+
+const CategoryList = ({ folderInfo, categoryList, isIconVisible }: Props) => {
   const [selected, setSelected] = useState({ id: '', name: '전체' });
   const [folderLink, setFolderLink] = useState(null);
 
   const categoryData = categoryList?.data;
 
-  const handleLoad = async categoryId => {
+  const handleLoad = async (categoryId: string) => {
     try {
       const state = await getFolderLink(categoryId);
       setFolderLink(state);
@@ -41,7 +48,7 @@ const CategoryList = ({ folderInfo, categoryList, isIconVisible }) => {
           </a>
           {categoryData ? (
             <>
-              {categoryData?.map(category => (
+              {categoryData?.map((category: any) => (
                 <Category key={category.id} category={category} onClickCategory={setSelected} isSelected={selected && selected.id === category.id} />
               ))}
             </>

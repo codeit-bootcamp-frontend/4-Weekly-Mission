@@ -1,4 +1,6 @@
 import '../styles/AddLink.css';
+import React from 'react';
+
 import link from '../assets/logo/link.svg';
 
 const AddLink = () => {

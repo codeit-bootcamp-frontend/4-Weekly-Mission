@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import '../styles/Main.css';
+import React from 'react';
 
 const Main = () => {
   return (

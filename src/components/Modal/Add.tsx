@@ -1,13 +1,19 @@
-import '../styles/css/global.css';
+import '../../styles/css/global.css';
 import { useState } from 'react';
+import React from 'react';
 
-import modalIconCheck from '../assets/logo/modal-icon-check.svg';
-import closeButton from '../assets/logo/modalClose.jpg';
+import modalIconCheck from '../../assets/logo/modal-icon-check.svg';
+import closeButton from '../../assets/logo/modalClose.jpg';
 
-const DeleteFolder = ({ isOpen, closeModal }) => {
+interface Props {
+  isOpen: boolean;
+  closeModal: () => void;
+}
+
+const Add: React.FC<Props> = ({ isOpen, closeModal }: Props) => {
   const [isChecked, setIsChecked] = useState(false);
 
-  const checktoggle = () => {
+  const checkToggle = () => {
     setIsChecked(!isChecked);
   };
 
@@ -91,7 +97,7 @@ const DeleteFolder = ({ isOpen, closeModal }) => {
                 width: '100%',
               }}>
               <button
-                onClick={checktoggle}
+                onClick={checkToggle}
                 style={{
                   width: '100%',
                   padding: '0.8rem',
@@ -125,7 +131,7 @@ const DeleteFolder = ({ isOpen, closeModal }) => {
                 width: '100%',
               }}>
               <button
-                onClick={checktoggle}
+                onClick={checkToggle}
                 style={{
                   width: '100%',
                   padding: '0.8rem',
@@ -159,7 +165,7 @@ const DeleteFolder = ({ isOpen, closeModal }) => {
                 width: '100%',
               }}>
               <button
-                onClick={checktoggle}
+                onClick={checkToggle}
                 style={{
                   width: '100%',
                   padding: '0.8rem',
@@ -193,7 +199,7 @@ const DeleteFolder = ({ isOpen, closeModal }) => {
                 width: '100%',
               }}>
               <button
-                onClick={checktoggle}
+                onClick={checkToggle}
                 style={{
                   width: '100%',
                   padding: '0.8rem',
@@ -261,6 +267,6 @@ const DeleteFolder = ({ isOpen, closeModal }) => {
   );
 };
 
-export default DeleteFolder;
+export default Add;
 
 //modal 만들기!
