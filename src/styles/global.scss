@@ -1,0 +1,18 @@
+@import "./reset.scss";
+
+:root {
+  --Linkbrary-primary-color: #6d6afe;
+  --Linkbrary-red: #ff5b56;
+  --The-julge-black: #111322;
+  --Linkbrary-white: #ffffff;
+  --Linkbrary-gray100: #3e3e43;
+  --Linkbrary-gray60: #9fa6b2;
+  --Linkbrary-gray20: #ccd5e3;
+  --Linkbrary-gray10: #e7effb;
+  --Linkbrary-bg: #f0f6ff;
+}
+
+* {
+  box-sizing: border-box;
+  font-family: "Pretendard", "Arial";
+}
