@@ -6,7 +6,15 @@ import DeleteLink from "./DeleteLink";
 import SharedFolder from "./SharedFolder";
 import AddAtFolder from "./AddAtFolder";
 
-function Modal({ folderName, isModalOpen, toggleModal, Id, data }) {
+type ModalProps = {
+  folderName: string;
+  isModalOpen: boolean;
+  toggleModal: (id: number) => void;
+  Id: number;
+  data: string;
+};
+
+function Modal({ folderName, isModalOpen, toggleModal, Id, data }: ModalProps) {
   return (
     <>
       {!isModalOpen && Id === 1 && <AddFolder toggleModal={toggleModal} />}
