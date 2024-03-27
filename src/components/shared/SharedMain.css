@@ -1,7 +1,7 @@
 .shared-section-first-container {
   padding-top: 60px;
   padding-bottom: 60px;
-  background: #f0f6ff;
+  width: 100%;
 }
 
 .shared-section-first-container .image-container {
@@ -48,12 +48,10 @@
   object-fit: cover;
 }
 
-.link-size-up {
+.link-image-sizing:hover {
   transform: scale(1.3);
   height: 170px;
   transform-origin: center center;
-
-  object-fit: cover;
 }
 
 .link-grid {
@@ -81,7 +79,6 @@
   display: flex;
   flex-direction: column;
   gap: 15px;
-  padding-left: 20px;
 }
 
 .shared-input {

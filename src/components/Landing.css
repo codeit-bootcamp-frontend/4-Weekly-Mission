@@ -105,6 +105,10 @@ footer {
   margin: 0;
 }
 
+.content-title {
+  display: flex;
+}
+
 .contents-01-text {
   display: flex;
   flex-direction: column;
@@ -406,6 +410,9 @@ footer {
     line-height: normal;
     cursor: pointer;
     text-decoration: none;
+  }
+  .content-title {
+    display: inline-block;
   }
 
   .contents-01 {
