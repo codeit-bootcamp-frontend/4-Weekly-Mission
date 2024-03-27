@@ -10,7 +10,7 @@ import addIcon from '../assets/purple_add.svg';
 import { getApi } from '../utils/apis';
 
 const FolderPage = () => {
-  const [foldersList, setFoldersList] = useState([]);
+  const [folderList, setFolderList] = useState([]);
   const [linkList, setLinkList] = useState({});
   const [selectFolderName, setSelectFolderName] = useState('');
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -25,7 +25,7 @@ const FolderPage = () => {
     const { data } = await getApi(`/users/${userId}/links`);
     const folders = await getApi(`/users/${userId}/folders`);
 
-    setFoldersList([{ name: '전체', id: 'all' }, ...folders.data]);
+    setFolderList([{ name: '전체', id: 'all' }, ...folders.data]);
     setLinkList({ links: [...data] });
   };
 
@@ -46,13 +46,13 @@ const FolderPage = () => {
 
   return (
     <>
-      <SearchTopBodyArea></SearchTopBodyArea>
+      <SearchTopBodyArea folderListData={folderList} />
       {linkList.links && (
         <ContentsArea links={linkList.links}>
-          {foldersList.length > 0 && (
+          {folderList.length > 0 && (
             <div className="folder_button_area">
               <div className="folder_buttons_area">
-                {foldersList.map((folder) => {
+                {folderList.map((folder) => {
                   return (
                     <FolderName
                       selectFolderName={selectFolderName}

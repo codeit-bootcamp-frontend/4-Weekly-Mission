@@ -1,10 +1,11 @@
 import AddSearchLink from '../common/AddSearchLink';
 import './SearchTopBodyArea.css';
 
-const SearchTopBodyArea = () => {
+const SearchTopBodyArea = ({ folderListData }) => {
+  console.log('folderListData:::', folderListData);
   return (
     <div className="search_top_area">
-      <AddSearchLink />
+      <AddSearchLink folderList={folderListData} />
     </div>
   );
 };

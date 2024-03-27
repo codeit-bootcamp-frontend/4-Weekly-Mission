@@ -20,7 +20,9 @@ const SearchBar = () => {
         value={searchText}
         onChange={(e) => setSeachText(e.target.value)}
       />
-      <img src={closeIcon} alt="close" onClick={deleteSeachText} />
+      {searchText && (
+        <img src={closeIcon} alt="close" onClick={deleteSeachText} />
+      )}
     </form>
   );
 };

@@ -7,7 +7,7 @@ import checkIcon from '../../assets/icon-check.svg';
 
 import './AddSearchLink.css';
 
-const AddSearchLink = () => {
+const AddSearchLink = ({ folderList }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [inputSearchText, setInputSearchText] = useState('');
 
@@ -42,23 +42,16 @@ const AddSearchLink = () => {
           selectFolderName="링크 주소"
         >
           <div className="folder_list">
-            <div className="folder">
-              <div className="folder_name">코딩팁</div>
-              <div className="folder_count">7개 링크</div>
-            </div>
-            <div className="folder">
-              <div className="folder_name">채용사이트</div>
-              <div className="folder_count">12개 링크</div>
-            </div>
-            <div className="folder">
-              <div className="folder_name">유용한 글</div>
-              <div className="folder_count">30개 링크</div>
-            </div>
-            <div className="folder select">
-              <div className="folder_name">나만의 장소</div>
-              <div className="folder_count">10개 링크</div>
-              <img className="check_icon" src={checkIcon} />
-            </div>
+            {/* TODO : map으로 그려주지 못하고 있음 */}
+            {folderList &&
+              folderList.map((folder) => {
+                <div className="folder">
+                  <div className="folder_name">{folder.name}</div>
+                  <div className="folder_count">
+                    {folder.link ? folder.link.count : 0}개 링크
+                  </div>
+                </div>;
+              })}
           </div>
         </ModalPortal>
       )}
