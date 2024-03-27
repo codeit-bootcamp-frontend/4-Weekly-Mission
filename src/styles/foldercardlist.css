@@ -83,6 +83,12 @@ body {
   display: none;
 }
 
+.folder-name {
+  margin-bottom: 2.4rem;
+  font-size: 2.4rem;
+  font-weight: 600;
+}
+
 /* 모바일 화면 */
 @media (min-width: 375px) and (max-width: 767px) {
   .search {
@@ -92,6 +98,10 @@ body {
 
   .cardlist {
     width: calc(100% - 64px);
+  }
+
+  .folder-container {
+    margin-bottom: 2.8rem;
   }
 
   .card-container {
@@ -126,6 +136,10 @@ body {
 
   .button-folderadd {
     display: none;
+  }
+
+  .folder-name {
+    margin-bottom: 1.2rem;
   }
 }
 

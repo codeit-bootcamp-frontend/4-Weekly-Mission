@@ -1,8 +1,7 @@
-import React from "react";
 import "../styles/foldermain.css";
 
 function FolderMain() {
-  function handleSubmit(event) {
+  function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
   }
 
