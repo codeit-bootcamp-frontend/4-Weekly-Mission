@@ -1,4 +1,4 @@
-footer{
+footer {
   display: flex;
   justify-content: center;
   width: 100%;
@@ -7,7 +7,7 @@ footer{
   height: 16rem;
 }
 
-.footerBox{
+.footerBox {
   display: flex;
   justify-content: space-between;
   grid-template-areas: "copyRight links sns";
@@ -15,33 +15,46 @@ footer{
   width: 100%;
 }
 
-.copyRight{
+.copyRight {
   grid-area: copyRight;
   color: #676767;
   font-size: 1.6rem;
 }
-.links{
+.links {
   grid-area: links;
   display: flex;
   gap: 3rem;
 }
-.link{
+.link {
   color: #cfcfcf;
   font-size: 1.6rem;
 }
-.sns{
+.sns {
   grid-area: sns;
   display: flex;
   gap: 1rem;
 }
 
+.fixedAddLinkBar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 99;
+}
+
+.hideFixedAddLinkBar {
+  position: relative;
+  z-index: 999;
+}
+
 @media (max-width: 767px) {
-  .footerBox{
+  .footerBox {
     display: grid;
     grid-template-areas:
-    "links sns"
-    ". ."
-    "copyRight .";
+      "links sns"
+      ". ."
+      "copyRight .";
     padding: 3rem;
     width: 100%;
   }
