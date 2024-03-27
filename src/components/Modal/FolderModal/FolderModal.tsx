@@ -1,9 +1,17 @@
 import BaseModeal from "../BaseModal/BaseModal";
 import styles from "./folder.module.css";
 import { ADD_LINK, ADD_FOLDER, EDIT } from "utils/constants/strings";
+import { ModalProps } from "../BaseModal/BaseModal";
+import { GetFolderResponse } from "types/apis";
 
-function FolderModal({ variant, closeModal, link, list }) {
-  let title, action;
+interface Props extends ModalProps {
+  link?: string;
+  deleted?: string;
+  list?: GetFolderResponse[] | null;
+}
+
+function FolderModal({ variant, closeModal, link, list }: Props) {
+  let title!: string, action!: string;
 
   if (variant === EDIT) {
     title = "폴더 이름 변경";

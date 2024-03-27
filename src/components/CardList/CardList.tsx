@@ -1,9 +1,15 @@
 import styles from "./cardlist.module.css";
 import Card from "components/Card/Card";
 import { NoResults } from "pages";
+import { GetLinkResponse } from "types/apis";
+import { UseModal } from "utils/hooks/useModal";
 
-function CardList({ items, ...rest }) {
-  const handleClick = (url) => {
+interface Props extends Partial<UseModal> {
+  items: GetLinkResponse[] | null;
+}
+
+function CardList({ items, ...rest }: Props) {
+  const handleClick = (url: string) => {
     window.open(url, "_blank");
   };
 
@@ -16,7 +22,11 @@ function CardList({ items, ...rest }) {
       <ul className={styles.list}>
         {items.map((item) => (
           <li key={item.id}>
-            <Card item={item} {...rest} onClick={() => handleClick(`${item.url}`)} />
+            <Card
+              item={item}
+              {...rest}
+              onClick={() => handleClick(`${item.url}`)}
+            />
           </li>
         ))}
       </ul>

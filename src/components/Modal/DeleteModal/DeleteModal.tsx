@@ -1,8 +1,13 @@
 import BaseModeal from "../BaseModal/BaseModal";
 import styles from "./delete.module.css";
 import { DELETE_LINK, DELETE_FOLDER } from "utils/constants/strings";
+import { ModalProps } from "../BaseModal/BaseModal";
 
-function DeleteModal({ variant, deleted, closeModal }) {
+interface Props extends ModalProps {
+  deleted: string;
+}
+
+function DeleteModal({ variant, deleted, closeModal }: Props) {
   let title;
   if (variant === DELETE_FOLDER) {
     title = "폴더";

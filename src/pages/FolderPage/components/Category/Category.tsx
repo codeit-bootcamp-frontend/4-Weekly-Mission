@@ -1,15 +1,22 @@
 import FolderButton from "components/Button/FolderButton/FolderButton";
 import { Link } from "react-router-dom";
 import styles from "./category.module.css";
-import {ALL} from "utils/constants/strings"
+import { ALL } from "utils/constants/strings";
+import { GetFolderResponse } from "types/apis";
+import { SelectedCategory, ButtonClick } from "pages/FolderPage/FolderPage";
 
-function Category({ buttonNames, selectedCategory, onClick }) {
+interface Props {
+  buttonNames: GetFolderResponse[];
+  selectedCategory: SelectedCategory;
+  onClick: ButtonClick;
+}
 
+function Category({ buttonNames, selectedCategory, onClick }: Props) {
   return (
     <div className={styles.buttons}>
       <Link to={`/folder`}>
         <FolderButton
-          ischecked={selectedCategory.name === ALL ? true : false}
+          ischecked={selectedCategory.name === ALL}
           onClick={() => onClick(null, ALL)}
         >
           {ALL}
@@ -18,7 +25,7 @@ function Category({ buttonNames, selectedCategory, onClick }) {
       {buttonNames.map(({ id, name }) => (
         <Link to={`/shared/${id}`} key={id}>
           <FolderButton
-            ischecked={selectedCategory.name === name ? true : false}
+            ischecked={selectedCategory.name === name}
             onClick={() => onClick(id, name)}
           >
             {name}

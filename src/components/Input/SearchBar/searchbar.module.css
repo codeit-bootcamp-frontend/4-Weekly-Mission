@@ -1,4 +1,4 @@
-.container{
+.container {
   width: 100%;
   position: relative;
 }
@@ -10,9 +10,16 @@
   padding: 1.5rem 4.2rem;
 }
 
-.icon{
+.searchIcon {
   position: absolute;
   top: 50%;
   left: 1.6rem;
+  transform: translateY(-50%);
+}
+
+.closeIcon {
+  position: absolute;
+  top: 50%;
+  right: 1.6rem;
   transform: translateY(-50%);
 }

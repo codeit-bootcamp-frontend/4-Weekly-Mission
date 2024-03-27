@@ -1,12 +1,23 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, ReactNode } from "react";
 import styles from "./base.module.css";
 import closeIcon from "assets/images/ic_close.png";
+import { CloseModal } from "../../../utils/hooks/useModal";
 
-function BaseModeal({ title, children, variant, closeModal }) {
-  const modalRef = useRef(null);
+export interface ModalProps {
+  variant: string;
+  closeModal: CloseModal;
+}
 
-  const handleOutSideClick = (e) => {
-    if (modalRef.current && !modalRef.current.contains(e.target)) {
+interface Props extends ModalProps{
+  title: string;
+  children: ReactNode;
+}
+
+function BaseModeal({ title, children, variant, closeModal }: Props) {
+  const modalRef = useRef<HTMLDivElement>(null);
+
+  const handleOutSideClick = (e: MouseEvent) => {
+    if (modalRef.current && !modalRef.current.contains(e.target as Node)) {
       closeModal(variant);
     }
   };
@@ -31,7 +42,7 @@ function BaseModeal({ title, children, variant, closeModal }) {
               closeModal(variant);
             }}
           >
-            <img src={closeIcon} className={styles.close} />
+            <img src={closeIcon} className={styles.close} alt="닫기 아이콘" />
           </button>
         </div>
       </div>
