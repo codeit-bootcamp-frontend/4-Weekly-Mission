@@ -6,7 +6,13 @@ import DeleteLinkModal from './DeleteLinkModal';
 import ShareFolderModal from './ShareFolderModal';
 import AddLinkModal from './AddLinkModal';
 
-const Modal = ({ action, closeModal, data = {} }) => {
+interface ModalProps {
+  action: string;
+  closeModal: () => void;
+  data?: any;
+}
+
+const Modal = ({ action, closeModal, data = {} }: ModalProps) => {
   const renderModal = () => {
     switch (action) {
       case 'add-link':

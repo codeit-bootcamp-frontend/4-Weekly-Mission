@@ -25,6 +25,12 @@
   position: absolute;
   left: 0.8rem;
 }
+#cancel-icon {
+  width: 1.5rem;
+  position: absolute;
+  right: 0.8rem;
+  cursor: pointer;
+}
 /* Mobile 375~767*/
 @media (min-width: 375px) and (max-width: 767px) {
   .search-form {

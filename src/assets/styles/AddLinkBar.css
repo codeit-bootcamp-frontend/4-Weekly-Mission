@@ -6,7 +6,10 @@
   gap: 0.5rem;
   background: var(--background);
 }
-
+.header-add-container.sticky {
+  position: fixed;
+  bottom: 0;
+}
 .add-form {
   position: relative;
   display: flex;

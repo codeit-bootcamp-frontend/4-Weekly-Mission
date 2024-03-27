@@ -1,6 +1,14 @@
 import closeIcon from '../../assets/icons/close.svg';
 
-const DeleteFolderModal = ({ data, closeModal }) => {
+interface Data {
+  name: string;
+}
+interface DeleteFolderModalProps {
+  data: Data;
+  closeModal: () => void;
+}
+
+const DeleteFolderModal = ({ data, closeModal }: DeleteFolderModalProps) => {
   return (
     <>
       <div className="modal-box-text">
@@ -9,7 +17,7 @@ const DeleteFolderModal = ({ data, closeModal }) => {
       </div>
       <button className="modal-button red">삭제하기</button>
       <button className="modal-close" onClick={closeModal}>
-        <img src={closeIcon} />
+        <img src={closeIcon} alt="close-icon" />
       </button>
     </>
   );
