@@ -77,7 +77,10 @@ function SortingSection({ selectedFolder, setSelectedFolder }: SortingSectionPro
 
     switch (key) {
       case 'share':
-        openModal(modalList.ShareModal, { folder: selectedFolder });
+        openModal(modalList.ShareModal, {
+          folder: selectedFolder,
+          onSubmit() {},
+        });
         break;
       case 'editFolderName':
         openModal(modalList.EditFolderNameModal, { onSubmit: handleEditFolderName, folder: selectedFolder });
