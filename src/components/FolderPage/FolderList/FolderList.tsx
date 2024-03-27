@@ -1,12 +1,22 @@
 import FolderListItem from "components/FolderPage/FolderListItem/FolderListItem";
 
-const FolderList = ({ folders, selectedId, onSelectedFolder, setModal }) => {
+
+interface Props {
+    folders: [{
+    id: string;
+    name: string;
+  }];
+  selectedId:  string;
+  onSelectedFolder:({ name, id }: {name: string | null, id: number|string }) => void
+  setModal: (value: string) => void;
+}
+
+const FolderList = ({ folders, selectedId, onSelectedFolder, setModal } : Props) => {
   return (
     <div>
       {folders && (
         <FolderListItem
           folders={folders}
-          y
           selectedId={selectedId}
           onSelectedFolder={onSelectedFolder}
           setModal={setModal}

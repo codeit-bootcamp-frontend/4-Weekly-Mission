@@ -3,15 +3,29 @@ import { getTimeAgo, formatDate } from "util/time";
 import noImg from "assets/noImg.png";
 import starImg from "assets/Star 1.svg";
 import kebabImg from "assets/kebab.svg";
-import { useEffect, useRef, useState } from "react";
+import {useEffect, useRef, useState } from "react";
 
-function CardListItem({ link, setModal, setLink }) {
-  const [btnclicked, setBtnClicked] = useState(false);
-  const searchRef = useRef(null);
+interface Props{
+  link: {
+    id: number;
+    url: string;
+    created_at: string;
+    image_source :string;
+    title:string;
+    description:string;
+};
+  setModal: (value: string) => void;
+   setLink: (link: string) => void;
+}
+
+function CardListItem({ link, setModal, setLink } :Props) {
+  const [btnClicked, setBtnClicked] = useState(false);
+  const searchRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    function handleFocus(e) {
-      if (searchRef.current && !searchRef.current.contains(e.target)) {
+    function handleFocus(e: MouseEvent) {
+      
+      if (searchRef.current && !searchRef.current.contains(e.target as any)) {
         setBtnClicked(false);
       }
     }
@@ -22,30 +36,30 @@ function CardListItem({ link, setModal, setLink }) {
     };
   }, [searchRef]);
 
-  const handleStarBtnClick = (event) => {
+  const handleStarBtnClick = (event : React.MouseEvent) => {
     event.preventDefault();
   };
 
-  const handleKebabBtnClick = (event) => {
+  const handleKebabBtnClick = (event :React.MouseEvent) => {
     event.preventDefault();
-    if (!btnclicked) {
+    if (!btnClicked) {
       setBtnClicked(true);
     } else {
       setBtnClicked(false);
     }
   };
 
-  const handleKebabListClick = (event) => {
+  const handleKebabListClick = (event :React.MouseEvent) => {
     event.preventDefault();
   };
 
-  const handleListClick = (e) => {
-    const value = e.target.name;
-    const seletedLink = e.target.value;
+  const handleListClick = (e :React.MouseEvent) => {
+    const value = (e.target as HTMLButtonElement).name;
+    const seletedLink = (e.target as HTMLButtonElement).value;
 
     setModal(value);
     setLink(seletedLink);
-    if (btnclicked) {
+    if (btnClicked) {
       setBtnClicked(false);
     }
   };
@@ -85,7 +99,7 @@ function CardListItem({ link, setModal, setLink }) {
         ref={searchRef}
         onClick={handleKebabListClick}
         className={`${style["kebab-list"]} ${
-          btnclicked === true ? style.selected : ""
+          btnClicked === true ? style.selected : ""
         }`}
       >
         <div className={style.btns}>

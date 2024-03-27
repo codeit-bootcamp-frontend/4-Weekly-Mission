@@ -1,7 +1,20 @@
 import CardListItem from "components/FolderPage/CardListItem/CardListItem";
 import styles from "./CardList.module.css";
 
-function CardList({ links, setModal, setLink }) {
+
+interface Props{
+  links: [{
+    id: number;
+    url: string;
+    created_at: string;
+    image_source: string;
+    title: string;
+    description: string;
+  }];
+  setModal: (value: string) => void;
+   setLink: (link: string) => void;
+}
+function CardList({ links, setModal, setLink } : Props) {
   return (
     <div className={styles["card-container"]}>
       <ul className={styles["grid"]}>

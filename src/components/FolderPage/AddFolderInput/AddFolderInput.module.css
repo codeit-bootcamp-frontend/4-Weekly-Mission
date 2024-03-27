@@ -5,6 +5,22 @@
   position: relative;
 }
 
+.footer_isnot_invew {
+  position: fixed;
+  bottom: 80px;
+  z-index: 2;
+}
+
+@media (max-width: 579px) {
+  .footer_isnot_invew {
+    top: 2rem;
+  }
+
+  .addLink {
+    width: 70%;
+  }
+}
+
 @media (max-width: 1199px) {
   .addLink {
     margin-top: 2rem;

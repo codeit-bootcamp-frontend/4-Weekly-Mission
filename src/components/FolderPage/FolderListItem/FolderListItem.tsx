@@ -1,14 +1,28 @@
 import styles from "./FolderListItem.module.css";
+import { MouseEvent } from "react";
 
-function FolderListItem({ folders, selectedId, onSelectedFolder, setModal }) {
-  const handleClick = (e) => {
-    onSelectedFolder({ name: e.target.textContent, id: e.target.id });
+
+interface Props {
+  folders: [{
+    id: string;
+    name: string;
+  }];
+  selectedId:  string;
+  onSelectedFolder:({ name, id }: {name: string | null, id: number|string }) => void
+  setModal: (value: string) => void;
+}
+
+
+function FolderListItem({ folders, selectedId, onSelectedFolder, setModal } : Props) {
+  const handleClick = (e : MouseEvent<HTMLSpanElement>) => {
+    onSelectedFolder({ name: (e.currentTarget as HTMLSpanElement).textContent, id: (e.currentTarget as HTMLSpanElement).id });
   };
 
-  const handleModalClick = (e) => {
-    const value = e.target.value;
+  const handleModalClick = (e : MouseEvent) => {
+    const value = (e.target as HTMLButtonElement).value;
     setModal(value);
   };
+
 
   return (
     <div className={styles["wrapper"]}>
@@ -16,9 +30,8 @@ function FolderListItem({ folders, selectedId, onSelectedFolder, setModal }) {
         <div className={styles.tags}>
           <span
             className={`${styles.tag} ${
-              selectedId === "" ? styles.selected : ""
+              selectedId === null ? styles.selected : ""
             }`}
-            id={null}
             onClick={handleClick}
           >
             전체
@@ -26,7 +39,7 @@ function FolderListItem({ folders, selectedId, onSelectedFolder, setModal }) {
           {folders.map((folder) => (
             <span
               className={`${styles.tag} ${
-                folder.id === parseInt(selectedId) ? styles.selected : ""
+                folder.id === selectedId ? styles.selected : ""
               }`}
               key={folder.id}
               id={folder.id}

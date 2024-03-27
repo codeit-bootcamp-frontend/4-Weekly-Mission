@@ -1,10 +1,12 @@
-const { useState } = require("react");
+import { useState } from "react";
 
-function useAsync(callback) {
+type Callback = (...rest: any[]) => Promise<any>;
+
+function useAsync(callback: Callback) {
   const [pending, setPending] = useState(false);
-  const [error, setError] = useState(null);
+  const [error, setError] = useState<any>(null);
 
-  const wrappedFunction = async (...args) => {
+  const wrappedFunction = async (...args: any[]) => {
     try {
       setPending(true);
       setError(null);

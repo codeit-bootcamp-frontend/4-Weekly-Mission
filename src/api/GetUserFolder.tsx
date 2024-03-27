@@ -1,6 +1,11 @@
 const API_URL = "https://bootcamp-api.codeit.kr/api";
 
-export async function GetUserFolder({ userId }) {
+interface ApiProps {
+  userId: number;
+  folderId: number;
+}
+
+export async function GetUserFolder({ userId  }: ApiProps) {
   const response = await fetch(`${API_URL}/users/${userId}/folders`);
   if (!response.ok) {
     throw new Error("폴더 정보를 불러오는데 실패했습니다");
@@ -9,7 +14,7 @@ export async function GetUserFolder({ userId }) {
   return body;
 }
 
-export async function GetLinks({ userId, folderId }) {
+export async function GetLinks({ userId, folderId }: ApiProps) {
   let query = `?folderId=${folderId}`;
   if (!folderId) {
     query = "";

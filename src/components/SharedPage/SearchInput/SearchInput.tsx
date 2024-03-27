@@ -1,7 +1,21 @@
 import searchIcon from "assets/Search.png";
 import styles from "./SearchInput.module.css";
+import { ChangeEvent } from "react";
+import close from "assets/close.png";
 
-const SearchInput = ({ loadingError, search, handleSearchChange }) => {
+
+
+interface Props {
+  loadingError: {
+    message: string;
+  }
+  search: string;
+  handleSearchChange: (e: ChangeEvent) => void;
+  handleCloseClick: (e: React.MouseEvent) => void;
+
+}
+
+const SearchInput = ({ loadingError, search, handleSearchChange, handleCloseClick } : Props) => {
   return (
     <>
       <div className={styles["wrapper"]}>
@@ -16,6 +30,9 @@ const SearchInput = ({ loadingError, search, handleSearchChange }) => {
               onChange={handleSearchChange}
             />
           </div>
+           <button className={styles.closeBtn} onClick={handleCloseClick}>
+          <img src={close} alt="닫힘버튼" />
+        </button>
         </div>
         {loadingError && <div>{loadingError.message}</div>}
       </div>
