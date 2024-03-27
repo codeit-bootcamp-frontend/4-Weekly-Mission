@@ -1,12 +1,18 @@
 import buttonStyles from './Button.module.css';
 
+interface Props {
+  children: React.ReactNode;
+  onClick?: () => void;
+  width?: string;
+  isRed?: boolean;
+}
 export function Button({
   children,
   onClick,
   width = 'width100',
   isRed = false,
-}) {
-  let widthClass;
+}: Props) {
+  let widthClass: string;
   switch (width) {
     case 'small':
       widthClass = buttonStyles.small;
@@ -17,7 +23,7 @@ export function Button({
     default:
       widthClass = '';
   }
-  const styles = `${buttonStyles.button} ${widthClass} ${
+  const styles: string = `${buttonStyles.button} ${widthClass} ${
     isRed ? buttonStyles.red : ''
   }`;
   return (
