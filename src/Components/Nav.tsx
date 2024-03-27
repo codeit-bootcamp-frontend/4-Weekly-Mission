@@ -1,7 +1,16 @@
 import React from "react";
-import logo from "../Assets/image/logo.png";
+import logo from "../Assets/image/logo.svg";
 
-export function Nav({ profile }) {
+export interface UserProfile {
+  image: string;
+  email: string;
+}
+
+interface NavProps {
+  profile: UserProfile | null;
+}
+
+export function Nav({ profile }: NavProps) {
   return (
     <>
       <nav>

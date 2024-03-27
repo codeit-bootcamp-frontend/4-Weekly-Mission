@@ -1,22 +1,23 @@
 import React, { useState } from "react";
-import searchIcon from "../Assets/image/Search.png";
 import { FolderCard } from "./FolderCard";
 import { FolderMenu } from "./FolderMenu";
 import { useFolderName } from "../Hooks/useFolderName";
-import { useFolder } from "../Hooks/useFolder";
+import { useLinks } from "../Hooks/useLinks";
 import FolderTools from "./FolderTools";
+import search from "../Assets/image/Search.svg";
 import "../Styles/FolderMain.css";
 
 export function FolderMain() {
-  const [menu, setMenu] = useState("전체");
-
-  const handleMenuChange = (newMenu, id) => {
-    setMenu(newMenu);
-    fetchFolder(id);
-  };
-
+  const [currentMenu, setCurrentMenu] = useState("전체");
+  const [folderCurrentId, setFolderCurrentId] = useState("");
+  const { link, fetchLinks } = useLinks();
   const folderNames = useFolderName();
-  const { folder, fetchFolder } = useFolder();
+
+  const handleMenuChange = (newMenu: string | null, id: string): void => {
+    setCurrentMenu(newMenu ?? "전체");
+    fetchLinks(id);
+    setFolderCurrentId(id);
+  };
 
   return (
     <>
@@ -26,22 +27,20 @@ export function FolderMain() {
             className="searchInput"
             placeholder="링크를 검색해 보세요."
           ></input>
-          <div className="searchIcon">
-            <img src={searchIcon} className="searchImg" alt="검색 아이콘"></img>
-          </div>
+          <img src={search} className="searchImg" alt="검색 아이콘"></img>
         </div>
       </div>
 
       <FolderMenu folderNames={folderNames} onMenuChange={handleMenuChange} />
 
       <div className="titleContainer">
-        <div className="title">{menu}</div>
-        {menu !== "전체" && <FolderTools />}
+        <div className="title">{currentMenu}</div>
+        {currentMenu !== "전체" && <FolderTools id={folderCurrentId} />}
       </div>
 
-      {folder && folder.length ? (
+      {link && link.length ? (
         <div className="cardContainer">
-          {folder.map((card) => (
+          {link.map((card) => (
             <FolderCard key={card.id} cardInfo={card}></FolderCard>
           ))}
         </div>
