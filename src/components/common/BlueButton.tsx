@@ -1,6 +1,14 @@
-import React from "react";
 import { styled } from "styled-components";
 import { COLORS } from "../../constants/colors";
+
+export interface ButtonProps {
+  width?: string;
+  height?: string;
+  radius?: string;
+  margin?: string;
+  padding?: string;
+  fontSize?: string;
+}
 
 export const BlueButton = ({
   text,
@@ -21,14 +29,13 @@ export const BlueButton = ({
       color={COLORS.White}
       fontSize={fontSize}
       radius={radius}
-      onClick={(e) => (onBtnHandle ? onBtnHandle() : null)}
+      onClick={() => (onBtnHandle ? onBtnHandle() : null)}
     >
       {text}
     </Button>
   );
 };
-
-const Button = styled.button`
+const Button = styled.button<ButtonProps>`
   display: block;
   width: ${({ width }) => width || "auto"};
   min-width: max-content;

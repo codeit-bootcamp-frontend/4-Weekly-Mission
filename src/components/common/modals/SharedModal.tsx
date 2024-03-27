@@ -1,10 +1,14 @@
-import React from "react";
-import { styled } from "styled-components";
-import { COLORS } from "constants/colors";
-import closeIcon from "assets/icons/closeModal.png";
-import kakao from "assets/icons/icon_kakao.png";
-import facebook from "assets/icons/icon_facebook.png";
-import link from "assets/icons/link.png";
+import styled from "styled-components";
+import { COLORS } from "../../../constants/colors";
+import closeIcon from "../../../assets/icons/closeModal.png";
+import kakao from "../../../assets/icons/icon_kakao.png";
+import facebook from "../../../assets/icons/icon_facebook.png";
+import link from "../../../assets/icons/link.png";
+
+interface PropsType {
+  $isVisible?: string;
+  $backgroundColor?: string;
+}
 
 export const SharedModal = ({ $isModalVisible, setIsModalVisible }) => {
   const ICONS = [
@@ -53,7 +57,7 @@ export const SharedModal = ({ $isModalVisible, setIsModalVisible }) => {
   );
 };
 
-const Background = styled.div`
+const Background = styled.div<PropsType>`
   display: ${({ $isVisible }) => ($isVisible === "공유" ? "block" : "none")};
   z-index: 2;
   position: fixed;
@@ -61,8 +65,7 @@ const Background = styled.div`
   left: 0;
   width: 100vw;
   height: 100vh;
-  background-color: #000000;
-  opacity: 0.4
+  background-color: rgba(0, 0, 0, 0.8);
   transition: visibility 0.3s ease;
 `;
 
@@ -141,7 +144,7 @@ const Icon = styled.div`
   }
 `;
 
-const IconImg = styled.div`
+const IconImg = styled.div<PropsType>`
   width: 42px;
   height: 42px;
   background-color: ${({ $backgroundColor }) => $backgroundColor ?? null};

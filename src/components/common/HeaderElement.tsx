@@ -1,13 +1,18 @@
 import styled from "styled-components";
-import logo from "assets/Linkbrary.png";
-import profile from "assets/icons/icon_myprofile.png";
-import { getUserInfo } from "api/api";
-import { useGetPromise } from "hooks/uesGetPromise";
-import "styles/common.css";
+import logo from "../../assets/Linkbrary.png";
+import profile from "../../assets/icons/icon_myprofile.png";
+import { getUserInfo } from "../../api/api";
+import { useGetPromise } from "../../hooks/uesGetPromise";
+import "../../styles/common.css";
+
+interface propTypes {
+  $positionval: string;
+}
 
 function HeaderElement({ $positionval }) {
-  const user = useGetPromise(getUserInfo);
-  const { email, profileImageSource } = user;
+  const user: any = useGetPromise(getUserInfo);
+  const email = user?.email;
+  const profileImageSource = user?.profileImageSource;
 
   return (
     <Header $positionval={$positionval}>
@@ -36,7 +41,7 @@ function HeaderElement({ $positionval }) {
   );
 }
 
-const Header = styled.div`
+const Header = styled.div<propTypes>`
   background-color: var(--Grey_100);
   padding: 20px 200px;
   position: ${({ $positionval }) => ($positionval ? $positionval : "sticky")};

@@ -1,8 +1,7 @@
-import React from "react";
 import { styled } from "styled-components";
-import { COLORS } from "constants/colors";
-import { DeleteModal } from "components/common/modals/DeleteModal";
-import { AddToFolder } from "components/common/modals/AddToFolder";
+import { COLORS } from "../../../constants/colors";
+import { DeleteModal } from "../../../components/common/modals/DeleteModal";
+import { AddToFolder } from "../../../components/common/modals/AddToFolder";
 
 export const PopOver = ({
   $isPopOverVisible,
@@ -41,7 +40,13 @@ export const PopOver = ({
   );
 };
 
-const MenuOptions = styled.div`
+interface PropsType {
+  $right: number;
+  $top: number;
+  $isVisible: boolean;
+}
+
+const MenuOptions = styled.div<PropsType>`
   width: 100px;
   position: absolute;
   right: ${({ $right }) => $right ?? 0};
@@ -63,7 +68,7 @@ const Option = styled.p`
   line-height: normal;
   text-align: center;
 
-  &: hover {
+  &:hover {
     cursor: pointer;
     color: ${COLORS.Primary};
     background-color: ${COLORS.Grey_100};

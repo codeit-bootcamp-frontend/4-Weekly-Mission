@@ -1,6 +1,6 @@
-import React from "react";
 import { styled } from "styled-components";
 import { COLORS } from "../../constants/colors";
+import { ButtonProps } from "./BlueButton";
 
 export const RedButton = ({
   text,
@@ -26,7 +26,7 @@ export const RedButton = ({
   );
 };
 
-const Button = styled.button`
+const Button = styled.button<ButtonProps>`
   display: block;
   width: ${({ width }) => width || "auto"};
   height: ${({ height }) => height || "auto"};
