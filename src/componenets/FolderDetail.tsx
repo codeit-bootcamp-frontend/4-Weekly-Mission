@@ -22,6 +22,16 @@ interface Folder {
     count: number;
   };
 }
+type selectedFolderDataType = {
+  id: number;
+  created_at: string;
+  updated_at: null;
+  url: string;
+  title: string;
+  description: string;
+  image_source: string;
+  folder_id: number;
+};
 
 interface Prop {
   toggleModal: (id: number) => void;
@@ -29,11 +39,11 @@ interface Prop {
   handleFolderName: (id: string) => void;
 }
 
-export const UserContext = React.createContext<Context | null>(null);
+export const UserContext = React.createContext<Context>({} as Context);
 
 function FolderDetail({ folderListData, toggleModal, handleFolderName }: Prop) {
   const [selectedFolder, setSelectedFolder] = useState<Folder>({} as Folder);
-  const selectedFolderData =
+  const selectedFolderData: selectedFolderDataType[] =
     useFetchData("selectedFolderDataFetch", 4, selectedFolder) || [];
 
   const handleFolderListClick = (data: Folder) => {

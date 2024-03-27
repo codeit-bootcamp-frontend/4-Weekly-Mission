@@ -8,7 +8,7 @@ const getFormattedDate = (date: string) => {
   return `${year}. ${month}. ${day}`;
 };
 
-const getTimeAgo = (date: Date) => {
+const getTimeAgo = (date: string) => {
   const now: Date = new Date();
   const createdDate: Date = new Date(date);
 

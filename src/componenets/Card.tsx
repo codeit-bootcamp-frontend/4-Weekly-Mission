@@ -8,7 +8,20 @@ import React, { SyntheticEvent, useState } from "react";
 import { UserContext } from "./FolderDetail";
 import { UserData } from "../pages/Folder";
 
-export default function Card({ data }) {
+interface CardProps {
+  data: {
+    id: number;
+    created_at: string;
+    updated_at: null;
+    url: string;
+    title: string;
+    description: string;
+    image_source: string;
+    folder_id: number;
+  };
+}
+
+export default function Card({ data }: CardProps) {
   const [showPopover, setShowPopover] = useState(false);
 
   const togglePopover = () => {

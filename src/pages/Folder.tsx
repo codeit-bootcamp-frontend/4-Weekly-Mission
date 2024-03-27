@@ -19,7 +19,7 @@ interface Data {
   folder_id: number;
 }
 
-export const UserData = React.createContext<User | null>(null);
+export const UserData = React.createContext<User>({} as User);
 
 function Folder() {
   const [isModalOpen, setIsModalOpen] = useState(true);
