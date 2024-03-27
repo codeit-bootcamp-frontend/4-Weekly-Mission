@@ -4,6 +4,7 @@ import profile from "../../assets/icons/icon_myprofile.png";
 import { getUserInfo } from "../../api/api";
 import { useGetPromise } from "../../hooks/uesGetPromise";
 import "../../styles/common.css";
+import { Link } from 'react-router-dom';
 
 interface propTypes {
   $positionval: string;
@@ -16,7 +17,9 @@ function HeaderElement({ $positionval }) {
 
   return (
     <Header $positionval={$positionval}>
+      <Link to="/">
       <img src={logo} alt="logo" />
+      </Link>
       <div className="myProfile">
         {user ? (
           <div id="myProfileName">

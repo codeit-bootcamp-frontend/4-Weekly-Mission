@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { BlueButton } from "../common/BlueButton";
+import { Link } from 'react-router-dom';
 
 export const Headline = () => {
   return (
@@ -11,6 +12,7 @@ export const Headline = () => {
           관리해 보세요.
         </HeadlineText>
       </TextBox>
+      <Link to="folder">
       <BlueButton
         text="링크 추가하기"
         width="350px"
@@ -21,6 +23,7 @@ export const Headline = () => {
         radius="8px"
         onBtnHandle={() => {}}
       />
+      </Link>
     </Container>
   );
 };
