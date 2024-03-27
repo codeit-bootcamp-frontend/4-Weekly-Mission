@@ -2,8 +2,25 @@ import { useState } from "react";
 import { Card } from "sharing/ui-card";
 import { CardContent } from "sharing/ui-card-content";
 import { CardImage } from "sharing/ui-card-image";
+import { ReactNode } from "react";
 
-export const ReadOnlyCard = ({ url, imageSource, alt, elapsedTime, description, createdAt }) => {
+interface props {
+  url: string;
+  imageSource?: ReactNode;
+  alt?: string;
+  elapsedTime?: string;
+  description: string;
+  createdAt: string;
+}
+
+export const ReadOnlyCard = ({
+  url,
+  imageSource,
+  alt,
+  elapsedTime,
+  description,
+  createdAt,
+}: props) => {
   const [isHovered, setIsHovered] = useState(false);
   const handleMouseOver = () => setIsHovered(true);
   const handleMouseLeave = () => setIsHovered(false);
