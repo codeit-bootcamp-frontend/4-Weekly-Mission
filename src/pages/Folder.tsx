@@ -6,7 +6,18 @@ import Nav from "../componenets/Nav";
 import useFetchData from "../hooks/useFetchData";
 import Modal from "../componenets/modal/Modal";
 
-type User = (data: string) => void;
+type User = (data: Data) => void;
+
+interface Data {
+  id: number;
+  created_at: string;
+  updated_at: null;
+  url: string;
+  title: string;
+  description: string;
+  image_source: string;
+  folder_id: number;
+}
 
 export const UserData = React.createContext<User | null>(null);
 
@@ -14,7 +25,7 @@ function Folder() {
   const [isModalOpen, setIsModalOpen] = useState(true);
   const [key, setKey] = useState(0);
   const [folderName, setFolderName] = useState("");
-  const [data, setData] = useState("");
+  const [data, setData] = useState<Data>({} as Data);
 
   const profileData = useFetchData("profileDataFetch", 1);
   const folderListData = useFetchData("folderListDataFetch", 1);
@@ -28,7 +39,7 @@ function Folder() {
     setFolderName(folderName);
   }
 
-  function handleData(data: string) {
+  function handleData(data: Data) {
     setData(data);
   }
 

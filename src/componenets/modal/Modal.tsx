@@ -11,7 +11,16 @@ type ModalProps = {
   isModalOpen: boolean;
   toggleModal: (id: number) => void;
   Id: number;
-  data: string;
+  data: {
+    id: number;
+    created_at: string;
+    updated_at: null;
+    url: string;
+    title: string;
+    description: string;
+    image_source: string;
+    folder_id: number;
+  };
 };
 
 function Modal({ folderName, isModalOpen, toggleModal, Id, data }: ModalProps) {
