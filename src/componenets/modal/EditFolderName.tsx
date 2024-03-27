@@ -1,11 +1,11 @@
 import { SyntheticEvent } from "react";
 import close from "../../images/_close.png";
 
-type AddFolderType = {
+type EditFolderNameType = {
   toggleModal: (id: number) => void;
 };
 
-function EditFolderName({ toggleModal }: AddFolderType) {
+function EditFolderName({ toggleModal }: EditFolderNameType) {
   function handleImageClick(event: SyntheticEvent) {
     event.preventDefault();
     toggleModal(7);
