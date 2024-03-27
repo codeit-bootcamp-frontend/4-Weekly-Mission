@@ -1,4 +1,4 @@
-export const copyClipBoard = async (text) => {
+export const copyClipBoard = async (text: string) => {
   try {
     await navigator.clipboard.writeText(text);
     alert("복사 성공!");

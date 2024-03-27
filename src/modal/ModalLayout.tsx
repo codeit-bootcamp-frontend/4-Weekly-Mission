@@ -1,7 +1,20 @@
+import { ReactNode, MouseEvent } from "react";
 import styles from "./ModalLayout.module.css";
 import close from "../images/close.svg";
 
-function ModalLayout({ children, title, isModalClicked, onClickCloseButton }) {
+interface Props {
+  children: ReactNode;
+  title: string;
+  isModalClicked: boolean;
+  onClickCloseButton: (e: MouseEvent<HTMLDivElement>) => void;
+}
+
+function ModalLayout({
+  children,
+  title,
+  isModalClicked,
+  onClickCloseButton,
+}: Props) {
   const backgroundClassName = isModalClicked
     ? styles.background
     : styles.invisible;

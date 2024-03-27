@@ -1,17 +1,24 @@
+import { MouseEvent } from "react";
+
 import styles from "./SelectMenu.module.css";
 import { MODALS } from "../modal/modals";
 
-function SelectMenu({ handleClickModal, onClickKebab }) {
+interface Props {
+  handleClickModal: (type: "deleteLink" | "addToFolder") => void;
+  onClickKebab: (e: MouseEvent) => void;
+}
+
+function SelectMenu({ handleClickModal, onClickKebab }: Props) {
   const { deleteLink, addToFolder } = MODALS;
 
-  const onClickKebabDelete = (e) => {
+  const onClickKebabDelete = (e: MouseEvent) => {
     onClickKebab(e);
-    handleClickModal(deleteLink.type);
+    handleClickModal("deleteLink");
   };
 
-  const onClickKebabAddToFolder = (e) => {
+  const onClickKebabAddToFolder = (e: MouseEvent) => {
     onClickKebab(e);
-    handleClickModal(addToFolder.type);
+    handleClickModal("addToFolder");
   };
 
   return (

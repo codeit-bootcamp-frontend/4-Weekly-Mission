@@ -1,6 +1,15 @@
 import styles from "./FolderButton.module.css";
+//type
+import { FolderList } from "../types/commonTypes";
 
-function FolderButton({ folder, onClick, isClicked, changeClickedId }) {
+interface Props {
+  folder: FolderList;
+  onClick: (folder: FolderList) => void;
+  isClicked: boolean;
+  changeClickedId: () => void;
+}
+
+function FolderButton({ folder, onClick, isClicked, changeClickedId }: Props) {
   const handleClick = () => {
     onClick(folder);
     changeClickedId();

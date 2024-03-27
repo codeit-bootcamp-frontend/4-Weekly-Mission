@@ -1,12 +1,19 @@
 import ModalLayout from "../ModalLayout";
 import { MODALS } from "../modals";
 import styles from "./AddFolderModal.module.css";
+//type
+import { IsModalClicked } from "../../components/FolderListBar";
 
-function AddFolderModal({ isModalClicked, handleModalClick }) {
+interface Props {
+  isModalClicked: IsModalClicked;
+  handleModalClick: (type: keyof IsModalClicked) => void;
+}
+
+function AddFolderModal({ isModalClicked, handleModalClick }: Props) {
   const { addFolder } = MODALS;
 
   const onClickCloseButton = () => {
-    handleModalClick(addFolder.type);
+    handleModalClick(addFolder.type as keyof IsModalClicked);
   };
 
   return (

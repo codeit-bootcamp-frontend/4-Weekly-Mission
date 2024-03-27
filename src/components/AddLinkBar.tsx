@@ -1,20 +1,24 @@
+import { useState, ChangeEvent } from "react";
+
 import styles from "./AddLinkBar.module.css";
 import link from "../images/link.svg";
-import { useState } from "react";
 import AddToFolderModal from "../modal/AddToFolderModal/AddToFolderModal";
 import { MODALS } from "../modal/modals";
 
-function AddLinkBar() {
-  const [linkValue, setLinkValue] = useState("");
-  const [isModalClicked, setIsModalClicked] = useState({
+function AddLinkBar({ isAtBottom }: { isAtBottom: boolean }) {
+  const [linkValue, setLinkValue] = useState<string>("");
+  const [isModalClicked, setIsModalClicked] = useState<{
+    addToFolder: boolean;
+    deleteLink?: boolean;
+  }>({
     addToFolder: false,
   });
 
-  const onChangeLinkValue = (e) => {
+  const onChangeLinkValue = (e: ChangeEvent<HTMLInputElement>) => {
     setLinkValue(e.target.value);
   };
 
-  const handleClickModal = (type) => {
+  const handleClickModal = (type: "addToFolder" | "deleteLink") => {
     const value = isModalClicked[type];
     setIsModalClicked({ ...isModalClicked, [type]: !value });
   };
@@ -25,7 +29,7 @@ function AddLinkBar() {
 
   return (
     <>
-      <div className={styles.area}>
+      <div className={isAtBottom ? styles.bottomArea : styles.area}>
         <div className={styles.container}>
           <div className={styles.inputContainer}>
             <img src={link} alt="링크" />
@@ -39,7 +43,7 @@ function AddLinkBar() {
           </div>
           <button
             className={styles.button}
-            onClick={() => handleClickModal(MODALS.addToFolder.type)}
+            onClick={() => handleClickModal("addToFolder")}
           >
             추가하기
           </button>

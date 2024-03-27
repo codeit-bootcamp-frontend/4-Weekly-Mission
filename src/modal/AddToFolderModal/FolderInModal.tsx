@@ -1,7 +1,15 @@
 import styles from "./AddToFolderModal.module.css";
 import checkImg from "../../images/check.png";
+//types
+import { FolderList } from "../../types/commonTypes";
 
-function FolderInModal({ folder, isClicked, onClickFolder }) {
+interface Props {
+  folder: FolderList;
+  isClicked: boolean;
+  onClickFolder: () => void;
+}
+
+function FolderInModal({ folder, isClicked, onClickFolder }: Props) {
   const folderNameClassName = isClicked
     ? styles.clickedFolderName
     : styles.folderName;

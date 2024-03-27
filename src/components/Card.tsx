@@ -1,24 +1,32 @@
+import { useState, MouseEvent } from "react";
+
 import { dateDiffCalc, dateFormatter } from "../util/datecalc";
 import iconEmptyLogo from "../images/emptylogo.svg";
 import kebab from "../images/kebab.svg";
 import star from "../images/star.svg";
 import styles from "./Card.module.css";
 import SelectMenu from "./SelectMenu";
-import { useState } from "react";
 import DeleteLinkModal from "../modal/DeleteLinkModal/DeleteLinkModal";
 import AddToFolderModal from "../modal/AddToFolderModal/AddToFolderModal";
+//type
+import { Link, LinksData } from "../types/commonTypes";
 
-function Card({ link }) {
-  const [isKebabClicked, setIsKebabClicked] = useState(false);
-  const [isModalClicked, setIsModalClicked] = useState({
+function Card({ link }: { link: Link | LinksData }) {
+  const [isKebabClicked, setIsKebabClicked] = useState<boolean>(false);
+  const [isModalClicked, setIsModalClicked] = useState<{
+    deleteLink: boolean;
+    addToFolder: boolean;
+  }>({
     deleteLink: false,
     addToFolder: false,
   });
   const cardImage =
-    link.imageSource || link["image_source"]
-      ? link.imageSource || link["image_source"]
+    (link as Link).imageSource || (link as LinksData)["image_source"]
+      ? (link as Link).imageSource || (link as LinksData)["image_source"]
       : iconEmptyLogo;
-  const dateOfCard = new Date(link.createdAt || link["created_at"]);
+  const dateOfCard = new Date(
+    (link as Link).createdAt || (link as LinksData)["created_at"]
+  );
   const dateDiff = dateDiffCalc(dateOfCard);
   const formatDate = dateFormatter(dateOfCard);
 
@@ -26,12 +34,12 @@ function Card({ link }) {
     window.open(link.url, "_blank");
   };
 
-  const onClickKebab = (e) => {
+  const onClickKebab = (e: MouseEvent) => {
     setIsKebabClicked((prevValue) => !prevValue);
     e.stopPropagation();
   };
 
-  const handleClickModal = (type) => {
+  const handleClickModal = (type: "deleteLink" | "addToFolder") => {
     const value = isModalClicked[type];
     setIsModalClicked({ ...isModalClicked, [type]: !value });
   };
@@ -55,7 +63,6 @@ function Card({ link }) {
         </div>
         {isKebabClicked ? (
           <SelectMenu
-            url={link?.url}
             onClickKebab={onClickKebab}
             handleClickModal={handleClickModal}
           />

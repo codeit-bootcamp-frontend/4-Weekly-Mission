@@ -1,3 +1,14 @@
+.bottomArea {
+  padding: 20px 320px;
+  position: fixed;
+  bottom: 0;
+  z-index: 5;
+  display: flex;
+  justify-content: center;
+  background: #f0f6ff;
+  width: 100%;
+}
+
 @media (min-width: 375px) and (max-width: 767px) {
   .area {
     padding: 24px 32px 40px;
@@ -9,7 +20,7 @@
   .container {
     display: flex;
     justify-content: space-between;
-    padding: 16px 20px;
+    padding: 8px 10px;
     border-radius: 15px;
     align-items: center;
     width: 350px;
