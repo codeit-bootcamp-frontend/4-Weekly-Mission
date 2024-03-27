@@ -17,12 +17,12 @@
   }
 }
 
-button.selected {
+.folder-button.selected {
   background-color: #6d6afe;
   color: #fff;
   border: 0.1rem solid #6d6afe;
 }
 
-button:not(.selected):hover {
+.folder-button:not(.selected):hover {
   background-color: rgba(109, 106, 254, 0.3);
 }

@@ -1,15 +1,18 @@
 import "./ModalEdit.css";
 import closeBtn from "../../images/close.svg";
+import { modalType } from "../../interfaces/folder.interface";
 
-const ModalEdit = ({ setIsModalOpen, modalTitle, modalButtonName }) => {
-  const handleCloseModal = () => {
-    setIsModalOpen(false);
-  };
+const ModalEdit = ({ closeModal, modalTitle, modalButtonName }: modalType) => {
   return (
     <>
-      <div className="modal-bg"></div>
+      <div className="modal-bg" />
       <div className="modal-box">
-        <button className="modal-close-btn" onClick={handleCloseModal}>
+        <button
+          className="modal-close-btn"
+          onClick={() => {
+            closeModal();
+          }}
+        >
           <img src={closeBtn} alt="" />
         </button>
         <div className="modal-items">

@@ -1,7 +1,7 @@
 export const fetchFolders = async () => {
   try {
     const response = await fetch(
-      "https://bootcamp-api.codeit.kr/api/users/1/folders"
+      "https://bootcamp-api.codeit.kr/api/users/4/folders"
     );
     if (!response.ok) {
       throw new Error("서버에 에러가 있습니다.");
@@ -14,8 +14,8 @@ export const fetchFolders = async () => {
   }
 };
 
-export const fetchLinks = async (folderId) => {
-  const baseUrl = "https://bootcamp-api.codeit.kr/api/users/1/links";
+export const fetchLinks = async (folderId?: string | number) => {
+  const baseUrl = "https://bootcamp-api.codeit.kr/api/users/4/links";
   const url = folderId ? `${baseUrl}?folderId=${folderId}` : baseUrl;
   try {
     const response = await fetch(url);

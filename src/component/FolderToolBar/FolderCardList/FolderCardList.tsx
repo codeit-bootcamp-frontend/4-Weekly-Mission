@@ -1,50 +1,57 @@
 import { useState } from "react";
 import { elapsedTime, formatCreatedAt } from "../../../utils/utils";
+import {
+  folderCardListProps,
+  handleModalType,
+} from "../../../interfaces/folder.interface";
 import ModalDelete from "../../Modal/ModalDelete";
 import ModalAdd from "../../Modal/ModalAdd";
 import kebab from "../../../images/kebab.svg";
 import "./FolderCardList.css";
 
-const FolderCardList = ({ links }) => {
-  const [popoverShows, setPopoverShows] = useState({});
-  const [isModalOpen, setIsModalOpen] = useState(false);
-  const [modalType, setModalType] = useState(null);
-  const [selectedLinkId, setSelectedLinkId] = useState(null);
+const FolderCardList = ({
+  filteredItems,
+  isModalOpen,
+  modalType,
+  openModal,
+  closeModal,
+  changeModalType,
+  modalTitle,
+  modalButtonName,
+  folderData,
+}: folderCardListProps) => {
+  const [popoverShows, setPopoverShows] = useState<{ [key: number]: boolean }>(
+    {}
+  );
+  const [selectedLinkId, setSelectedLinkId] = useState<null | number>(null);
 
-  const togglePopover = (id, e) => {
+  const togglePopover = (id: number, e: React.MouseEvent) => {
     e.preventDefault();
-    e.stopPropagation();
     setPopoverShows((prev) => ({
       ...prev,
       [id]: !prev[id],
     }));
   };
 
-  const handleDeleteClick = (id, e) => {
+  const handlePopoverClick = (
+    e: React.MouseEvent,
+    id: number,
+    { title, buttonName, modalType }: handleModalType
+  ) => {
     e.preventDefault();
-    e.stopPropagation();
     setSelectedLinkId(id);
-    setModalType("delete");
-    setIsModalOpen(true);
-  };
-
-  const handleAddFolderClick = (id, e) => {
-    e.preventDefault();
-    e.stopPropagation();
-    setSelectedLinkId(id);
-    setModalType("add");
-    setIsModalOpen(true);
+    changeModalType(modalType);
+    openModal(true, title, buttonName, modalType);
   };
 
   return (
     <div className="card-list">
-      {links.map((link) => (
+      {filteredItems?.map((link) => (
         <a
           key={link.id}
           href={link.url}
           target="_blank"
           rel="noopener noreferrer"
-          onClick={(e) => e.stopPropagation()}
         >
           <div className="card-container">
             <div
@@ -68,10 +75,26 @@ const FolderCardList = ({ links }) => {
               {popoverShows[link.id] && (
                 <div className="popover">
                   <ul className="popover-list">
-                    <li onClick={(e) => handleDeleteClick(link.id, e)}>
+                    <li
+                      onClick={(e) =>
+                        handlePopoverClick(e, link.id, {
+                          title: "링크 삭제",
+                          buttonName: "삭제하기",
+                          modalType: "delete",
+                        })
+                      }
+                    >
                       삭제하기
                     </li>
-                    <li onClick={(e) => handleAddFolderClick(link.id, e)}>
+                    <li
+                      onClick={(e) =>
+                        handlePopoverClick(e, link.id, {
+                          title: "폴더에 추가",
+                          buttonName: "추가하기",
+                          modalType: "add",
+                        })
+                      }
+                    >
                       폴더에 추가
                     </li>
                   </ul>
@@ -83,10 +106,20 @@ const FolderCardList = ({ links }) => {
       ))}
 
       {isModalOpen && modalType === "delete" && (
-        <ModalDelete setIsModalOpen={setIsModalOpen} linkId={selectedLinkId} />
+        <ModalDelete
+          linkId={selectedLinkId}
+          closeModal={closeModal}
+          modalTitle={modalTitle}
+          modalButtonName={modalButtonName}
+        />
       )}
       {isModalOpen && modalType === "add" && (
-        <ModalAdd setIsModalOpen={setIsModalOpen} linkId={selectedLinkId} />
+        <ModalAdd
+          folderData={folderData}
+          closeModal={closeModal}
+          modalTitle={modalTitle}
+          modalButtonName={modalButtonName}
+        />
       )}
     </div>
   );

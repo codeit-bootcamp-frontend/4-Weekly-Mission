@@ -1,40 +1,47 @@
 import { useState } from "react";
 import "./ModalAdd.css";
 import closeBtn from "../../images/close.svg";
+import { modalType } from "../../interfaces/folder.interface";
 
-const ModalAdd = ({ folderNameData, closeModal }) => {
-  const [isClick, setIsClick] = useState(null);
+const ModalAdd = ({
+  folderData,
+  closeModal,
+  modalTitle,
+  modalButtonName,
+}: modalType) => {
+  const [isButtonClick, setIsButtonClick] = useState<null | number>(null);
 
-  const handleCloseModal = () => {
-    closeModal(false);
-  };
-
-  const handleClick = (id) => {
-    setIsClick(id);
+  const handleClick = (id: null | number) => {
+    setIsButtonClick(id);
   };
 
   return (
     <>
-      <div className="modal-bg"></div>
+      <div className="modal-bg" />
       <div className="modal-box">
-        <button className="modal-close-btn" onClick={handleCloseModal}>
+        <button
+          className="modal-close-btn"
+          onClick={() => {
+            closeModal();
+          }}
+        >
           <img src={closeBtn} alt="" />
         </button>
         <div className="modal-items">
           <div className="modal-title">
-            <h2>폴더에 추가</h2>
+            <h2>{modalTitle}</h2>
             <p>링크 주소</p>
           </div>
           <div className="modal-content">
             <div className="modal-folder-list">
-              {folderNameData.map((data) => (
+              {folderData?.map((data) => (
                 <button
                   key={data.id}
                   onClick={() => {
                     handleClick(data.id);
                   }}
                   className={`folder-list-btn ${
-                    isClick === data.id ? "btn-click" : ""
+                    isButtonClick === data.id ? "btn-click" : ""
                   }`}
                 >
                   <span className="folder-list-name">{data.name}</span>
@@ -44,7 +51,7 @@ const ModalAdd = ({ folderNameData, closeModal }) => {
                 </button>
               ))}
             </div>
-            <button className="modal-add-btn">추가하기</button>
+            <button className="modal-add-btn">{modalButtonName}</button>
           </div>
         </div>
       </div>

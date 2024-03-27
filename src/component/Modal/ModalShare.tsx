@@ -1,21 +1,18 @@
+import { modalType } from "../../interfaces/folder.interface";
 import "./ModalShare.css";
 import closeBtn from "../../images/close.svg";
 import kakaoImg from "../../images/kakao.svg";
 import facebookImg from "../../images/facebook.svg";
 import linkImg from "../../images/link.svg";
 
-const ModalShare = ({ setIsModalOpen }) => {
-  const handleCloseModal = () => {
-    setIsModalOpen(false);
-  };
-
+const ModalShare = ({ closeModal, modalTitle }: modalType) => {
   const hostAddress = "https://yourdomain.com"; // 각자 주소 바꾸기
   const shareUrl = `${hostAddress}/shared/${1}`; // id값도 바꾸기
   const facebookShareUrl = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(
     shareUrl
   )}`;
 
-  const copyToClipboard = (e) => {
+  const copyToClipboard = (e: React.MouseEvent) => {
     e.preventDefault();
     navigator.clipboard.writeText(shareUrl).then(
       () => {
@@ -29,14 +26,19 @@ const ModalShare = ({ setIsModalOpen }) => {
 
   return (
     <>
-      <div className="modal-bg"></div>
+      <div className="modal-bg" />
       <div className="modal-box">
-        <button className="modal-close-btn" onClick={handleCloseModal}>
+        <button
+          className="modal-close-btn"
+          onClick={() => {
+            closeModal();
+          }}
+        >
           <img src={closeBtn} alt="" />
         </button>
         <div className="modal-items">
           <div className="modal-title">
-            <h2>폴더 삭제</h2>
+            <h2>{modalTitle}</h2>
             <p>폴더명</p>
           </div>
           <div className="modal-share-content">

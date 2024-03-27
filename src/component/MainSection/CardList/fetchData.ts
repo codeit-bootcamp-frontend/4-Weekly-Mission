@@ -6,5 +6,6 @@ export const fetchData = () => {
       }
       return response.json();
     })
-    .catch((error) => console.error("Error:", error), []);
+    .then((data) => data.folder.links)
+    .catch((error) => console.error("Error:", error));
 };

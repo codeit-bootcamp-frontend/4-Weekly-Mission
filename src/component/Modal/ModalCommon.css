@@ -3,16 +3,16 @@
   left: 0;
   position: fixed;
   width: 100%;
-  height: 100%;
-  background-color: #000;
+  height: 100vh;
+  background-color: var(--black);
   opacity: 0.4;
   z-index: 10;
 }
 
 .modal-box {
-  background-color: #fff;
+  background-color: var(--white);
   border-radius: 1.5rem;
-  position: absolute;
+  position: fixed;
   width: 36rem;
   height: fit-content;
   display: flex;
@@ -33,7 +33,7 @@
 }
 
 .modal-items h2 {
-  color: #373740;
+  color: var(--gray100);
   font-size: 2rem;
   font-style: normal;
   font-weight: 700;

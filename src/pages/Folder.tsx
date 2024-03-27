@@ -1,6 +1,8 @@
 import { useState, useEffect } from "react";
+import useSearch from "../hooks/useSearch";
 import { fetchFolders, fetchLinks } from "../component/FolderToolBar/fetchData";
 import { ALL } from "../utils/utils";
+import { folderDataType, linksType } from "../interfaces/folder.interface";
 import Footer from "../component/Footer/Footer";
 import Navigation from "../component/Navigation/Navigation";
 import InputSection from "../component/InputSection/InputSection";
@@ -9,39 +11,30 @@ import FolderToolBar from "../component/FolderToolBar/FolderToolBar";
 import "./page.css";
 
 const Folder = () => {
-  const [folderNameData, setFolderNameData] = useState([]);
-  const [links, setLinks] = useState([]);
+  const [folderData, setFolderData] = useState<folderDataType[]>([]);
+  const [links, setLinks] = useState<linksType[]>([]);
   const [selectedButtonName, setSelectedButtonName] = useState(ALL);
 
+  const { setSearchKeyword, filteredItems } = useSearch(links, [
+    "url",
+    "title",
+    "description",
+  ]);
+
   useEffect(() => {
-    fetchFolders()
-      .then((data) => {
-        setFolderNameData(data);
-        return fetchLinks();
-      })
-      .then((data) => {
-        setLinks(data);
-      })
-      .catch((error) => console.error("Error:", error));
+    fetchFolders().then(setFolderData).catch(console.error);
+    fetchLinks().then(setLinks).catch(console.error);
   }, []);
 
-  const onFolderSelect = (folderId) => {
+  const onFolderSelect = (folderId: string | number) => {
     if (folderId === ALL) {
       setSelectedButtonName(ALL);
-      fetchLinks()
-        .then((data) => {
-          setLinks(data);
-        })
-        .catch((error) => console.error("Error:", error));
+      fetchLinks().then(setLinks).catch(console.error);
     } else {
-      const folderName =
-        folderNameData.find((button) => button.id === folderId)?.name || ALL;
+      const result = folderData.find((folder) => folder.id === folderId);
+      const folderName = result ? result.name : ALL;
       setSelectedButtonName(folderName);
-      fetchLinks(folderId)
-        .then((data) => {
-          setLinks(data);
-        })
-        .catch((error) => console.error("Error:", error));
+      fetchLinks(folderId).then(setLinks).catch(console.error);
     }
   };
 
@@ -49,18 +42,18 @@ const Folder = () => {
     <>
       <Navigation position="static" />
       <section className="main-section">
-        <InputSection folderNameData={folderNameData} />
+        <InputSection folderData={folderData} />
         <div className="wrap">
-          <SearchBar />
+          <SearchBar onSearch={setSearchKeyword} />
           <FolderToolBar
-            folderNameData={folderNameData}
-            links={links}
+            folderData={folderData}
+            filteredItems={filteredItems}
             selectedButtonName={selectedButtonName}
             onFolderSelect={onFolderSelect}
           />
         </div>
+        <Footer />
       </section>
-      <Footer />
     </>
   );
 };
