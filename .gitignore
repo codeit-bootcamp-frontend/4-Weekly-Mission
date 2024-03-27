@@ -33,3 +33,22 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+### react ###
+.DS_*
+*.log
+logs
+**/*.backup.*
+**/*.back.*
+
+node_modules
+bower_components
+
+*.sublime*
+
+psd
+thumb
+sketch
+
+## part2팀 팀원 코드들 예시
+src/components/sample/
+public/note/
