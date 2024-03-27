@@ -1,4 +1,5 @@
 @import '../../styles/_index.scss';
+@import '../../styles/media';
 
 .layout {
   display: flex;
@@ -21,6 +22,7 @@
 
 .addButton {
   width: 24rem;
+  @include gradient-button;
 }
 
 .homeImage {
@@ -67,6 +69,26 @@
   color: #000;
 }
 
+.gradientPrimary {
+  @include gradient-text($start-color: $color-primary, $end-color: #ff9f9f);
+}
+
+.gradientSecondary {
+  @include gradient-text($start-color: #fe8a8a, $end-color: #a4ceff);
+}
+
+.gradientTertiary {
+  @include gradient-text($start-color: #6fbaff, $end-color: #ffd88b);
+}
+
+.gradientQuaternary {
+  @include gradient-text($start-color: #6d7ccd, $end-color: #52886b);
+}
+
+.gradientQuinary {
+  @include gradient-text($start-color: #fe578f, $end-color: #68e8f9);
+}
+
 .description {
   grid-area: description;
   font-size: 1.25rem;
@@ -79,34 +101,34 @@
   width: 35rem;
 }
 
-@media screen and (width <1200px) {
+@include media(large) {
   .mainImage {
     width: 26rem;
   }
+
   .homeImage {
     width: 50rem;
   }
 }
 
-@media screen and (width < 768px) {
+@include media(mobile) {
+
   .mainImage,
   .homeImage {
     width: 100vw;
     padding: 0 2rem;
   }
 
-  .home-sction {
-    padding: 6rem 2rem 0;
-  }
-
   .mainBox {
     gap: 1.4rem;
+
     &:nth-child(odd) {
       grid-template:
         'title'
         'img'
         'description';
     }
+
     &:nth-child(even) {
       grid-template:
         'title'

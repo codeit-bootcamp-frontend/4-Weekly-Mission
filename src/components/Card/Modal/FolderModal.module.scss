@@ -1,0 +1,35 @@
+@import '../../../styles/index';
+
+.description {
+  color: $color-gray-400;
+}
+
+.folderModalBox {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.folderModalItem {
+  padding: 0.8rem;
+  cursor: pointer;
+
+  &:hover {
+    background: $color-gray-100;
+    border-radius: 10px;
+  }
+}
+
+.folderModalCount {
+  color: $color-gray-400;
+}
+
+.addButton {
+  width: 100%;
+  @include gradient-button;
+}
+
+.select {
+  background: $color-gray-200;
+  border-radius: 10px;
+}

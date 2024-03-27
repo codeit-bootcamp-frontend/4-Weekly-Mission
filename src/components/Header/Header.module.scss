@@ -7,7 +7,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  width: 100vw;
+  width: 100%;
   height: 6rem;
   padding: 1.25rem;
   background: $color-gray-100;
@@ -28,6 +28,7 @@
 
 .loginButton {
   width: 8rem;
+  @include gradient-button;
 }
 
 .fixed {

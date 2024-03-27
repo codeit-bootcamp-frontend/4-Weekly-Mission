@@ -20,9 +20,10 @@
   width: 100%;
   height: 12rem;
   object-fit: cover;
+  transition: transform 0.3s ease;
 
   &:hover {
-    scale: 1.3;
+    transform: scale(1.3);
   }
 }
 
@@ -56,7 +57,7 @@
   color: $color-gray-400;
 }
 
-.toggleButton {
+.popOverButton {
   position: absolute;
   top: 1.2rem;
   right: 1.2rem;
@@ -67,8 +68,8 @@
 }
 
 .title {
-  font-size: 1.2rem;
   margin: 0.6rem 0;
+  font-size: 1.2rem;
 }
 
 .date {

@@ -26,3 +26,29 @@
 .modalSubTitle {
   color: $color-gray-400;
 }
+
+.changeButton {
+  width: 100%;
+  @include gradient-button;
+}
+
+.removeButton {
+  width: 100%;
+  @include gradient-button($start-color: #ff5b56, $end-color: #ff5b56);
+}
+
+.shareModalIconLayout {
+  @include flex-center;
+  gap: 4rem;
+  font-size: 2rem;
+}
+
+.shareModalIconBox {
+  gap: 1rem;
+  margin-top: 1rem;
+  @include flex-center(column);
+
+  p {
+    font-size: 1rem;
+  }
+}

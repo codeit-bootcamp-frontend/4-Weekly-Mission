@@ -1,15 +1,22 @@
 @import '../../styles/_index.scss';
 
-.rowSection {
-  @include flex-center(row);
-  gap: 0.4rem;
+.layout {
+  @include flex-center;
 }
 
-.columnSection {
-  @include flex-center(column);
-  gap: 0.4rem;
+.column {
+  flex-direction: column;
 }
 
 .userImage {
+  width: 5rem;
   border-radius: 50%;
+}
+
+.sm {
+  width: 2rem;
+}
+
+.lg {
+  width: 9rem;
 }

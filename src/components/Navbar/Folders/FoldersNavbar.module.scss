@@ -15,9 +15,11 @@
   @include color-box($color-primary);
   white-space: nowrap;
   cursor: pointer;
+  transition: transform 0.2s ease;
 
   &:hover {
-    opacity: 0.6;
+    background: $color-gray-400;
+    transform: scale(0.95);
   }
 }
 
@@ -30,9 +32,9 @@
   background: none;
 }
 
-.fillBackground {
+.fill {
+  color: $color-white;
   background: $color-primary;
-  opacity: 0.8;
 }
 
 @media screen and (width <768px) {

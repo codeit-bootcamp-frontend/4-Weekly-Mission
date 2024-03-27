@@ -1,8 +1,10 @@
+@import './variables';
+
 @mixin color-box($borderColor: $color-primary) {
-  width: 100%;
   display: flex;
   gap: 0.8rem;
   align-items: center;
+  width: 100%;
   padding: 1rem;
   margin: 0.6rem 0;
   background: #f5f5f5;
@@ -14,7 +16,26 @@
 @mixin flex-center($direction: row) {
   display: flex;
   flex-direction: $direction;
+  gap: 0.4rem;
   align-items: center;
   justify-content: center;
-  gap: 0.4rem;
+}
+
+@mixin gradient-button($start-color: $color-primary, $end-color: #6ae3fe) {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  font-size: 1rem;
+  color: $color-white;
+  text-decoration: none;
+  white-space: nowrap;
+  background: linear-gradient(to right, $start-color, $end-color);
+  border-radius: 8px;
+}
+
+@mixin gradient-text($start-color: $color-primary, $end-color: $color-red) {
+  color: transparent;
+  background: linear-gradient(to right, $start-color, $end-color);
+  background-clip: text;
 }

@@ -11,7 +11,7 @@
 
 .linkLogo {
   font-size: 1.4rem;
-  color: $color-primary; //todo;
+  color: $color-primary;
 }
 
 .input {
@@ -30,6 +30,8 @@
   }
 }
 
-.gradientButton {
+.addButton,
+.modalButton {
   width: 8rem;
+  @include gradient-button;
 }

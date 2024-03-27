@@ -1,0 +1,10 @@
+@import '../../../styles/index';
+
+.description {
+  color: $color-gray-400;
+}
+
+.removeButton {
+  width: 100%;
+  @include gradient-button($start-color: #ff5b56, $end-color: #ff5b56);
+}
