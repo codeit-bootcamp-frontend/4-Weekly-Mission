@@ -9,14 +9,34 @@ import remove from "../images/remove.svg";
 import useFetchData from "../hooks/useFetchData";
 import CardList from "./CardList";
 import NoLink from "./NoLink";
-export const UserContext = React.createContext();
 
-function FolderDetail({ folderListData, toggleModal, handleFolderName }) {
-  const [selectedFolder, setSelectedFolder] = useState({});
+type Context = (id: number) => void;
+
+interface Folder {
+  id: number;
+  created_at: string;
+  name: string;
+  user_id: number;
+  favorite: boolean;
+  link: {
+    count: number;
+  };
+}
+
+interface Prop {
+  toggleModal: (id: number) => void;
+  folderListData: Folder[];
+  handleFolderName: (id: string) => void;
+}
+
+export const UserContext = React.createContext<Context | null>(null);
+
+function FolderDetail({ folderListData, toggleModal, handleFolderName }: Prop) {
+  const [selectedFolder, setSelectedFolder] = useState<Folder>({} as Folder);
   const selectedFolderData =
     useFetchData("selectedFolderDataFetch", 4, selectedFolder) || [];
 
-  const handleFolderListClick = (data) => {
+  const handleFolderListClick = (data: Folder) => {
     setSelectedFolder(data);
   };
 
@@ -27,7 +47,7 @@ function FolderDetail({ folderListData, toggleModal, handleFolderName }) {
       <div className="Folder-List-Container">
         <div className="Folder-List">
           <div
-            onClick={() => handleFolderListClick({})}
+            onClick={() => handleFolderListClick({} as Folder)}
             className={`folderName ${
               String(selectedFolder.id) === "undefined" ? "selected" : ""
             }`}
