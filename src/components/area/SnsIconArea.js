@@ -1,4 +1,4 @@
-import ICON_PATH from '../../constants/ICON_PATH';
+import ICON_PATH from '../../constants/iconPath';
 import './SnsIconArea.css';
 
 const SnsIconArea = () => {

@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import ModalPortal from '../modal/ModalPortal';
 import checkIcon from '../../assets/icon-check.svg';
 
@@ -17,6 +17,10 @@ const PopOverButton = ({ link }) => {
   const addToFolderModal = () => {
     setIsAddToFolder(!isAddToFolder);
   };
+
+  useEffect(() => {
+    addToFolderModal();
+  }, []);
 
   // TODO: 추후 데이터 연동 작업 예정
   const deleteFolder = () => {};

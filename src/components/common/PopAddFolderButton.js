@@ -6,7 +6,7 @@ const PopAddFolderButton = () => {
     <div className="pop_button_area">
       <div className="add_folder_button_area">
         <p className="add_folder_button">폴더 추가</p>
-        <img src={addButtonIcon} />
+        <img src={addButtonIcon} alt="add" />
       </div>
     </div>
   );

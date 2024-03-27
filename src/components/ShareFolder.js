@@ -1,26 +1,23 @@
 import './ShareFolder.css';
+import shareSnsList from '../constants/shareSnsList';
 
 const ShareFolder = () => {
+  const hadleClick = (e) => {
+    console.log('::key::', e);
+  };
+
   return (
     <div className="sns_area">
-      <div>
-        <div className="icon_area kakao_back">
-          <div className="icon kakao_back_img"></div>
-        </div>
-        <div className="sns_title">카카오톡</div>
-      </div>
-      <div>
-        <div className="icon_area facebook_back">
-          <div className="icon facebook_back_img"></div>
-        </div>
-        <div className="sns_title">페이스북</div>
-      </div>
-      <div>
-        <div className="icon_area share_back">
-          <div className="icon share_back_img"></div>
-        </div>
-        <div className="sns_title">링크복사</div>
-      </div>
+      {shareSnsList.map((item) => {
+        return (
+          <div key={item.title} onClick={hadleClick}>
+            <div className={'icon_area ' + item.title_en + '_back'}>
+              <div className={'icon ' + item.title_en + '_back_img'} />
+            </div>
+            <div className="sns_title">{item.title}</div>
+          </div>
+        );
+      })}
     </div>
   );
 };

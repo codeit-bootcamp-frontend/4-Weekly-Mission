@@ -19,10 +19,6 @@ const AddSearchLink = () => {
     }
   };
 
-  const handleInputLink = (e) => {
-    setInputSearchText(e.target.value);
-  };
-
   return (
     <div className="add_search_link_area">
       <img className="link_icon" src={purpleLinkIcon} />
@@ -30,7 +26,7 @@ const AddSearchLink = () => {
         className="add_link_input"
         type="text"
         placeholder="링크를 검색해 보세요."
-        onChange={handleInputLink}
+        onChange={(e) => setInputSearchText(e.target.value)}
       />
       <Button
         text="추가하기"
