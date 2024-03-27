@@ -1,0 +1,61 @@
+header {
+  z-index: 1;
+  top: 0;
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  background: var(--gray-05);
+}
+
+.sticky {
+  position: sticky;
+}
+
+nav {
+  display: flex;
+  width: 100%;
+  height: 6rem;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 12.5rem;
+}
+
+.main-logo {
+  display: flex;
+  width: 8.5rem;
+}
+
+.button-login {
+  width: 8rem;
+  padding: 1rem;
+}
+
+.profile {
+  display: flex;
+  align-items: center;
+  font-size: 1rem;
+  gap: 0.4rem;
+}
+
+.profile-image {
+  width: 2rem;
+  height: 2rem;
+  border-radius: 50%;
+}
+
+@media (width >= 768px) and (width <= 1124px) {
+  nav {
+    max-width: 56rem;
+    padding: 0 2rem;
+  }
+}
+
+@media (width <= 767px) {
+  nav {
+    padding: 0 2rem;
+  }
+
+  .profile-email {
+    display: none;
+  }
+}

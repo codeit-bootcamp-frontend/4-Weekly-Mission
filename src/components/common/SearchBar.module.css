@@ -1,0 +1,28 @@
+.searchbar {
+  display: flex;
+  width: 100%;
+  max-width: 70rem;
+  align-items: flex-start;
+  justify-content: space-between;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  background: var(--background-gray);
+  gap: 0.5rem;
+}
+
+.searchbar-input {
+  width: 100%;
+  border: none;
+  background-color: transparent;
+  font-size: 1rem;
+  outline: none;
+}
+
+input::placeholder {
+  color: var(--text-gray);
+}
+
+.searchbar-icon {
+  width: 1rem;
+  height: 1rem;
+}
