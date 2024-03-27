@@ -16,7 +16,7 @@ const useFetchData = (
   userId = 0,
   folderData?: { id: number }
 ) => {
-  const [data, setData] = useState(null);
+  const [data, setData] = useState<any>(null);
 
   useEffect(() => {
     const fetchData = async () => {

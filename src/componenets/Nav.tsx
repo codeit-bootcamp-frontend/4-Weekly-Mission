@@ -2,7 +2,18 @@ import logo from "../images/logo.svg";
 import "./Nav.css";
 import { useNavigate } from "react-router-dom";
 
-function Nav({ profileData }) {
+interface ProfileData {
+  profileData: {
+    id: number;
+    created_at: string;
+    name: string;
+    image_source: string;
+    email: string;
+    auth_id: string;
+  };
+}
+
+function Nav({ profileData }: ProfileData) {
   const navigate = useNavigate();
   return (
     <nav>

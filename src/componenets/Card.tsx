@@ -1,12 +1,12 @@
-import { getFormattedDate, getTimeAgo } from "../util/date.js";
+import { getFormattedDate, getTimeAgo } from "../util/date";
 import noImage from "../images/noImage.svg";
 import kebab from "../images/kebab.svg";
 import emptyStar from "../images/emptyStar.svg";
 import "./Card.css";
 import { Link } from "react-router-dom";
-import React, { useState } from "react";
-import { UserContext } from "./FolderDetail.jsx";
-import { UserData } from "../pages/Folder.js";
+import React, { SyntheticEvent, useState } from "react";
+import { UserContext } from "./FolderDetail";
+import { UserData } from "../pages/Folder";
 
 export default function Card({ data }) {
   const [showPopover, setShowPopover] = useState(false);
@@ -15,8 +15,8 @@ export default function Card({ data }) {
     setShowPopover(!showPopover);
   };
 
-  function handleImgError(e) {
-    e.target.src = noImage;
+  function handleImgError(e: SyntheticEvent<HTMLImageElement>) {
+    e.currentTarget.src = noImage;
   }
 
   const value = React.useContext(UserContext);
