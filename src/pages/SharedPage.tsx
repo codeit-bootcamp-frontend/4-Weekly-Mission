@@ -2,8 +2,9 @@ import styles from './SharedPage.module.css';
 import classNames from 'classnames/bind';
 const cn = classNames.bind(styles);
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, SetStateAction } from 'react';
 import { getSharedFolder, getSharedUser } from '../apis/api';
+import { SharedFolder, SharedUser } from '../types/type';
 
 import Header from '../components/common/Header';
 import FolderInfo from '../components/SharedPage/FolderInfo';
@@ -13,18 +14,18 @@ import CardList from '../components/common/CardList';
 import Footer from '../components/common/Footer';
 
 const SharedPage = () => {
-  const [user, setUser] = useState(null);
-  const [folder, setFolder] = useState(null);
-  const folderInfo = folder?.folder.links;
+  const [user, setUser] = useState<SharedUser>();
+  const [folder, setFolder] = useState<SharedFolder | undefined>(undefined);
+  const folderInfo = folder?.folder?.links;
 
-  const handleLoad = async (getState, setState) => {
+  async function handleLoad<T>(getState: () => Promise<T>, setState: React.Dispatch<SetStateAction<T>>) {
     try {
       const state = await getState();
       setState(state);
     } catch (error) {
       console.error(error);
     }
-  };
+  }
 
   useEffect(() => {
     handleLoad(getSharedUser, setUser);

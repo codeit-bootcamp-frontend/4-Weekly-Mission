@@ -2,12 +2,12 @@ import styles from './CardList.module.css';
 import classNames from 'classnames/bind';
 const cn = classNames.bind(styles);
 
-import { FolderLink } from '../../types/type';
+import { FolderLink, Link } from '../../types/type';
 
 import Card from './Card';
 
 interface Props {
-  folderInfo: FolderLink[];
+  folderInfo: FolderLink[] | Link[] | undefined;
   isIconVisible?: boolean;
 }
 

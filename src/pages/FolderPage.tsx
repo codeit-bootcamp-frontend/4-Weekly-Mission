@@ -2,8 +2,9 @@ import styles from './FolderPage.module.css';
 import classNames from 'classnames/bind';
 const cn = classNames.bind(styles);
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, SetStateAction } from 'react';
 import { getFolderUser, getFolderList } from '../apis/api';
+import { FolderList, FolderUser } from '../types/type';
 
 import Header from '../components/common/Header';
 import AddLink from '../components/FolderPage/AddLink';
@@ -13,17 +14,17 @@ import FolderNav from '../components/FolderPage/FolderNav';
 import Footer from '../components/common/Footer';
 
 const FolderPage = () => {
-  const [user, setUser] = useState(null);
-  const [folderList, setFolderList] = useState(null);
+  const [user, setUser] = useState<FolderUser[]>([]);
+  const [folderList, setFolderList] = useState<FolderList[]>([]);
 
-  const handleLoad = async (getState, setState) => {
+  async function handleLoad<T>(getState: () => Promise<T>, setState: React.Dispatch<SetStateAction<T>>) {
     try {
       const state = await getState();
       setState(state);
     } catch (error) {
       console.error(error);
     }
-  };
+  }
 
   useEffect(() => {
     handleLoad(getFolderUser, setUser);

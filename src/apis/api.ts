@@ -20,11 +20,13 @@ export const getSharedUser = async () => {
 };
 
 export const getSharedFolder = async () => {
-  return getRequest('/sample/folder');
+  // return getRequest('/sample/folder');
+  const response = await getRequest('/sample/folder');
+  return response;
 };
 
 export const getFolderUser = async () => {
-  const response = await getRequest('/users/1');
+  const response = await getRequest('/users/4');
   const folderData = response.data.map((item: FolderUser) => ({
     ...item,
     profileImageSource: item?.profileImageSource ? item?.profileImageSource : item?.image_source,
@@ -34,13 +36,13 @@ export const getFolderUser = async () => {
 };
 
 export const getFolderList = async () => {
-  const response = await getRequest('/users/1/folders');
+  const response = await getRequest('/users/4/folders');
   return response.data;
 };
 
 export const getFolderLink = async (folderId: string) => {
   const folderUrl = folderId && '?folderId=' + folderId;
-  const response = await getRequest(`/users/1/links${folderUrl}`);
+  const response = await getRequest(`/users/4/links${folderUrl}`);
   const folderData = response.data.map((item: FolderLink) => ({
     ...item,
     createdAt: item?.created_at ? item?.created_at : item?.createdAt,

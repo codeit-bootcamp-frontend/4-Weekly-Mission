@@ -2,12 +2,12 @@ import styles from './Header.module.css';
 import classNames from 'classnames/bind';
 const cn = classNames.bind(styles);
 
-import { SharedUser } from '../../types/type';
+import { FolderUser, SharedUser } from '../../types/type';
 
 import logo from '../../assets/images/logo.svg';
 
 interface Props {
-  userInfo: SharedUser;
+  userInfo: FolderUser | SharedUser | undefined;
   isSticky?: boolean;
 }
 

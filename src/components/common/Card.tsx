@@ -3,7 +3,7 @@ import classNames from 'classnames/bind';
 const cn = classNames.bind(styles);
 
 import { createDate, intervalDate } from '../../utils/Date';
-import { FolderLink } from '../../types/type';
+import { FolderLink, Link } from '../../types/type';
 
 import noneData from '../../assets/images/none-data.png';
 import iconStar from '../../assets/icons/star-off.svg';
@@ -12,7 +12,7 @@ import iconKebab from '../../assets/icons/kebab.svg';
 import CardPopover from '../FolderPage/CardPopover';
 
 interface Props {
-  card: FolderLink;
+  card: FolderLink | Link;
   isIconVisible: boolean;
 }
 

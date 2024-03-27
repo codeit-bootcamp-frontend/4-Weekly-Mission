@@ -36,7 +36,7 @@ export interface SharedUser extends Folder {
 }
 
 export interface SharedFolder extends Folder {
-  folder: {
+  folder?: {
     id: number;
     name: string;
     owner: {
@@ -44,7 +44,7 @@ export interface SharedFolder extends Folder {
       name: string;
       profileImageSource: string;
     };
-    links: Link[];
+    links?: Link[];
     count: number;
   };
 }

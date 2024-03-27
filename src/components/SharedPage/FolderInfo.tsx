@@ -9,9 +9,9 @@ interface Props {
 }
 
 const FolderInfo = ({ folderInfo }: Props) => {
-  const folderImage = folderInfo?.folder.owner.profileImageSource;
-  const folderUsername = folderInfo?.folder.owner.name;
-  const folderName = folderInfo?.folder.name;
+  const folderImage = folderInfo?.folder?.owner.profileImageSource;
+  const folderUsername = folderInfo?.folder?.owner.name;
+  const folderName = folderInfo?.folder?.name;
 
   return (
     <div className={cn('folder-info')}>
