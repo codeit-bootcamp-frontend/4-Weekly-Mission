@@ -6,10 +6,13 @@
     "@testing-library/jest-dom": "^5.17.0",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
+<<<<<<< HEAD
     "@types/jest": "^29.5.12",
     "@types/node": "^20.11.30",
     "@types/react": "^18.2.69",
     "@types/react-dom": "^18.2.22",
+=======
+>>>>>>> part2-백승아-week9
     "axios": "^1.5.1",
     "classnames": "^2.3.2",
     "date-fns": "^2.30.0",
@@ -18,7 +21,10 @@
     "react-router-dom": "^6.17.0",
     "react-scripts": "5.0.1",
     "sass": "^1.69.4",
+<<<<<<< HEAD
     "typescript": "^5.4.3",
+=======
+>>>>>>> part2-백승아-week9
     "web-vitals": "^2.1.4"
   },
   "scripts": {
