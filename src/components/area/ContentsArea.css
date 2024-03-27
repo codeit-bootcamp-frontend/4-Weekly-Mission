@@ -18,21 +18,6 @@
   font-size: 14px;
 }
 
-.input_box {
-  border: 0;
-  width: 100%;
-  background: var(--gray02);
-
-  color: var(--Tgray03);
-  text-align: left;
-
-  font-family: Pretendard;
-  font-size: 14px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: normal;
-}
-
 /* 768px부터 적용될 스타일 */
 @media (min-width: 768px) {
   .contents_area {
