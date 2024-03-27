@@ -1,15 +1,51 @@
+input::-ms-clear,
+input::-ms-reveal {
+  display: none;
+  width: 0;
+  height: 0;
+}
+input::-webkit-search-decoration,
+input::-webkit-search-cancel-button,
+input::-webkit-search-results-button,
+input::-webkit-search-results-decoration {
+  display: none;
+}
 .searchForm {
-    position: relative;
-    margin-bottom: 40px;
+  position: relative;
+  margin-bottom: 40px;
 }
 .searchForm label {
-    cursor: pointer;
-    position: absolute;
-    top: 50%; transform: translateY(-50%);
-    left: 16px;
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  left: 16px;
+}
+.searchTextBox {
+  margin-bottom: 40px;
+}
+.searchTextBox p {
+  font-size: 32px;
+  font-weight: 600;
+  color: #9fa6b2;
+}
+.searchTextBox p strong {
+  color: rgba(55, 55, 64, 1);
+}
+.searchForm .searchDeleteBtn {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  right: 16px;
+  width: 24px;
+  height: 24px;
+  font-size: 0;
+  background-color: transparent;
+  border: none;
 }
 @media screen and (max-width: 768px) {
-    .searchForm {
-        margin-bottom: 32px;
-    }
+  .searchForm {
+    margin-bottom: 32px;
+  }
 }
