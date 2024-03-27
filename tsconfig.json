@@ -1,0 +1,13 @@
+{
+  "compilerOptions": {
+    "target": "ES5",
+    "module": "commonjs",
+    "strict": true,
+    "esModuleInterop": true, //default로 내보내는 값이없을때 오류생기지않게하는것(외부라이브러리 설치시 유용)
+    "allowJs": true,
+    "jsx": "react-jsx",
+    "outDir": "dist"
+  },
+  "include": ["src/**/*", "src/types"],
+  "exclude": ["node_modules"]
+}

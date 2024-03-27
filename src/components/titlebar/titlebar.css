@@ -1,27 +1,35 @@
-.titlebar-container{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 100%;
+.titlebar-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  margin-bottom: 24px;
+
+  @media (769px < width < 1124px) {
+    margin-bottom: 0;
+  }
+  h2 {
+    font-size: 2.4rem;
+  }
 }
 
-.titlebar-menu{
+.titlebar-menu {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: normal;
+
+  div {
     display: flex;
     align-items: center;
-    gap:12px;
-    font-size: 14px;
-    font-weight: 600;
-    line-height:normal;
+    cursor: pointer;
+  }
 
-    div{
-        display: flex;
-        align-items: center;
-        cursor: pointer;
-    }
-
-    img{
-        width: 18px;
-        height: 18px;
-        margin-right: 2px;
-    }
+  img {
+    width: 18px;
+    height: 18px;
+    margin-right: 2px;
+  }
 }
