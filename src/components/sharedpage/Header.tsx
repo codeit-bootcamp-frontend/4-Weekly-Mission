@@ -1,9 +1,15 @@
 import React, { useState, useEffect } from 'react';
-import '../css/Header.css';
-import logo from '../image/logo.svg';
-import { getUser, getFolder } from '../api';
+import '../../css/Header.css';
+import logo from '../../image/logo.svg';
+import { getUser, getFolder } from '../../api';
+import { HeaderItem } from '../../consts/type';
+
 function Header() {
-  const [userInfo, setInfo] = useState({ name: '', email: '', profileImageSource: '' });
+  const [userInfo, setInfo] = useState<HeaderItem>({
+    name: '',
+    email: '',
+    profileImageSource: '',
+  });
   const [folderInfo, setFolder] = useState({ name: '', profile: '' });
   const [isUserInfo, setIsUserInfo] = useState(true);
 

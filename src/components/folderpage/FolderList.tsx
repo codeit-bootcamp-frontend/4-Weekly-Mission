@@ -1,14 +1,24 @@
-import { useState, useEffect } from 'react';
-import ReactDOM from 'react-dom';
-import shareIcon from '../image/share.svg';
-import penIcon from '../image/pen.svg';
-import deleteIcon from '../image/delete.svg';
-import addIcon from '../image/add.svg';
-import whiteAddIcon from '../image/addwhite.svg';
-import styled from 'styled-components';
-import Edit from '../modals/Edit';
-import Share from '../modals/Share';
-import Delete from '../modals/Delete';
+import { useState, useEffect } from "react";
+import ReactDOM from "react-dom";
+import styled from "styled-components";
+import shareIcon from "../../image/share.svg";
+import penIcon from "../../image/pen.svg";
+import deleteIcon from "../../image/delete.svg";
+import addIcon from "../../image/add.svg";
+import whiteAddIcon from "../../image/addwhite.svg";
+
+import Edit from "../../modals/Edit";
+import Share from "../../modals/Share";
+import Delete from "../../modals/Delete";
+import { modalRoot } from "../../consts/const";
+import { FolderItem, Folder } from "../../consts/type";
+
+interface ButtonProps {
+  $isSelected: boolean;
+}
+interface OptionContainerProps {
+  $isHidden: boolean;
+}
 
 const Wrapper = styled.div`
   display: flex;
@@ -32,7 +42,8 @@ const ButtonContianer = styled.div`
     max-width: 100%;
   }
 `;
-const Button = styled.button`
+
+const Button = styled.button<ButtonProps>`
   display: flex;
   padding: 8px 12px;
   flex-direction: column;
@@ -40,8 +51,9 @@ const Button = styled.button`
   white-space: nowrap;
   border-radius: 5px;
   border: 1px solid var(--Linkbrary-primary-color, #6d6afe);
-  background: ${(props) => (props.isSelected ? 'var(--Linkbrary-primary-color, #6d6afe)' : '#fff')};
-  color: ${(props) => (props.isSelected ? '#fff' : '#000')};
+  background: ${({ $isSelected }) =>
+    $isSelected ? "var(--Linkbrary-primary-color, #6d6afe)" : "#fff"};
+  color: ${({ $isSelected }) => ($isSelected ? "#fff" : "#000")};
   font-family: Pretendard;
   font-size: 13px;
   font-style: normal;
@@ -109,8 +121,9 @@ const FolderTypeText = styled.span`
   line-height: normal;
   letter-spacing: -0.2px;
 `;
-const OptionContainer = styled.div`
-  display: ${(props) => (props.isHidden ? 'none' : 'flex')};
+
+const OptionContainer = styled.div<OptionContainerProps>`
+  display: ${({ $isHidden }) => ($isHidden ? "none" : "flex")};
   align-items: flex-start;
   gap: 6px;
 `;
@@ -129,12 +142,20 @@ const OptionText = styled.p`
   margin: 0;
   cursor: pointer;
 `;
-function FolderList({ folderListData, onFolderSelect, selectedFolder }) {
+
+interface Props {
+  folderListData: FolderItem[];
+  onFolderSelect: (id: number | null) => void;
+  selectedFolder: Folder;
+}
+
+function FolderList({ folderListData, onFolderSelect, selectedFolder }: Props) {
   const [currentIcon, setCurrentIcon] = useState(addIcon);
-  const [selectedId, setSelectedId] = useState(null);
+  const [selectedId, setSelectedId] = useState<number | null>(null);
   const [isEditModalSelected, setEditModalSelected] = useState(false);
   const [isShareModalSelected, setShareModalSelected] = useState(false);
-  const [isChangeFolderNameModalSelected, setChangeFolderNameModalSelected] = useState(false);
+  const [isChangeFolderNameModalSelected, setChangeFolderNameModalSelected] =
+    useState(false);
   const [isDeleteModalSelected, setDeleteModalSelected] = useState(false);
   useEffect(() => {
     function handleResize() {
@@ -147,10 +168,10 @@ function FolderList({ folderListData, onFolderSelect, selectedFolder }) {
     }
 
     handleResize();
-    window.addEventListener('resize', handleResize);
-    return () => window.removeEventListener('resize', handleResize);
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
   }, []);
-  const handleButtonClick = (id) => {
+  const handleButtonClick = (id: number | null) => {
     onFolderSelect(id);
     setSelectedId(id);
   };
@@ -176,7 +197,7 @@ function FolderList({ folderListData, onFolderSelect, selectedFolder }) {
     setChangeFolderNameModalSelected(false);
   };
 
-  const handleOpenDelete = (id) => {
+  const handleOpenDelete = (id: number | null) => {
     setDeleteModalSelected(true);
     setSelectedId(id);
   };
@@ -188,7 +209,11 @@ function FolderList({ folderListData, onFolderSelect, selectedFolder }) {
       <Container>
         <ButtonContianer>
           {folderListData.map((folder) => (
-            <Button key={folder.id} onClick={() => handleButtonClick(folder.id)} isSelected={selectedId === folder.id}>
+            <Button
+              key={folder.id}
+              onClick={() => handleButtonClick(folder.id)}
+              $isSelected={selectedId === folder.id}
+            >
               {folder.name}
             </Button>
           ))}
@@ -199,19 +224,40 @@ function FolderList({ folderListData, onFolderSelect, selectedFolder }) {
         </AddContainer>
         {isEditModalSelected &&
           ReactDOM.createPortal(
-            <Edit title="폴더 추가" input="내용 입력" buttonText="추가하기" onClose={handleCloseEdit} />,
-            document.getElementById('modal-root')
+            <Edit
+              title="폴더 추가"
+              input="내용 입력"
+              buttonText="추가하기"
+              onClose={handleCloseEdit}
+            />,
+            modalRoot
           )}
       </Container>
       <Container>
         <FolderTypeText>{selectedFolder.name}</FolderTypeText>
-        <OptionContainer isHidden={selectedFolder.id === null}>
-          <OptionImg src={shareIcon} alt="sharedIcon" onClick={handleOpenShare} />
+        <OptionContainer $isHidden={selectedFolder.id === null}>
+          <OptionImg
+            src={shareIcon}
+            alt="sharedIcon"
+            onClick={handleOpenShare}
+          />
           <OptionText onClick={handleOpenShare}>공유</OptionText>
-          <OptionImg src={penIcon} alt="penIcon" onClick={handleOpenFolderNameChange} />
-          <OptionText onClick={handleOpenFolderNameChange}>이름 변경</OptionText>
-          <OptionImg src={deleteIcon} alt="deleteIcon" onClick={() => handleOpenDelete(selectedFolder.id)} />
-          <OptionText onClick={() => handleOpenDelete(selectedFolder.id)}>삭제</OptionText>
+          <OptionImg
+            src={penIcon}
+            alt="penIcon"
+            onClick={handleOpenFolderNameChange}
+          />
+          <OptionText onClick={handleOpenFolderNameChange}>
+            이름 변경
+          </OptionText>
+          <OptionImg
+            src={deleteIcon}
+            alt="deleteIcon"
+            onClick={() => handleOpenDelete(selectedFolder.id)}
+          />
+          <OptionText onClick={() => handleOpenDelete(selectedFolder.id)}>
+            삭제
+          </OptionText>
         </OptionContainer>
         {isShareModalSelected &&
           ReactDOM.createPortal(
@@ -221,7 +267,7 @@ function FolderList({ folderListData, onFolderSelect, selectedFolder }) {
               onClose={handleCloseShare}
               currentFolderId={selectedId}
             />,
-            document.getElementById('modal-root')
+            modalRoot
           )}
         {isChangeFolderNameModalSelected &&
           ReactDOM.createPortal(
@@ -231,12 +277,17 @@ function FolderList({ folderListData, onFolderSelect, selectedFolder }) {
               buttonText="변경하기"
               onClose={handleCloseFolderNameChange}
             />,
-            document.getElementById('modal-root')
+            modalRoot
           )}
         {isDeleteModalSelected &&
           ReactDOM.createPortal(
-            <Delete title="폴더 삭제" main={selectedFolder.name} buttonText="삭제하기" onClose={handleCloseDelete} />,
-            document.getElementById('modal-root')
+            <Delete
+              title="폴더 삭제"
+              main={selectedFolder.name}
+              buttonText="삭제하기"
+              onClose={handleCloseDelete}
+            />,
+            modalRoot
           )}
       </Container>
     </Wrapper>

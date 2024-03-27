@@ -1,5 +1,5 @@
-import styled from 'styled-components';
-import closeIcon from '../image/close.svg';
+import styled from "styled-components";
+import closeIcon from "../image/close.svg";
 
 const Background = styled.div`
   position: fixed;
@@ -79,7 +79,14 @@ const Button = styled.button`
   line-height: normal;
 `;
 
-function Delete({ title, main, buttonText, onClose }) {
+interface Props {
+  title: string;
+  main: string;
+  buttonText: string;
+  onClose: () => void;
+}
+
+function Delete({ title, main, buttonText, onClose }: Props) {
   return (
     <Background>
       <Container>

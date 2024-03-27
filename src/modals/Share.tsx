@@ -5,7 +5,11 @@ import kakaoIcon from '../image/Kakao.svg';
 import facebookIcon from '../image/Facebook.svg';
 import linkIcon from '../image/link.svg';
 
-const IconColor = {
+type ColorSelect = {
+  color: keyof typeof IconColor;
+};
+
+const IconColor: { [key: string]: string } = {
   kakao: '#fee500',
   facebook: '#1877f2',
   link: 'rgba(157, 157, 157, 0.04)',
@@ -75,7 +79,8 @@ const ShareContainer = styled.div`
   align-items: flex-start;
   gap: 32px;
 `;
-const LinkContainer = styled.div`
+
+const LinkContainer = styled.div<ColorSelect>`
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
@@ -90,7 +95,7 @@ const LinkContainer = styled.div`
     align-items: center;
     gap: 10px;
     border-radius: 37.333px;
-    background: ${(props) => IconColor[props.color]};
+    background: ${({ color }) => IconColor[color as keyof typeof IconColor]};
     .link {
       width: 18px;
       height: 18px;
@@ -107,8 +112,23 @@ const LinkContainer = styled.div`
     line-height: 15px;
   }
 `;
+
+declare global {
+  interface Window {
+    Kakao: any;
+  }
+}
+
 const { Kakao } = window;
-function Share({ title, main, onClose, currentFolderId }) {
+
+interface Props {
+  title: string;
+  main: string;
+  onClose: () => void;
+  currentFolderId: number | null;
+}
+
+function Share({ title, main, onClose, currentFolderId }: Props) {
   const shareUrl = `${window.location.origin}/shared/${currentFolderId}`;
 
   const copyToClipboard = () => {
@@ -119,7 +139,6 @@ function Share({ title, main, onClose, currentFolderId }) {
   useEffect(() => {
     Kakao.cleanup();
     Kakao.init(process.env.REACT_APP_KAKAO_KEY);
-    console.log(Kakao.isInitialized());
   }, []);
 
   const shareKakao = () => {

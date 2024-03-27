@@ -1,4 +1,4 @@
-export async function fetchAPI(url, options = {}) {
+export async function fetchAPI(url: string, options = {}): Promise<any> {
   try {
     const response = await fetch(url, options);
     if (!response.ok) {
@@ -7,7 +7,7 @@ export async function fetchAPI(url, options = {}) {
     const data = await response.json();
     return data;
   } catch (error) {
-    console.error(error);
-    return { error: true, message: error.message };
+    const message = error instanceof Error ? error.message : '오류 발생';
+    return { error: true, message: message };
   }
 }

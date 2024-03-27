@@ -1,17 +1,22 @@
-import { useEffect, useState } from 'react';
-import ReactDOM from 'react-dom';
 import styled from 'styled-components';
-import link from '../image/link.svg';
-import { getFolderType } from '../api';
-import Add from '../modals/Add';
+import link from '../../image/link.svg';
 
-const Container = styled.div`
-  display: flex;
+interface ContainerProps {
+  $footerVisible: boolean;
+}
+
+const Container = styled.div<ContainerProps>`
+  display: ${({ $footerVisible }) => ($footerVisible ? 'none' : 'flex')};
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 8px;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  z-index: 10;
+  width: 100%;
   background: #f0f6ff;
+
   @media (min-width: 375px) and (max-width: 767px) {
     padding: 24px 32px;
   }
@@ -25,13 +30,14 @@ const Container = styled.div`
     padding: 60px 199px 90px 200px;
   }
 `;
+
 const InputContainer = styled.div`
   position: relative;
   display: flex;
   align-items: center;
 
   @media (min-width: 375px) and (max-width: 767px) {
-    width: 340px;
+    width: calc(100vw - 64px);
   }
   @media (min-width: 768px) and (max-width: 1123px) {
     width: min(700px, 100vw);
@@ -59,7 +65,7 @@ const Input = styled.input`
     font-size: 16px;
     font-style: normal;
     font-weight: 400;
-    line-height: 24px; /* 150% */
+    line-height: 24px;
   }
 `;
 const Img = styled.img`
@@ -70,6 +76,7 @@ const Img = styled.img`
   width: 20px;
   height: 20px;
 `;
+
 const Button = styled.button`
   display: flex;
   position: absolute;
@@ -91,43 +98,33 @@ const Button = styled.button`
   line-height: normal;
   cursor: pointer;
 `;
-function Gnbfolder() {
-  const [data, setData] = useState([]);
-  const [isButtonSelected, setButtonSelected] = useState(false);
-  useEffect(() => {
-    async function getFolderData() {
-      const result = await getFolderType();
-      const updateData = [...result.data];
-      setData(updateData);
-    }
-    getFolderData();
-  }, []);
 
-  const folderList = data.map((item) => ({
-    id: item.id,
-    name: item.name,
-    count: item.link.count,
-  }));
-  const handleButtonClick = () => {
-    setButtonSelected(true);
-  };
-  const handleCloseClick = () => {
-    setButtonSelected(false);
-  };
+interface Props {
+  onClick: () => void;
+  gnbVisible: boolean;
+  footerVisible: boolean;
+}
 
+function LinkInput({ onClick, gnbVisible, footerVisible }: Props) {
   return (
-    <Container>
-      <InputContainer>
-        <Input placeholder="링크를 추가해 보세요" />
-        <Img src={link} alt="link" />
-        <Button onClick={handleButtonClick}>추가하기</Button>
-        {isButtonSelected &&
-          ReactDOM.createPortal(
-            <Add data={folderList} onClose={handleCloseClick} />,
-            document.getElementById('modal-root')
-          )}
-      </InputContainer>
-    </Container>
+    <>
+      {gnbVisible ? (
+        <InputContainer>
+          <Input placeholder="링크를 추가해 보세요" />
+          <Img src={link} alt="link" />
+          <Button onClick={onClick}>추가하기</Button>
+        </InputContainer>
+      ) : (
+        <Container $footerVisible={footerVisible}>
+          <InputContainer>
+            <Input placeholder="링크를 추가해 보세요" />
+            <Img src={link} alt="link" />
+            <Button onClick={onClick}>추가하기</Button>
+          </InputContainer>
+        </Container>
+      )}
+    </>
   );
 }
-export default Gnbfolder;
+
+export default LinkInput;

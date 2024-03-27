@@ -1,5 +1,5 @@
-import styled from 'styled-components';
-import closeIcon from '../image/close.svg';
+import styled from "styled-components";
+import closeIcon from "../image/close.svg";
 
 const Background = styled.div`
   position: fixed;
@@ -65,7 +65,10 @@ const InputContainer = styled.div`
     align-items: center;
     gap: 10px;
     border-radius: 8px;
-    background: var(--gra-purpleblue-to-skyblue, linear-gradient(91deg, #6d6afe 0.12%, #6ae3fe 101.84%));
+    background: var(
+      --gra-purpleblue-to-skyblue,
+      linear-gradient(91deg, #6d6afe 0.12%, #6ae3fe 101.84%)
+    );
     color: var(--Grey-Light, #f5f5f5);
     font-family: Pretendard;
     font-size: 16px;
@@ -76,7 +79,15 @@ const InputContainer = styled.div`
     cursor: pointer;
   }
 `;
-function Edit({ title, input, buttonText, onClose }) {
+
+interface Props {
+  title: string;
+  input: string;
+  buttonText: string;
+  onClose: () => void;
+}
+
+function Edit({ title, input, buttonText, onClose }: Props) {
   return (
     <Background>
       <Container>

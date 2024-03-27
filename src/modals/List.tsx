@@ -1,13 +1,18 @@
-import styled from 'styled-components';
-import check from '../image/check.svg';
-const Container = styled.div`
+import styled from "styled-components";
+import check from "../image/check.svg";
+
+interface StyledProps {
+  $isChecked: boolean;
+}
+
+const Container = styled.div<StyledProps>`
   display: flex;
   padding: 8px;
-  align-items: ${(props) => (props.isChecked ? 'center' : 'flex-start')};
+  align-items: ${({ $isChecked }) => ($isChecked ? "center" : "flex-start")};
   justify-content: space-between;
   width: 280px;
   border-radius: 8px;
-  background-color: ${(props) => (props.isChecked ? '#F0F6FF' : '#FFFFFF')};
+  background-color: ${({ $isChecked }) => ($isChecked ? "#F0F6FF" : "#FFFFFF")};
   cursor: pointer;
 `;
 
@@ -33,20 +38,28 @@ const LinkCount = styled.span`
   font-weight: 400;
   line-height: normal;
 `;
-const Check = styled.img`
+const Check = styled.img<StyledProps>`
   width: 14px;
   height: 14px;
-  display: ${(props) => (props.isChecked ? 'block' : 'none')};
+  display: ${({ $isChecked }) => ($isChecked ? "block" : "none")};
 `;
 
-function List({ linkName, linkCount, onClick, isChecked = false }) {
+interface Props {
+  id: number;
+  linkName: string;
+  linkCount?: number;
+  onClick: (id: number | null) => void;
+  isChecked: boolean;
+}
+
+function List({ id, linkName, linkCount, onClick, isChecked = false }: Props) {
   return (
-    <Container isChecked={isChecked} onClick={onClick}>
+    <Container $isChecked={isChecked} onClick={() => onClick(id)}>
       <LinkContainer>
         <LinkName>{linkName}</LinkName>
         <LinkCount>{linkCount}개 링크</LinkCount>
       </LinkContainer>
-      <Check src={check} isChecked={isChecked} />
+      <Check src={check} $isChecked={isChecked} />
     </Container>
   );
 }

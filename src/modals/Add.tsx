@@ -1,8 +1,8 @@
-import { useState } from 'react';
-import styled from 'styled-components';
-import closeIcon from '../image/close.svg';
-import List from './List';
-
+import { useState } from "react";
+import styled from "styled-components";
+import closeIcon from "../image/close.svg";
+import List from "./List";
+import { FolderItem } from "../consts/type";
 const Background = styled.div`
   position: fixed;
   top: 0;
@@ -74,7 +74,10 @@ const Button = styled.button`
   align-items: center;
   gap: 10px;
   border-radius: 8px;
-  background: var(--gra-purpleblue-to-skyblue, linear-gradient(91deg, #6d6afe 0.12%, #6ae3fe 101.84%));
+  background: var(
+    --gra-purpleblue-to-skyblue,
+    linear-gradient(91deg, #6d6afe 0.12%, #6ae3fe 101.84%)
+  );
   color: var(--Grey-Light, #f5f5f5);
   font-family: Pretendard;
   font-size: 16px;
@@ -84,9 +87,15 @@ const Button = styled.button`
   border: none;
   cursor: pointer;
 `;
-function Add({ data, onClose }) {
-  const [selectedFolderId, setSelectedFolderId] = useState(null);
-  const handleFolderClick = (id) => {
+
+interface Props {
+  data: FolderItem[];
+  onClose: () => void;
+}
+
+function Add({ data, onClose }: Props) {
+  const [selectedFolderId, setSelectedFolderId] = useState<number | null>(null);
+  const handleFolderClick = (id: number | null) => {
     setSelectedFolderId(id);
     console.log(selectedFolderId);
   };
@@ -94,7 +103,12 @@ function Add({ data, onClose }) {
   return (
     <Background>
       <Container>
-        <img className="close" alt="closeIcon" src={closeIcon} onClick={onClose}></img>
+        <img
+          className="close"
+          alt="closeIcon"
+          src={closeIcon}
+          onClick={onClose}
+        ></img>
         <TitleContainer>
           <span className="title">폴더에 추가</span>
         </TitleContainer>
@@ -102,6 +116,7 @@ function Add({ data, onClose }) {
           {data.map((items) => (
             <List
               key={items.id}
+              id={items.id as number}
               linkName={items.name}
               linkCount={items.count}
               onClick={() => handleFolderClick(items.id)}
