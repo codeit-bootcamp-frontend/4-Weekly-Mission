@@ -1,7 +1,10 @@
 import { useState } from "react";
 import { useEffectOnce } from "./useEffectOnce";
+import { AxiosResponse } from "axios";
 
-export const useAsync = (asyncFunction) => {
+export const useAsync = (
+  asyncFunction: () => Promise<AxiosResponse<any, any>>
+) => {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
   const [data, setData] = useState(null);
@@ -14,7 +17,7 @@ export const useAsync = (asyncFunction) => {
       const response = await asyncFunction();
       setData(response?.data);
       return response;
-    } catch (error) {
+    } catch (error: any) {
       setError(error);
     } finally {
       setLoading(false);

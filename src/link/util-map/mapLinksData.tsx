@@ -1,7 +1,15 @@
 import format from "date-fns/format";
 import { getElapsedTime } from "sharing/util";
 
-export const mapLinksData = (link) => {
+interface LinksDataType {
+  id: number;
+  createdAt: Date;
+  url: string;
+  imageSource: string;
+  title: string;
+  description: string;
+}
+export const mapLinksData = (link: LinksDataType) => {
   const { id, createdAt, url, imageSource, title, description } = link;
 
   return {

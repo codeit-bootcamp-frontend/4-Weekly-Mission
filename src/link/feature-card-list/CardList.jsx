@@ -3,7 +3,7 @@ import { AddLinkModal } from "link/ui-add-link-modal";
 import { EditableCard } from "link/ui-editable-card";
 import { NoLink } from "link/ui-no-link";
 import { useCallback, useRef, useState } from "react";
-import { CardList as UiCardList } from "link/ui-card-list";
+import { CardList as UiCardList } from "link/ui-card-list/CardList";
 import { AlertModal } from "sharing/ui-alert-modal";
 import { MODALS_ID } from "./constant";
 
