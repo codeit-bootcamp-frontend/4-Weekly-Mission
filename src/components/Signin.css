@@ -1,0 +1,237 @@
+.signin-background {
+  background: #f0f6ff;
+}
+
+.signin-login {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 30px;
+}
+
+.signin-span-margin {
+  margin-right: 5px;
+}
+.sign-container {
+  margin: 0;
+  display: flex;
+  height: auto;
+  justify-content: center;
+  align-items: center;
+  font-family: Pretendard;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 24px; /* 150% */
+  min-height: 100vh;
+}
+
+.sign-main {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 32px;
+}
+
+.sign-form {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 24px;
+}
+
+.sign-input {
+  display: flex;
+  width: 400px;
+  padding: 18px 15px;
+  justify-content: center;
+  align-items: center;
+  line-height: 1.1;
+  border-radius: 8px;
+  border: 1px solid var(--Linkbrary-gray20, #ccd5e3);
+}
+
+.eye-off,
+.eye-on {
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  right: 15px;
+  background-repeat: no-repeat;
+  background-position: 95% 50%;
+}
+
+.eye-off:hover,
+.eye-on:hover {
+  cursor: pointer;
+}
+
+.eye-on {
+  top: 45px;
+  background-image: url(../assets/img/svg/eye-on.svg);
+}
+.eye-off {
+  top: 46px;
+  background-image: url(../assets/img/svg/eye-off.svg);
+}
+
+.sign-input:focus {
+  outline: none;
+  border: 1px solid var(--Linkbrary-primary-color, #6d6afe);
+}
+
+button:hover {
+  cursor: pointer;
+}
+
+.sign-title {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+}
+
+.errMsg {
+  height: 16px;
+}
+
+.social-login {
+  display: flex;
+  width: 400px;
+  padding: 12px 24px;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 8px;
+  border: 1px solid var(--Linkbrary-gray20, #ccd5e3);
+}
+
+.social-login a {
+  text-decoration: none;
+}
+
+.primary {
+  color: #6d6afe;
+}
+
+.social-font-size {
+  color: var(--Linkbrary-gray100, #373740);
+  font-family: Pretendard;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+.signup-a {
+  font-family: Pretendard;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+}
+
+.input-box {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.input-font-size {
+  font-family: Pretendard;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+.login-btn {
+  display: flex;
+  width: 400px;
+  padding: 16px 20px;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  border: 0px;
+  border-radius: 8px;
+  background: var(
+    --gra-purpleblue-to-skyblue,
+    linear-gradient(91deg, #6d6afe 0.12%, #6ae3fe 101.84%)
+  );
+  font-family: Pretendard;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+}
+
+.social-box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 44px;
+  gap: 16px;
+}
+
+.kakao-bg {
+  display: inline-block;
+  position: relative;
+  width: 44px;
+  height: 44px;
+  flex-shrink: 0;
+  background-color: #f5e14b;
+  border-radius: 50%;
+}
+
+.kakao-bg img {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.social-box a {
+  width: 44px;
+  height: 44px;
+}
+
+.invalid {
+  outline: none;
+  border: 1px solid var(--Linkbrary-primary-color, #ff5b56);
+}
+
+.border-red {
+  border-radius: 8px;
+  border: 1px solid var(--Linkbrary-red, #ff5b56);
+  background: var(--Linkbrary-white, #fff);
+}
+
+.gray-ton4-bg {
+  background-color: #e7effb;
+}
+
+@media (max-width: 767px) {
+  .sign-main {
+    min-width: 400px;
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    width: min(400px, 100vw - 65px);
+  }
+  .sign-input {
+    width: min(400px, 100vw - 65px);
+  }
+
+  .login-btn {
+    width: min(400px, 100vw - 65px);
+  }
+
+  .social-login {
+    width: min(400px, 100vw - 65px);
+  }
+}
