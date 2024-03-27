@@ -1,23 +1,22 @@
 import ModalLayout from "./ModalLayout";
 import { useState } from "react";
-import { MODAL_TYPE } from "./modalType";
+import { MODAL_TYPE } from "../constants/modalConstans";
 import { DATA } from "../constants/folderlist_mock_data";
 import IconCheck from "../images/Icon_check.svg";
 import styles from "./AddLinkModal.module.css";
 
-
-function AddLinkModal({ isOpenModal, closeModal }) {
+function AddLinkModal({ isOpenModal, closeModal }: ModalBaseProps) {
   const [clickItem, setClickItem] = useState('');
   const { addLink } = MODAL_TYPE;
 
-  const handleClick = (name) => {
+  const handleClick = (name: string) => {
     setClickItem(name === clickItem ? '' : name);
   }
 
   return (
     <ModalLayout
       title={addLink.title}
-      isOpen={isOpenModal}
+      isOpenModal={isOpenModal}
       closeModal={closeModal}
     >
       <div className={styles.linkName}>링크 주소</div>

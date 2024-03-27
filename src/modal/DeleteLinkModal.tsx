@@ -1,15 +1,19 @@
-import { MODAL_TYPE } from "./modalType";
+import { MODAL_TYPE } from "../constants/modalConstans";
 import ModalLayout from "./ModalLayout";
 import styles from "./DeleteModal.module.css";
 
-function DeleteLinkModal({ isOpenModal, closeModal, url }) {
+interface DeleteLinkModalProp extends ModalBaseProps {
+  url: string,
+}
+
+function DeleteLinkModal({ isOpenModal, closeModal, url }: DeleteLinkModalProp) {
 
   const { deleteLink } = MODAL_TYPE;
 
   return (
     <ModalLayout
       title={deleteLink.title}
-      isOpen={isOpenModal}
+      isOpenModal={isOpenModal}
       closeModal={closeModal}
     >
       <div className={styles.folderName}>{url}</div>

@@ -1,17 +1,20 @@
 import ModalLayout from "./ModalLayout";
-import { MODAL_TYPE } from "./modalType";
+import { MODAL_TYPE } from "../constants/modalConstans";
 import styles from "./EditModal.module.css";
 
-function EditModal({ isOpenModal, closeModal, placeholder }) {
+interface EditModalProps extends ModalBaseProps {
+  placeholder: string,
+}
+
+function EditModal({ isOpenModal, closeModal, placeholder }: EditModalProps) {
 
   const { edit } = MODAL_TYPE;
 
   return (
     <ModalLayout
       title={edit.title}
-      isOpen={isOpenModal}
+      isOpenModal={isOpenModal}
       closeModal={closeModal}
-      buttonName={edit.buttonName}
     >
       <input className={styles.inputText} type="text" placeholder={placeholder} />
       <button className={styles.submitButton}>{edit.buttonName}</button>

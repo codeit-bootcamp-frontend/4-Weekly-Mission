@@ -1,5 +1,4 @@
-import { useEffect, useState } from "react";
-import { getLinkInfo } from "../api/api";
+import { useState } from "react";
 import Button from "./Button";
 import styles from "../css/FolderList.module.css";
 import plusIcon from "../images/Icon_plus.svg";
@@ -7,43 +6,36 @@ import LinkList from "./LinkList";
 import AddModal from "../modal/AddModal";
 import FolderMenu from "./FolderMenu";
 
+const FIRST_SELECTED_FOLDER = "전체";
 
-function FolderList() {
-  const [folderListData, setFolderListData] = useState([]);
-  const [currentId, setCurrentId] = useState(0);
-  const [folderName, setFolderName] = useState("전체");
+interface SearchData extends Data {
+  title?: string;
+}
+
+interface Props {
+  keyword: string;
+  linkData: SearchData[];
+  folderNameList: string[];
+  currentId: number;
+  folderName: string;
+  onClick: (id: number, name: string) => void;
+}
+
+function FolderList({ keyword, linkData, folderNameList, currentId, folderName, onClick }: Props) {
   const [isAddModalOpen, setIsAddModalOpen] = useState(false);
 
   const openAddModal = () => setIsAddModalOpen(true);
-  const closeAddModal = () => setIsAddModalOpen(false);
-
-  //button의 id와 이름 가져오는 함수.
-  const changeFolderClick = (id, name) => {
-    setCurrentId(id);
-    setFolderName(name);
-  }
-
-  const getFolderData = async (path) => {
-    const { data } = await getLinkInfo(path);
-    
-    if (!data) return;
-
-    setFolderListData(data);
-  }
-
-  useEffect(() => {
-    getFolderData('users/1/folders');
-  }, [])
+  const closeAddModal = (): void => setIsAddModalOpen(false);
 
   return (
     <>
     <div className={styles.content}>
       <div className={styles.container}>
         <div className={styles.folderList}>
-          <Button onClick={() => changeFolderClick(0, '전체')} type="button" key={0}>전체</Button>
-          {folderListData.map((item) => {
+          <Button onClick={() => onClick(0, FIRST_SELECTED_FOLDER)} type="button" key={0}>전체</Button>
+          {folderNameList.map((item: any) => {
             return (
-                <Button onClick={() => changeFolderClick(item.id, item.name)} type="button" key={item.id}>{item.name}</Button>
+                <Button onClick={() => onClick(item.id, item.name)} type="button" key={item.id}>{item.name}</Button>
             )
           })}
         </div>
@@ -60,7 +52,7 @@ function FolderList() {
         {currentId === 0 ? null : <FolderMenu placeholder={folderName} />}
       </div>
     </div>
-    <LinkList query={'users/1/links'} id={currentId === 0 ? '': currentId} />
+    <LinkList keyword={keyword} linkData={linkData} />
   </>
   );
 }

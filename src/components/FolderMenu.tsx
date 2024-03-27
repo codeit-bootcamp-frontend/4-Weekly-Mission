@@ -7,7 +7,11 @@ import ShareModal from "../modal/ShareModal";
 import styles from "../css/FolderMenu.module.css";
 import { useState } from "react";
 
-function FolderMenu({ placeholder }) {
+interface Props {
+  placeholder: string
+}
+
+function FolderMenu({ placeholder }: Props) {
   const [isShareModalOpen, setIsShareModalOpen] = useState(false);
   const [isEditModalOpen, setIsEditModalOpen] = useState(false);
   const [isDeleteModalOpen, setIsDeleteModalOpen] = useState(false);

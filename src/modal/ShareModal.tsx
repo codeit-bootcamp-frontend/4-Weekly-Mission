@@ -3,14 +3,14 @@ import IconKakao from "../images/Icon_Kakao.svg";
 import IconFacebook from "../images/Icon_Facebook.svg";
 import IconLink from "../images/Icon_link.svg";
 import styles from "./ShareModal.module.css";
-import { MODAL_TYPE } from "./modalType";
+import { MODAL_TYPE } from "../constants/modalConstans";
 import { FacebookShareButton } from "react-share";
 import { useScript } from "../hooks";
 import { useEffect } from "react";
 
 const currentUrl = window.location.href;
 
-function ShareModal({ isOpenModal, closeModal }) {
+function ShareModal({ isOpenModal, closeModal }: ModalBaseProps) {
   const { share } = MODAL_TYPE;
 
 	const status = useScript("https://developers.kakao.com/sdk/js/kakao.js");
@@ -24,12 +24,14 @@ function ShareModal({ isOpenModal, closeModal }) {
 	}, [status]);
 
   const handleKakaoButton = () => {
-    window.Kakao.Link.sendScrap({
+    if (window.Kakao) {
+      window.Kakao.Link.sendScrap({
         requestUrl: currentUrl,
     });
+  }
 };
 
-  const handleCopyClipBoard = async (text) => {
+  const handleCopyClipBoard = async (text: string) => {
     try {
       await navigator.clipboard.writeText(text);
       alert("클립보드에 링크가 복사되었어요.");
@@ -41,7 +43,7 @@ function ShareModal({ isOpenModal, closeModal }) {
   return (
     <ModalLayout
       title={share.title}
-      isOpen={isOpenModal}
+      isOpenModal={isOpenModal}
       closeModal={closeModal}
     >
       <div className={styles.folderName}>폴더명</div>
