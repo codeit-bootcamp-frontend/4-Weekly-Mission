@@ -1,10 +1,13 @@
 import classNames from 'classnames';
+import { useContext } from 'react';
 
 import useFetch from 'hooks/useFetch';
 
 import ErrorMessage from 'components/Common/ErrorMessage';
 import Card from 'components/Main/Card';
 import styles from 'components/Main/CardList.module.css';
+
+import { InputStateContext } from 'context/InputStateProvider';
 
 import { LINKS_API_URL, LINKS_FOLDER_ID_API_URL, LinksApiResponse } from 'services/api';
 
@@ -18,6 +21,8 @@ function CardList({ folderId = 0 }: CardListProps) {
 
   const url = folderId === ALL.id ? LINKS_API_URL : LINKS_FOLDER_ID_API_URL(folderId);
   const { data, loading, error } = useFetch<LinksApiResponse>(url);
+
+  const { inputState } = useContext(InputStateContext);
 
   // {created_at, description, folder_id, id, image_source, title, updated_at, url}
   const linkList = data?.data ?? [];
@@ -35,9 +40,16 @@ function CardList({ folderId = 0 }: CardListProps) {
     <div>
       {linkCount > 0 ? (
         <div className={cardListClasses}>
-          {linkList.map((link) => (
-            <Card key={link.id} linkData={link} />
-          ))}
+          {linkList
+            .filter(
+              (link) =>
+                link.title?.includes(inputState) ||
+                link.description?.includes(inputState) ||
+                link.url.includes(inputState)
+            )
+            .map((link) => (
+              <Card key={link.id} linkData={link} />
+            ))}
           {loading && <ErrorMessage message={LOADING_MESSAGE} />}
           {error && <ErrorMessage message={error} />}
         </div>
