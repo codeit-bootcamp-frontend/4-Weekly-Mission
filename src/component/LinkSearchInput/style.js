@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-const LinkSearchInputWrapper = styled.div`
+export const LinkSearchInputWrapper = styled.form`
   display: flex;
   align-items: center;
   gap: 0.5rem;
@@ -11,11 +11,6 @@ const LinkSearchInputWrapper = styled.div`
   padding: 16px 20px;
   border-radius: 14px;
 
-  & img {
-    width: 1rem;
-    height: 1rem;
-  }
-
   & input {
     background: none;
     width: 100%;
@@ -24,4 +19,13 @@ const LinkSearchInputWrapper = styled.div`
   }
 `;
 
-export default LinkSearchInputWrapper;
+export const SearchIcon = styled.img`
+  width: 1rem;
+  height: 1rem;
+`;
+export const ClearIcon = styled.img`
+  cursor: pointer;
+  width: 24px;
+  height: 24px;
+  flex-shrink: 0;
+`;
