@@ -1,0 +1,18 @@
+{
+  "compilerOptions": {
+    "target": "ES5",
+    "module": "CommonJS",
+    "strict": true,
+    "allowJs": true,
+    "esModuleInterop": true,
+    "jsx": "react-jsx",
+    "outDir": "dist",
+    "moduleDetection": "force",
+    "skipLibCheck": true,
+    "typeRoots": ["./node_modules/@types", "@types"]
+  },
+  "ts-node": {
+    "esm": true
+  },
+  "includes": ["src"]
+}

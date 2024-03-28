@@ -1,12 +1,22 @@
+import { SyntheticEvent } from "react";
 import close from "../../images/_close.png";
 
-function AddFolder({ toggleModal }) {
+type AddFolderType = {
+  toggleModal: (id: number) => void;
+};
+
+function AddFolder({ toggleModal }: AddFolderType) {
+  function handleImageClick(event: SyntheticEvent) {
+    event.preventDefault();
+    toggleModal(7);
+  }
+
   return (
     <div className="modal">
       <form className="modal-form">
         <div className="modal-form-content">
           <img
-            onClick={toggleModal}
+            onClick={handleImageClick}
             className="modal-form-img"
             src={close}
             alt="닫기"

@@ -9,16 +9,58 @@ import remove from "../images/remove.svg";
 import useFetchData from "../hooks/useFetchData";
 import CardList from "./CardList";
 import NoLink from "./NoLink";
-export const UserContext = React.createContext();
 
-function FolderDetail({ folderListData, toggleModal, handleFolderName }) {
-  const [selectedFolder, setSelectedFolder] = useState({});
-  const selectedFolderData =
+type Context = (id: number) => void;
+
+interface Folder {
+  id: number;
+  created_at: string;
+  name: string;
+  user_id: number;
+  favorite: boolean;
+  link: {
+    count: number;
+  };
+}
+type selectedFolderDataType = {
+  id: number;
+  created_at: string;
+  updated_at: null;
+  url: string;
+  title: string;
+  description: string;
+  image_source: string;
+  folder_id: number;
+};
+
+interface Prop {
+  toggleModal: (id: number) => void;
+  folderListData: Folder[];
+  handleFolderName: (id: string) => void;
+  input: string;
+}
+
+export const UserContext = React.createContext<Context>({} as Context);
+function FolderDetail({
+  folderListData,
+  toggleModal,
+  handleFolderName,
+  input,
+}: Prop) {
+  const [selectedFolder, setSelectedFolder] = useState<Folder>({} as Folder);
+  let selectedFolderData: selectedFolderDataType[] =
     useFetchData("selectedFolderDataFetch", 4, selectedFolder) || [];
 
-  const handleFolderListClick = (data) => {
+  const handleFolderListClick = (data: Folder) => {
     setSelectedFolder(data);
   };
+
+  selectedFolderData = selectedFolderData?.filter(
+    (id) =>
+      id.url?.includes(input) ||
+      id.title?.includes(input) ||
+      id.description?.includes(input)
+  );
 
   return (
     <div className="Folder-All">
@@ -27,7 +69,7 @@ function FolderDetail({ folderListData, toggleModal, handleFolderName }) {
       <div className="Folder-List-Container">
         <div className="Folder-List">
           <div
-            onClick={() => handleFolderListClick({})}
+            onClick={() => handleFolderListClick({} as Folder)}
             className={`folderName ${
               String(selectedFolder.id) === "undefined" ? "selected" : ""
             }`}

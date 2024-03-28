@@ -1,13 +1,24 @@
+import { SyntheticEvent } from "react";
 import close from "../../images/_close.png";
 import "./modal.css";
 
-function DeleteFolder({ folderName, toggleModal }) {
+type DeleteFolderType = {
+  toggleModal: (id: number) => void;
+  folderName: string;
+};
+
+function DeleteFolder({ folderName, toggleModal }: DeleteFolderType) {
+  function handleImageClick(event: SyntheticEvent) {
+    event.preventDefault();
+    toggleModal(7);
+  }
+
   return (
     <div className="modal">
       <form className="modal-form">
         <div className="modal-form-content">
           <img
-            onClick={toggleModal}
+            onClick={handleImageClick}
             className="modal-form-img"
             src={close}
             alt="닫기"

@@ -22,3 +22,11 @@
   border: none;
   outline: none;
 }
+
+.close-div img {
+  cursor: pointer;
+  width: 24px;
+  height: 24px;
+  margin-right: 1rem;
+  margin-top: 7px;
+}

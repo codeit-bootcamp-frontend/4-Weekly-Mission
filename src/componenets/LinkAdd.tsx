@@ -2,14 +2,18 @@ import "./LinkAdd.css";
 import link from "../images/link.svg";
 import { useState } from "react";
 
-function LinkAdd({ toggleModal }) {
+interface ToggleModal {
+  toggleModal: (id: number) => void;
+}
+
+function LinkAdd({ toggleModal }: ToggleModal) {
   const [inputValue, setInputInput] = useState("");
 
-  function handleInputChange(event) {
+  function handleInputChange(event: React.ChangeEvent<HTMLInputElement>) {
     setInputInput(event.target.value);
   }
 
-  function handleAddButtonClick(event) {
+  function handleAddButtonClick(event: React.MouseEvent<HTMLButtonElement>) {
     event.preventDefault();
     if (inputValue !== "") {
       toggleModal(6);
