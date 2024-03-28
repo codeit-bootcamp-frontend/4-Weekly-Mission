@@ -1,0 +1,10 @@
+@import '@/styles/global.scss';
+
+.inputForm {
+  display: flex;
+  flex-direction: column;
+  width: 350px;
+  padding: 18px 15px;
+  justify-content: center;
+  background: #ffffff;
+}
