@@ -1,0 +1,29 @@
+.container {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 24px;
+  z-index: 200;
+  width: 360px;
+  height: 239px;
+  padding: 32px 40px;
+  background-color: var(--color-white);
+  border-radius: 15px;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.deleteBtn {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+}

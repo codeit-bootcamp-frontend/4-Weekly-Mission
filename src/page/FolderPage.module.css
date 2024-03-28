@@ -3,12 +3,24 @@
   justify-content: center;
   padding: 24px 32px 40px;
   background-color: var(--color-bg);
+  margin-bottom: 20px;
 
   @media (min-width: 768px) {
     padding: 60px 0 90px;
+    margin-bottom: 40px;
   }
 }
 
 .wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
   padding: 0 32px;
+  margin-inline: auto;
+
+  @media (min-width: 1200px) {
+    padding: 0;
+    max-width: 1060px;
+    gap: 40px;
+  }
 }

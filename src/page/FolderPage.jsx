@@ -9,11 +9,18 @@ import FolderToolBar from "../components/FolderToolBar/FolderToolBar";
 import NoLink from "../components/NoLink/NoLink";
 import SearchBar from "../components/SearchBar/SearchBar";
 import FolderLinks from "../components/FolderLinks/FolderLinks";
+import DefaultModal from "../components/DefaultModal";
 
 const FolderPage = () => {
   const [selectedFolder, setSeletedFolder] = useState("ALL");
+  const [isModalOpen, setModalOpen] = useState(false);
 
   const { data: links, isLoading } = useGetLinks(selectedFolder);
+
+  const handleAddLink = (e) => {
+    e.preventDefault();
+    setModalOpen(true);
+  };
 
   const cardList = useMemo(() => {
     if (isLoading) return null;
@@ -24,11 +31,12 @@ const FolderPage = () => {
   return (
     <>
       <Layout isSticky={false}>
+        {isModalOpen && <DefaultModal setModalOpen={setModalOpen} />}
         <div className={styles.input_container}>
-          <AddLinkInput />
+          <AddLinkInput onSubmit={handleAddLink} />
         </div>
         <div className={styles.wrapper}>
-          <SearchBar />
+          <SearchBar className={styles.searchBar} />
           <FolderToolBar
             onFolderClick={setSeletedFolder}
             selectedFolder={selectedFolder}

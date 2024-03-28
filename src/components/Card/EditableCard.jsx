@@ -4,6 +4,7 @@ import LinkbraryLogo from "../../asset/images/logo.svg";
 import IconButton from "./IconButton";
 import starIcon from "../../asset/images/star.svg";
 import kebobIcon from "../../asset/images/kebab.svg";
+import Dropdown from "../../components/Dropdown";
 
 const EditableCard = ({ createdAt, description, imageSource }) => {
   const elapsedTime = getElapsedTime(createdAt);
@@ -34,12 +35,31 @@ const EditableCard = ({ createdAt, description, imageSource }) => {
         className={styles.icon_star}
         onClick={(e) => e.preventDefault()}
       />
-      <IconButton
-        iconSource={kebobIcon}
-        iconAlt="더보기 아이콘"
-        className={styles.icon_kebob}
-        onClick={(e) => e.preventDefault()}
-      />
+
+      <Dropdown
+        dropdownList={[
+          {
+            name: "이름",
+            onClickEvent: () => {
+              console.log("이름입니다.");
+            },
+          },
+          {
+            name: "이름2",
+            onClickEvent: () => {
+              console.log("이름2입니다.");
+            },
+          },
+        ]}
+        className={styles.dropdown}
+      >
+        <IconButton
+          iconSource={kebobIcon}
+          iconAlt="더보기 아이콘"
+          className={styles.icon_kebob}
+          onClick={(e) => e.preventDefault()}
+        />
+      </Dropdown>
     </div>
   );
 };
