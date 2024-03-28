@@ -1,0 +1,55 @@
+.isSharedPage {
+  position: sticky;
+  top: 0;
+  z-index: 2;
+}
+
+.Gnb {
+  display: flex;
+  text-align: center;
+  justify-content: space-between;
+  padding: 32px 200px;
+  width: 100%;
+  background: #f0f6ff;
+}
+
+.profileBox {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 6px;
+}
+
+.profileImg {
+  width: 24px;
+  height: 24px;
+  border-radius: 9999px;
+}
+
+.profileEmail {
+  color: #373740;
+  font-family: Pretendard;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  margin: 0;
+  align-items: center;
+}
+
+.gnbBtn {
+  display: flex;
+  width: 128px;
+  padding: 16px 20px;
+  justify-content: center;
+  align-items: center;
+  color: #f5f5f5;
+  font-family: Pretendard;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  border: none;
+  border-radius: 8px;
+  background: linear-gradient(91deg, #6d6afe 0.12%, #6ae3fe 101.84%);
+}
