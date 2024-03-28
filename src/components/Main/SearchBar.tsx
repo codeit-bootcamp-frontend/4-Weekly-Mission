@@ -16,7 +16,6 @@ function SearchBar() {
   };
 
   const handleInputResetClick = () => {
-    if (inputState === '') return;
     setInputState('');
   };
 
@@ -36,9 +35,11 @@ function SearchBar() {
         placeholder="링크를 검색해 보세요."
       />
       <img className={searchIconClasses} src={searchIcon} alt="searchIcon" />
-      <button className={inputResetButtonClasses} type="button" onClick={handleInputResetClick}>
-        <img className={resetIconClasses} src={resetIcon} alt="resetIcon" />
-      </button>
+      {inputState !== '' && (
+        <button className={inputResetButtonClasses} type="button" onClick={handleInputResetClick}>
+          <img className={resetIconClasses} src={resetIcon} alt="resetIcon" />
+        </button>
+      )}
     </div>
   );
 }
