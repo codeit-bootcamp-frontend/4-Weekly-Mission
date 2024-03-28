@@ -1,6 +1,7 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import Shared from './components/pages/shared';
-import Folder from './components/pages/folder';
+import Home from './components/pages/Home';
+import Shared from './components/pages/Shared';
+import Folder from './components/pages/Folder';
 import './App.css';
 
 function App() {
@@ -13,10 +14,6 @@ function App() {
       </Routes>
     </BrowserRouter>
   );
-}
-
-function Home() {
-  return <div>홈페이지</div>;
 }
 
 export default App;
