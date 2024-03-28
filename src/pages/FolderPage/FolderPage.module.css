@@ -1,6 +1,19 @@
+.bottom-add-link-bar {
+  padding: 1.6rem 3.2rem;
+  bottom: 0;
+  left: 0;
+}
+
 .sorting-section {
   justify-content: space-between;
   margin-bottom: 2.8rem;
+}
+
+.search-result-title {
+  font-size: 2.4rem;
+  font-weight: 600;
+  letter-spacing: -0.02rem;
+  margin-bottom: 3.2rem;
 }
 
 .floating-add-folder-button {
@@ -18,8 +31,17 @@
 
 /* Tablet */
 @media screen and (min-width: 768px) {
+  .bottom-add-link-bar {
+    padding: 2.4rem 3.2rem;
+  }
+
   .sorting-section {
     margin-bottom: 2.4rem;
+  }
+
+  .search-result-title {
+    font-size: 3.2rem;
+    margin-bottom: 4rem;
   }
 }
 

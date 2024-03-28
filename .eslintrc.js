@@ -7,6 +7,7 @@ module.exports = {
   extends: [
     'eslint:recommended',
     'plugin:react/recommended',
+    'plugin:@typescript-eslint/eslint-recommended',
     'plugin:@typescript-eslint/recommended',
     'airbnb',
     'plugin:prettier/recommended',
@@ -16,6 +17,7 @@ module.exports = {
   parserOptions: {
     ecmaFeatures: {
       jsx: true,
+      tsx: true,
     },
     ecmaVersion: 'latest',
     sourceType: 'module',
@@ -26,6 +28,7 @@ module.exports = {
     'react/prefer-stateless-function': 0,
     'react/jsx-filename-extension': 0,
     'react/jsx-one-expression-per-line': 0,
+    'react/require-default-props': 'off',
     'no-nested-ternary': 0,
     'prettier/prettier': [
       'error',
@@ -44,6 +47,16 @@ module.exports = {
     'linebreak-style': 0,
     'max-len': ['error', 120, 2, { ignoreComments: true, ignoreUrls: true }],
     'no-console': 'off',
+    'import/extensions': [
+      'error',
+      'ignorePackages',
+      {
+        js: 'never',
+        jsx: 'never',
+        ts: 'never',
+        tsx: 'never',
+      },
+    ],
     'import/order': [
       'error',
       {
@@ -114,7 +127,7 @@ module.exports = {
           ['services', './src/services'],
           ['utils', './src/utils'],
         ],
-        extensions: ['.js', '.jsx', '.json'],
+        extensions: ['.js', '.jsx', '.json', '.tsx', '.ts'],
       },
     },
   },
