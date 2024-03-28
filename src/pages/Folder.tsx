@@ -8,6 +8,8 @@ import Modal from "../componenets/modal/Modal";
 
 type User = (data: Data) => void;
 
+type Input = (data: string) => void;
+
 interface Data {
   id: number;
   created_at: string;
@@ -21,11 +23,14 @@ interface Data {
 
 export const UserData = React.createContext<User>({} as User);
 
+export const setInputData = React.createContext<Input>({} as Input);
+
 function Folder() {
   const [isModalOpen, setIsModalOpen] = useState(true);
   const [key, setKey] = useState(0);
   const [folderName, setFolderName] = useState("");
   const [data, setData] = useState<Data>({} as Data);
+  const [input, setInput] = useState("");
 
   const profileData = useFetchData("profileDataFetch", 1);
   const folderListData = useFetchData("folderListDataFetch", 1);
@@ -35,6 +40,10 @@ function Folder() {
     setIsModalOpen(!isModalOpen);
   }
 
+  function handleInputData(data: string) {
+    setInput(data);
+  }
+
   function handleFolderName(folderName: string) {
     setFolderName(folderName);
   }
@@ -42,17 +51,19 @@ function Folder() {
   function handleData(data: Data) {
     setData(data);
   }
-
   return (
     <>
       <Nav profileData={profileData} />
       <LinkAdd toggleModal={toggleModal} />
       <UserData.Provider value={handleData}>
-        <FolderDetail
-          folderListData={folderListData}
-          handleFolderName={handleFolderName}
-          toggleModal={toggleModal}
-        />
+        <setInputData.Provider value={handleInputData}>
+          <FolderDetail
+            folderListData={folderListData}
+            handleFolderName={handleFolderName}
+            toggleModal={toggleModal}
+            input={input}
+          />
+        </setInputData.Provider>
       </UserData.Provider>
       <Footer />
       <Modal

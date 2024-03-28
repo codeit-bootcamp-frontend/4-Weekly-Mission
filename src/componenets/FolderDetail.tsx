@@ -37,18 +37,30 @@ interface Prop {
   toggleModal: (id: number) => void;
   folderListData: Folder[];
   handleFolderName: (id: string) => void;
+  input: string;
 }
 
 export const UserContext = React.createContext<Context>({} as Context);
-
-function FolderDetail({ folderListData, toggleModal, handleFolderName }: Prop) {
+function FolderDetail({
+  folderListData,
+  toggleModal,
+  handleFolderName,
+  input,
+}: Prop) {
   const [selectedFolder, setSelectedFolder] = useState<Folder>({} as Folder);
-  const selectedFolderData: selectedFolderDataType[] =
+  let selectedFolderData: selectedFolderDataType[] =
     useFetchData("selectedFolderDataFetch", 4, selectedFolder) || [];
 
   const handleFolderListClick = (data: Folder) => {
     setSelectedFolder(data);
   };
+
+  selectedFolderData = selectedFolderData?.filter(
+    (id) =>
+      id.url?.includes(input) ||
+      id.title?.includes(input) ||
+      id.description?.includes(input)
+  );
 
   return (
     <div className="Folder-All">
