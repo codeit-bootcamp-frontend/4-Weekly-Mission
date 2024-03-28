@@ -10,8 +10,23 @@ import ModalPortal from '../../../utils/ModalPortal';
 import { DeleteFolder } from '../../common/modal/DeleteFolder';
 import { EditFolder } from '../../common/modal/Edit';
 
+interface User {
+  auth_id: string;
+  created_at: string;
+  email: string;
+  id: number;
+  image_source: string;
+  name: string;
+}
 const FolderPage: React.FC = () => {
-  const [userData, setUserData] = useState({});
+  const [userData, setUserData] = useState<User>({
+    auth_id: '',
+    created_at: '',
+    email: '',
+    id: 0,
+    image_source: '',
+    name: '',
+  });
   const [folderListData, setFolderListData] = useState([]);
   const [folderData, setFolderData] = useState([]);
   const [activeButton, setActiveButton] = useState<{
@@ -50,7 +65,6 @@ const FolderPage: React.FC = () => {
   const handleClickEdit = () => {
     setEditModal(!editModal);
   };
-
   return (
     <div>
       <NavBar user={userData} />

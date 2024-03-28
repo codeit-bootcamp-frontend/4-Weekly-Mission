@@ -1,6 +1,14 @@
 import { ModalBasic } from './ModalBasic';
 
-export function DeleteFolder({ folderName, onClickOutside }) {
+interface Props {
+  folderName: string;
+  onClickOutside: (
+    e:
+      | React.MouseEvent<HTMLDivElement, MouseEvent>
+      | React.MouseEvent<HTMLButtonElement, MouseEvent>
+  ) => void;
+}
+const DeleteFolder: React.FC<Props> = ({ folderName, onClickOutside }) => {
   const item = {
     title: '폴더 삭제',
     subtitle: folderName,
@@ -10,4 +18,6 @@ export function DeleteFolder({ folderName, onClickOutside }) {
     button: '삭제하기',
   };
   return <ModalBasic item={item} onClickOutside={onClickOutside} />;
-}
+};
+
+export { DeleteFolder };

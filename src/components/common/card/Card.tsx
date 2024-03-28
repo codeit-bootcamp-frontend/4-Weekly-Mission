@@ -30,7 +30,9 @@ const Card: React.FC<Props> = ({ card }) => {
   }
 
   const handleDeleteModal = (
-    e: React.MouseEvent<HTMLButtonElement, MouseEvent>
+    e:
+      | React.MouseEvent<HTMLDivElement, MouseEvent>
+      | React.MouseEvent<HTMLButtonElement, MouseEvent>
   ) => {
     e.stopPropagation();
     setDeleteModal([!deleteModal[0], deleteModal[1]]);

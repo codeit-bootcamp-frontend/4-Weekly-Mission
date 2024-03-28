@@ -1,6 +1,14 @@
 import { ModalBasic } from './ModalBasic';
 
-export function EditFolder({ folderName, onClickOutside }) {
+interface Props {
+  folderName: string;
+  onClickOutside: (
+    e:
+      | React.MouseEvent<HTMLDivElement, MouseEvent>
+      | React.MouseEvent<HTMLButtonElement, MouseEvent>
+  ) => void;
+}
+const EditFolder: React.FC<Props> = ({ folderName, onClickOutside }) => {
   const item = {
     title: '폴더 이름 변경',
     subtitle: '',
@@ -10,4 +18,6 @@ export function EditFolder({ folderName, onClickOutside }) {
     button: '변경하기',
   };
   return <ModalBasic item={item} onClickOutside={onClickOutside} />;
-}
+};
+
+export { EditFolder };

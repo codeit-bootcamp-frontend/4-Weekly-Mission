@@ -1,6 +1,14 @@
 import { ModalBasic } from './ModalBasic';
 
-export function DeleteLink({ url, onClickOutside }) {
+interface Props {
+  url: string;
+  onClickOutside: (
+    e:
+      | React.MouseEvent<HTMLDivElement, MouseEvent>
+      | React.MouseEvent<HTMLButtonElement, MouseEvent>
+  ) => void;
+}
+const DeleteLink: React.FC<Props> = ({ url, onClickOutside }) => {
   const item = {
     title: '링크 삭제',
     subtitle: url,
@@ -10,4 +18,6 @@ export function DeleteLink({ url, onClickOutside }) {
     button: '삭제하기',
   };
   return <ModalBasic item={item} onClickOutside={onClickOutside} />;
-}
+};
+
+export { DeleteLink };

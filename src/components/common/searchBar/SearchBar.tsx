@@ -1,7 +1,8 @@
 import SearchBarStyles from './SearchBar.module.css';
 import SearchImg from '../../../assets/Search.svg';
 import CloseImg from '../../../assets/close.png';
-function SearchBar() {
+
+const SearchBar: React.FC = () => {
   return (
     <form className={SearchBarStyles.form}>
       <input
@@ -21,6 +22,6 @@ function SearchBar() {
       />
     </form>
   );
-}
+};
 
 export default SearchBar;

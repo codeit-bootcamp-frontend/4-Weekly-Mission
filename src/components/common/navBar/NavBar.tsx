@@ -3,7 +3,25 @@ import navStyles from './NavBar.module.css';
 import logoImg from '../../../assets/linkbrary-logo.png';
 import { Button } from '../button/Button';
 
-function NavBar({ user, isFixed = false }) {
+interface SampleUser {
+  email: string;
+  id: number;
+  image_source: string;
+  name: string;
+}
+interface User {
+  auth_id: string;
+  created_at: string;
+  email: string;
+  id: number;
+  image_source: string;
+  name: string;
+}
+interface Props {
+  user: SampleUser | User;
+  isFixed?: boolean;
+}
+const NavBar: React.FC<Props> = ({ user, isFixed = false }) => {
   const backgroundStyles = `${navStyles.background} ${
     isFixed ? navStyles.fixed : ''
   }`;
@@ -29,6 +47,6 @@ function NavBar({ user, isFixed = false }) {
       </div>
     </div>
   );
-}
+};
 
 export default NavBar;

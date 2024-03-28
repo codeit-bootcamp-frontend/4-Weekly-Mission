@@ -4,7 +4,7 @@ import twitterIcon from '../../../assets/twitter-icon.png';
 import youtubeIcon from '../../../assets/youtube-icon.png';
 import instagramIcon from '../../../assets/instagram-icon.png';
 
-function Footer() {
+const Footer: React.FC = () => {
   return (
     <div className={footerStyles.background}>
       <div className={footerStyles.container}>
@@ -23,6 +23,6 @@ function Footer() {
       </div>
     </div>
   );
-}
+};
 
 export default Footer;

@@ -1,7 +1,13 @@
 import ReactDOM from 'react-dom';
 
-const ModalPortal = ({ children }) => {
+interface Props {
+  children: React.ReactNode;
+}
+const ModalPortal: React.FC<Props> = ({ children }) => {
   const el = document.getElementById('modal');
+  if (!el) {
+    return null;
+  }
   return ReactDOM.createPortal(children, el);
 };
 

@@ -1,8 +1,8 @@
-export function formatAgo(createdAt) {
-  const now = new Date();
-  const createdDate = new Date(createdAt);
+export function formatAgo(createdAt: string) {
+  const now: Date = new Date();
+  const createdDate: Date = new Date(createdAt);
 
-  const diffInMilliseconds = now - createdDate;
+  const diffInMilliseconds = now.getTime() - createdDate.getTime();
   const diffInMinutes = diffInMilliseconds / (1000 * 60);
   const diffInHours = diffInMinutes / 60;
   const diffInDays = diffInHours / 24;
@@ -32,6 +32,6 @@ export function formatAgo(createdAt) {
   }
 }
 
-export function formatDate(createdAt) {
+export function formatDate(createdAt: string) {
   return createdAt.split('T')[0];
 }

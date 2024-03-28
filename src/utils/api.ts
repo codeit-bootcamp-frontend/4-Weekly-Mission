@@ -1,6 +1,6 @@
 const BASE_URL = 'https://bootcamp-api.codeit.kr/api';
 
-async function getApi(url) {
+async function getApi(url: string) {
   const response = await fetch(url);
   const body = await response.json();
   return body;
@@ -18,7 +18,7 @@ export function getUser() {
 export function getFolderList() {
   return getApi(`${BASE_URL}/users/1/folders`);
 }
-export function getFolder(id) {
+export function getFolder(id: number) {
   if (id === 0) return getApi(`${BASE_URL}/users/1/links`);
   else return getApi(`${BASE_URL}/users/1/links?folderId=${id}`);
 }

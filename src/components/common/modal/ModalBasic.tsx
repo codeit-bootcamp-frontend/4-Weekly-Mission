@@ -3,14 +3,30 @@ import modalStyles from './ModalBasic.module.css';
 import closeImg from '../../../assets/close.png';
 import { useEffect, useState } from 'react';
 
-export function ModalBasic({ item, onClickOutside }) {
+interface item {
+  title: string;
+  subtitle?: string;
+  contents: string;
+  placeholder: string;
+  isRed: boolean;
+  button: string;
+}
+interface Props {
+  item: item;
+  onClickOutside: (
+    e:
+      | React.MouseEvent<HTMLDivElement, MouseEvent>
+      | React.MouseEvent<HTMLButtonElement, MouseEvent>
+  ) => void;
+}
+const ModalBasic: React.FC<Props> = ({ item, onClickOutside }) => {
   const [contents, setContents] = useState('');
 
   useEffect(() => {
     setContents(item.contents);
   }, [item.contents]);
 
-  const contentComponents = {
+  const contentComponents: Record<string, JSX.Element> = {
     edit: (
       <form>
         <input placeholder={item.placeholder} />
@@ -48,4 +64,6 @@ export function ModalBasic({ item, onClickOutside }) {
       </div>
     </div>
   );
-}
+};
+
+export { ModalBasic };
