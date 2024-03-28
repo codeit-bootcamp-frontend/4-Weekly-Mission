@@ -1,4 +1,4 @@
-import { AUTH } from './utils/constants/API';
+import { AUTH } from './utils/constants/API.ts';
 
 const BASE_URL = process.env.REACT_APP_BASE_URL;
 
