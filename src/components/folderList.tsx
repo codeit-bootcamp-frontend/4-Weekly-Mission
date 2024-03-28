@@ -1,3 +1,4 @@
+import React from "react";
 import "../style/folderList.css";
 import addImg from "../assets/add.png";
 import { useEffect, useState } from "react";
@@ -6,10 +7,24 @@ import shareImg from "../assets/share.png";
 import penImg from "../assets/pen.png";
 import deleteImg from "../assets/delete.png";
 import FolderCard from "./folderCard";
+interface Link {
+  count: number;
+}
+interface Folder {
+  id: number;
+  created_at: string;
+  name: string;
+  user_id: number;
+  favorite: boolean;
+  link: Link;
+}
+interface FolderData {
+  data: Folder[];
+}
 function FolderList() {
-  const [folderList, setFolderList] = useState(null);
-  const [selectedFolder, setSelectedFolder] = useState("전체");
-  const [linkToFetch, setLinkToFetch] = useState("users/1/links");
+  const [folderList, setFolderList] = useState<FolderData | null>(null);
+  const [selectedFolder, setSelectedFolder] = useState<string>("전체");
+  const [linkToFetch, setLinkToFetch] = useState<string>("users/1/links");
   useEffect(() => {
     const fetchFolderList = async () => {
       try {
@@ -18,13 +33,13 @@ function FolderList() {
           setFolderList(data);
         }
       } catch (e) {
-        alert("error", e);
+        alert("error" + e);
       }
     };
     fetchFolderList();
-  }, []);
+  });
 
-  const handleFolderClick = (folderName, folderId) => {
+  const handleFolderClick = (folderName: string, folderId: number | null) => {
     setSelectedFolder(folderName);
     const folderIdToSend = folderName === "전체" ? null : folderId;
     const linkToFetch = folderIdToSend
@@ -85,7 +100,9 @@ function FolderList() {
           <p className="folderName">{selectedFolder}</p>
         </div>
       )}
-      <FolderCard linkToFetch={linkToFetch} />
+      <div style={{ display: "flex", justifyContent: "center" }}>
+        <FolderCard linkToFetch={linkToFetch} />
+      </div>
     </div>
   );
 }

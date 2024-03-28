@@ -1,3 +1,4 @@
+import React from "react";
 import AddLink from "../components/addLink";
 import SearchLink from "../components/searchLink";
 import FolderList from "../components/folderList";
@@ -7,7 +8,7 @@ function Folder() {
     <div>
       <AddLink />
       <SearchLink />
-      <div>
+      <div style={{ display: "flex", justifyContent: "center" }}>
         <FolderList />
       </div>
     </div>

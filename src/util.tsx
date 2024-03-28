@@ -1,14 +1,16 @@
-export function formatDate(dateString) {
+export function formatDate(dateString: string): string {
   const date = new Date(dateString);
   const year = date.getFullYear();
   const month = String(date.getMonth() + 1).padStart(2, "0");
   const day = String(date.getDate()).padStart(2, "0");
   return `${year}.${month}.${day}`;
 }
-export function getTimeDifference(createdAt) {
+export function getTimeDifference(createdAt: string): string {
   const currentTime = new Date();
   const createdTime = new Date(createdAt);
-  const differenceInSeconds = Math.floor((currentTime - createdTime) / 1000);
+  const differenceInSeconds = Math.floor(
+    (currentTime.getTime() - createdTime.getTime()) / 1000,
+  );
   const minutes = Math.floor(differenceInSeconds / 60);
   const hours = Math.floor(minutes / 60);
   const days = Math.floor(hours / 24);

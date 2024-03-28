@@ -1,3 +1,4 @@
+import React from "react";
 import Profile from "./profile";
 import logo from "../assets/logo.png";
 import "../style/HeaderNavigation.css";

@@ -1,11 +1,12 @@
 .sorting-container {
   display: flex;
-  padding: 8px 480px;
+  padding: 8px 12px;
   align-items: center;
   justify-content: space-between;
 }
 .sortingBtn-container {
   display: flex;
+
   gap: 8px;
 }
 .sortingBtn {
@@ -36,7 +37,7 @@
 .folderOption-container {
   display: flex;
   justify-content: space-between;
-  padding: 8px 480px;
+  padding: 8px 0;
 }
 .folderName {
   color: black;
@@ -52,4 +53,19 @@
 .folderOption div {
   display: flex;
   align-items: center;
+}
+@media (min-width: 768px) and (max-width: 1199px) {
+  .sorting-container {
+    max-width: 704px;
+  }
+}
+@media (min-width: 375px) and (max-width: 767px) {
+  .sorting-container {
+    display: inline;
+    max-width: 300px;
+  }
+  .sortingBtn-container {
+    display: inline-block;
+    gap: 8px;
+  }
 }
