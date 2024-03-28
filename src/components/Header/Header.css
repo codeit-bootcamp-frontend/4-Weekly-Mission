@@ -20,7 +20,7 @@
   background-color: var(--Linkbrary-bg, #f0f6ff);
 }
 
-#headerShared #headerFolder .headerLogo .logo {
+.headerLogo .logo {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -47,18 +47,18 @@
   cursor: pointer;
 }
 
-#profileArea {
+.profileArea {
   display: flex;
   align-items: center;
   gap: 6px;
 }
 
-#profileImage {
+.profileImage {
   width: 28px;
   height: 28px;
   flex-shrink: 0;
 }
-#profileEmail {
+.profileEmail {
   color: var(--Linkbrary-gray100, #373740);
   /* Linkbrary/body2-regular */
   font-size: 14px;
