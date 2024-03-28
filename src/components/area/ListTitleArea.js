@@ -40,7 +40,6 @@ const ListTitleArea = ({ title }) => {
               onClick={toggleShareModal}
               modalTitle="폴더 공유"
               buttonClass="button modal_button back_gra_purpleblue"
-              buttonText="확인"
               modalButtonFunc={shareFolder}
               selectFolderName="SNS아이콘들"
             >

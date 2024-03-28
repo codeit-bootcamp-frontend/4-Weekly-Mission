@@ -8,7 +8,7 @@ import formatDate from '../utils/FormatDate';
 import './Card.css';
 
 const Card = ({ link }) => {
-  const [kebabButtonClick, setKebabButtonClick] = useState(false);
+  const [showPopOver, setShowPopOver] = useState(false);
   const { created_at, createdAt, description, image_source, url } = link;
   // TODO: 별 체크 기능 추가 예정
   const fillStar = false;
@@ -21,7 +21,7 @@ const Card = ({ link }) => {
         target="_blank"
         rel="noreferrer noopener"
       >
-        <div className={`img_area${image_source && ' none_img_area'}`}>
+        <div className={`img_area${image_source ? ' none_img_area' : ''}`}>
           <img
             src={image_source || noneCardImg}
             className="card_img"
@@ -31,7 +31,7 @@ const Card = ({ link }) => {
             }}
           />
           <div className="star_icon_area">
-            <img src={fillStar ? fullStar : emptyStar} />
+            <img src={fillStar ? fullStar : emptyStar} alt="star" />
           </div>
         </div>
       </a>
@@ -40,9 +40,9 @@ const Card = ({ link }) => {
           <p className="elapsed_time">{elapsedTime(created_at || createdAt)}</p>
           <div
             className="kebob_button"
-            onClick={() => setKebabButtonClick(!kebabButtonClick)}
+            onClick={() => setShowPopOver(!showPopOver)}
           >
-            {kebabButtonClick && <PopOverButton selectCard={link} />}
+            {showPopOver && <PopOverButton selectCard={link} />}
           </div>
         </div>
         <p className="description_text">{description}</p>
