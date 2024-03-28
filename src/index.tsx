@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import ReactModal from 'react-modal';
 
+import { InputStateContextProvider } from 'context/InputStateProvider';
 import ModalProvider from 'context/ModalProvider';
 
 import App from './App';
@@ -33,7 +34,9 @@ const root = ReactDOM.createRoot(rootElement);
 root.render(
   <React.StrictMode>
     <ModalProvider>
-      <App />
+      <InputStateContextProvider>
+        <App />
+      </InputStateContextProvider>
     </ModalProvider>
   </React.StrictMode>
 );
