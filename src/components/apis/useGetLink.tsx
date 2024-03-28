@@ -5,7 +5,7 @@ import { useAsync } from '../../hooks/useAsync';
 import { format } from 'date-fns/format';
 import { getElapsedTime } from '../../utils/getElapsedTime';
 
-export interface Link {
+export interface LinkData {
   id: string | number;
   name: string | number;
   created_at: string;
@@ -18,7 +18,7 @@ export interface Link {
   owner?: any;
 }
 
-const mapLinksData = (link: Link) => {
+const mapLinksData = (link: LinkData) => {
   const { id, created_at, url, image_source, title, description } = link;
   return {
     id,
@@ -33,14 +33,14 @@ const mapLinksData = (link: Link) => {
 
 const useGetLink = (folderId = DEFAULT_FOLDER.id) => {
   const queryString = folderId === DEFAULT_FOLDER.id ? '' : `?folderId=${folderId}`;
-  const getLinks = useCallback(() => axiosInstance.get<Link[]>(`users/4/links${queryString}`), [queryString]);
+  const getLinks = useCallback(() => axiosInstance.get<LinkData[]>(`users/4/links${queryString}`), [queryString]);
   const { execute, loading, error, data } = useAsync(getLinks);
 
   useEffect(() => {
     execute();
   }, [folderId]);
 
-  const mapDataFormat = ({ id, created_at, url, image_source, title, description }: Link) => ({
+  const mapDataFormat = ({ id, created_at, url, image_source, title, description }: LinkData) => ({
     id,
     created_at,
     image_source,

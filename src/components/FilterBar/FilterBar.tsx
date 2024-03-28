@@ -8,9 +8,9 @@ import DeleteFolderModal from '../Modals/DeleteFolderModal';
 import EditNameModal from '../Modals/EditNameModal';
 import ShareModal from '../Modals/ShareModal';
 import AddFolderModal from '../Modals/AddFolderModal';
-import type { Link } from '../apis/useGetLink';
+import type { LinkData } from '../apis/useGetLink';
 
-const mapFormatDate: (data: Link[]) => { name: string | number; id: string | number }[] = data => {
+const mapFormatDate: (data: LinkData[]) => { name: string | number; id: string | number }[] = data => {
   const formattedFolder = data.map(({ name, id }) => ({ name, id }));
   return [DEFAULT_FOLDER, ...formattedFolder];
 };

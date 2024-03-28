@@ -1,10 +1,10 @@
 import { useState, useEffect } from 'react';
-import type { Link } from '../components/apis/useGetLink';
+import type { LinkData } from '../components/apis/useGetLink';
 
 export const useAsync = (asyncFunction: () => Promise<any>) => {
   const [loading, setLoading] = useState<boolean>(false);
   const [error, setError] = useState<boolean>();
-  const [data, setData] = useState<Link[] | any>([]);
+  const [data, setData] = useState<LinkData[] | any>([]);
 
   const useEffectOnce = (callback: () => void) => {
     useEffect(() => {

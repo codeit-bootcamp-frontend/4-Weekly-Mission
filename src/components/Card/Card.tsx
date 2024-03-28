@@ -2,10 +2,11 @@ import React, { useState, useEffect } from 'react';
 import Moment from 'moment';
 import { getElapsedTime } from '../../utils/getElapsedTime';
 import './Card.css';
-import type { Link } from '../apis/useGetLink';
+import type { LinkData } from '../apis/useGetLink';
+import { Link } from 'react-router-dom';
 
-interface CardProps {
-  data: Link[];
+interface Props {
+  data: LinkData[];
 }
 
 const PopoverMenu = ({ onClose }: { onClose: () => void }) => {
@@ -17,19 +18,19 @@ const PopoverMenu = ({ onClose }: { onClose: () => void }) => {
   );
 };
 
-const Card: React.FC<CardProps> = ({ data }) => {
-  const [cardData, setCardData] = useState<Link[]>([]);
+const Card: React.FC<Props> = ({ data }) => {
+  const [cardData, setCardData] = useState<LinkData[]>([]);
   const [popoverMenuOpen, setPopoverMenuOpen] = useState(false);
 
   useEffect(() => {
     setCardData(data);
   }, [data]);
 
-  const handleClick = () => {
+  const handleOpenPopoverMenu = () => {
     setPopoverMenuOpen(true);
   };
 
-  const handleClose = () => {
+  const handleClosePopoverMenu = () => {
     setPopoverMenuOpen(false);
   };
 
@@ -40,7 +41,7 @@ const Card: React.FC<CardProps> = ({ data }) => {
       ) : (
         cardData.map(link => (
           <div key={link.id} className="card">
-            <a href={link.url}>
+            <Link to={link.url}>
               <img
                 className="cardImage"
                 src={
@@ -48,14 +49,14 @@ const Card: React.FC<CardProps> = ({ data }) => {
                 }
                 alt={link.title}
               />
-            </a>
+            </Link>
             <div className="cardTextArea">
               <div className="uploadTime">
                 <div>{getElapsedTime(link.created_at || link.createdAt)} </div>
-                <button type="button" key={link.id} onClick={handleClick}>
+                <button type="button" key={link.id} onClick={handleOpenPopoverMenu}>
                   <img src={`${process.env.PUBLIC_URL}/images/kebab.png`} alt="팝오버 아이콘" />
                 </button>
-                {popoverMenuOpen && <PopoverMenu onClose={handleClose} />}
+                {popoverMenuOpen && <PopoverMenu onClose={handleClosePopoverMenu} />}
               </div>
               <a href={link.url}>
                 <div className="cardText">{link.description}</div>
