@@ -73,11 +73,6 @@ function Folder() {
             <FolderHeaderContent />
           </Header>
         </div>
-        {!isHeaderVisible && !isFooterVisible && (
-          <section className={bottomAddLinkBarClasses}>
-            <AddLinkBar />
-          </section>
-        )}
         <Main>
           <InputStateContextProvider>
             <SearchBar />
@@ -87,6 +82,11 @@ function Folder() {
           <FloatingAddFolderButton className={floatingAddFolderButtonClasses} onClick={handleAddFolderButtonClick} />
         </Main>
       </div>
+      {!isHeaderVisible && !isFooterVisible && (
+        <section className={bottomAddLinkBarClasses}>
+          <AddLinkBar />
+        </section>
+      )}
       <div ref={footerObservationTargetRef}>
         <Footer />
       </div>
