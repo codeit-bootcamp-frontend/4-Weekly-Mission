@@ -1,5 +1,5 @@
 import classNames from 'classnames';
-import React, { useCallback, useState } from 'react';
+import React, { useCallback, useContext, useEffect, useState } from 'react';
 
 import useIntersectionObserver from 'hooks/useIntersectionObserver';
 import useModal from 'hooks/useModal';
@@ -14,17 +14,21 @@ import Main from 'components/Main/Main';
 import SearchBar from 'components/Main/SearchBar';
 import SortingSection from 'components/Main/SortingSection';
 
-import { InputStateContextProvider } from 'context/InputStateProvider';
+import { InputStateContext } from 'context/InputStateProvider';
 import { modalList } from 'context/Modal';
 
 import styles from 'pages/FolderPage/FolderPage.module.css';
+
+import selectParticle from 'utils/selectPostposition';
 
 function Folder() {
   const ALL = { id: 0, name: '전체' };
   const [selectedFolder, setSelectedFolder] = useState(ALL);
   const [isHeaderVisible, setIsHeaderVisible] = useState(true);
   const [isFooterVisible, setIsFooterVisible] = useState(false);
+  const [isSearchResultVisible, setIsSearchResultVisible] = useState(false);
   const { openModal } = useModal();
+  const { inputState } = useContext(InputStateContext);
 
   const checkVisible = useCallback((setVisible: React.Dispatch<React.SetStateAction<boolean>>, isVisible: boolean) => {
     return () => setVisible(isVisible);
@@ -49,6 +53,15 @@ function Folder() {
     openModal(modalList.AddForderModal, { onSubmit: handleAddFolder });
   };
 
+  useEffect(() => {
+    if (inputState) {
+      setIsSearchResultVisible(true);
+    } else {
+      setIsSearchResultVisible(false);
+    }
+  }, [inputState]);
+
+  const searchResultTitleClasses = classNames(styles['search-result-title'], 'text-color-gray60');
   const floatingAddFolderButtonClasses = classNames(
     styles['floating-add-folder-button'],
     'position-fixed',
@@ -74,11 +87,15 @@ function Folder() {
           </Header>
         </div>
         <Main>
-          <InputStateContextProvider>
-            <SearchBar />
-            <SortingSection selectedFolder={selectedFolder} setSelectedFolder={setSelectedFolder} />
-            <CardList folderId={selectedFolder.id} />
-          </InputStateContextProvider>
+          <SearchBar />
+          {isSearchResultVisible && (
+            <p className={searchResultTitleClasses}>
+              <span className="text-color-gray100">{inputState}</span>
+              {selectParticle(inputState)} 검색한 결과입니다.
+            </p>
+          )}
+          <SortingSection selectedFolder={selectedFolder} setSelectedFolder={setSelectedFolder} />
+          <CardList folderId={selectedFolder.id} />
           <FloatingAddFolderButton className={floatingAddFolderButtonClasses} onClick={handleAddFolderButtonClick} />
         </Main>
       </div>
