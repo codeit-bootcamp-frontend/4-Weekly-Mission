@@ -6,15 +6,15 @@ import { format } from 'date-fns/format';
 import { getElapsedTime } from '../../utils/getElapsedTime';
 
 export interface LinkData {
-  id: string | number;
-  name: string | number;
+  id?: string | number;
+  name?: string | number;
   created_at: string;
-  createdAt: string;
+  createdAt?: string;
   url: string;
-  image_source: string;
-  imageSource: string;
-  title: string;
-  description: string;
+  image_source?: string;
+  imageSource?: string;
+  title?: string;
+  description?: string;
   owner?: any;
 }
 
@@ -33,7 +33,7 @@ const mapLinksData = (link: LinkData) => {
 
 const useGetLink = (folderId = DEFAULT_FOLDER.id) => {
   const queryString = folderId === DEFAULT_FOLDER.id ? '' : `?folderId=${folderId}`;
-  const getLinks = useCallback(() => axiosInstance.get<LinkData[]>(`users/4/links${queryString}`), [queryString]);
+  const getLinks = useCallback(() => axiosInstance.get<LinkData>(`users/4/links${queryString}`), [queryString]);
   const { execute, loading, error, data } = useAsync(getLinks);
 
   useEffect(() => {
@@ -49,8 +49,7 @@ const useGetLink = (folderId = DEFAULT_FOLDER.id) => {
     description,
   });
 
-  const linksData = (data?.data || []).map(mapDataFormat).map(mapLinksData);
-
+  const linksData = (data || []).map(mapDataFormat).map(mapLinksData);
   return { execute, loading, error, data: linksData };
 };
 

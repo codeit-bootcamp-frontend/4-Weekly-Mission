@@ -3,22 +3,23 @@ import twitter from './images/akar-icons_twitter-fill.svg';
 import youtube from './images/akar-icons_youtube-fill.svg';
 import instagram from './images/ant-design_instagram-filled.svg';
 import './Footer.css';
+import { Link } from 'react-router-dom';
 
 export default function Footer() {
   return (
-    <footer id="footerShared">
-      <div className="footer1">
+    <footer className="footerShared">
+      <div className="footerDate">
         <p>©codeit - 2023</p>
       </div>
-      <div className="footer2">
-        <a href="/privacy">
+      <div className="footerLink">
+        <Link to="/privacy">
           <p>Privacy Policy</p>
-        </a>
-        <a href="/faq">
+        </Link>
+        <Link to="/faq">
           <p>FAQ</p>
-        </a>
+        </Link>
       </div>
-      <div className="footer3">
+      <div className="footerLogo">
         <img src={facebook} alt="페이스북 로고" />
         <img src={twitter} alt="트위터 로고" />
         <img src={youtube} alt="유튜브 로고" />

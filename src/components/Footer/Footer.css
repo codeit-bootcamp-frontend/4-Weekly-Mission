@@ -1,4 +1,4 @@
-#footerShared {
+.footerShared {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -7,7 +7,7 @@
   background: var(--The-julge-black, #111322);
 }
 
-#footerShared .footer1 {
+.footerShared .footerDate {
   color: #676767;
   text-align: center;
   font-family: Acme;
@@ -17,7 +17,7 @@
   line-height: normal;
 }
 
-#footerShared .footer2 {
+.footerShared .footerLink {
   display: flex;
   justify-content: space-between;
   gap: 30px;
@@ -29,12 +29,12 @@
   line-height: normal;
 }
 
-#footerShared .footer2 a {
+.footerShared .footerLink a {
   text-decoration: none;
   color: #cfcfcf;
 }
 
-#footerShared .footer3 {
+.footerShared .footerLogo {
   display: flex;
   gap: 12px;
 }

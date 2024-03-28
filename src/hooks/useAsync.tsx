@@ -1,10 +1,9 @@
 import { useState, useEffect } from 'react';
-import type { LinkData } from '../components/apis/useGetLink';
 
 export const useAsync = (asyncFunction: () => Promise<any>) => {
   const [loading, setLoading] = useState<boolean>(false);
   const [error, setError] = useState<boolean>();
-  const [data, setData] = useState<LinkData[] | any>([]);
+  const [data, setData] = useState(null);
 
   const useEffectOnce = (callback: () => void) => {
     useEffect(() => {
@@ -15,10 +14,10 @@ export const useAsync = (asyncFunction: () => Promise<any>) => {
   const execute = async () => {
     setLoading(true);
     setError(false);
-    setData([]);
+    setData(null);
     try {
       const response = await asyncFunction();
-      setData(response?.data);
+      setData(response?.data?.data);
       return response;
     } catch (error) {
       setError(true);

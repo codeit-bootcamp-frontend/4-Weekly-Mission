@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import './FilterBar.css';
 import useGetLink from '../apis/useGetLink';
 import Card from '../Card/Card';
@@ -9,8 +9,9 @@ import EditNameModal from '../Modals/EditNameModal';
 import ShareModal from '../Modals/ShareModal';
 import AddFolderModal from '../Modals/AddFolderModal';
 import type { LinkData } from '../apis/useGetLink';
+import { useAsync } from '../../hooks/useAsync';
 
-const mapFormatDate: (data: LinkData[]) => { name: string | number; id: string | number }[] = data => {
+const mapFormatDate: (data: LinkData[]) => { name?: string | number; id?: string | number }[] = data => {
   const formattedFolder = data.map(({ name, id }) => ({ name, id }));
   return [DEFAULT_FOLDER, ...formattedFolder];
 };
@@ -19,10 +20,10 @@ export default function FilterBar() {
   const [folderId, setFolderId] = useState(DEFAULT_FOLDER.id);
   const [folderData, setFolderData] = useState<
     {
-      id: string | number;
-      name: string | number;
+      id?: string | number;
+      name?: string | number;
     }[]
-  >([]);
+  >();
   const [folderName, setFolderName] = useState(DEFAULT_FOLDER.name);
   const { loading, error, data: linksData } = useGetLink(folderId);
 
@@ -43,18 +44,27 @@ export default function FilterBar() {
     setFolderName(name);
   };
 
-  useEffect(() => {
-    async function fetchData() {
-      try {
-        const { data } = await axiosInstance.get('users/4/folders');
-        setFolderData(mapFormatDate(data.data));
-      } catch (error) {
-        console.error('Error fetching data:', error);
-      }
-    }
+  const useGetData = (folderId: string) => {
+    const getDatas = useCallback(() => axiosInstance.get<LinkData[]>('users/4/folders'), []);
+    const { execute, loading, error, data } = useAsync(getDatas);
 
-    fetchData();
-  }, []);
+    useEffect(() => {
+      execute();
+    }, []);
+  };
+
+  // useEffect(() => {
+  //   async function fetchData() {
+  //     try {
+  //       const { data } = await axiosInstance.get('users/4/folders');
+  //       setFolderData(mapFormatDate(data.data));
+  //     } catch (error) {
+  //       console.error('Error fetching data:', error);
+  //     }
+  //   }
+
+  //   fetchData();
+  // }, []);
 
   if (error) {
     return <div>Error: {error}</div>;
@@ -68,19 +78,24 @@ export default function FilterBar() {
         {addFolderModalOpen && <AddFolderModal onClose={handleClose} />}
         <div className="filterBar">
           <div className="filterBarLeft">
-            {folderData.map(({ id, name }) => (
-              <button
-                key={id}
-                className={`filterBarButton ${folderId == id ? 'selected' : ''}`}
-                type="button"
-                value={id}
-                onClick={() => {
-                  handleChange(String(id), String(name));
-                }}>
-                {name}
-              </button>
-            ))}
+            {!folderData ? (
+              <div></div>
+            ) : (
+              folderData.map(({ id, name }) => (
+                <button
+                  key={id}
+                  className={`filterBarButton ${folderId == id ? 'selected' : ''}`}
+                  type="button"
+                  value={id}
+                  onClick={() => {
+                    handleChange(String(id), String(name));
+                  }}>
+                  {name}
+                </button>
+              ))
+            )}
           </div>
+
           <div className="filterBarRight">
             <div className="addButton" onClick={() => setAddFolderModalOpen(true)}>
               폴더 추가 <img src={`${process.env.PUBLIC_URL}/images/add.svg`} alt="추가 아이콘"></img>

@@ -2,9 +2,10 @@ import { useState, useEffect } from 'react';
 import { axiosInstance } from '../../utils/axiosInstance';
 import Card from '../Card/Card';
 import './CardList.css';
+import { LinkData } from '../apis/useGetLink';
 
 export default function CardList() {
-  const [cardData, setCardData] = useState([]);
+  const [cardData, setCardData] = useState<LinkData[] | null>(null);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -20,9 +21,7 @@ export default function CardList() {
 
   return (
     <main id="mainShared">
-      <div className="cardList">
-        <Card data={cardData} />
-      </div>
+      <div className="cardList">{cardData !== null && <Card data={cardData} />}</div>
     </main>
   );
 }

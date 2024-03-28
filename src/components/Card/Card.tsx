@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import Moment from 'moment';
 import { getElapsedTime } from '../../utils/getElapsedTime';
 import './Card.css';
@@ -47,7 +47,7 @@ const Card: React.FC<Props> = ({ data }) => {
             </Link>
             <div className="cardTextArea">
               <div className="uploadTime">
-                <div>{getElapsedTime(link.created_at || link.createdAt)} </div>
+                <div>{getElapsedTime(link.created_at ?? link.createdAt)} </div>
                 <button type="button" key={link.id} onClick={handleOpenPopoverMenu}>
                   <img src={`${process.env.PUBLIC_URL}/images/kebab.png`} alt="팝오버 아이콘" />
                 </button>
