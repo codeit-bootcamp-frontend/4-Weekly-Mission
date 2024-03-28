@@ -1,6 +1,29 @@
+import React, { useState } from "react";
 import "./index.scss";
+import AddFolder from "../../Modal/AddFolder";
+import { FoldersData } from "../../../types/interface";
 
-const LinkCategory = ({ categoryList, currentCategory, onClick }) => {
+interface LinkCategoryProps {
+  categoryList: FoldersData[] | undefined;
+  currentCategory: string;
+  onClick: (category: string) => void;
+}
+
+const LinkCategory = ({
+  categoryList,
+  currentCategory,
+  onClick,
+}: LinkCategoryProps) => {
+  const [showAddFolderModal, setShowAddFolderModal] = useState(false);
+
+  const openAddFolderModal = () => {
+    setShowAddFolderModal(true);
+  };
+
+  const closeAddFolderModal = () => {
+    setShowAddFolderModal(false);
+  };
+
   return (
     <div className="category-bar">
       <ul className="category-list">
@@ -29,7 +52,10 @@ const LinkCategory = ({ categoryList, currentCategory, onClick }) => {
             </li>
           ))}
       </ul>
-      <button className="add-folder-btn">폴더 추가 +</button>
+      <button className="add-folder-btn" onClick={openAddFolderModal}>
+        폴더 추가 +
+      </button>
+      <AddFolder isOpen={showAddFolderModal} onClose={closeAddFolderModal} />
     </div>
   );
 };

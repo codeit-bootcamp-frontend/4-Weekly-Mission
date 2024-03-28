@@ -1,10 +1,11 @@
 import { useEffect, useState } from "react";
 import { getFolder } from "../../api";
 import "./index.css";
+import { FolderResponse, Owner } from "../../types/interface";
 
 const Profile = () => {
-  const [folderData, setFolderData] = useState(null);
-  const [owner, setOwner] = useState(null);
+  const [folderData, setFolderData] = useState<FolderResponse | null>(null);
+  const [owner, setOwner] = useState<Owner | null>(null);
 
   useEffect(() => {
     const fetchData = async () => {

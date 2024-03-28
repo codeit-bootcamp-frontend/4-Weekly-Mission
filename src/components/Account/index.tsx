@@ -1,9 +1,10 @@
 import { useEffect, useState } from "react";
+import { User } from "../../types/interface";
 import { getUser } from "../../api";
 import "./index.css";
 
 const Account = () => {
-  const [userData, setUserData] = useState(null);
+  const [userData, setUserData] = useState<User | null>(null);
 
   useEffect(() => {
     async function fetchData() {

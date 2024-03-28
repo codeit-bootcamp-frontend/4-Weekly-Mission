@@ -1,4 +1,4 @@
-.search-bar {
+.searchBar {
   position: relative;
   display: flex;
   justify-content: flex-start;
@@ -6,7 +6,7 @@
   width: 102.1rem;
 }
 
-.search-input {
+.searchInput {
   border: none;
   outline: none;
   padding: 1.5rem 1.6rem 1.5rem 3.6rem;
@@ -16,23 +16,32 @@
   border-radius: 10px;
 }
 
-.search-icon {
+.searchIcon {
   position: absolute;
   width: 1.2rem;
   height: auto;
   left: 1.6rem;
 }
 
+.closeIcon {
+  position: absolute;
+  right: 1.6rem;
+  width: 24px;
+  height: 24px;
+  flex-shrink: 0;
+  cursor: pointer;
+}
+
 /* Tablet*/
 @media screen and (min-width: 768px) and (max-width: 1199px) {
-  .search-bar {
+  .searchBar {
     width: 80%;
   }
 }
 
 /* Mobile*/
 @media screen and (min-width: 375px) and (max-width: 767px) {
-  .search-bar {
+  .searchBar {
     width: 80%;
   }
 }

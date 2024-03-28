@@ -1,4 +1,4 @@
-export function formatDate(inputDate) {
+export function formatDate(inputDate: string): string {
   const date = new Date(inputDate);
   const year = date.getFullYear().toString();
   const month = (date.getMonth() + 1).toString().padStart(2, "0");
@@ -7,11 +7,13 @@ export function formatDate(inputDate) {
   return `${year}.${month}.${day}`;
 }
 
-export function getTimeAgo(inputDate) {
+export function getTimeAgo(inputDate: string): string {
   const date = new Date(inputDate);
   const now = new Date();
 
-  const differenceInSeconds = Math.floor((now - date) / 1000);
+  const differenceInSeconds = Math.floor(
+    (now.getTime() - date.getTime()) / 1000
+  );
   const differenceInMinutes = Math.floor(differenceInSeconds / 60);
   const differenceInHours = Math.floor(differenceInMinutes / 60);
   const differenceInDays = Math.floor(differenceInHours / 24);
