@@ -29,9 +29,12 @@
   fill: rgba(0, 0, 0, 0);
 }
 
-#mainShared .searchBar p {
+#mainShared .searchBar input {
+  background: #f5f5f5;
   color: var(--Text, #666);
-  text-align: right;
+  text-align: left;
+  border: none;
+  width: 100%;
 
   /* Linkbrary/body1-regular */
   font-size: 16px;
