@@ -1,41 +1,31 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faXmark } from '@fortawesome/free-solid-svg-icons';
+import { PropsWithChildren } from 'react';
 import './Modal.css';
-import styled from 'styled-components';
-
-const Div = styled.div`
-  position: fixed;
-  inset: 0;
-  background-color: rgba(0, 0, 0, 0.4);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-`;
 
 export interface ModalBaseProps {
   modalName?: string;
-  children?: React.ReactNode;
   onClick?: () => void;
   centerSpace?: React.ReactNode;
   onClose?: () => void;
 }
 
-function ModalBase({ modalName, children, onClick, centerSpace, onClose }: ModalBaseProps) {
+function ModalBase({ modalName, children, onClick, centerSpace, onClose }: PropsWithChildren<ModalBaseProps>) {
   return (
-    <Div onClick={onClose}>
+    <div className="modalBase" onClick={onClose}>
       <div
-        id="EditModal"
+        className="modal"
         onClick={e => {
           e.stopPropagation();
         }}>
-        <FontAwesomeIcon icon={faXmark} className="EditModalX" onClick={onClose} />
-        <p id="EditModalText">{modalName}</p>
+        <FontAwesomeIcon icon={faXmark} className="modalX" onClick={onClose} />
+        <p className="modalText">{modalName}</p>
         <div className="centerSpace">{centerSpace}</div>
-        <button id="EditModalButton" onClick={onClick}>
+        <button className="modalButton" onClick={onClick}>
           {children}
         </button>
       </div>
-    </Div>
+    </div>
   );
 }
 

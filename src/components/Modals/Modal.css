@@ -1,4 +1,13 @@
-#EditModal {
+.modalBase {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.4);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal {
   width: 360px;
   height: 239px;
   display: flex;
@@ -13,7 +22,7 @@
   position: relative;
 }
 
-#EditModalText {
+.modalText {
   width: 113px;
   height: 24px;
   color: var(--Linkbrary-gray100, #373740);
@@ -25,19 +34,7 @@
   line-height: normal;
 }
 
-#EditModalInput {
-  display: flex;
-  width: 280px;
-  height: 60px;
-  padding: 18px 15px;
-  justify-content: center;
-  align-items: center;
-  border-radius: 8px;
-  border: 1px solid var(--Linkbrary-primary-color, #6d6afe);
-  background: var(--Linkbrary-white, #fff);
-}
-
-#EditModalButton {
+.modalButton {
   display: flex;
   width: 280px;
   height: 51px;
@@ -55,7 +52,7 @@
   line-height: normal;
 }
 
-#EditModal .EditModalX {
+.modal .modalX {
   width: 24px;
   height: 24px;
   background-color: #e7effb;

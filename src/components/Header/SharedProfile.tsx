@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { axiosInstance } from '../../utils/axiosInstance';
-import { ProfileData } from './FolderProfile';
+import { ProfileData } from './Header';
 
 function SharedProfile({ userData }: { userData: ProfileData }) {
   const [user, setUser] = useState<ProfileData | null>(null);

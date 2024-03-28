@@ -11,7 +11,7 @@ import AddFolderModal from '../Modals/AddFolderModal';
 import type { LinkData } from '../apis/useGetLink';
 import { useAsync } from '../../hooks/useAsync';
 
-const mapFormatDate: (data: LinkData[]) => { name?: string | number; id?: string | number }[] = data => {
+const folderFormatDate: (data: LinkData[]) => { name?: string | number; id?: string | number }[] = data => {
   const formattedFolder = data.map(({ name, id }) => ({ name, id }));
   return [DEFAULT_FOLDER, ...formattedFolder];
 };

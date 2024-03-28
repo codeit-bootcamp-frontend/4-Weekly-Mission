@@ -8,14 +8,14 @@ interface FolderInfoProps {
 }
 
 const FolderInfo: React.FC<FolderInfoProps> = () => {
-  const [folderData, setFolderData] = useState<LinkData | undefined>(undefined);
+  const [folderData, setFolderData] = useState<LinkData | null>(null);
   const fetchData = async () => {
     try {
       const response = await axiosInstance.get('sample/folder');
       setFolderData(response.data.folder);
     } catch (error) {
       console.error('Error fetching data:', error);
-      setFolderData(undefined);
+      setFolderData(null);
     }
   };
   useEffect(() => {

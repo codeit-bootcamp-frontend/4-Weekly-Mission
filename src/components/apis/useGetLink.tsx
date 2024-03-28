@@ -15,7 +15,11 @@ export interface LinkData {
   imageSource?: string;
   title?: string;
   description?: string;
-  owner?: any;
+  owner?: {
+    id: number;
+    name: string;
+    profileImageSource: string;
+  };
 }
 
 const mapLinksData = (link: LinkData) => {

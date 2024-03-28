@@ -1,14 +1,8 @@
 import { useState, useEffect } from 'react';
 import { axiosInstance } from '../../utils/axiosInstance';
+import { ProfileData } from './Header';
 
-export interface ProfileData {
-  profileImageSource: string;
-  image_source: string;
-  email: string;
-  data: any[];
-}
-
-function FolderProfile({ userData }: { userData: ProfileData }) {
+function FolderProfile({ userData }: { userData?: ProfileData }) {
   const [user, setUser] = useState<ProfileData | null>(null);
   const folderFetchData = async () => {
     try {
