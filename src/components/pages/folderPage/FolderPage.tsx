@@ -10,11 +10,14 @@ import ModalPortal from '../../../utils/ModalPortal';
 import { DeleteFolder } from '../../common/modal/DeleteFolder';
 import { EditFolder } from '../../common/modal/Edit';
 
-function FolderPage() {
+const FolderPage: React.FC = () => {
   const [userData, setUserData] = useState({});
   const [folderListData, setFolderListData] = useState([]);
   const [folderData, setFolderData] = useState([]);
-  const [activeButton, setActiveButton] = useState({ id: 0, name: '전체' });
+  const [activeButton, setActiveButton] = useState<{
+    id: number;
+    name: string;
+  }>({ id: 0, name: '전체' });
   const [deleteFolderModal, setDeleteFolderModal] = useState(false);
   const [editModal, setEditModal] = useState(false);
 
@@ -37,7 +40,7 @@ function FolderPage() {
     getFolderListData();
   }, []);
 
-  const handleClick = (id, name) => {
+  const handleClick = (id: number, name: string) => {
     setActiveButton({ id: id, name: name });
     getFolderData(id);
   };
@@ -68,7 +71,7 @@ function FolderPage() {
                   전체
                 </button>
                 {folderListData &&
-                  folderListData.map((folder) => {
+                  folderListData.map((folder: { id: number; name: string }) => {
                     return (
                       <button
                         key={folder.name}
@@ -135,6 +138,6 @@ function FolderPage() {
       <Footer />
     </div>
   );
-}
+};
 
 export default FolderPage;
