@@ -1,15 +1,17 @@
 import classNames from 'classnames';
-import React, { useState } from 'react';
+import React, { useContext } from 'react';
 
 import searchIcon from 'assets/images/search-icon.svg';
 
 import styles from 'components/Main/SearchBar.module.css';
 
+import { InputStateContext } from 'context/InputStateProvider';
+
 function SearchBar() {
-  const [inputValue, setInputValue] = useState('');
+  const { inputState, setInputState } = useContext(InputStateContext);
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setInputValue(e.target.value);
+    setInputState(e.target.value);
   };
 
   const containerClasses = classNames(styles['search-bar'], 'position-relative', 'width-full');
@@ -21,7 +23,7 @@ function SearchBar() {
       <input
         className={inputClasses}
         type="text"
-        value={inputValue}
+        value={inputState}
         onChange={handleInputChange}
         placeholder="링크를 검색해 보세요."
       />
