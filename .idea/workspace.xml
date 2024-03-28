@@ -4,39 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4e5353b4-1a6e-4d69-b0cc-8adf18cfaf93" name="Changes" comment="docs: 확장자 통일">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/folder/ui-actionIcon/ActionIcon.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/folder/ui-actionIcon/ActionIconList.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/folder/ui-button/AddFolderButton.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/folder/ui-card/Card.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/folder/ui-card/CardList.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/folder/ui-input/AddLinkForm.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/folder/ui-input/SearchInputForm.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/folder/ui-layout/FolderHeaderLayout.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/folder/ui-layout/MainLayout.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/folder/ui-tag/Tag.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/folder/ui-tag/TagList.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/folder/ui-user/UserProfile.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/sharing/Footer.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/sharing/Header.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/sharing/ui-button/Button.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/sharing/ui-button/IconButton.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/sharing/ui-button/StarButton.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/sharing/ui-modal/Modal.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/sharing/ui-modal/Modal.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/sharing/ui-modal/ModalFolderItem.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/sharing/ui-modal/ModalFolderItem.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/sharing/ui-modal/ModalFolderList.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/sharing/ui-modal/ModalFolderList.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/sharing/ui-modal/SocialIcons.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/sharing/ui-modal/SocialIcons.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/FAQ.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/Folder.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/LinkDetail.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/NoLink.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/Privacy.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/Shared.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/utils/api.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/utils/constant.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/utils/dateUtils.js" beforeDir="false" />
+    <list default="true" id="4e5353b4-1a6e-4d69-b0cc-8adf18cfaf93" name="Changes" comment="design: 반응형 디자인 수정">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/folder/card/CardList.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/folder/card/CardList.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/folder/tag/Tag.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/folder/tag/Tag.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/folder/tag/TagList.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/folder/tag/TagList.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/sharing/Button.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/sharing/Button.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/sharing/modal/ModalButton.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/sharing/modal/ModalButton.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/sharing/modal/ModalFolderList.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/sharing/modal/ModalFolderList.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -53,6 +28,8 @@
       <list>
         <option value="CSS File" />
         <option value="JavaScript File" />
+        <option value="TypeScript File" />
+        <option value="TypeScript JSX File" />
       </list>
     </option>
   </component>
@@ -104,7 +81,7 @@
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;part2-김준영-week9&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;part2-김준영-week13&quot;,
     &quot;last_opened_file_path&quot;: &quot;/Users/junyeong/Library/Mobile Documents/com~apple~CloudDocs/Desktop/데스크탑 - 김준영의 MacBook Pro/Development/CodeIt_Sprint/4-Weekly-Mission&quot;,
     &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
@@ -116,17 +93,17 @@
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
     &quot;prettierjs.PrettierConfiguration.Package&quot;: &quot;/usr/local/lib/node_modules/prettier&quot;,
     &quot;settings.editor.selected.configurable&quot;: &quot;settings.javascript.linters.eslint&quot;,
-    &quot;ts.external.directory.path&quot;: &quot;/Applications/WebStorm.app/Contents/plugins/javascript-impl/jsLanguageServicesImpl/external&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;/Users/junyeong/Library/Mobile Documents/com~apple~CloudDocs/Desktop/데스크탑 - 김준영의 MacBook Pro/Development/CodeIt_Sprint/4-weekly-mission/node_modules/typescript/lib&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/src/utils" />
-      <recent name="$PROJECT_DIR$/public/icons" />
-      <recent name="$PROJECT_DIR$/src/components/sharing/ui-modal" />
-      <recent name="$PROJECT_DIR$/src/components/sharing" />
-      <recent name="$PROJECT_DIR$/src/components/folder/button" />
+      <recent name="$PROJECT_DIR$/public/assets/icons" />
+      <recent name="$PROJECT_DIR$/public/assets/images" />
+      <recent name="$PROJECT_DIR$/public/assets" />
+      <recent name="$PROJECT_DIR$/public/assets/icons" />
+      <recent name="$PROJECT_DIR$/public/assets" />
     </key>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
@@ -173,46 +150,9 @@
       <workItem from="1709052876650" duration="3235000" />
       <workItem from="1709056146532" duration="345000" />
       <workItem from="1709057669693" duration="637000" />
-    </task>
-    <task id="LOCAL-00001" summary="setting">
-      <option name="closed" value="true" />
-      <created>1707336536666</created>
-      <option name="number" value="00001" />
-      <option name="presentableId" value="LOCAL-00001" />
-      <option name="project" value="LOCAL" />
-      <updated>1707336536666</updated>
-    </task>
-    <task id="LOCAL-00002" summary="setting">
-      <option name="closed" value="true" />
-      <created>1707425134770</created>
-      <option name="number" value="00002" />
-      <option name="presentableId" value="LOCAL-00002" />
-      <option name="project" value="LOCAL" />
-      <updated>1707425134770</updated>
-    </task>
-    <task id="LOCAL-00003" summary="feat: Header 내 프로필 정보 생성">
-      <option name="closed" value="true" />
-      <created>1707425848855</created>
-      <option name="number" value="00003" />
-      <option name="presentableId" value="LOCAL-00003" />
-      <option name="project" value="LOCAL" />
-      <updated>1707425848855</updated>
-    </task>
-    <task id="LOCAL-00004" summary="feat: Footer 컴포넌트 생성">
-      <option name="closed" value="true" />
-      <created>1707426403783</created>
-      <option name="number" value="00004" />
-      <option name="presentableId" value="LOCAL-00004" />
-      <option name="project" value="LOCAL" />
-      <updated>1707426403783</updated>
-    </task>
-    <task id="LOCAL-00005" summary="feat: 기기별 반응형 스타일 적용">
-      <option name="closed" value="true" />
-      <created>1707427291606</created>
-      <option name="number" value="00005" />
-      <option name="presentableId" value="LOCAL-00005" />
-      <option name="project" value="LOCAL" />
-      <updated>1707427291606</updated>
+      <workItem from="1711048260927" duration="2890000" />
+      <workItem from="1711063546316" duration="3826000" />
+      <workItem from="1711067440725" duration="1534000" />
     </task>
     <task id="LOCAL-00006" summary="feat: Folder 페이지 생성">
       <option name="closed" value="true" />
@@ -558,7 +498,55 @@
       <option name="project" value="LOCAL" />
       <updated>1709056467931</updated>
     </task>
-    <option name="localTasksCounter" value="49" />
+    <task id="LOCAL-00049" summary="feat: 링크 검색 기능 구현">
+      <option name="closed" value="true" />
+      <created>1711048378318</created>
+      <option name="number" value="00049" />
+      <option name="presentableId" value="LOCAL-00049" />
+      <option name="project" value="LOCAL" />
+      <updated>1711048378318</updated>
+    </task>
+    <task id="LOCAL-00050" summary="refactor: 아이콘 버튼 컴포넌트 수정">
+      <option name="closed" value="true" />
+      <created>1711049818043</created>
+      <option name="number" value="00050" />
+      <option name="presentableId" value="LOCAL-00050" />
+      <option name="project" value="LOCAL" />
+      <updated>1711049818043</updated>
+    </task>
+    <task id="LOCAL-00051" summary="feat: 검색어 지우기 기능 구현">
+      <option name="closed" value="true" />
+      <created>1711051141774</created>
+      <option name="number" value="00051" />
+      <option name="presentableId" value="LOCAL-00051" />
+      <option name="project" value="LOCAL" />
+      <updated>1711051141780</updated>
+    </task>
+    <task id="LOCAL-00052" summary="feat: TypeScript 마이그레이션">
+      <option name="closed" value="true" />
+      <created>1711067260664</created>
+      <option name="number" value="00052" />
+      <option name="presentableId" value="LOCAL-00052" />
+      <option name="project" value="LOCAL" />
+      <updated>1711067260664</updated>
+    </task>
+    <task id="LOCAL-00053" summary="feat: 검색 시 검색어 UI 구현">
+      <option name="closed" value="true" />
+      <created>1711067744972</created>
+      <option name="number" value="00053" />
+      <option name="presentableId" value="LOCAL-00053" />
+      <option name="project" value="LOCAL" />
+      <updated>1711067744972</updated>
+    </task>
+    <task id="LOCAL-00054" summary="design: 반응형 디자인 수정">
+      <option name="closed" value="true" />
+      <created>1711068107404</created>
+      <option name="number" value="00054" />
+      <option name="presentableId" value="LOCAL-00054" />
+      <option name="project" value="LOCAL" />
+      <updated>1711068107406</updated>
+    </task>
+    <option name="localTasksCounter" value="55" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -577,12 +565,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="refactor: utils 분리" />
-    <MESSAGE value="refactor: 최신버전 React Route 적용" />
-    <MESSAGE value="refactor: 컴포넌트 네이밍 수정 및 이미지 로드 수정" />
-    <MESSAGE value="fix: 이미지 로드 경로 수정" />
-    <MESSAGE value="feat: Folder 페이지 생성 및 버튼, 검색창 스타일 상속 작업" />
-    <MESSAGE value="feat: TagBox 컴포넌트 생성" />
     <MESSAGE value="feat: Folder 페이지 퍼블리싱 완료" />
     <MESSAGE value="feat: Card 컴포넌트 내 별, 케밥 아이콘 추가" />
     <MESSAGE value="design: 기기별 반응형 디자인 적용" />
@@ -602,6 +584,12 @@
     <MESSAGE value="feat: 팝오버 및 모달 닫기" />
     <MESSAGE value="feat: 폴더 공유 기능 구현" />
     <MESSAGE value="docs: 확장자 통일" />
-    <option name="LAST_COMMIT_MESSAGE" value="docs: 확장자 통일" />
+    <MESSAGE value="feat: 링크 검색 기능 구현" />
+    <MESSAGE value="refactor: 아이콘 버튼 컴포넌트 수정" />
+    <MESSAGE value="feat: 검색어 지우기 기능 구현" />
+    <MESSAGE value="feat: TypeScript 마이그레이션" />
+    <MESSAGE value="feat: 검색 시 검색어 UI 구현" />
+    <MESSAGE value="design: 반응형 디자인 수정" />
+    <option name="LAST_COMMIT_MESSAGE" value="design: 반응형 디자인 수정" />
   </component>
 </project>

@@ -67,6 +67,10 @@ a {
   color: var(--color-primary);
 }
 
+.font-color-gray4 {
+  color: var(--color-gray4);
+}
+
 .margin-auto {
   margin: auto;
 }
