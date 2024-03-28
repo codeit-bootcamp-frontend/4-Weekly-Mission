@@ -19,12 +19,7 @@ const PopoverMenu = ({ onClose }: { onClose: () => void }) => {
 };
 
 const Card: React.FC<Props> = ({ data }) => {
-  const [cardData, setCardData] = useState<LinkData[]>([]);
   const [popoverMenuOpen, setPopoverMenuOpen] = useState(false);
-
-  useEffect(() => {
-    setCardData(data);
-  }, [data]);
 
   const handleOpenPopoverMenu = () => {
     setPopoverMenuOpen(true);
@@ -36,10 +31,10 @@ const Card: React.FC<Props> = ({ data }) => {
 
   return (
     <>
-      {!cardData.length ? (
+      {!data.length ? (
         <div id="mainDefaultText">저장된 링크가 없습니다.</div>
       ) : (
-        cardData.map(link => (
+        data.map(link => (
           <div key={link.id} className="card">
             <Link to={link.url}>
               <img
