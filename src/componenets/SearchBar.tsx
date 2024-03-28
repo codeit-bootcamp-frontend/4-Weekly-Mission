@@ -26,9 +26,11 @@ function SearchBar() {
         value={inputValue}
         onChange={handleInputValueChange}
       />
-      <div className="close-div" onClick={handleInputReset}>
-        <img src={close} alt="닫기" />
-      </div>
+      {inputValue && (
+        <div className="close-div" onClick={handleInputReset}>
+          <img src={close} alt="닫기" />
+        </div>
+      )}
     </form>
   );
 }
