@@ -12,6 +12,7 @@ import Main from 'components/Main/Main';
 import SearchBar from 'components/Main/SearchBar';
 import SortingSection from 'components/Main/SortingSection';
 
+import InputStateContextProvider from 'context/InputStateProvider';
 import { modalList } from 'context/Modal';
 
 import styles from 'pages/FolderPage/FolderPage.module.css';
@@ -46,9 +47,11 @@ function Folder() {
           <FolderHeaderContent />
         </Header>
         <Main>
-          <SearchBar />
-          <SortingSection selectedFolder={selectedFolder} setSelectedFolder={setSelectedFolder} />
-          <CardList folderId={selectedFolder.id} />
+          <InputStateContextProvider>
+            <SearchBar />
+            <SortingSection selectedFolder={selectedFolder} setSelectedFolder={setSelectedFolder} />
+            <CardList folderId={selectedFolder.id} />
+          </InputStateContextProvider>
           <FloatingAddFolderButton className={floatingAddFolderButtonClasses} onClick={handleAddFolderButtonClick} />
         </Main>
       </div>
