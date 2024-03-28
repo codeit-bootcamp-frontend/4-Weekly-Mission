@@ -5,7 +5,7 @@ const day = hour * 24;
 const month = day * 31;
 const year = month * 12;
 
-export const TIME_TO_MILLISECONDS = {
+const TIME_TO_MILLISECONDS = {
   second,
   minute,
   hour,
@@ -14,7 +14,4 @@ export const TIME_TO_MILLISECONDS = {
   year,
 };
 
-export const DEFAULT_FOLDER = {
-  name: '전체',
-  id: 'all',
-};
+export default TIME_TO_MILLISECONDS;

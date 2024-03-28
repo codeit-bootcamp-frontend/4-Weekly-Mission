@@ -1,6 +1,6 @@
 import { useCallback, useEffect } from 'react';
 import { axiosInstance } from '../../utils/axiosInstance';
-import { DEFAULT_FOLDER } from '../../utils/constant';
+import DEFAULT_FOLDER from '../../utils/constant/folder';
 import { useAsync } from '../../hooks/useAsync';
 import { format } from 'date-fns/format';
 import { getElapsedTime } from '../../utils/getElapsedTime';

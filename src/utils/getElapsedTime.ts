@@ -1,4 +1,4 @@
-import { TIME_TO_MILLISECONDS } from './constant';
+import TIME_TO_MILLISECONDS from './constant/time';
 
 export const getElapsedTime = (createdAt: string | number | Date): string => {
   const now = new Date();

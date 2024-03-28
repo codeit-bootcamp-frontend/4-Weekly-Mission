@@ -2,7 +2,7 @@ import React, { useState, useEffect, useCallback } from 'react';
 import './FilterBar.css';
 import useGetLink from '../apis/useGetLink';
 import Card from '../Card/Card';
-import { DEFAULT_FOLDER } from '../../utils/constant';
+import DEFAULT_FOLDER from '../../utils/constant/folder';
 import { axiosInstance } from '../../utils/axiosInstance';
 import DeleteFolderModal from '../Modals/DeleteFolderModal';
 import EditNameModal from '../Modals/EditNameModal';
