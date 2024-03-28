@@ -1,0 +1,26 @@
+.button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  padding: 16px 20px;
+  border-radius: 8px;
+  border: 0;
+  background: linear-gradient(91deg, #6d6afe 0.12%, #6ae3fe 101.84%);
+  color: #f5f5f5;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+}
+.normal {
+  width: 128px;
+}
+.small {
+  width: 80px;
+  padding: 10px 16px;
+  font-size: 12px;
+}
+.red {
+  background: var(--red);
+}

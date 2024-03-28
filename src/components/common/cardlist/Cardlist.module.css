@@ -1,0 +1,25 @@
+.background {
+  display: grid;
+  grid-template-columns: repeat(3, 340px);
+  justify-content: center;
+  align-items: center;
+  row-gap: 25px;
+  column-gap: 20px;
+  margin: 0 auto;
+
+  @media (max-width: 1124px) {
+    grid-template-columns: repeat(2, 340px);
+  }
+  @media (max-width: 767px) {
+    grid-template-columns: repeat(1, 300px);
+  }
+  @media (max-width: 390px) {
+    grid-template-columns: repeat(1, 240px);
+  }
+}
+
+.nothing {
+  display: flex;
+  justify-content: center;
+  padding: 40px 0px 35px;
+}
