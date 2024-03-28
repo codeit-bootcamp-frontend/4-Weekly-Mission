@@ -23,8 +23,8 @@
 }
 
 .input-reset-button {
-  width: 2.4rem;
-  height: 2.4rem;
+  width: 1.6rem;
+  height: 1.6rem;
   top: 50%;
   transform: translateY(-50%);
   right: 1.6rem;
@@ -42,6 +42,11 @@
     padding: 1.5rem 1.6rem 1.5rem 4.2rem;
     font-size: 1.6rem;
     line-height: 2.4rem;
+  }
+
+  .input-reset-button {
+    width: 2.4rem;
+    height: 2.4rem;
   }
 }
 
