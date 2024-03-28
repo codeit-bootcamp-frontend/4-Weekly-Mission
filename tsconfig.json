@@ -1,0 +1,12 @@
+{
+  "compilerOptions": {
+    "baseUrl": "./src",
+    "target": "ES5",
+    "module": "CommonJS",
+    "strict": true,
+    "allowJs": true, //ts파일이 없더라도 실행 가능하게.
+    "esModuleInterop": true, //export defalt 를 알아볼 수 있게하는
+    "jsx": "react-jsx"
+  },
+  "include": ["src"]
+}
