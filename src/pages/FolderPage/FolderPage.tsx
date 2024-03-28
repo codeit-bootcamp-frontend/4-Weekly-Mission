@@ -1,10 +1,12 @@
 import classNames from 'classnames';
-import { useState } from 'react';
+import React, { useCallback, useState } from 'react';
 
+import useIntersectionObserver from 'hooks/useIntersectionObserver';
 import useModal from 'hooks/useModal';
 
 import FloatingAddFolderButton from 'components/Common/FloatingAddFolderButton';
 import Footer from 'components/Footer/Footer';
+import AddLinkBar from 'components/Header/AddLinkBar';
 import FolderHeaderContent from 'components/Header/FolderHeaderContent';
 import Header from 'components/Header/Header';
 import CardList from 'components/Main/CardList';
@@ -20,7 +22,22 @@ import styles from 'pages/FolderPage/FolderPage.module.css';
 function Folder() {
   const ALL = { id: 0, name: '전체' };
   const [selectedFolder, setSelectedFolder] = useState(ALL);
+  const [isHeaderVisible, setIsHeaderVisible] = useState(true);
+  const [isFooterVisible, setIsFooterVisible] = useState(false);
   const { openModal } = useModal();
+
+  const checkVisible = useCallback((setVisible: React.Dispatch<React.SetStateAction<boolean>>, isVisible: boolean) => {
+    return () => setVisible(isVisible);
+  }, []);
+
+  const headerObservationTargetRef = useIntersectionObserver({
+    callbackIn: checkVisible(setIsHeaderVisible, true),
+    callbackOut: checkVisible(setIsHeaderVisible, false),
+  });
+  const footerObservationTargetRef = useIntersectionObserver({
+    callbackIn: checkVisible(setIsFooterVisible, true),
+    callbackOut: checkVisible(setIsFooterVisible, false),
+  });
 
   const handleAddFolderButtonClick = () => {
     console.log('AddForderModal');
@@ -39,13 +56,28 @@ function Folder() {
     'z-top'
   );
   const containerClasses = classNames('min-height-100vh');
+  const bottomAddLinkBarClasses = classNames(
+    styles['bottom-add-link-bar'],
+    'display-inline-flex',
+    'position-fixed',
+    'z-top',
+    'background-bg',
+    'width-full'
+  );
 
   return (
     <div>
       <div className={containerClasses}>
-        <Header>
-          <FolderHeaderContent />
-        </Header>
+        <div ref={headerObservationTargetRef}>
+          <Header>
+            <FolderHeaderContent />
+          </Header>
+        </div>
+        {!isHeaderVisible && !isFooterVisible && (
+          <section className={bottomAddLinkBarClasses}>
+            <AddLinkBar />
+          </section>
+        )}
         <Main>
           <InputStateContextProvider>
             <SearchBar />
@@ -55,7 +87,9 @@ function Folder() {
           <FloatingAddFolderButton className={floatingAddFolderButtonClasses} onClick={handleAddFolderButtonClick} />
         </Main>
       </div>
-      <Footer />
+      <div ref={footerObservationTargetRef}>
+        <Footer />
+      </div>
     </div>
   );
 }

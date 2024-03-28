@@ -1,22 +1,34 @@
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef } from 'react';
 
-type callbackType = () => void;
+interface useIntersectionObserverProps {
+  callbackIn?: (() => void) | void;
+  callbackOut?: (() => void) | void;
+}
 
-// callback: 정해진 조건을 만족했을 때 호출할 콜백 함수
-export default function useIntersectionObserver(callback: callbackType) {
-  const [observationTarget, setObservationTarget] = useState(null);
+// callbackIn: entry.isIntersecting === true 일 때 실행
+// callbackOut: entry.isIntersecting === false 일 때 실행
+export default function useIntersectionObserver({
+  callbackIn = () => {},
+  callbackOut = () => {},
+}: useIntersectionObserverProps) {
+  const observationTargetRef = useRef<HTMLElement | null>(null);
 
   const observer = useRef(
     new IntersectionObserver(([entry]) => {
+      // entry가 뷰포트 안에 있으면 callback 함수 호출
+      if (entry.isIntersecting) {
+        callbackIn();
+      }
+
       // entry가 뷰포트 안에 없으면 callback 함수 호출
       if (!entry.isIntersecting) {
-        callback();
+        callbackOut();
       }
     })
   );
 
   useEffect(() => {
-    const currentTarget = observationTarget;
+    const currentTarget = observationTargetRef.current;
     const currentObserver = observer.current;
 
     if (currentTarget) {
@@ -28,7 +40,10 @@ export default function useIntersectionObserver(callback: callbackType) {
         currentObserver.unobserve(currentTarget);
       }
     };
-  }, [observationTarget]);
+  }, [observationTargetRef]);
 
-  return setObservationTarget;
+  // observationTarget의 current를 직접 수정할 수 있는 함수 반환
+  return (node: HTMLElement | null) => {
+    observationTargetRef.current = node;
+  };
 }
