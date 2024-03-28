@@ -1,4 +1,4 @@
-import React from "react";
+import React, { ChangeEvent, useState } from "react";
 import styled from "styled-components";
 import searchIcon from "../../assets/svg/search.svg";
 
@@ -32,11 +32,25 @@ const Container = styled.div`
   }
 `;
 
-const SearchBar = () => {
+interface Props {
+  inputValue: string;
+  setInputValue: (value: string) => void;
+}
+
+const SearchBar = ({ inputValue, setInputValue }: Props) => {
+  const handleInputChange = (e: ChangeEvent<HTMLInputElement>) => {
+    setInputValue(e.target.value);
+  };
+
   return (
     <Container>
       <img src={searchIcon} alt="" />
-      <input type="text" placeholder="링크를 검색해 보세요" />
+      <input
+        type="text"
+        placeholder="링크를 검색해 보세요"
+        value={inputValue}
+        onChange={handleInputChange}
+      />
     </Container>
   );
 };

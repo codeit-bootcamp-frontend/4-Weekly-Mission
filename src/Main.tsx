@@ -10,16 +10,29 @@ const Container = styled.div`
   min-height: 100%;
 `;
 
+interface UserInfo {
+  id: number;
+  name: string;
+  email: string;
+  image_source: string;
+}
+
 function Main() {
-  const [userInfo, setUserInfo] = useState([]);
+  const [userInfo, setUserInfo] = useState<UserInfo>({
+    id: 0,
+    name: "",
+    email: "",
+    image_source: "",
+  });
   const [userLoadingError, getUserAsync] = useAsync(getUser);
 
   // 유저 정보 요청
   const handleLoadUser = async () => {
-    let result = await getUserAsync();
-    if (!result) return;
-
-    setUserInfo(result.data[0]);
+    if (typeof getUserAsync === "function") {
+      let result = await getUserAsync();
+      if (!result) return;
+      setUserInfo(result.data[0]);
+    }
   };
 
   useEffect(() => {
@@ -29,8 +42,11 @@ function Main() {
   return (
     <Container>
       <Header
-        userInfo={userInfo}
-        userLoadingError={userLoadingError}
+        userInfo={{
+          email: userInfo.email,
+          image_source: userInfo.image_source,
+        }}
+        // userLoadingError={userLoadingError}
         $isHeader={true}
       />
       <div>

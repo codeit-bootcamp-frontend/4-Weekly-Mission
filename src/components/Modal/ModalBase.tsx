@@ -1,4 +1,3 @@
-import React from "react";
 import { useContext } from "react";
 import styled from "styled-components";
 import closeBtn from "../../assets/svg/close.svg";
@@ -40,7 +39,7 @@ const ModalTitle = styled.h3`
   margin-bottom: 10px;
 `;
 
-const ModalButton = styled.button`
+const ModalButton = styled.button<{ $btntext?: string }>`
   cursor: pointer;
   border: none;
   color: var(--white);
@@ -75,14 +74,26 @@ const ModalInfo = styled.p`
   margin: -15px 0 10px;
 `;
 
-export function ModalBase({ children, title, isClose, btntext, addLink }) {
+interface Props {
+  children?: React.ReactNode;
+  title: string;
+  isClose: () => void;
+  btntext?: string;
+  addLink?: string;
+}
+
+const ModalBase = ({ children, title, isClose, btntext, addLink }: Props) => {
   const folderContextValue = useContext(FolderNameContext);
   const cardContextValue = useContext(CardLinkContext);
-  const info = folderContextValue
-    ? folderContextValue.folderName
-    : cardContextValue
-    ? cardContextValue.url
-    : addLink;
+  let info;
+
+  if (folderContextValue) {
+    info = folderContextValue.folderName;
+  } else if (cardContextValue) {
+    info = cardContextValue.url;
+  } else {
+    info = addLink;
+  }
 
   return (
     <Container>
@@ -99,6 +110,6 @@ export function ModalBase({ children, title, isClose, btntext, addLink }) {
       )}
     </Container>
   );
-}
+};
 
 export default ModalBase;

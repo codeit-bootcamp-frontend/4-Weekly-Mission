@@ -18,7 +18,7 @@ const Container = styled.ul`
 `;
 
 const NoLink = styled.div`
-  height: 300px;
+  height: 334px;
   grid-column: 1/4;
   text-align: center;
   display: flex;
@@ -26,13 +26,44 @@ const NoLink = styled.div`
   align-items: center;
   font-weight: 600;
   color: rgba(0, 0, 0, 0.6);
+  width: 1068px;
+  @media (max-width: 1199px) {
+    width: 704px;
+  }
+
+  @media (max-width: 767px) {
+    width: 340px;
+  }
 `;
 
-const CardList = ({ links, folderLoadingError }) => {
+interface Link {
+  id: number;
+  title: string;
+  url: string;
+  description: string;
+}
+
+interface Props {
+  links: Link[];
+  inputValue: string;
+}
+
+const CardList = ({ links, inputValue }: Props) => {
+  const filteredLinks = links.filter((item) => {
+    const title = item.title?.toLowerCase();
+    const description = item.description?.toLowerCase();
+    const url = item.url?.toLowerCase();
+    return (
+      title?.includes(inputValue) ||
+      description?.includes(inputValue) ||
+      url?.includes(inputValue)
+    );
+  });
+
   return (
     <Container>
-      {links.length !== 0 ? (
-        links.map((link) => {
+      {filteredLinks.length ? (
+        filteredLinks.map((link) => {
           return (
             <li key={link.id}>
               <Card link={link} />

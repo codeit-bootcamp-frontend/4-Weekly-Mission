@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import linkIcon from "../../assets/svg/link.svg";
-import { useState } from "react";
+import { ChangeEvent, useState } from "react";
 import { createPortal } from "react-dom";
 import Backdrop from "../common/Backdrop";
 import ModalBase from "../Modal/ModalBase";
@@ -77,15 +77,15 @@ function AddLink() {
       btntext={"추가하기"}
       addLink={link}
     />,
-    document.getElementById("modal")
+    document.getElementById("modal")!
   );
 
   const backdrop = createPortal(
     <Backdrop isClose={closeModal} />,
-    document.getElementById("backdrop")
+    document.getElementById("backdrop")!
   );
 
-  const handleInputChange = (e) => {
+  const handleInputChange = (e: ChangeEvent<HTMLInputElement>) => {
     setLink(e.target.value);
   };
 

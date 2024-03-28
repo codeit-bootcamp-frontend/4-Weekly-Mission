@@ -34,7 +34,14 @@ const Container = styled.ul`
   }
 `;
 
-const MENU_LIST = [
+interface MenuList {
+  optionTitle: string;
+  icon: string;
+  modalTitle: string;
+  modalBtnText?: string;
+}
+
+const MENU_LIST: MenuList[] = [
   {
     optionTitle: "공유",
     icon: shareIcon,
@@ -55,17 +62,17 @@ const MENU_LIST = [
 ];
 
 function FoderOptionMenu() {
-  const [active, setActive] = useState(false);
-  const [title, setTitle] = useState("");
-  const [btnText, setBtnText] = useState("");
-  const [isInputModal, setIsInputModal] = useState(false);
+  const [active, setActive] = useState<boolean>(false);
+  const [title, setTitle] = useState<string>("");
+  const [btnText, setBtnText] = useState<string>("");
+  const [isInputModal, setIsInputModal] = useState<boolean>(false);
 
   const openModal = () => setActive(true);
   const closeModal = () => setActive(false);
 
-  const handleModalTitle = (list) => {
+  const handleModalTitle = (list: MenuList) => {
     setTitle(list.modalTitle);
-    setBtnText(list.modalBtnText);
+    setBtnText(list.modalBtnText || "");
     setIsInputModal(list.modalTitle === "폴더 이름 변경");
   };
 
@@ -77,12 +84,12 @@ function FoderOptionMenu() {
     ) : (
       <ModalBase isClose={closeModal} title={title} btntext={btnText} />
     ),
-    document.getElementById("modal")
+    document.getElementById("modal")!
   );
 
   const backdrop = createPortal(
     <Backdrop isClose={closeModal} />,
-    document.getElementById("backdrop")
+    document.getElementById("backdrop")!
   );
 
   return (

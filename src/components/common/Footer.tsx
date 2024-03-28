@@ -1,4 +1,3 @@
-import React from "react";
 import styled from "styled-components";
 
 import facebookIcon from "../../assets/svg/facebook.svg";
@@ -60,7 +59,13 @@ const SnsLists = styled.ul`
   }
 `;
 
-const SNS_LIST = [
+interface SnsItem {
+  title: string;
+  url: string;
+  icon: string;
+}
+
+const SNS_LIST: SnsItem[] = [
   {
     title: "facebook",
     url: "https://www.facebook.com/?locale=ko_KR",
@@ -95,7 +100,7 @@ const Footer = () => {
       <SnsLists>
         {SNS_LIST.map((list) => (
           <li key={list.title}>
-            <a href={list.url} target="_blank">
+            <a href={list.url} target="_blank" rel="noreferrer">
               <img src={list.icon} alt={list.title} />
             </a>
           </li>

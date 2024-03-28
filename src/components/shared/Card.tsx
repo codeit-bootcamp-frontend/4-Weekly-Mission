@@ -5,7 +5,7 @@ import { formatDate, formatTimeAgo } from "../../utils/dateUtils";
 import starIcon from "../../assets/svg/star.svg";
 import selectedStarIcon from "../../assets/svg/selected_star.svg";
 import kebabIcon from "../../assets/svg/kebab.svg";
-import { createContext, useState } from "react";
+import { FC, createContext, useState } from "react";
 import Dropdown from "../folder/Dropdown";
 
 const Container = styled.div`
@@ -47,7 +47,7 @@ const CardContentWrapper = styled.div`
   color: var(--gray1);
 `;
 
-const Description = styled.p`
+const Description = styled.p<{ $hasDescription?: boolean }>`
   display: -webkit-box;
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
@@ -82,9 +82,24 @@ const KebabButton = styled(BaseButton)`
   width: 25px;
 `;
 
-export const CardLinkContext = createContext();
+interface Link {
+  url: string;
+  imageSource?: string;
+  image_source?: string;
+  description?: string;
+  createdAt?: string;
+  created_at?: string;
+}
 
-const Card = ({ link }) => {
+interface CardLinkContextType {
+  url: string;
+}
+
+export const CardLinkContext = createContext<CardLinkContextType | undefined>(
+  undefined
+);
+
+const Card: FC<{ link: Link }> = ({ link }) => {
   const { url, imageSource, image_source, description, createdAt, created_at } =
     link;
 
@@ -124,7 +139,7 @@ const Card = ({ link }) => {
           </CardImgWrapper>
           <CardContentWrapper>
             <p>{formatTimeAgo(created_at)}</p>
-            <Description $hasDescription={description}>
+            <Description $hasDescription={!!description}>
               {description || "No Description"}
             </Description>
             <p>{formatDate(createdAt || created_at)}</p>
