@@ -22,6 +22,16 @@
   left: 1.6rem;
 }
 
+.input-reset-button {
+  width: 2.4rem;
+  height: 2.4rem;
+  top: 50%;
+  transform: translateY(-50%);
+  right: 1.6rem;
+  border: none;
+  cursor: pointer;
+}
+
 /* Tablet */
 @media screen and (min-width: 768px) {
   .search-bar {

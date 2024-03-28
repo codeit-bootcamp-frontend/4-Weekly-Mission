@@ -1,6 +1,7 @@
 import classNames from 'classnames';
 import React, { useContext } from 'react';
 
+import resetIcon from 'assets/images/close-icon-dark.svg';
 import searchIcon from 'assets/images/search-icon.svg';
 
 import styles from 'components/Main/SearchBar.module.css';
@@ -14,9 +15,16 @@ function SearchBar() {
     setInputState(e.target.value);
   };
 
+  const handleInputResetClick = () => {
+    if (inputState === '') return;
+    setInputState('');
+  };
+
   const containerClasses = classNames(styles['search-bar'], 'position-relative', 'width-full');
   const inputClasses = classNames(styles['search-bar-input'], 'background-light', 'text-color-text', 'width-full');
-  const inputImgClasses = classNames(styles['search-bar-icon'], 'position-absolute');
+  const searchIconClasses = classNames(styles['search-bar-icon'], 'position-absolute');
+  const inputResetButtonClasses = classNames(styles['input-reset-button'], 'position-absolute');
+  const resetIconClasses = classNames('width-full', 'height-full');
 
   return (
     <div className={containerClasses}>
@@ -27,7 +35,10 @@ function SearchBar() {
         onChange={handleInputChange}
         placeholder="링크를 검색해 보세요."
       />
-      <img className={inputImgClasses} src={searchIcon} alt="searchIcon" />
+      <img className={searchIconClasses} src={searchIcon} alt="searchIcon" />
+      <button className={inputResetButtonClasses} type="button" onClick={handleInputResetClick}>
+        <img className={resetIconClasses} src={resetIcon} alt="resetIcon" />
+      </button>
     </div>
   );
 }
