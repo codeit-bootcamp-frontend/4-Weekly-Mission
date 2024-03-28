@@ -3,15 +3,15 @@ import buttonStyles from './Button.module.css';
 interface Props {
   children: React.ReactNode;
   onClick?: () => void;
-  width?: string;
+  width?: 'small' | 'normal' | string;
   isRed?: boolean;
 }
-export function Button({
+const Button: React.FC<Props> = ({
   children,
   onClick,
   width = 'width100',
   isRed = false,
-}: Props) {
+}) => {
   let widthClass: string;
   switch (width) {
     case 'small':
@@ -31,4 +31,6 @@ export function Button({
       {children}
     </button>
   );
-}
+};
+
+export { Button };

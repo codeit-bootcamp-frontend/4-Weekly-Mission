@@ -2,7 +2,7 @@ import { Button } from '../button/Button';
 import addLinkStyles from './AddLink.module.css';
 import linkIcon from '../../../assets/link-icon.svg';
 
-export function AddLink() {
+const AddLink: React.FC = () => {
   return (
     <div className={addLinkStyles.background}>
       <form className={addLinkStyles.form}>
@@ -17,4 +17,6 @@ export function AddLink() {
       </form>
     </div>
   );
-}
+};
+
+export { AddLink };

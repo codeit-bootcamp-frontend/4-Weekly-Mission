@@ -7,28 +7,44 @@ import { formatAgo, formatDate } from './dateFormat';
 import { useState } from 'react';
 import { DeleteLink } from '../modal/DeleteLink';
 
-export function Card({ card }) {
+interface NewLink {
+  created_at: string;
+  description: string;
+  id: number;
+  image_source: string;
+  title: string;
+  url: string;
+}
+interface Props {
+  card: NewLink;
+}
+const Card: React.FC<Props> = ({ card }) => {
   const [popover, setPopover] = useState(false);
-  const [deleteModal, setDeleteModal] = useState([false, '']);
+  const [deleteModal, setDeleteModal] = useState<[boolean, string]>([
+    false,
+    '',
+  ]);
 
-  if (!card || card.length === 0) {
+  if (!card) {
     return <div>잘못된 카드 정보입니다.</div>;
   }
 
-  const handleDeleteModal = (e) => {
+  const handleDeleteModal = (
+    e: React.MouseEvent<HTMLButtonElement, MouseEvent>
+  ) => {
     e.stopPropagation();
-    setDeleteModal(!deleteModal[0]);
+    setDeleteModal([!deleteModal[0], deleteModal[1]]);
   };
 
-  function handleClickCard(url) {
+  function handleClickCard(url: string) {
     window.open(url, '_blank');
   }
-  function handleClickKebab(e) {
+  function handleClickKebab(e: React.MouseEvent<HTMLImageElement, MouseEvent>) {
     e.stopPropagation();
     setPopover(!popover);
     setDeleteModal([false, '']);
   }
-  function handleClickDelete(url) {
+  function handleClickDelete(url: string) {
     setDeleteModal([true, url]);
     setPopover(false);
   }
@@ -90,4 +106,6 @@ export function Card({ card }) {
       )}
     </div>
   );
-}
+};
+
+export { Card };
