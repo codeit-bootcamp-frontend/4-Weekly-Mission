@@ -9,9 +9,9 @@ interface InputStateContextProviderProps {
   children: React.ReactNode;
 }
 
-const InputStateContext = createContext<InputStateContextType>({} as InputStateContextType);
+export const InputStateContext = createContext<InputStateContextType>({} as InputStateContextType);
 
-export default function InputStateContextProvider({ children }: InputStateContextProviderProps) {
+export function InputStateContextProvider({ children }: InputStateContextProviderProps) {
   const [inputState, setInputState] = useState('');
   const value = useMemo(() => ({ inputState, setInputState }), [inputState, setInputState]);
 
